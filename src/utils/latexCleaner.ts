@@ -1,4 +1,4 @@
-// Fast LaTeX sanitizer matching standards from D:\TOAN\SOẠN TÀI LIỆU DẠY THÊM\GEMINI.md
+// Standard LaTeX sanitizer matching standards from D:\TOAN\SOẠN TÀI LIỆU DẠY THÊM\GEMINI.md
 export const cleanLatexString = (latex: string): string => {
   if (!latex) return '';
   let s = latex;
@@ -8,26 +8,32 @@ export const cleanLatexString = (latex: string): string => {
 
   // 2. Fix \overset\rightarrow { ... } to \overrightarrow{...}
   s = s.replace(/\\overset\s*(?:\{\s*)?\\rightarrow(?:\s*\})?\s*\{([^{}]+)\}/g, '\\overrightarrow{$1}');
-  s = s.replace(/\\overset\s*(?:\{\s*)?\\rightarrow(?:\s*\})?\s*\{([^{}]+(?:\{[^{}]*\}[^{}]*)*)\}/g, '\\overrightarrow{$1}');
 
   // 3. Fix postfix vector notation: e.g. "a \vec" -> "\vec{a}", "n \vec _{ 3 }" -> "\vec{n}_{3}"
   s = s.replace(/([a-zA-Z0-9']+)\s*\\vec\s*(_\s*\{[^}]+\}|_[0-9a-zA-Z])?/g, (_, sym, sub) => `\\vec{${sym}}${sub || ''}`);
   s = s.replace(/\\vec(?![a-zA-Z{])/g, '');
 
-  // 4. Fix \left \begin{array} -> \left. \begin{array}
+  // 4. Auto-prefix missing backslash for standard math functions
+  s = s.replace(/(?<!\\)\b(cos|sin|tan|cot|log|ln|lim|min|max)\b/g, '\\$1');
+
+  // 5. Clean MathType \rm
+  s = s.replace(/\\rm\s*\{\s*\\?\s*\}/g, ' ');
+  s = s.replace(/\{\s*\\rm\s*\{?\s*([^}]*?)\s*\}?\s*\}/g, '\\mathrm{$1}');
+  s = s.replace(/\\rm\b/g, '\\mathrm');
+
+  // 6. Fix \left \begin{array} -> \left. \begin{array}
   s = s.replace(/\\left\s+\\begin/g, '\\left. \\begin');
 
-  // 5. Fix double backslash before \left (e.g. \mathbb{R}\\left[ -> \mathbb{R}\setminus \left[)
+  // 7. Fix double backslash before \left
   s = s.replace(/\\{2,}\s*left(?=\s*\\?[\[({])/g, '\\setminus \\left');
   s = s.replace(/\\{2,}\s*\\\{/g, '\\setminus \\{');
 
-  // 6. Clean malformed empty arrays
-  s = s.replace(/\\begin\{array\}\s*\{\}\s*(?:\\begin\{array\}\s*\{\}\s*)*\\end\{array\}/g, '');
+  // 8. Clean redundant nested braces from MathType: \left ( { ... } \right )
+  s = s.replace(/\\left\s*\(\s*\{\s*([^{}]+?)\s*\}\s*\\right\s*\)/g, '\\left( $1 \\right)');
+  s = s.replace(/\\left\s*\[\s*\{\s*([^{}]+?)\s*\}\s*\\right\s*\]/g, '\\left[ $1 \\right]');
+  s = s.replace(/\\left\s*\\\{\s*\{\s*([^{}]+?)\s*\}\s*\\right\s*\\\} /g, '\\left\\{ $1 \\right\\}');
 
-  // 7. Fix \| delimiter
-  s = s.replace(/\\\|/g, ' \\mid ');
-
-  // 8. Map Unicode math symbols to standard LaTeX ASCII
+  // 9. Map Unicode math symbols to standard LaTeX ASCII
   const symbolMap: Record<string, string> = {
     '≤': ' \\le ',
     '≥': ' \\ge ',
@@ -73,13 +79,17 @@ export const cleanLatexString = (latex: string): string => {
     }
   }
 
-  // 9. Fix Vietnamese 'Đ' in math mode
-  s = s.replace(/(?<![a-zA-Z\\])Đ(?![a-zA-Z])/g, '\\text{Đ}');
+  // 10. Balance \left and \right to avoid KaTeX parse errors
+  const leftMatches = s.match(/\\left\b/g);
+  const rightMatches = s.match(/\\right\b/g);
+  const leftCount = leftMatches ? leftMatches.length : 0;
+  const rightCount = rightMatches ? rightMatches.length : 0;
 
-  // 10. Clean redundant nested braces from MathType: \left ( { ... } \right )
-  s = s.replace(/\\left\s*\(\s*\{\s*([^{}]+?)\s*\}\s*\\right\s*\)/g, '\\left( $1 \\right)');
-  s = s.replace(/\\left\s*\[\s*\{\s*([^{}]+?)\s*\}\s*\\right\s*\]/g, '\\left[ $1 \\right]');
-  s = s.replace(/\\left\s*\\\{\s*\{\s*([^{}]+?)\s*\}\s*\\right\s*\\\}/g, '\\left\\{ $1 \\right\\}');
+  if (leftCount > rightCount) {
+    s = s + ' \\right.'.repeat(leftCount - rightCount);
+  } else if (rightCount > leftCount) {
+    s = '\\left. '.repeat(rightCount - leftCount) + s;
+  }
 
   return s.trim();
 };

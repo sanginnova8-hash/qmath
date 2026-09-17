@@ -71,7 +71,7 @@ if (!localStorage.getItem(STORAGE_KEYS.QUESTIONS)) {
   saveLocal(STORAGE_KEYS.PROGRESS, {});
 }
 
-const TAP1_CACHE_VERSION = 'qmath_tap1_v4_full_solutions';
+const TAP1_CACHE_VERSION = 'qmath_tap1_v5_deep_cleaned';
 
 // --- QUESTIONS SERVICE ---
 export async function loadExamBankTap1(forceUpdate = false): Promise<{ success: boolean; count: number; message: string }> {
