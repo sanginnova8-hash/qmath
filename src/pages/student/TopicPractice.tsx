@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Question } from '../../types';
-import { getQuestions, normalizeMathString, recordStudentProgress } from '../../services/store';
-import { INITIAL_ANSWER_KEYS } from '../../services/seedData';
+import { getQuestions, normalizeMathString, recordStudentProgress, getAnswerKeyById } from '../../services/store';
 import { useAuth } from '../../context/AuthContext';
 import { MathView } from '../../components/math/MathView';
 import { MathInput } from '../../components/math/MathInput';
@@ -48,7 +47,7 @@ export const TopicPractice: React.FC = () => {
 
   const handleCheckAnswer = async () => {
     if (!currentQ) return;
-    const key = INITIAL_ANSWER_KEYS[currentQ.id];
+    const key = getAnswerKeyById(currentQ.id);
     let correct = false;
 
     if (key) {

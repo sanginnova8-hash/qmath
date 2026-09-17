@@ -17,7 +17,8 @@ import {
   X,
   Save,
   CheckSquare,
-  UploadCloud
+  UploadCloud,
+  Image as ImageIcon
 } from 'lucide-react';
 
 export const QuestionBank: React.FC = () => {
@@ -30,6 +31,7 @@ export const QuestionBank: React.FC = () => {
   const [selectedDiff, setSelectedDiff] = useState<DifficultyLevel | 'ALL'>('ALL');
   const [selectedChapter, setSelectedChapter] = useState<string | 'ALL'>('ALL');
   const [searchQuery, setSearchQuery] = useState('');
+  const [filterHasImage, setFilterHasImage] = useState<boolean>(false);
 
   // Modals & previews
   const [showAddModal, setShowAddModal] = useState(false);
@@ -143,12 +145,20 @@ export const QuestionBank: React.FC = () => {
     await loadAllQuestions();
   };
 
+  const imageQuestionsCount = questions.filter(
+    q => (q.images && q.images.length > 0) || q.content.includes('imported_images') || q.content.includes('![')
+  ).length;
+
   // Filtered list
   const filteredQuestions = questions.filter(q => {
     if (selectedGrade !== 'ALL' && q.grade !== selectedGrade) return false;
     if (selectedType !== 'ALL' && q.type !== selectedType) return false;
     if (selectedDiff !== 'ALL' && q.difficulty !== selectedDiff) return false;
     if (selectedChapter !== 'ALL' && q.chapter !== selectedChapter) return false;
+    if (filterHasImage) {
+      const hasImg = (q.images && q.images.length > 0) || q.content.includes('imported_images') || q.content.includes('![');
+      if (!hasImg) return false;
+    }
     if (searchQuery.trim()) {
       const qText = (q.content + q.chapter + q.topic).toLowerCase();
       if (!qText.includes(searchQuery.toLowerCase())) return false;
@@ -332,6 +342,30 @@ export const QuestionBank: React.FC = () => {
             </select>
           </div>
         </div>
+
+        {/* Quick Filter Badges Row */}
+        <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-slate-100">
+          <span className="text-xs font-bold text-slate-500">Bộ lọc nhanh:</span>
+          <button
+            type="button"
+            onClick={() => setFilterHasImage(!filterHasImage)}
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border shadow-2xs ${
+              filterHasImage
+                ? 'bg-amber-600 text-white border-amber-700 shadow-sm'
+                : 'bg-amber-50/70 text-amber-800 border-amber-200 hover:bg-amber-100'
+            }`}
+          >
+            <ImageIcon className="w-3.5 h-3.5" />
+            <span>Chỉ câu có Hình vẽ / Đồ thị ({imageQuestionsCount} câu)</span>
+            {filterHasImage && <span className="ml-1 text-[10px] bg-amber-700 px-1.5 py-0.5 rounded-full">✕ Bỏ lọc</span>}
+          </button>
+
+          {filterHasImage && (
+            <span className="text-xs text-amber-700 font-medium">
+              Đang lọc {filteredQuestions.length} câu hỏi có hình ảnh trực quan
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Questions List */}
@@ -361,6 +395,11 @@ export const QuestionBank: React.FC = () => {
                     {getTypeLabel(q.type)}
                   </span>
                   {getDiffBadge(q.difficulty)}
+                  {((q.images && q.images.length > 0) || q.content.includes('imported_images') || q.content.includes('![')) && (
+                    <span className="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-50 text-amber-900 border border-amber-300 flex items-center gap-1">
+                      <ImageIcon className="w-3 h-3 text-amber-600" /> Có hình vẽ
+                    </span>
+                  )}
                 </div>
 
                 <div className="flex items-center gap-2 text-xs text-slate-400">

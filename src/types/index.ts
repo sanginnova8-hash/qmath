@@ -39,6 +39,7 @@ export interface Question {
   topic: string;
   difficulty: DifficultyLevel;
   explanation: string; // Step-by-step solution with LaTeX
+  images?: string[];
   createdAt: string;
 }
 

@@ -8402,7 +8402,7 @@
       "chapter": "Chuyên đề 07: Quan hệ vuông góc trong không gian",
       "topic": "Quan hệ vuông góc trong không gian",
       "difficulty": "TH",
-      "content": "![Hình vẽ](./imported_images/image2363.emf)\n\nCho hình chóp $S.ABC$ có đáy $\\Delta ABC$ là tam giác đều, cạnh bên $SA$ vuông góc với đáy, $M$ là trung điểm $AC$ , $N$ là hình chiếu của $B$ lên $SC$ . Khẳng định nào sau đây đúng?",
+      "content": "![Hình vẽ](./imported_images/image2363.png)\n\nCho hình chóp $S.ABC$ có đáy $\\Delta ABC$ là tam giác đều, cạnh bên $SA$ vuông góc với đáy, $M$ là trung điểm $AC$ , $N$ là hình chiếu của $B$ lên $SC$ . Khẳng định nào sau đây đúng?",
       "options": [
         {
           "id": "A",
@@ -8428,7 +8428,7 @@
       "explanation": "**Đáp án đúng: None**\n\n**Lời giải chi tiết:**\nTa có\nMà\nMặt khác\nVì .\nCho tứ diện đều có , lần lượt là trung điểm của các cạnh và . Mệnh đề nào sau đây sai?\nA. .B. .C. .D. .",
       "createdAt": "2026-03-01T08:00:00.000Z",
       "images": [
-        "/imported_images/image2363.emf"
+        "/imported_images/image2363.png"
       ]
     },
     {
@@ -11060,7 +11060,7 @@
       "chapter": "Chuyên đề 08: Góc – Khoảng cách trong không gian",
       "topic": "Góc – Khoảng cách trong không gian",
       "difficulty": "TH",
-      "content": "![Hình vẽ](./imported_images/image3119.emf)\n\nCho hình chóp $S.ABCD$ có đáy là hình vuông với $AC=\\frac { a\\sqrt[] { 2 } } { 2 }$ Cạnh bên $SA$ vuông góc với đáy, $SB$ hợp với đáy góc $60^\\circ$ (hình vẽ bên)\nKhoảng cách giữa hai đường thẳng $AD$ và $SC$ bằng",
+      "content": "![Hình vẽ](./imported_images/image3119.png)\n\nCho hình chóp $S.ABCD$ có đáy là hình vuông với $AC=\\frac { a\\sqrt[] { 2 } } { 2 }$ Cạnh bên $SA$ vuông góc với đáy, $SB$ hợp với đáy góc $60^\\circ$ (hình vẽ bên)\nKhoảng cách giữa hai đường thẳng $AD$ và $SC$ bằng",
       "options": [
         {
           "id": "A",
@@ -11086,7 +11086,7 @@
       "explanation": "**Đáp án đúng: A**\n\n**Lời giải chi tiết:**\nDo nên góc giữa đường thẳng và mặt phẳng đáy bằng góc .\nTa có .\nVậy góc giữa đường thẳng và và mặt phẳng đáy bằng bằng .\nCho hình chóp có đáy là tam giác vuông tại , , , vuông góc với mặt phẳng đáy và . Góc giữa đường thẳng và mặt phẳng đáy bằng\nA. .B. .C. .D. .",
       "createdAt": "2026-03-01T08:00:00.000Z",
       "images": [
-        "/imported_images/image3119.emf"
+        "/imported_images/image3119.png"
       ]
     },
     {
@@ -11097,7 +11097,7 @@
       "chapter": "Chuyên đề 08: Góc – Khoảng cách trong không gian",
       "topic": "Góc – Khoảng cách trong không gian",
       "difficulty": "TH",
-      "content": "![Hình vẽ](./imported_images/image3132.emf)\n\nCho hình chóp có , đáy là hình chữ nhật có ; . (hình vẽ bên). Khoảng cách giữa và bằng",
+      "content": "![Hình vẽ](./imported_images/image3132.png)\n\nCho hình chóp có , đáy là hình chữ nhật có ; . (hình vẽ bên). Khoảng cách giữa và bằng",
       "options": [
         {
           "id": "A",
@@ -11123,7 +11123,7 @@
       "explanation": "**Đáp án đúng: A**\n\n**Lời giải chi tiết:**\n- **Kiến thức áp dụng:** Chuyên đề Chuyên đề 08: Góc – Khoảng cách trong không gian.\n- **Các bước thực hiện:**\n 1. Xác định tập xác định và giả thiết của bài toán.\n 2. Áp dụng quy tắc đạo hàm hoặc công thức đặc trưng toán học.\n 3. Lập luận đối chiếu các phương án để chọn kết quả chính xác.\n⇒ Phương án chính xác là **A**.",
       "createdAt": "2026-03-01T08:00:00.000Z",
       "images": [
-        "/imported_images/image3132.emf"
+        "/imported_images/image3132.png"
       ]
     },
     {
@@ -11134,7 +11134,7 @@
       "chapter": "Chuyên đề 08: Góc – Khoảng cách trong không gian",
       "topic": "Góc – Khoảng cách trong không gian",
       "difficulty": "TH",
-      "content": "![Hình vẽ](./imported_images/image3144.emf)\n\nCho hình chóp có đáy là tam giác đều cạnh , , góc giữa đường thẳng và mặt phẳng bằng . (hình vẽ bên)\nKhoảng cách giữa hai đường thẳng và bằng",
+      "content": "![Hình vẽ](./imported_images/image3144.png)\n\nCho hình chóp có đáy là tam giác đều cạnh , , góc giữa đường thẳng và mặt phẳng bằng . (hình vẽ bên)\nKhoảng cách giữa hai đường thẳng và bằng",
       "options": [
         {
           "id": "A",
@@ -11160,7 +11160,7 @@
       "explanation": "**Đáp án đúng: A**\n\n**Lời giải chi tiết:**\nGọi là trung điểm , khi đó\nMặt khác\nSuy ra góc giữa hai mặt phẳng và là .\nTam giác vuông tại nên .\nCho hình lăng trụ có tất cả các cạnh đều bằng . Góc tạo bởi cạnh bên và mặt phẳng đáy bằng . Hình chiếu của trên mặt phẳng là trung điểm của . Tính theo khoảng cách giữa hai mặt phẳng đáy của lăng trụ .\nA. .B. .C. .D. .",
       "createdAt": "2026-03-01T08:00:00.000Z",
       "images": [
-        "/imported_images/image3144.emf"
+        "/imported_images/image3144.png"
       ]
     },
     {
@@ -11171,7 +11171,7 @@
       "chapter": "Chuyên đề 08: Góc – Khoảng cách trong không gian",
       "topic": "Góc – Khoảng cách trong không gian",
       "difficulty": "TH",
-      "content": "Cho hình lăng trụ tam giác đều có (hình vẽ bên)\n![Hình vẽ](./imported_images/image3161.emf)\nTính khoảng cách giữa hai đường thẳng và",
+      "content": "Cho hình lăng trụ tam giác đều có (hình vẽ bên)\n![Hình vẽ](./imported_images/image3161.png)\nTính khoảng cách giữa hai đường thẳng và",
       "options": [
         {
           "id": "A",
@@ -11197,7 +11197,7 @@
       "explanation": "**Đáp án đúng: C**\n\n**Lời giải chi tiết:**\nTa có , xét có đều là các đường chéo của hình vuông cạnh bằng nên là tam giác đều. Do đó .\nCho lăng trụ đều có . Tính góc giữa và\nA. .B. .C. .D. .",
       "createdAt": "2026-03-01T08:00:00.000Z",
       "images": [
-        "/imported_images/image3161.emf"
+        "/imported_images/image3161.png"
       ]
     },
     {
@@ -13153,7 +13153,7 @@
       "chapter": "Chuyên đề 10: Tính đơn điệu dựa vào BBT và đồ thị",
       "topic": "Tính đơn điệu dựa vào BBT và đồ thị",
       "difficulty": "TH",
-      "content": "Hình bên là đồ thị của hàm số $y=f'\\left( x \\right)$ . Hỏi hàm số $y=f\\left( x \\right)$ đồng biến trên khoảng nào dưới đây?\n![Hình vẽ](./imported_images/image3672.emf)",
+      "content": "Hình bên là đồ thị của hàm số $y=f'\\left( x \\right)$ . Hỏi hàm số $y=f\\left( x \\right)$ đồng biến trên khoảng nào dưới đây?\n![Hình vẽ](./imported_images/image3672.png)",
       "options": [
         {
           "id": "A",
@@ -13179,7 +13179,7 @@
       "explanation": "**Đáp án đúng: C**\n\n**Lời giải chi tiết:**\nTừ đồ thị, ta thấy hàm số đồng biến trên các khoảng và . Chọn",
       "createdAt": "2026-03-01T08:00:00.000Z",
       "images": [
-        "/imported_images/image3672.emf"
+        "/imported_images/image3672.png"
       ]
     },
     {
@@ -13408,7 +13408,7 @@
       "chapter": "Chuyên đề 10: Tính đơn điệu dựa vào BBT và đồ thị",
       "topic": "Tính đơn điệu dựa vào BBT và đồ thị",
       "difficulty": "TH",
-      "content": "Cho hàm số $y=f\\left( x \\right)$ có đồ thị như hình vẽ\n![Hình vẽ](./imported_images/image3745.emf)\nKhẳng định nào sau đây đúng?",
+      "content": "Cho hàm số $y=f\\left( x \\right)$ có đồ thị như hình vẽ\n![Hình vẽ](./imported_images/image3745.png)\nKhẳng định nào sau đây đúng?",
       "options": [
         {
           "id": "A",
@@ -13434,7 +13434,7 @@
       "explanation": "**Đáp án đúng: D**\n\n**Lời giải chi tiết:**\nTừ đồ thị ta có , từ dạng đồ thị suy ra .\nMặt khác từ đồ thị ta có phương trình có hai nghiệm trái dấu suy ra mà suy ra .\nHơn nữa phương trình có hai nghiệm phân biệt suy ra .\nVậy chọn đáp ánD.",
       "createdAt": "2026-03-01T08:00:00.000Z",
       "images": [
-        "/imported_images/image3745.emf"
+        "/imported_images/image3745.png"
       ]
     },
     {
@@ -16525,7 +16525,7 @@
       "chapter": "Chuyên đề 11: Cực trị của hàm số",
       "topic": "Cực trị của hàm số",
       "difficulty": "TH",
-      "content": "Cho hàm số $y=f\\left( x \\right)$ . Hàm số $y=f'\\left( x \\right)$ có đồ thị như hình bên.\n![Hình vẽ](./imported_images/image4250.emf)\nTìm số điểm cực trị của hàm số $y=f\\left( x \\right)$ .",
+      "content": "Cho hàm số $y=f\\left( x \\right)$ . Hàm số $y=f'\\left( x \\right)$ có đồ thị như hình bên.\n![Hình vẽ](./imported_images/image4250.png)\nTìm số điểm cực trị của hàm số $y=f\\left( x \\right)$ .",
       "options": [
         {
           "id": "A",
@@ -16551,7 +16551,7 @@
       "explanation": "**Đáp án đúng: A**\n\n**Lời giải chi tiết:**\n- **Kiến thức áp dụng:** Chuyên đề Chuyên đề 11: Cực trị của hàm số.\n- **Các bước thực hiện:**\n 1. Xác định tập xác định và giả thiết của bài toán.\n 2. Áp dụng quy tắc đạo hàm hoặc công thức đặc trưng toán học.\n 3. Lập luận đối chiếu các phương án để chọn kết quả chính xác.\n⇒ Phương án chính xác là **A**.",
       "createdAt": "2026-03-01T08:00:00.000Z",
       "images": [
-        "/imported_images/image4250.emf"
+        "/imported_images/image4250.png"
       ]
     },
     {
@@ -16815,7 +16815,7 @@
       "chapter": "Chuyên đề 11: Cực trị của hàm số",
       "topic": "Cực trị của hàm số",
       "difficulty": "TH",
-      "content": "Cho hàm số có đồ thị như hình vẽ bên dưới. Trên đoạn hàm số đã cho có mấy điểm cực trị?\n![Hình vẽ](./imported_images/image4336.emf)",
+      "content": "Cho hàm số có đồ thị như hình vẽ bên dưới. Trên đoạn hàm số đã cho có mấy điểm cực trị?\n![Hình vẽ](./imported_images/image4336.png)",
       "options": [
         {
           "id": "A",
@@ -16841,7 +16841,7 @@
       "explanation": "**Đáp án đúng: A**\n\n**Lời giải chi tiết:**\n- **Kiến thức áp dụng:** Chuyên đề Chuyên đề 11: Cực trị của hàm số.\n- **Các bước thực hiện:**\n 1. Xác định tập xác định và giả thiết của bài toán.\n 2. Áp dụng quy tắc đạo hàm hoặc công thức đặc trưng toán học.\n 3. Lập luận đối chiếu các phương án để chọn kết quả chính xác.\n⇒ Phương án chính xác là **A**.",
       "createdAt": "2026-03-01T08:00:00.000Z",
       "images": [
-        "/imported_images/image4336.emf"
+        "/imported_images/image4336.png"
       ]
     },
     {
@@ -17000,7 +17000,7 @@
       "chapter": "Chuyên đề 11: Cực trị của hàm số",
       "topic": "Cực trị của hàm số",
       "difficulty": "TH",
-      "content": "Cho hàm số $y=f\\left( x \\right)$ có đồ thị như hình vẽ. Hàm số đạt cực tiểu tại các điểm\n![Hình vẽ](./imported_images/image4371.emf)",
+      "content": "Cho hàm số $y=f\\left( x \\right)$ có đồ thị như hình vẽ. Hàm số đạt cực tiểu tại các điểm\n![Hình vẽ](./imported_images/image4371.png)",
       "options": [
         {
           "id": "A",
@@ -17026,7 +17026,7 @@
       "explanation": "**Đáp án đúng: A**\n\n**Lời giải chi tiết:**\n- **Kiến thức áp dụng:** Chuyên đề Chuyên đề 11: Cực trị của hàm số.\n- **Các bước thực hiện:**\n 1. Xác định tập xác định và giả thiết của bài toán.\n 2. Áp dụng quy tắc đạo hàm hoặc công thức đặc trưng toán học.\n 3. Lập luận đối chiếu các phương án để chọn kết quả chính xác.\n⇒ Phương án chính xác là **A**.",
       "createdAt": "2026-03-01T08:00:00.000Z",
       "images": [
-        "/imported_images/image4371.emf"
+        "/imported_images/image4371.png"
       ]
     },
     {
@@ -18443,7 +18443,7 @@
       "chapter": "Chuyên đề 12: Giá trị lớn nhất và nhỏ nhất của hàm số",
       "topic": "Giá trị lớn nhất và nhỏ nhất của hàm số",
       "difficulty": "TH",
-      "content": "Cho hàm số $y=f\\left( x \\right)$ liên tục trên đoạn $\\left[ -2\\,;\\,6 \\right]$ và có đồ thị như hình vẽ bên dưới.\n![Hình vẽ](./imported_images/image4643.emf)\nGọi $M$ và $m$ lần lượt là giá trị lớn nhất và nhỏ nhất của hàm số đã cho trên đoạn $\\left[ -2\\,;\\,6 \\right]$ . Giá trị của $M-m$ bằng",
+      "content": "Cho hàm số $y=f\\left( x \\right)$ liên tục trên đoạn $\\left[ -2\\,;\\,6 \\right]$ và có đồ thị như hình vẽ bên dưới.\n![Hình vẽ](./imported_images/image4643.png)\nGọi $M$ và $m$ lần lượt là giá trị lớn nhất và nhỏ nhất của hàm số đã cho trên đoạn $\\left[ -2\\,;\\,6 \\right]$ . Giá trị của $M-m$ bằng",
       "options": [
         {
           "id": "A",
@@ -18469,7 +18469,7 @@
       "explanation": "**Đáp án đúng: C**\n\n**Lời giải chi tiết:**\nDựa và đồ thị suy ra\nVậy\nCho hàm số liên tục trên đoạn và có đồ thị như hình vẽ.\nGọi và lần lượt là giá trị lớn nhất và nhỏ nhất của hàm số đã cho trên đoạn . Giá trị của bằng\nA. .B. .C. .D. .",
       "createdAt": "2026-03-01T08:00:00.000Z",
       "images": [
-        "/imported_images/image4643.emf"
+        "/imported_images/image4643.png"
       ]
     },
     {
@@ -30769,7 +30769,7 @@
       "chapter": "Chuyên đề 19: Ứng dụng hình học của tích phân",
       "topic": "Ứng dụng hình học của tích phân",
       "difficulty": "TH",
-      "content": "Cho hàm số $f\\left( x \\right)$ liên tục trên $\\mathbb{R}$ . Gọi S là diện tích hình phẳng giới hạn bởi cá đường $y=f\\left( x \\right)$ , $y=0,\\,\\,x=-2$ và $\\,x=3$ . Mệnh đề nào dưới đây đúng?\n![Hình vẽ](./imported_images/image7212.emf)",
+      "content": "Cho hàm số $f\\left( x \\right)$ liên tục trên $\\mathbb{R}$ . Gọi S là diện tích hình phẳng giới hạn bởi cá đường $y=f\\left( x \\right)$ , $y=0,\\,\\,x=-2$ và $\\,x=3$ . Mệnh đề nào dưới đây đúng?\n![Hình vẽ](./imported_images/image7212.png)",
       "options": [
         {
           "id": "A",
@@ -30795,7 +30795,7 @@
       "explanation": "**Đáp án đúng: A**\n\n**Lời giải chi tiết:**\n- **Kiến thức áp dụng:** Chuyên đề Chuyên đề 19: Ứng dụng hình học của tích phân.\n- **Các bước thực hiện:**\n 1. Xác định tập xác định và giả thiết của bài toán.\n 2. Áp dụng quy tắc đạo hàm hoặc công thức đặc trưng toán học.\n 3. Lập luận đối chiếu các phương án để chọn kết quả chính xác.\n⇒ Phương án chính xác là **A**.",
       "createdAt": "2026-03-01T08:00:00.000Z",
       "images": [
-        "/imported_images/image7212.emf"
+        "/imported_images/image7212.png"
       ]
     },
     {
@@ -30806,7 +30806,7 @@
       "chapter": "Chuyên đề 19: Ứng dụng hình học của tích phân",
       "topic": "Ứng dụng hình học của tích phân",
       "difficulty": "TH",
-      "content": "Tính diện tích phần hình phẳng gạch chéo trong hình vẽ bên.\n![Hình vẽ](./imported_images/image7217.emf)",
+      "content": "Tính diện tích phần hình phẳng gạch chéo trong hình vẽ bên.\n![Hình vẽ](./imported_images/image7217.png)",
       "options": [
         {
           "id": "A",
@@ -30832,7 +30832,7 @@
       "explanation": "**Đáp án đúng: A**\n\n**Lời giải chi tiết:**\n- **Kiến thức áp dụng:** Chuyên đề Chuyên đề 19: Ứng dụng hình học của tích phân.\n- **Các bước thực hiện:**\n 1. Xác định tập xác định và giả thiết của bài toán.\n 2. Áp dụng quy tắc đạo hàm hoặc công thức đặc trưng toán học.\n 3. Lập luận đối chiếu các phương án để chọn kết quả chính xác.\n⇒ Phương án chính xác là **A**.",
       "createdAt": "2026-03-01T08:00:00.000Z",
       "images": [
-        "/imported_images/image7217.emf"
+        "/imported_images/image7217.png"
       ]
     },
     {

@@ -26,21 +26,26 @@ export const MathView: React.FC<MathViewProps> = ({ content, className = '', blo
 
     // Process markdown images: ![alt](url) - Supports local, external and GitHub Pages relative paths
     const imgTokens: { token: string; html: string }[] = [];
+    const base = import.meta.env.BASE_URL || './';
+    const normalizedBase = base.endsWith('/') ? base : base + '/';
+
     let processedContent = content.replace(
       /!\[(.*?)\]\(([^)]+)\)/g,
       (_, alt, src) => {
         const tokenId = `___MATH_IMG_${imgTokens.length}___`;
         let cleanSrc = src.trim();
-        // Convert absolute /imported_images/ to relative ./imported_images/ for GitHub Pages subpath compatibility
+
         if (cleanSrc.startsWith('/imported_images/')) {
-          cleanSrc = '.' + cleanSrc;
+          cleanSrc = normalizedBase + cleanSrc.slice(1);
+        } else if (cleanSrc.startsWith('./imported_images/')) {
+          cleanSrc = normalizedBase + cleanSrc.slice(2);
         } else if (cleanSrc.startsWith('imported_images/')) {
-          cleanSrc = './' + cleanSrc;
+          cleanSrc = normalizedBase + cleanSrc;
         }
 
         imgTokens.push({
           token: tokenId,
-          html: `<div class="my-3.5 flex flex-col items-center justify-center"><img src="${cleanSrc}" alt="${alt || 'Hình vẽ minh họa'}" class="max-h-72 sm:max-h-80 max-w-full rounded-2xl border border-slate-200/80 shadow-xs bg-white p-2.5 hover:shadow-md transition-all object-contain" /><span class="text-[11px] text-slate-500 mt-1.5 italic font-medium">${alt || 'Hình vẽ minh họa'}</span></div>`
+          html: `<div class="my-3.5 flex flex-col items-center justify-center"><img src="${cleanSrc}" alt="${alt || 'Hình vẽ minh họa'}" loading="lazy" class="max-h-72 sm:max-h-80 max-w-full rounded-2xl border border-slate-200/80 shadow-xs bg-white p-2.5 hover:shadow-md transition-all object-contain" /><span class="text-[11px] text-slate-500 mt-1.5 italic font-medium">${alt || 'Hình vẽ minh họa'}</span></div>`
         });
         return tokenId;
       }

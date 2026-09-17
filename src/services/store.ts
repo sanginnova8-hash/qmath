@@ -186,6 +186,15 @@ export async function deleteQuestion(questionId: string): Promise<void> {
   saveLocal(STORAGE_KEYS.QUESTIONS, list.filter(q => q.id !== questionId));
 }
 
+export function getAllAnswerKeys(): Record<string, AnswerKey> {
+  return loadLocal<Record<string, AnswerKey>>(STORAGE_KEYS.ANSWER_KEYS, INITIAL_ANSWER_KEYS);
+}
+
+export function getAnswerKeyById(questionId: string): AnswerKey | undefined {
+  const keys = getAllAnswerKeys();
+  return keys[questionId];
+}
+
 // --- CLASSES SERVICE ---
 export async function getClasses(teacherId?: string): Promise<ClassRoom[]> {
   if (isFirebaseConfigured) {

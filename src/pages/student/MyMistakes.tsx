@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Question } from '../../types';
-import { getStudentProgress, getQuestionsByIds, clearMistake, normalizeMathString } from '../../services/store';
-import { INITIAL_ANSWER_KEYS } from '../../services/seedData';
+import { getStudentProgress, getQuestionsByIds, clearMistake, normalizeMathString, getAnswerKeyById } from '../../services/store';
 import { useAuth } from '../../context/AuthContext';
 import { MathView } from '../../components/math/MathView';
 import { MathInput } from '../../components/math/MathInput';
@@ -31,12 +30,8 @@ export const MyMistakes: React.FC = () => {
     if (!currentUser) return;
     setLoading(true);
     try {
-      const prog = await getStudentProgress(currentUser.id);
-      // If student has no mistakes yet, let's include 1-2 default mistakes from questions so they can test immediately
-      let ids = prog.mistakeQuestionIds;
-      if (!ids || ids.length === 0) {
-        ids = ['q-math-12-01', 'q-math-12-03'];
-      }
+      const progress = await getStudentProgress(currentUser.id);
+      const ids = progress.mistakeQuestionIds || [];
       const qsts = await getQuestionsByIds(ids);
       setMistakeQuestions(qsts);
     } finally {
@@ -50,7 +45,7 @@ export const MyMistakes: React.FC = () => {
 
   const handleCheckRetry = async (q: Question) => {
     const studentAns = retryAnswers[q.id];
-    const key = INITIAL_ANSWER_KEYS[q.id];
+    const key = getAnswerKeyById(q.id);
     let correct = false;
 
     if (key) {
