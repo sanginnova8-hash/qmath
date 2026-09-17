@@ -26,8 +26,10 @@ import {
   KeyRound,
   Search,
   Filter,
-  Layers
+  Layers,
+  Lock
 } from 'lucide-react';
+import { getStoredPasscodes, setStoredPasscode } from '../../context/AuthContext';
 
 export const AdminSettings: React.FC = () => {
   const [activeSubTab, setActiveSubTab] = useState<'users' | 'bank' | 'security'>('users');
@@ -46,9 +48,24 @@ export const AdminSettings: React.FC = () => {
 
   const [notification, setNotification] = useState<string | null>(null);
 
+  // Security passcodes state
+  const [adminPasscode, setAdminPasscode] = useState(() => getStoredPasscodes().ADMIN);
+  const [teacherPasscode, setTeacherPasscode] = useState(() => getStoredPasscodes().TEACHER);
+
   const showToast = (msg: string) => {
     setNotification(msg);
     setTimeout(() => setNotification(null), 3500);
+  };
+
+  const handleSavePasscodes = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!adminPasscode.trim() || !teacherPasscode.trim()) {
+      alert('Mật khẩu không được để trống!');
+      return;
+    }
+    setStoredPasscode('ADMIN', adminPasscode.trim());
+    setStoredPasscode('TEACHER', teacherPasscode.trim());
+    showToast('Đã cập nhật mật khẩu Admin và Giáo viên thành công!');
   };
 
   const loadData = async () => {
@@ -513,6 +530,63 @@ export const AdminSettings: React.FC = () => {
                 )}
               </div>
             </div>
+          </div>
+
+          {/* Passcode Security Gate Settings */}
+          <div className="bg-white p-6 rounded-2xl border border-purple-200 shadow-xs space-y-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="p-2 rounded-xl bg-purple-100 text-purple-800">
+                  <Lock className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-base font-extrabold text-slate-900">Mật khẩu Khóa Quyền Quản trị & Giáo viên</h3>
+                  <p className="text-xs text-slate-500">
+                    Bảo vệ hệ thống khi chia sẻ link cho học sinh. Học sinh chỉ thấy giao diện học sinh và phải nhập mật khẩu này mới vào được không gian giáo viên/quản trị.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <form onSubmit={handleSavePasscodes} className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div className="p-4 rounded-xl bg-purple-50/60 border border-purple-200 space-y-2">
+                <label className="block text-xs font-bold text-purple-900 uppercase tracking-wider">
+                  🛡️ Mật khẩu Quản trị viên (ADMIN)
+                </label>
+                <input
+                  type="text"
+                  value={adminPasscode}
+                  onChange={(e) => setAdminPasscode(e.target.value)}
+                  placeholder="admin123"
+                  className="w-full px-3.5 py-2 text-sm rounded-xl border border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white font-mono font-bold"
+                />
+                <p className="text-[11px] text-purple-700">Mặc định: <code>admin123</code></p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-emerald-50/60 border border-emerald-200 space-y-2">
+                <label className="block text-xs font-bold text-emerald-900 uppercase tracking-wider">
+                  👨‍🏫 Mật khẩu Giáo viên (TEACHER)
+                </label>
+                <input
+                  type="text"
+                  value={teacherPasscode}
+                  onChange={(e) => setTeacherPasscode(e.target.value)}
+                  placeholder="123456"
+                  className="w-full px-3.5 py-2 text-sm rounded-xl border border-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white font-mono font-bold"
+                />
+                <p className="text-[11px] text-emerald-700">Mặc định: <code>123456</code></p>
+              </div>
+
+              <div className="sm:col-span-2 flex justify-end">
+                <button
+                  type="submit"
+                  className="px-5 py-2.5 rounded-xl bg-purple-800 hover:bg-purple-900 text-white font-bold text-xs shadow-md transition-all active:scale-95 flex items-center gap-1.5"
+                >
+                  <CheckCircle2 className="w-4 h-4" />
+                  <span>Lưu thay đổi Mật khẩu bảo mật</span>
+                </button>
+              </div>
+            </form>
           </div>
 
           {/* Role Permissions Matrix Table */}

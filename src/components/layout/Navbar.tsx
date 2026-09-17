@@ -1,23 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { isFirebaseConfigured } from '../../lib/firebase';
 import { resetAllDataToSeed } from '../../services/store';
 import { 
   GraduationCap, 
   RotateCcw, 
-  UserCheck, 
   ShieldCheck, 
   BookOpen, 
   LogOut,
+  Lock,
   Sparkles
 } from 'lucide-react';
+import RoleAuthModal from '../auth/RoleAuthModal';
 
 interface NavbarProps {
   onToggleSidebar?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ onToggleSidebar }) => {
-  const { currentUser, role, switchRole, logout } = useAuth();
+  const { currentUser, role, switchRole, logoutToStudent } = useAuth();
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [authTargetRole, setAuthTargetRole] = useState<'ADMIN' | 'TEACHER'>('TEACHER');
 
   const handleResetData = () => {
     if (window.confirm('Bạn có chắc muốn đặt lại toàn bộ dữ liệu mẫu ban đầu của QMath?')) {
@@ -44,7 +47,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleSidebar }) => {
             )}
 
             <div className="flex items-center gap-2.5">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-800 via-emerald-700 to-qmath-dark flex items-center justify-center shadow-md shadow-emerald-900/20 text-white font-extrabold text-xl tracking-tighter">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 via-emerald-700 to-teal-800 flex items-center justify-center text-white shadow-md shadow-emerald-500/20 font-black text-lg tracking-wider">
                 $Q$
               </div>
               <div className="flex flex-col">
@@ -58,7 +61,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleSidebar }) => {
             </div>
           </div>
 
-          {/* Quick Demo Switcher & Status */}
+          {/* Role Status & Actions */}
           <div className="flex items-center gap-3">
             {/* Firebase indicator badge */}
             <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-200">
@@ -66,48 +69,74 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleSidebar }) => {
               {isFirebaseConfigured ? 'Firebase Cloud' : 'Spark Ready / Seed'}
             </div>
 
-            {/* Quick Switch Role Bar */}
-            <div className="flex items-center p-1 bg-slate-100 rounded-xl border border-slate-200 text-xs gap-1">
+            {/* Protected Role Bar */}
+            {role === 'STUDENT' ? (
               <button
                 type="button"
-                onClick={() => switchRole('ADMIN')}
-                className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg font-medium transition-all ${
-                  role === 'ADMIN'
-                    ? 'bg-purple-900 text-white shadow-xs font-semibold'
-                    : 'text-purple-800 hover:text-purple-950 hover:bg-purple-50'
-                }`}
-                title="Quyền Quản trị viên toàn hệ thống"
+                onClick={() => {
+                  setAuthTargetRole('TEACHER');
+                  setShowAuthModal(true);
+                }}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-emerald-800 border border-slate-200 hover:border-emerald-300 text-xs font-bold transition-all shadow-2xs hover:shadow-xs"
+                title="Đăng nhập dành cho Giáo viên hoặc Quản trị viên"
               >
-                <ShieldCheck className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">Quản trị</span>
+                <Lock className="w-3.5 h-3.5 text-emerald-700" />
+                <span>Đăng nhập Giáo viên / Admin</span>
               </button>
-
-              <button
-                type="button"
-                onClick={() => switchRole('TEACHER')}
-                className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg font-medium transition-all ${
-                  role === 'TEACHER'
-                    ? 'bg-emerald-700 text-white shadow-xs font-semibold'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <GraduationCap className="w-3.5 h-3.5" />
-                <span>Giáo viên</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => switchRole('STUDENT')}
-                className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg font-medium transition-all ${
-                  role === 'STUDENT'
-                    ? 'bg-emerald-700 text-white shadow-xs font-semibold'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <BookOpen className="w-3.5 h-3.5" />
-                <span>Học sinh</span>
-              </button>
-            </div>
+            ) : role === 'TEACHER' ? (
+              <div className="flex items-center gap-1 p-1 bg-emerald-50 border border-emerald-200 rounded-xl text-xs">
+                <div className="flex items-center gap-1 px-2 py-1 text-emerald-900 font-bold">
+                  <GraduationCap className="w-4 h-4 text-emerald-700" />
+                  <span>Giáo viên</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAuthTargetRole('ADMIN');
+                    setShowAuthModal(true);
+                  }}
+                  className="px-2 py-1 text-purple-800 hover:bg-purple-100 rounded-lg font-semibold transition-colors flex items-center gap-1"
+                  title="Yêu cầu mật khẩu Admin để vào quản trị"
+                >
+                  <ShieldCheck className="w-3.5 h-3.5 text-purple-700" />
+                  <span className="hidden sm:inline">Quản trị</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={logoutToStudent}
+                  className="flex items-center gap-1 px-2 py-1 text-slate-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors font-medium"
+                  title="Thoát về vai trò Học sinh"
+                >
+                  <LogOut className="w-3.5 h-3.5" />
+                  <span className="hidden md:inline">Thoát</span>
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center gap-1 p-1 bg-purple-50 border border-purple-200 rounded-xl text-xs">
+                <div className="flex items-center gap-1 px-2 py-1 text-purple-900 font-bold">
+                  <ShieldCheck className="w-4 h-4 text-purple-700" />
+                  <span>Quản trị viên</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => switchRole('TEACHER')}
+                  className="px-2 py-1 text-emerald-800 hover:bg-emerald-100 rounded-lg font-semibold transition-colors flex items-center gap-1"
+                  title="Xem không gian Giáo viên"
+                >
+                  <GraduationCap className="w-3.5 h-3.5 text-emerald-700" />
+                  <span className="hidden sm:inline">Giáo viên</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={logoutToStudent}
+                  className="flex items-center gap-1 px-2 py-1 text-slate-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors font-medium"
+                  title="Thoát về vai trò Học sinh"
+                >
+                  <LogOut className="w-3.5 h-3.5" />
+                  <span className="hidden md:inline">Thoát</span>
+                </button>
+              </div>
+            )}
 
             {/* Reset Data Button */}
             <button
@@ -121,21 +150,34 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleSidebar }) => {
 
             {/* Current user badge */}
             <div className="flex items-center gap-2 pl-2 border-l border-slate-200">
-              <div className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 font-semibold text-xs flex items-center justify-center border border-emerald-300 shadow-xs">
+              <div className={`w-8 h-8 rounded-full font-semibold text-xs flex items-center justify-center border shadow-xs ${
+                role === 'ADMIN'
+                  ? 'bg-purple-100 text-purple-900 border-purple-300'
+                  : role === 'TEACHER'
+                  ? 'bg-emerald-100 text-emerald-900 border-emerald-300'
+                  : 'bg-blue-100 text-blue-900 border-blue-300'
+              }`}>
                 {currentUser?.displayName ? currentUser.displayName.charAt(0) : 'Q'}
               </div>
               <div className="hidden md:flex flex-col text-left">
                 <span className="text-xs font-bold text-slate-800 truncate max-w-[130px]">
-                  {currentUser?.displayName || 'Khách'}
+                  {currentUser?.displayName || 'Học sinh'}
                 </span>
-                <span className="text-[10px] text-emerald-700 font-medium">
-                  {role === 'TEACHER' ? 'Giáo viên Toán' : 'Học sinh THPT'}
+                <span className="text-[10px] font-medium text-slate-500">
+                  {role === 'ADMIN' ? '🛡️ Quản trị viên' : role === 'TEACHER' ? '👨‍🏫 Giáo viên Toán' : '🎓 Học sinh THPT'}
                 </span>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Security Auth Passcode Modal */}
+      <RoleAuthModal
+        isOpen={showAuthModal}
+        onClose={() => setShowAuthModal(false)}
+        targetRole={authTargetRole}
+      />
     </header>
   );
 };
