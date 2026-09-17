@@ -16,12 +16,12 @@ const getStoredConfig = () => {
 const storedConfig = getStoredConfig();
 
 const firebaseConfig = {
-  apiKey: storedConfig?.apiKey || import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: storedConfig?.authDomain || import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: storedConfig?.projectId || import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: storedConfig?.storageBucket || import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: storedConfig?.messagingSenderId || import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: storedConfig?.appId || import.meta.env.VITE_FIREBASE_APP_ID
+  apiKey: storedConfig?.apiKey || import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyBBoYCtfFNZSA3sU_O-T-hLthhMHI0h9iI",
+  authDomain: storedConfig?.authDomain || import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "qmath-online.firebaseapp.com",
+  projectId: storedConfig?.projectId || import.meta.env.VITE_FIREBASE_PROJECT_ID || "qmath-online",
+  storageBucket: storedConfig?.storageBucket || import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "qmath-online.firebasestorage.app",
+  messagingSenderId: storedConfig?.messagingSenderId || import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "184560180752",
+  appId: storedConfig?.appId || import.meta.env.VITE_FIREBASE_APP_ID || "1:184560180752:web:25ef9ba72d91bfb9233495"
 };
 
 export const isFirebaseConfigured = Boolean(
@@ -30,14 +30,7 @@ export const isFirebaseConfigured = Boolean(
   firebaseConfig.projectId
 );
 
-const app = !getApps().length ? initializeApp(firebaseConfig.apiKey ? firebaseConfig : {
-  apiKey: 'demo-api-key',
-  authDomain: 'demo.firebaseapp.com',
-  projectId: 'demo-project',
-  storageBucket: 'demo.appspot.com',
-  messagingSenderId: '123456789',
-  appId: '1:123456789:web:demo'
-}) : getApp();
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
 export const auth = getAuth(app);
 export const db = getFirestore(app);
