@@ -1,0 +1,48 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+knowledge_solutions.json
+solutions_library.json
+extract_all_dapan_library.py
+apply_solutions_to_bank.py
+build_full_solutions_database.py
+# Python scratch and test scripts
+check_*.py
+find_*.py
+inspect_*.py
+test_*.py
+print_*.py
+search_*.py
