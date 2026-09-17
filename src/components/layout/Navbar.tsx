@@ -67,11 +67,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleSidebar }) => {
             </div>
 
             {/* Quick Switch Role Bar */}
-            <div className="flex items-center p-1 bg-slate-100 rounded-xl border border-slate-200 text-xs">
+            <div className="flex items-center p-1 bg-slate-100 rounded-xl border border-slate-200 text-xs gap-1">
+              <button
+                type="button"
+                onClick={() => switchRole('ADMIN')}
+                className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg font-medium transition-all ${
+                  role === 'ADMIN'
+                    ? 'bg-purple-900 text-white shadow-xs font-semibold'
+                    : 'text-purple-800 hover:text-purple-950 hover:bg-purple-50'
+                }`}
+                title="Quyền Quản trị viên toàn hệ thống"
+              >
+                <ShieldCheck className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Quản trị</span>
+              </button>
+
               <button
                 type="button"
                 onClick={() => switchRole('TEACHER')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
+                className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg font-medium transition-all ${
                   role === 'TEACHER'
                     ? 'bg-emerald-700 text-white shadow-xs font-semibold'
                     : 'text-slate-600 hover:text-slate-900'
@@ -84,7 +98,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleSidebar }) => {
               <button
                 type="button"
                 onClick={() => switchRole('STUDENT')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
+                className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg font-medium transition-all ${
                   role === 'STUDENT'
                     ? 'bg-emerald-700 text-white shadow-xs font-semibold'
                     : 'text-slate-600 hover:text-slate-900'

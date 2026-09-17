@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from './context/AuthContext';
 import AppLayout from './components/layout/AppLayout';
 
+// Admin views
+import AdminSettings from './pages/admin/AdminSettings';
+
 // Teacher views
 import TeacherDashboard from './pages/teacher/TeacherDashboard';
 import ClassManagement from './pages/teacher/ClassManagement';
@@ -21,7 +24,7 @@ export const App: React.FC = () => {
 
   // Active navigation tab
   const [activeTab, setActiveTab] = useState<string>(() =>
-    role === 'TEACHER' ? 'teacher-overview' : 'student-overview'
+    role === 'ADMIN' ? 'admin-settings' : role === 'TEACHER' ? 'teacher-overview' : 'student-overview'
   );
 
   // Focus Exam Mode states
@@ -30,12 +33,16 @@ export const App: React.FC = () => {
 
   // Sync default tab when role switches
   useEffect(() => {
-    if (role === 'TEACHER' || role === 'ADMIN') {
-      if (activeTab.startsWith('student-')) {
+    if (role === 'ADMIN') {
+      if (!activeTab.startsWith('admin-') && !activeTab.startsWith('teacher-')) {
+        setActiveTab('admin-settings');
+      }
+    } else if (role === 'TEACHER') {
+      if (activeTab.startsWith('student-') || activeTab.startsWith('admin-')) {
         setActiveTab('teacher-overview');
       }
     } else {
-      if (activeTab.startsWith('teacher-')) {
+      if (activeTab.startsWith('teacher-') || activeTab.startsWith('admin-')) {
         setActiveTab('student-overview');
       }
     }
@@ -69,6 +76,9 @@ export const App: React.FC = () => {
         />
       ) : (
         <>
+          {/* ADMIN TABS */}
+          {activeTab === 'admin-settings' && <AdminSettings />}
+
           {/* TEACHER TABS */}
           {activeTab === 'teacher-overview' && (
             <TeacherDashboard onNavigate={(tab) => setActiveTab(tab)} />

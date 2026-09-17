@@ -11,7 +11,8 @@ import {
   AlertCircle,
   GraduationCap,
   Sparkles,
-  Award
+  Award,
+  ShieldCheck
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -29,6 +30,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   const { role } = useAuth();
 
+  const adminItems = [
+    { id: 'admin-settings', label: 'Cài đặt & Phân quyền', icon: ShieldCheck },
+    { id: 'teacher-questions', label: 'Ngân hàng Câu hỏi (992 câu)', icon: Database },
+    { id: 'teacher-classes', label: 'Quản lý Lớp học', icon: Users },
+    { id: 'teacher-create-assignment', label: 'Tạo & Giao bài tập', icon: FilePlus2 },
+    { id: 'teacher-results', label: 'Bảng điểm & Thống kê', icon: BarChart3 }
+  ];
+
   const teacherItems = [
     { id: 'teacher-overview', label: 'Bảng tổng quan', icon: LayoutDashboard },
     { id: 'teacher-classes', label: 'Quản lý Lớp học', icon: Users },
@@ -43,7 +52,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     { id: 'student-mistakes', label: 'Sổ tay câu sai (Mistakes)', icon: AlertCircle }
   ];
 
-  const navItems = role === 'TEACHER' || role === 'ADMIN' ? teacherItems : studentItems;
+  const navItems = role === 'ADMIN' ? adminItems : role === 'TEACHER' ? teacherItems : studentItems;
 
   const handleItemClick = (id: string) => {
     onSelectTab(id);
@@ -68,15 +77,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
         {/* Role Header in Sidebar */}
         <div className="p-4 border-b border-slate-800/80 bg-slate-950/40">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-lg bg-emerald-900/50 text-emerald-400 border border-emerald-700/40">
-              <GraduationCap className="w-5 h-5" />
+            <div className={`p-2 rounded-lg ${role === 'ADMIN' ? 'bg-purple-900/60 text-purple-300 border border-purple-700/50' : 'bg-emerald-900/50 text-emerald-400 border border-emerald-700/40'}`}>
+              {role === 'ADMIN' ? <ShieldCheck className="w-5 h-5" /> : <GraduationCap className="w-5 h-5" />}
             </div>
             <div>
               <p className="text-xs uppercase tracking-wider text-slate-400 font-semibold">
                 Không gian làm việc
               </p>
               <h3 className="text-sm font-bold text-white">
-                {role === 'TEACHER' ? 'Khu vực Giáo viên' : 'Khu vực Học sinh'}
+                {role === 'ADMIN' ? 'Khu vực Quản trị viên' : role === 'TEACHER' ? 'Khu vực Giáo viên' : 'Khu vực Học sinh'}
               </h3>
             </div>
           </div>

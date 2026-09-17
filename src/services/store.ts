@@ -6,6 +6,7 @@ import {
   Submission,
   StudentProgress,
   UserProfile,
+  UserRole,
   StudentAnswerValue,
   StudentAnswerRecord
 } from '../types';
@@ -533,6 +534,113 @@ export async function clearMistake(studentId: string, questionId: string): Promi
     progressMap[studentId].mistakeQuestionIds = progressMap[studentId].mistakeQuestionIds.filter(id => id !== questionId);
     saveLocal(STORAGE_KEYS.PROGRESS, progressMap);
   }
+}
+
+// --- USER MANAGEMENT & ADMIN SERVICES ---
+export async function getAllUsers(): Promise<UserProfile[]> {
+  const defaultList: UserProfile[] = [
+    {
+      id: 'admin-system',
+      email: 'admin@qmath.edu.vn',
+      displayName: 'Quản trị viên Hệ thống',
+      role: 'ADMIN',
+      school: 'THPT Chuyên',
+      createdAt: '2026-01-01T00:00:00.000Z'
+    },
+    INITIAL_TEACHER,
+    ...INITIAL_STUDENTS
+  ];
+
+  if (isFirebaseConfigured) {
+    try {
+      const snap = await getDocs(collection(db, 'users'));
+      const list: UserProfile[] = [];
+      snap.forEach(d => list.push(d.data() as UserProfile));
+      if (list.length > 0) return list;
+    } catch (e) {
+      console.warn('Firebase getAllUsers fallback:', e);
+    }
+  }
+
+  const stored = loadLocal<UserProfile[]>(STORAGE_KEYS.USERS, defaultList);
+  // Ensure default admin exists
+  if (!stored.some(u => u.role === 'ADMIN')) {
+    stored.unshift(defaultList[0]);
+    saveLocal(STORAGE_KEYS.USERS, stored);
+  }
+  return stored;
+}
+
+export async function updateUserRole(userId: string, newRole: UserRole): Promise<void> {
+  const users = await getAllUsers();
+  const idx = users.findIndex(u => u.id === userId);
+  if (idx >= 0) {
+    users[idx].role = newRole;
+    saveLocal(STORAGE_KEYS.USERS, users);
+
+    if (isFirebaseConfigured) {
+      try {
+        await updateDoc(doc(db, 'users', userId), { role: newRole });
+      } catch (e) {
+        console.warn('Firebase updateUserRole fallback:', e);
+      }
+    }
+  }
+}
+
+export async function createUser(user: UserProfile): Promise<void> {
+  const users = await getAllUsers();
+  const existingIdx = users.findIndex(u => u.id === user.id || u.email === user.email);
+  if (existingIdx >= 0) {
+    users[existingIdx] = user;
+  } else {
+    users.push(user);
+  }
+  saveLocal(STORAGE_KEYS.USERS, users);
+
+  if (isFirebaseConfigured) {
+    try {
+      await setDoc(doc(db, 'users', user.id), user);
+    } catch (e) {
+      console.warn('Firebase createUser fallback:', e);
+    }
+  }
+}
+
+export async function deleteUser(userId: string): Promise<void> {
+  let users = await getAllUsers();
+  users = users.filter(u => u.id !== userId);
+  saveLocal(STORAGE_KEYS.USERS, users);
+}
+
+export async function getSystemStats(): Promise<{
+  totalQuestions: number;
+  totalChapters: number;
+  totalUsers: number;
+  totalTeachers: number;
+  totalStudents: number;
+  totalClasses: number;
+  totalAssignments: number;
+  totalSubmissions: number;
+}> {
+  const questions = await getQuestions();
+  const users = await getAllUsers();
+  const classes = await getClasses();
+  const assignments = await getAssignments();
+  const submissions = await getSubmissions();
+
+  const chaptersSet = new Set(questions.map(q => q.chapter).filter(Boolean));
+
+  return {
+    totalQuestions: questions.length,
+    totalChapters: chaptersSet.size,
+    totalUsers: users.length,
+    totalTeachers: users.filter(u => u.role === 'TEACHER').length,
+    totalStudents: users.filter(u => u.role === 'STUDENT').length,
+    totalClasses: classes.length,
+    totalAssignments: assignments.length,
+    totalSubmissions: submissions.length
+  };
 }
 
 export async function resetAllDataToSeed(): Promise<void> {
