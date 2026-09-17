@@ -104,7 +104,9 @@ export const AdminSettings: React.FC = () => {
 
   const handleExportBackup = async () => {
     try {
-      const res = await fetch('/data/exam_bank_tap1.json');
+      const baseUrl = import.meta.env.BASE_URL || './';
+      const jsonUrl = `${baseUrl.replace(/\/$/, '')}/data/exam_bank_tap1.json`;
+      const res = await fetch(jsonUrl);
       const data = await res.json();
       const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
       const url = URL.createObjectURL(blob);

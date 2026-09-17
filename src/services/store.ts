@@ -76,7 +76,9 @@ const TAP1_CACHE_VERSION = 'qmath_tap1_v5_deep_cleaned';
 // --- QUESTIONS SERVICE ---
 export async function loadExamBankTap1(forceUpdate = false): Promise<{ success: boolean; count: number; message: string }> {
   try {
-    const res = await fetch('/data/exam_bank_tap1.json');
+    const baseUrl = import.meta.env.BASE_URL || './';
+    const jsonUrl = `${baseUrl.replace(/\/$/, '')}/data/exam_bank_tap1.json`;
+    const res = await fetch(jsonUrl);
     if (!res.ok) throw new Error('Không thể tải file dữ liệu chuyên đề tập 1');
     const data = await res.json();
     if (!data.questions || data.questions.length === 0) {
