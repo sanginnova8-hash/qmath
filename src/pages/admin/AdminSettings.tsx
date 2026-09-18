@@ -551,16 +551,16 @@ export const AdminSettings: React.FC = () => {
             <form onSubmit={handleSavePasscodes} className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               <div className="p-4 rounded-xl bg-purple-50/60 border border-purple-200 space-y-2">
                 <label className="block text-xs font-bold text-purple-900 uppercase tracking-wider">
-                  🛡️ Mật khẩu Quản trị viên (ADMIN)
+                  🛡️ Mật khẩu Quản trị viên (ADMIN - sanginnova@gmail.com)
                 </label>
                 <input
                   type="text"
                   value={adminPasscode}
                   onChange={(e) => setAdminPasscode(e.target.value)}
-                  placeholder="admin123"
+                  placeholder="Ducthang@2025"
                   className="w-full px-3.5 py-2 text-sm rounded-xl border border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white font-mono font-bold"
                 />
-                <p className="text-[11px] text-purple-700">Mặc định: <code>admin123</code></p>
+                <p className="text-[11px] text-purple-700">Mặc định: <code>Ducthang@2025</code></p>
               </div>
 
               <div className="p-4 rounded-xl bg-emerald-50/60 border border-emerald-200 space-y-2">

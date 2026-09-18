@@ -476,13 +476,25 @@ export const RoleAuthModal: React.FC<RoleAuthModalProps> = ({
             <form onSubmit={handleStaffLogin} className="space-y-4">
               <div className="text-xs text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-200">
                 {selectedRole === 'ADMIN' ? (
-                  <p>
-                    🛡️ <strong>Khu vực Quản trị viên:</strong> Toàn quyền cài đặt hệ thống, quản lý người dùng, sao lưu & khôi phục ngân hàng câu hỏi.
-                  </p>
+                  <div className="space-y-1.5">
+                    <p>
+                      🛡️ <strong>Khu vực Quản trị viên:</strong> Toàn quyền cài đặt hệ thống, quản lý người dùng, sao lưu & khôi phục ngân hàng câu hỏi.
+                    </p>
+                    <div className="pt-1 text-[11px] text-purple-900 bg-purple-50 p-2 rounded-lg border border-purple-200 flex flex-col gap-0.5">
+                      <div>Tên đăng nhập: <strong className="font-mono text-purple-950">sanginnova@gmail.com</strong></div>
+                      <div>Mật khẩu xác thực: <code className="bg-white px-1.5 py-0.5 rounded font-mono font-bold text-purple-800 border border-purple-200">Ducthang@2025</code></div>
+                    </div>
+                  </div>
                 ) : (
-                  <p>
-                    👨‍🏫 <strong>Khu vực Giáo viên:</strong> Soạn câu hỏi, tạo đề kiểm tra, chấm thi và quản lý kết quả học tập của các lớp.
-                  </p>
+                  <div className="space-y-1.5">
+                    <p>
+                      👨‍🏫 <strong>Khu vực Giáo viên:</strong> Soạn câu hỏi, tạo đề kiểm tra, chấm thi và quản lý kết quả học tập của các lớp.
+                    </p>
+                    <div className="pt-1 text-[11px] text-emerald-900 bg-emerald-50 p-2 rounded-lg border border-emerald-200 flex flex-col gap-0.5">
+                      <div>Tên đăng nhập: <strong className="font-mono text-emerald-950">teacher@qmath.edu.vn</strong></div>
+                      <div>Mật khẩu xác thực: <code className="bg-white px-1.5 py-0.5 rounded font-mono font-bold text-emerald-800 border border-emerald-200">123456</code></div>
+                    </div>
+                  </div>
                 )}
               </div>
 
@@ -495,7 +507,7 @@ export const RoleAuthModal: React.FC<RoleAuthModalProps> = ({
                     type={showPasscode ? 'text' : 'password'}
                     value={passcode}
                     onChange={(e) => setPasscode(e.target.value)}
-                    placeholder={selectedRole === 'ADMIN' ? 'Nhập mật khẩu Admin...' : 'Nhập mật khẩu Giáo viên...'}
+                    placeholder={selectedRole === 'ADMIN' ? 'Nhập mật khẩu Admin (Ducthang@2025)...' : 'Nhập mật khẩu Giáo viên (123456)...'}
                     autoFocus
                     className="w-full px-4 py-2.5 pr-10 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all bg-white"
                   />
@@ -509,7 +521,7 @@ export const RoleAuthModal: React.FC<RoleAuthModalProps> = ({
                 </div>
                 
                 <div className="mt-2 text-[11px] text-slate-500 flex items-center justify-between">
-                  <span>Mật khẩu mặc định: <code className="bg-slate-100 text-slate-800 px-1 py-0.5 rounded font-mono font-bold">{selectedRole === 'ADMIN' ? 'admin123' : '123456'}</code></span>
+                  <span>Mật khẩu mặc định: <code className="bg-slate-100 text-slate-800 px-1 py-0.5 rounded font-mono font-bold">{selectedRole === 'ADMIN' ? 'Ducthang@2025' : '123456'}</code></span>
                 </div>
               </div>
 

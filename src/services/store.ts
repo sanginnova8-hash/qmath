@@ -552,10 +552,10 @@ export async function getAllUsers(): Promise<UserProfile[]> {
   const defaultList: UserProfile[] = [
     {
       id: 'admin-system',
-      email: 'admin@qmath.edu.vn',
-      displayName: 'Quản trị viên Hệ thống',
+      email: 'sanginnova@gmail.com',
+      displayName: 'Quản trị viên (sanginnova)',
       role: 'ADMIN',
-      school: 'THPT Chuyên',
+      school: 'Hệ thống QMath',
       createdAt: '2026-01-01T00:00:00.000Z'
     },
     INITIAL_TEACHER,

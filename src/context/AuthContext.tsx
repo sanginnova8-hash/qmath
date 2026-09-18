@@ -8,7 +8,7 @@ import { createUser } from '../services/store';
 
 const PASSCODES_KEY = 'qmath_security_passcodes';
 const DEFAULT_PASSCODES = {
-  ADMIN: 'admin123',
+  ADMIN: 'Ducthang@2025',
   TEACHER: '123456'
 };
 
@@ -23,10 +23,26 @@ export const GUEST_USER: UserProfile = {
   isGuest: true
 };
 
+export const INITIAL_ADMIN: UserProfile = {
+  id: 'admin-system',
+  email: 'sanginnova@gmail.com',
+  displayName: 'Quản trị viên (sanginnova)',
+  role: 'ADMIN',
+  school: 'Hệ thống QMath',
+  createdAt: '2026-01-01T00:00:00.000Z'
+};
+
 export const getStoredPasscodes = (): { ADMIN: string; TEACHER: string } => {
   try {
     const raw = typeof window !== 'undefined' ? localStorage.getItem(PASSCODES_KEY) : null;
-    if (raw) return { ...DEFAULT_PASSCODES, ...JSON.parse(raw) };
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed.ADMIN === 'admin123') {
+        parsed.ADMIN = 'Ducthang@2025';
+        localStorage.setItem(PASSCODES_KEY, JSON.stringify(parsed));
+      }
+      return { ...DEFAULT_PASSCODES, ...parsed };
+    }
   } catch (e) {
     console.error('Error loading passcodes:', e);
   }
@@ -70,7 +86,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [currentUser, setCurrentUser] = useState<UserProfile | null>(() => {
     try {
       const saved = localStorage.getItem(LOCAL_AUTH_KEY);
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const user = JSON.parse(saved);
+        if (user && (user.id === 'admin-system' || user.email === 'admin@qmath.edu.vn' || user.role === 'ADMIN')) {
+          return INITIAL_ADMIN;
+        }
+        return user;
+      }
     } catch (e) {
       console.error(e);
     }
@@ -143,13 +165,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const expected = codes[targetRole];
     if (code.trim() === expected.trim()) {
       if (targetRole === 'ADMIN') {
-        setCurrentUser({
-          id: 'admin-system',
-          email: 'admin@qmath.edu.vn',
-          displayName: 'Quản trị viên QMath',
-          role: 'ADMIN',
-          createdAt: '2026-01-01T00:00:00.000Z'
-        });
+        setCurrentUser(INITIAL_ADMIN);
       } else {
         setCurrentUser(INITIAL_TEACHER);
       }
@@ -167,13 +183,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     if (role === 'TEACHER') {
       setCurrentUser(INITIAL_TEACHER);
     } else if (role === 'ADMIN') {
-      setCurrentUser({
-        id: 'admin-system',
-        email: 'admin@qmath.edu.vn',
-        displayName: 'Quản trị viên QMath',
-        role: 'ADMIN',
-        createdAt: '2026-01-01T00:00:00.000Z'
-      });
+      setCurrentUser(INITIAL_ADMIN);
     } else {
       const std = INITIAL_STUDENTS[studentIndex] || INITIAL_STUDENTS[0];
       setCurrentUser(std);
@@ -187,14 +197,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         await signInWithEmailAndPassword(auth, email, pass);
       } else {
         // Mock login lookup
-        if (email.includes('admin')) {
-          setCurrentUser({
-            id: 'admin-system',
-            email: 'admin@qmath.edu.vn',
-            displayName: 'Quản trị viên QMath',
-            role: 'ADMIN',
-            createdAt: '2026-01-01T00:00:00.000Z'
-          });
+        if (email.includes('admin') || email.includes('sanginnova')) {
+          setCurrentUser(INITIAL_ADMIN);
         } else if (email.includes('giao') || email.includes('teacher')) {
           setCurrentUser(INITIAL_TEACHER);
         } else {
@@ -222,15 +226,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const allUsers: UserProfile[] = [
+    INITIAL_ADMIN,
     INITIAL_TEACHER,
-    ...INITIAL_STUDENTS,
-    {
-      id: 'admin-system',
-      email: 'admin@qmath.edu.vn',
-      displayName: 'Quản trị viên QMath',
-      role: 'ADMIN',
-      createdAt: '2026-01-01T00:00:00.000Z'
-    }
+    ...INITIAL_STUDENTS
   ];
 
   return (
