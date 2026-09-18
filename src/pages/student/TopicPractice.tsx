@@ -3,6 +3,7 @@ import { Question } from '../../types';
 import { getQuestions, normalizeMathString, recordStudentProgress, getAnswerKeyById } from '../../services/store';
 import { useAuth } from '../../context/AuthContext';
 import { MathView } from '../../components/math/MathView';
+import { ExplanationView } from '../../components/math/ExplanationView';
 import { MathInput } from '../../components/math/MathInput';
 import {
   Compass,
@@ -232,13 +233,13 @@ export const TopicPractice: React.FC = () => {
                     }`}
                   >
                     <span
-                      className={`w-6 h-6 rounded-lg font-bold text-xs flex items-center justify-center shrink-0 ${
-                        studentAnswer === opt.id ? 'bg-emerald-600 text-white' : 'bg-white border'
+                      className={`w-7 h-7 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center shrink-0 ${
+                        studentAnswer === opt.id ? 'bg-emerald-600 text-white' : 'bg-white border border-slate-300 text-slate-700'
                       }`}
                     >
                       {opt.id}
                     </span>
-                    <div className="flex-1 text-sm font-medium pt-0.5">
+                    <div className="flex-1 text-sm sm:text-base font-medium pt-0.5 text-slate-900">
                       <MathView content={opt.text} />
                     </div>
                   </button>
@@ -345,11 +346,11 @@ export const TopicPractice: React.FC = () => {
                 )}
               </div>
 
-              <div className="p-3.5 rounded-xl bg-white border border-slate-200 text-xs sm:text-sm leading-relaxed text-slate-800">
-                <p className="font-bold text-emerald-900 mb-1 flex items-center gap-1">
-                  <Sparkles className="w-3.5 h-3.5" /> Lời giải chi tiết:
+              <div className="p-4 sm:p-5 rounded-2xl bg-emerald-50/50 border border-emerald-200/90 text-sm sm:text-base leading-relaxed text-slate-800 space-y-2 shadow-xs">
+                <p className="font-extrabold text-emerald-950 flex items-center gap-1.5 text-sm sm:text-base">
+                  <Sparkles className="w-4 h-4 text-emerald-600" /> Hướng dẫn & Lời giải chi tiết:
                 </p>
-                <MathView content={currentQ.explanation} />
+                <ExplanationView content={currentQ.explanation} />
               </div>
             </div>
           )}

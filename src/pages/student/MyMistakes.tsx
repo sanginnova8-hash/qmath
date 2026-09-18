@@ -3,6 +3,7 @@ import { Question } from '../../types';
 import { getStudentProgress, getQuestionsByIds, clearMistake, normalizeMathString, getAnswerKeyById } from '../../services/store';
 import { useAuth } from '../../context/AuthContext';
 import { MathView } from '../../components/math/MathView';
+import { ExplanationView } from '../../components/math/ExplanationView';
 import { MathInput } from '../../components/math/MathInput';
 import {
   AlertCircle,
@@ -179,7 +180,7 @@ export const MyMistakes: React.FC = () => {
                 </div>
 
                 {/* Content */}
-                <div className="text-sm sm:text-base font-medium text-slate-900 leading-relaxed">
+                <div className="text-base sm:text-lg font-medium text-slate-900 leading-relaxed">
                   <MathView content={q.content} />
                 </div>
 
@@ -205,10 +206,10 @@ export const MyMistakes: React.FC = () => {
                                 : 'border-slate-200 bg-white hover:bg-slate-50'
                             }`}
                           >
-                            <span className="w-5 h-5 rounded font-bold text-xs bg-slate-100 flex items-center justify-center shrink-0">
+                            <span className="w-6 h-6 rounded-lg font-bold text-xs sm:text-sm bg-slate-100 flex items-center justify-center shrink-0">
                               {opt.id}
                             </span>
-                            <div className="flex-1 text-xs sm:text-sm font-medium">
+                            <div className="flex-1 text-sm sm:text-base font-medium">
                               <MathView content={opt.text} />
                             </div>
                           </button>
@@ -328,11 +329,11 @@ export const MyMistakes: React.FC = () => {
 
                 {/* Detailed Explanation */}
                 {showExplanation[q.id] && (
-                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-800 leading-relaxed space-y-1.5">
-                    <p className="font-extrabold text-emerald-900 flex items-center gap-1.5">
+                  <div className="p-4 sm:p-5 rounded-2xl bg-emerald-50/50 border border-emerald-200/90 text-sm sm:text-base text-slate-800 leading-relaxed space-y-2 shadow-xs">
+                    <p className="font-extrabold text-emerald-950 flex items-center gap-1.5 text-sm sm:text-base">
                       <Sparkles className="w-4 h-4 text-emerald-700" /> Hướng dẫn giải chi tiết:
                     </p>
-                    <MathView content={q.explanation} />
+                    <ExplanationView content={q.explanation} />
                   </div>
                 )}
               </div>

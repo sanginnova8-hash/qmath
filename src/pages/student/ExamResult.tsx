@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Submission, Question } from '../../types';
 import { getSubmissionById, getQuestionsByIds } from '../../services/store';
 import { MathView } from '../../components/math/MathView';
+import { ExplanationView } from '../../components/math/ExplanationView';
 import {
   Award,
   Clock,
@@ -277,13 +278,13 @@ export const ExamResult: React.FC<ExamResultProps> = ({
               </div>
 
               {/* Detailed Step-by-Step KaTeX Explanation */}
-              <div className="p-4 sm:p-5 rounded-xl bg-gradient-to-br from-emerald-50/60 to-slate-50 border border-emerald-200/80 text-xs sm:text-sm text-slate-800 leading-relaxed space-y-2">
-                <div className="font-extrabold text-emerald-950 flex items-center gap-2 text-sm">
+              <div className="p-4 sm:p-5 rounded-2xl bg-emerald-50/50 border border-emerald-200/90 text-sm sm:text-base text-slate-800 leading-relaxed space-y-2 shadow-xs">
+                <div className="font-extrabold text-emerald-950 flex items-center gap-2 text-sm sm:text-base">
                   <Sparkles className="w-4 h-4 text-emerald-700" />
                   <span>Hướng dẫn giải chi tiết:</span>
                 </div>
-                <div className="pt-1 text-slate-700">
-                  <MathView content={q.explanation || 'Chưa có lời giải chi tiết cho câu hỏi này.'} />
+                <div className="pt-1">
+                  <ExplanationView content={q.explanation || 'Chưa có lời giải chi tiết cho câu hỏi này.'} />
                 </div>
               </div>
             </div>

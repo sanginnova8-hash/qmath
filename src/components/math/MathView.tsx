@@ -44,9 +44,12 @@ export const MathView: React.FC<MathViewProps> = ({ content, images, className =
           cleanSrc = normalizedBase + cleanSrc;
         }
 
+        const isGenericCaption = !alt || alt.trim() === 'Hình vẽ' || alt.trim() === 'Hình vẽ minh họa' || alt.trim().toLowerCase().startsWith('image');
+        const captionHtml = isGenericCaption ? '' : `<span class="text-xs text-slate-500 mt-1.5 italic font-medium">${alt}</span>`;
+
         imgTokens.push({
           token: tokenId,
-          html: `<div class="my-3.5 flex flex-col items-center justify-center"><img src="${cleanSrc}" alt="${alt || 'Hình vẽ minh họa'}" loading="lazy" class="max-h-72 sm:max-h-80 max-w-full rounded-2xl border border-slate-200/80 shadow-xs bg-white p-2.5 hover:shadow-md transition-all object-contain" /><span class="text-[11px] text-slate-500 mt-1.5 italic font-medium">${alt || 'Hình vẽ minh họa'}</span></div>`
+          html: `<div class="my-3.5 flex flex-col items-center justify-center"><img src="${cleanSrc}" alt="${alt || 'Hình vẽ minh họa'}" loading="lazy" class="max-h-72 sm:max-h-80 max-w-full rounded-2xl border border-slate-200/80 shadow-xs bg-white p-2.5 hover:shadow-md transition-all object-contain" />${captionHtml}</div>`
         });
         return tokenId;
       }
@@ -78,12 +81,22 @@ export const MathView: React.FC<MathViewProps> = ({ content, images, className =
             return `<span class="font-serif italic">${math}</span>`;
           }
         } else {
-          // Normal text: escape HTML and preserve line breaks
-          return token
+          // Normal text: escape HTML, parse markdown bold/italic, and preserve line breaks
+          let text = token
             .replace(/&/g, '&amp;')
             .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/\n/g, '<br/>');
+            .replace(/>/g, '&gt;');
+
+          // Parse markdown bold: **text**
+          text = text.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-slate-900">$1</strong>');
+
+          // Parse markdown italic: *text*
+          text = text.replace(/(?<!\*)\*([^*\n]+)\*(?!\*)/g, '<em class="italic text-slate-800">$1</em>');
+
+          // Clean stray asterisks if any remain
+          text = text.replace(/\*\*/g, '');
+
+          return text.replace(/\n/g, '<br/>');
         }
       })
       .join('');
@@ -98,7 +111,7 @@ export const MathView: React.FC<MathViewProps> = ({ content, images, className =
       const extraImgs = images.filter((img) => !content.includes(img));
       if (extraImgs.length > 0) {
         const extraHtml = extraImgs
-          .map((src, i) => {
+          .map((src) => {
             let cleanSrc = src.trim();
             if (cleanSrc.startsWith('/imported_images/')) {
               cleanSrc = normalizedBase + cleanSrc.slice(1);
@@ -107,11 +120,7 @@ export const MathView: React.FC<MathViewProps> = ({ content, images, className =
             } else if (cleanSrc.startsWith('imported_images/')) {
               cleanSrc = normalizedBase + cleanSrc;
             }
-            return `<div class="my-3.5 flex flex-col items-center justify-center"><img src="${cleanSrc}" alt="Hình vẽ minh họa ${
-              i + 1
-            }" loading="lazy" class="max-h-72 sm:max-h-80 max-w-full rounded-2xl border border-slate-200/80 shadow-xs bg-white p-2.5 hover:shadow-md transition-all object-contain" /><span class="text-[11px] text-slate-500 mt-1.5 italic font-medium">Hình vẽ minh họa ${
-              i + 1
-            }</span></div>`;
+            return `<div class="my-3.5 flex flex-col items-center justify-center"><img src="${cleanSrc}" alt="Hình vẽ minh họa" loading="lazy" class="max-h-72 sm:max-h-80 max-w-full rounded-2xl border border-slate-200/80 shadow-xs bg-white p-2.5 hover:shadow-md transition-all object-contain" /></div>`;
           })
           .join('');
         html += extraHtml;

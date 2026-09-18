@@ -10,16 +10,30 @@
 }
 
 /* KaTeX Fine-tuning for Vietnamese Typography */
+.math-content {
+  line-height: 1.75;
+}
+
 .math-content .katex {
-  font-size: 1.05em;
+  font-size: 1.12em;
   text-rendering: auto;
 }
 
+.math-content strong {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.math-content em {
+  font-style: italic;
+  color: #334155;
+}
+
 .math-content .katex-display {
-  margin: 0.8em 0;
+  margin: 0.9em 0;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 0.3em 0;
+  padding: 0.4em 0;
 }
 
 /* Custom modern scrollbars */

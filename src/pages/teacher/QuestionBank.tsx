@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Question, QuestionType, DifficultyLevel, AnswerKey } from '../../types';
 import { getQuestions, saveQuestion, deleteQuestion, loadExamBankTap1 } from '../../services/store';
 import { MathView } from '../../components/math/MathView';
+import { ExplanationView } from '../../components/math/ExplanationView';
 import { MathInput } from '../../components/math/MathInput';
 import { DocxImportModal } from '../../components/teacher/DocxImportModal';
 import { ImageUploader } from '../../components/teacher/ImageUploader';
@@ -458,22 +459,22 @@ export const QuestionBank: React.FC = () => {
               </div>
 
               {/* Question Content (Rendered KaTeX) */}
-              <div className="text-sm sm:text-base text-slate-800 leading-relaxed font-medium">
+              <div className="text-base sm:text-lg text-slate-900 leading-relaxed font-medium">
                 <MathView content={q.content} images={q.images} />
               </div>
 
               {/* Options / Sub-items */}
               {q.type === 'MCQ' && q.options && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                   {q.options.map((opt) => (
                     <div
                       key={opt.id}
-                      className="flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 bg-slate-50/60 text-xs sm:text-sm"
+                      className="flex items-start gap-3 p-3.5 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-slate-50 transition-all text-sm sm:text-base text-slate-900 font-medium"
                     >
-                      <span className="w-5 h-5 rounded-md bg-white text-slate-700 font-bold flex items-center justify-center border border-slate-300 shrink-0 text-xs">
+                      <span className="w-6 h-6 rounded-lg bg-white text-slate-800 font-bold flex items-center justify-center border border-slate-300 shrink-0 text-xs sm:text-sm shadow-xs">
                         {opt.id}
                       </span>
-                      <div className="flex-1 font-medium">
+                      <div className="flex-1">
                         <MathView content={opt.text} />
                       </div>
                     </div>
@@ -482,13 +483,13 @@ export const QuestionBank: React.FC = () => {
               )}
 
               {q.type === 'TRUE_FALSE' && q.subItems && (
-                <div className="space-y-2 pt-1">
+                <div className="space-y-2.5 pt-1">
                   {q.subItems.map((sub) => (
                     <div
                       key={sub.id}
-                      className="flex items-start gap-3 p-3 rounded-xl border border-slate-200 bg-slate-50/60 text-xs sm:text-sm"
+                      className="flex items-start gap-3 p-3.5 rounded-2xl border border-slate-200 bg-slate-50/70 text-sm sm:text-base text-slate-900"
                     >
-                      <span className="font-bold text-emerald-800 uppercase shrink-0 text-xs bg-emerald-100 px-2 py-0.5 rounded">
+                      <span className="font-bold text-emerald-800 uppercase shrink-0 text-xs sm:text-sm bg-emerald-100 px-2.5 py-0.5 rounded-lg border border-emerald-200">
                         Ý {sub.id})
                       </span>
                       <div className="flex-1 font-medium">
@@ -500,7 +501,7 @@ export const QuestionBank: React.FC = () => {
               )}
 
               {q.type === 'SHORT_ANSWER' && (
-                <div className="p-3 bg-amber-50/50 rounded-xl border border-amber-200/60 text-xs text-amber-900 font-medium">
+                <div className="p-3.5 bg-amber-50/60 rounded-2xl border border-amber-200/80 text-sm text-amber-900 font-medium">
                   Dạng trả lời ngắn: Học sinh nhập trực tiếp đáp số hoặc biểu thức qua bàn phím ảo toán học MathLive.
                 </div>
               )}
@@ -510,18 +511,18 @@ export const QuestionBank: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleToggleExplanation(q.id)}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 hover:text-emerald-800 self-start"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-emerald-700 hover:text-emerald-800 self-start py-1"
                 >
-                  <Eye className="w-3.5 h-3.5" />
+                  <Eye className="w-4 h-4" />
                   {expandedExplanation[q.id] ? 'Ẩn lời giải chi tiết' : 'Xem lời giải chi tiết'}
                 </button>
 
                 {expandedExplanation[q.id] && (
-                  <div className="p-4 rounded-xl bg-emerald-50/40 border border-emerald-200 text-xs sm:text-sm text-slate-700 leading-relaxed space-y-1">
-                    <p className="font-bold text-emerald-900 flex items-center gap-1">
-                      <Sparkles className="w-3.5 h-3.5" /> Lời giải chi tiết:
+                  <div className="p-4 sm:p-5 rounded-2xl bg-emerald-50/50 border border-emerald-200/90 text-sm sm:text-base text-slate-800 leading-relaxed space-y-2 shadow-xs">
+                    <p className="font-extrabold text-emerald-950 flex items-center gap-1.5 text-sm sm:text-base">
+                      <Sparkles className="w-4 h-4 text-emerald-600" /> Hướng dẫn & Lời giải chi tiết:
                     </p>
-                    <MathView content={q.explanation} />
+                    <ExplanationView content={q.explanation} />
                   </div>
                 )}
               </div>
