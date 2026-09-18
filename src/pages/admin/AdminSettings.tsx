@@ -551,7 +551,7 @@ export const AdminSettings: React.FC = () => {
             <form onSubmit={handleSavePasscodes} className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               <div className="p-4 rounded-xl bg-purple-50/60 border border-purple-200 space-y-2">
                 <label className="block text-xs font-bold text-purple-900 uppercase tracking-wider">
-                  🛡️ Mật khẩu Quản trị viên (ADMIN - sanginnova@gmail.com)
+                  🛡️ Mật khẩu Quản trị viên (ADMIN - sanginnova8@gmail.com)
                 </label>
                 <input
                   type="text"

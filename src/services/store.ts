@@ -552,8 +552,8 @@ export async function getAllUsers(): Promise<UserProfile[]> {
   const defaultList: UserProfile[] = [
     {
       id: 'admin-system',
-      email: 'sanginnova@gmail.com',
-      displayName: 'Quản trị viên (sanginnova)',
+      email: 'sanginnova8@gmail.com',
+      displayName: 'Quản trị viên (sanginnova8)',
       role: 'ADMIN',
       school: 'Hệ thống QMath',
       createdAt: '2026-01-01T00:00:00.000Z'

@@ -481,7 +481,7 @@ export const RoleAuthModal: React.FC<RoleAuthModalProps> = ({
                       🛡️ <strong>Khu vực Quản trị viên:</strong> Toàn quyền cài đặt hệ thống, quản lý người dùng, sao lưu & khôi phục ngân hàng câu hỏi.
                     </p>
                     <div className="pt-1 text-[11px] text-purple-900 bg-purple-50 p-2 rounded-lg border border-purple-200 flex flex-col gap-0.5">
-                      <div>Tên đăng nhập: <strong className="font-mono text-purple-950">sanginnova@gmail.com</strong></div>
+                      <div>Tên đăng nhập: <strong className="font-mono text-purple-950">sanginnova8@gmail.com</strong></div>
                       <div>Mật khẩu xác thực: <code className="bg-white px-1.5 py-0.5 rounded font-mono font-bold text-purple-800 border border-purple-200">Ducthang@2025</code></div>
                     </div>
                   </div>
