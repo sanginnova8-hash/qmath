@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Question, QuestionType, DifficultyLevel, AnswerKey } from '../../types';
 import { getQuestions, saveQuestion, deleteQuestion, loadExamBankTap1 } from '../../services/store';
 import { MathView } from '../../components/math/MathView';
 import { MathInput } from '../../components/math/MathInput';
 import { DocxImportModal } from '../../components/teacher/DocxImportModal';
+import { ImageUploader } from '../../components/teacher/ImageUploader';
 import {
   Plus,
   Search,
@@ -46,6 +47,42 @@ export const QuestionBank: React.FC = () => {
   const [formDifficulty, setFormDifficulty] = useState<DifficultyLevel>('TH');
   const [formContent, setFormContent] = useState('Cho hàm số $y = f(x)$ liên tục trên $\\mathbb{R}$...');
   const [formExplanation, setFormExplanation] = useState('Lời giải chi tiết từng bước...');
+  const [formImages, setFormImages] = useState<string[]>([]);
+
+  const contentTextareaRef = useRef<HTMLTextAreaElement>(null);
+  const explanationTextareaRef = useRef<HTMLTextAreaElement>(null);
+
+  const handleInsertImageToContent = (markdownImg: string) => {
+    const textarea = contentTextareaRef.current;
+    if (textarea) {
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const newContent = formContent.substring(0, start) + markdownImg + formContent.substring(end);
+      setFormContent(newContent);
+      setTimeout(() => {
+        textarea.focus();
+        textarea.setSelectionRange(start + markdownImg.length, start + markdownImg.length);
+      }, 0);
+    } else {
+      setFormContent((prev) => prev + markdownImg);
+    }
+  };
+
+  const handleInsertImageToExplanation = (markdownImg: string) => {
+    const textarea = explanationTextareaRef.current;
+    if (textarea) {
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const newExp = formExplanation.substring(0, start) + markdownImg + formExplanation.substring(end);
+      setFormExplanation(newExp);
+      setTimeout(() => {
+        textarea.focus();
+        textarea.setSelectionRange(start + markdownImg.length, start + markdownImg.length);
+      }, 0);
+    } else {
+      setFormExplanation((prev) => prev + markdownImg);
+    }
+  };
 
   // MCQ state
   const [mcqOptions, setMcqOptions] = useState<Record<'A' | 'B' | 'C' | 'D', string>>({
@@ -112,6 +149,7 @@ export const QuestionBank: React.FC = () => {
       topic: formTopic,
       difficulty: formDifficulty,
       explanation: formExplanation,
+      images: formImages.length > 0 ? formImages : undefined,
       createdAt: new Date().toISOString()
     };
 
@@ -141,6 +179,7 @@ export const QuestionBank: React.FC = () => {
     }
 
     await saveQuestion(questionData, answerKey);
+    setFormImages([]);
     setShowAddModal(false);
     await loadAllQuestions();
   };
@@ -222,7 +261,10 @@ export const QuestionBank: React.FC = () => {
 
           <button
             type="button"
-            onClick={() => setShowAddModal(true)}
+            onClick={() => {
+              setFormImages([]);
+              setShowAddModal(true);
+            }}
             className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-sm shadow-md shadow-emerald-900/10 transition-all active:scale-95"
           >
             <Plus className="w-4 h-4" />
@@ -417,7 +459,7 @@ export const QuestionBank: React.FC = () => {
 
               {/* Question Content (Rendered KaTeX) */}
               <div className="text-sm sm:text-base text-slate-800 leading-relaxed font-medium">
-                <MathView content={q.content} />
+                <MathView content={q.content} images={q.images} />
               </div>
 
               {/* Options / Sub-items */}
@@ -584,23 +626,34 @@ export const QuestionBank: React.FC = () => {
                   Nội dung câu hỏi (Dùng cú pháp LaTeX: $công thức$ hoặc $$khối$$)
                 </label>
                 <textarea
+                  ref={contentTextareaRef}
                   rows={3}
                   value={formContent}
                   onChange={(e) => setFormContent(e.target.value)}
                   required
+                  placeholder="Nhập nội dung câu hỏi..."
                   className="w-full p-3 font-mono text-xs sm:text-sm rounded-xl border border-slate-300 focus:border-emerald-500 outline-none"
                 />
 
                 {/* Realtime LaTeX preview */}
                 <div className="mt-2 p-3 rounded-xl bg-slate-50 border border-slate-200">
                   <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">
-                    Xem trước hiển thị KaTeX:
+                    Xem trước hiển thị KaTeX & Hình ảnh:
                   </p>
                   <div className="text-sm font-medium text-slate-900">
-                    <MathView content={formContent || 'Chưa nhập nội dung'} />
+                    <MathView content={formContent || 'Chưa nhập nội dung'} images={formImages} />
                   </div>
                 </div>
               </div>
+
+              {/* Upload attached image component */}
+              <ImageUploader
+                images={formImages}
+                onChange={setFormImages}
+                onInsertToContent={handleInsertImageToContent}
+                onInsertToExplanation={handleInsertImageToExplanation}
+                label="Tải lên ảnh đính kèm / Hình vẽ minh họa"
+              />
 
               {/* DẠNG MCQ: Options & Answer Key */}
               {formType === 'MCQ' && (
@@ -708,10 +761,18 @@ export const QuestionBank: React.FC = () => {
 
               {/* Explanation with preview */}
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">
-                  Lời giải chi tiết & Hướng dẫn (Kèm LaTeX)
-                </label>
+                <div className="flex items-center justify-between mb-1">
+                  <label className="block text-xs font-bold text-slate-700">
+                    Lời giải chi tiết & Hướng dẫn (Kèm LaTeX & Hình vẽ)
+                  </label>
+                  {formImages.length > 0 && (
+                    <span className="text-[11px] text-purple-700 font-medium">
+                      💡 Có thể chèn ảnh từ danh sách trên vào lời giải
+                    </span>
+                  )}
+                </div>
                 <textarea
+                  ref={explanationTextareaRef}
                   rows={3}
                   value={formExplanation}
                   onChange={(e) => setFormExplanation(e.target.value)}
@@ -719,6 +780,16 @@ export const QuestionBank: React.FC = () => {
                   placeholder="Giải thích từng bước để học sinh nắm vững phương pháp..."
                   className="w-full p-3 font-mono text-xs sm:text-sm rounded-xl border border-slate-300 focus:border-emerald-500 outline-none"
                 />
+                {formExplanation && (
+                  <div className="mt-2 p-3 rounded-xl bg-purple-50/50 border border-purple-200/80">
+                    <p className="text-[11px] font-bold text-purple-900 uppercase tracking-wider mb-1">
+                      Xem trước Lời giải chi tiết:
+                    </p>
+                    <div className="text-sm font-medium text-slate-900">
+                      <MathView content={formExplanation} />
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Action Buttons */}

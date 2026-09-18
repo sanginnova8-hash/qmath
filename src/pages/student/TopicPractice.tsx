@@ -213,7 +213,7 @@ export const TopicPractice: React.FC = () => {
 
           {/* Question Content */}
           <div className="text-base sm:text-lg font-medium text-slate-900 leading-relaxed">
-            <MathView content={currentQ.content} />
+            <MathView content={currentQ.content} images={currentQ.images} />
           </div>
 
           {/* Input Answer Section */}

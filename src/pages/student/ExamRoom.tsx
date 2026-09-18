@@ -369,7 +369,7 @@ export const ExamRoom: React.FC<ExamRoomProps> = ({ assignmentId, onFinish, onEx
 
               {/* Question Statement Rendered with KaTeX */}
               <div className="text-base sm:text-lg text-slate-900 font-medium leading-relaxed py-2">
-                <MathView content={currentQ.content} />
+                <MathView content={currentQ.content} images={currentQ.images} />
               </div>
             </div>
 

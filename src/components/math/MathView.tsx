@@ -4,11 +4,12 @@ import { cleanLatexString } from '../../utils/latexCleaner';
 
 interface MathViewProps {
   content: string;
+  images?: string[];
   className?: string;
   block?: boolean;
 }
 
-export const MathView: React.FC<MathViewProps> = ({ content, className = '', block = false }) => {
+export const MathView: React.FC<MathViewProps> = ({ content, images, className = '', block = false }) => {
   const renderedHtml = useMemo(() => {
     if (!content) return '';
 
@@ -92,8 +93,33 @@ export const MathView: React.FC<MathViewProps> = ({ content, className = '', blo
       html = html.replace(item.token, item.html);
     });
 
+    // If standalone images are provided and not yet embedded in content
+    if (images && images.length > 0) {
+      const extraImgs = images.filter((img) => !content.includes(img));
+      if (extraImgs.length > 0) {
+        const extraHtml = extraImgs
+          .map((src, i) => {
+            let cleanSrc = src.trim();
+            if (cleanSrc.startsWith('/imported_images/')) {
+              cleanSrc = normalizedBase + cleanSrc.slice(1);
+            } else if (cleanSrc.startsWith('./imported_images/')) {
+              cleanSrc = normalizedBase + cleanSrc.slice(2);
+            } else if (cleanSrc.startsWith('imported_images/')) {
+              cleanSrc = normalizedBase + cleanSrc;
+            }
+            return `<div class="my-3.5 flex flex-col items-center justify-center"><img src="${cleanSrc}" alt="Hình vẽ minh họa ${
+              i + 1
+            }" loading="lazy" class="max-h-72 sm:max-h-80 max-w-full rounded-2xl border border-slate-200/80 shadow-xs bg-white p-2.5 hover:shadow-md transition-all object-contain" /><span class="text-[11px] text-slate-500 mt-1.5 italic font-medium">Hình vẽ minh họa ${
+              i + 1
+            }</span></div>`;
+          })
+          .join('');
+        html += extraHtml;
+      }
+    }
+
     return html;
-  }, [content, block]);
+  }, [content, images, block]);
 
   return (
     <div
