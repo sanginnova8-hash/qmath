@@ -18,9 +18,9 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ onToggleSidebar }) => {
-  const { currentUser, role, switchRole, logoutToStudent } = useAuth();
+  const { currentUser, role, switchRole, logoutToGuest, isGuest } = useAuth();
   const [showAuthModal, setShowAuthModal] = useState(false);
-  const [authTargetRole, setAuthTargetRole] = useState<'ADMIN' | 'TEACHER'>('TEACHER');
+  const [authTargetRole, setAuthTargetRole] = useState<'ADMIN' | 'TEACHER' | 'STUDENT'>('STUDENT');
 
   const handleResetData = () => {
     if (window.confirm('Bạn có chắc muốn đặt lại toàn bộ dữ liệu mẫu ban đầu của QMath?')) {
@@ -71,18 +71,54 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleSidebar }) => {
 
             {/* Protected Role Bar */}
             {role === 'STUDENT' ? (
-              <button
-                type="button"
-                onClick={() => {
-                  setAuthTargetRole('TEACHER');
-                  setShowAuthModal(true);
-                }}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-emerald-800 border border-slate-200 hover:border-emerald-300 text-xs font-bold transition-all shadow-2xs hover:shadow-xs"
-                title="Đăng nhập dành cho Giáo viên hoặc Quản trị viên"
-              >
-                <Lock className="w-3.5 h-3.5 text-emerald-700" />
-                <span>Đăng nhập Giáo viên / Admin</span>
-              </button>
+              <div className="flex items-center gap-2">
+                {isGuest ? (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAuthTargetRole('STUDENT');
+                      setShowAuthModal(true);
+                    }}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-800 hover:from-emerald-700 hover:to-teal-900 text-white font-bold text-xs shadow-xs hover:shadow-md transition-all active:scale-95"
+                    title="Đăng nhập hoặc Đăng ký tài khoản học sinh để mở khóa 992 câu hỏi"
+                  >
+                    <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                    <span>Đăng nhập / Đăng ký</span>
+                  </button>
+                ) : (
+                  <div className="flex items-center gap-1.5 p-1 bg-emerald-50 border border-emerald-200 rounded-xl text-xs">
+                    <div className="flex items-center gap-1 px-2.5 py-1 text-emerald-900 font-bold">
+                      <GraduationCap className="w-4 h-4 text-emerald-700" />
+                      <span>{currentUser?.displayName || 'Học sinh'}</span>
+                      <span className="text-[10px] bg-emerald-200 text-emerald-900 px-1.5 py-0.2 rounded-full font-bold">
+                        Lớp {currentUser?.grade || 12}
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={logoutToGuest}
+                      className="flex items-center gap-1 px-2 py-1 text-slate-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors font-medium"
+                      title="Đăng xuất tài khoản"
+                    >
+                      <LogOut className="w-3.5 h-3.5" />
+                      <span className="hidden sm:inline">Thoát</span>
+                    </button>
+                  </div>
+                )}
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAuthTargetRole('TEACHER');
+                    setShowAuthModal(true);
+                  }}
+                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 border border-slate-200 text-xs font-semibold transition-all"
+                  title="Cổng đăng nhập Giáo viên / Quản trị viên"
+                >
+                  <Lock className="w-3.5 h-3.5 text-slate-500" />
+                  <span className="hidden sm:inline">GV / Admin</span>
+                </button>
+              </div>
             ) : role === 'TEACHER' ? (
               <div className="flex items-center gap-1 p-1 bg-emerald-50 border border-emerald-200 rounded-xl text-xs">
                 <div className="flex items-center gap-1 px-2 py-1 text-emerald-900 font-bold">
@@ -103,7 +139,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleSidebar }) => {
                 </button>
                 <button
                   type="button"
-                  onClick={logoutToStudent}
+                  onClick={logoutToGuest}
                   className="flex items-center gap-1 px-2 py-1 text-slate-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors font-medium"
                   title="Thoát về vai trò Học sinh"
                 >
@@ -128,7 +164,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleSidebar }) => {
                 </button>
                 <button
                   type="button"
-                  onClick={logoutToStudent}
+                  onClick={logoutToGuest}
                   className="flex items-center gap-1 px-2 py-1 text-slate-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors font-medium"
                   title="Thoát về vai trò Học sinh"
                 >
@@ -155,16 +191,24 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleSidebar }) => {
                   ? 'bg-purple-100 text-purple-900 border-purple-300'
                   : role === 'TEACHER'
                   ? 'bg-emerald-100 text-emerald-900 border-emerald-300'
+                  : isGuest
+                  ? 'bg-amber-100 text-amber-900 border-amber-300'
                   : 'bg-blue-100 text-blue-900 border-blue-300'
               }`}>
                 {currentUser?.displayName ? currentUser.displayName.charAt(0) : 'Q'}
               </div>
               <div className="hidden md:flex flex-col text-left">
                 <span className="text-xs font-bold text-slate-800 truncate max-w-[130px]">
-                  {currentUser?.displayName || 'Học sinh'}
+                  {currentUser?.displayName || 'Khách'}
                 </span>
                 <span className="text-[10px] font-medium text-slate-500">
-                  {role === 'ADMIN' ? '🛡️ Quản trị viên' : role === 'TEACHER' ? '👨‍🏫 Giáo viên Toán' : '🎓 Học sinh THPT'}
+                  {role === 'ADMIN'
+                    ? '🛡️ Quản trị viên'
+                    : role === 'TEACHER'
+                    ? '👨‍🏫 Giáo viên Toán'
+                    : isGuest
+                    ? '👤 Dùng thử giới hạn'
+                    : `🎓 Học sinh Lớp ${currentUser?.grade || 12}`}
                 </span>
               </div>
             </div>

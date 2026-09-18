@@ -13,8 +13,10 @@ import {
   Sparkles,
   Calendar,
   Compass,
-  ArrowRight
+  ArrowRight,
+  Lock
 } from 'lucide-react';
+import RoleAuthModal from '../../components/auth/RoleAuthModal';
 
 interface StudentDashboardProps {
   onStartExam: (assignmentId: string) => void;
@@ -27,11 +29,20 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
   onViewResult,
   onNavigate
 }) => {
-  const { currentUser } = useAuth();
+  const { currentUser, isGuest } = useAuth();
   const [assignments, setAssignments] = useState<Assignment[]>([]);
   const [submissions, setSubmissions] = useState<Submission[]>([]);
   const [progress, setProgress] = useState<StudentProgress | null>(null);
   const [loading, setLoading] = useState(true);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+
+  const handleAttemptStartExam = (asgId: string) => {
+    if (isGuest) {
+      setShowAuthModal(true);
+      return;
+    }
+    onStartExam(asgId);
+  };
 
   useEffect(() => {
     async function loadData() {
@@ -66,6 +77,34 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
 
   return (
     <div className="space-y-6">
+      {/* Guest Trial Warning Banner */}
+      {isGuest && (
+        <div className="bg-gradient-to-r from-amber-500 via-amber-600 to-orange-600 rounded-3xl p-6 text-white shadow-lg flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="flex items-start gap-3.5">
+            <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-xs shrink-0">
+              <Lock className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-black/20 text-white mb-1.5">
+                <span>Chế độ Khách (Dùng thử giới hạn)</span>
+              </div>
+              <h3 className="text-lg font-extrabold">Đăng nhập Học sinh để mở khóa toàn bộ tài nguyên</h3>
+              <p className="text-xs text-amber-100 max-w-xl mt-1">
+                Bạn hiện chỉ xem được danh sách đề thi và luyện tập thử 5 câu mỗi chuyên đề. Vui lòng đăng nhập hoặc tạo tài khoản để làm bài kiểm tra tính điểm và ghi nhận kết quả.
+              </p>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => setShowAuthModal(true)}
+            className="px-5 py-3 rounded-2xl bg-white text-amber-900 hover:bg-amber-50 font-bold text-xs shadow-md transition-all active:scale-95 shrink-0 flex items-center justify-center gap-2"
+          >
+            <Sparkles className="w-4 h-4 text-amber-600" />
+            <span>Đăng nhập / Đăng ký ngay</span>
+          </button>
+        </div>
+      )}
+
       {/* Welcome Banner */}
       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-emerald-950 via-emerald-900 to-qmath-dark p-6 sm:p-8 text-white shadow-card">
         <div className="relative z-10 max-w-2xl">
@@ -81,7 +120,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
           <div className="mt-5 flex flex-wrap gap-3">
             {todoAssignments.length > 0 && (
               <button
-                onClick={() => onStartExam(todoAssignments[0].id)}
+                onClick={() => handleAttemptStartExam(todoAssignments[0].id)}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-emerald-900 hover:bg-emerald-50 font-bold text-sm shadow-md transition-all active:scale-95"
               >
                 <Play className="w-4 h-4 fill-emerald-900 text-emerald-900" />
@@ -181,7 +220,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
                     </div>
 
                     <button
-                      onClick={() => onStartExam(asg.id)}
+                      onClick={() => handleAttemptStartExam(asg.id)}
                       className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-900/10 active:scale-95 transition-all shrink-0"
                     >
                       <Play className="w-3.5 h-3.5 fill-white" />
@@ -270,6 +309,13 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
           </div>
         </div>
       </div>
+
+      {/* Role Auth Modal */}
+      <RoleAuthModal
+        isOpen={showAuthModal}
+        onClose={() => setShowAuthModal(false)}
+        targetRole="STUDENT"
+      />
     </div>
   );
 };

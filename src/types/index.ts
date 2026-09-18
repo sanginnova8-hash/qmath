@@ -9,6 +9,7 @@ export interface UserProfile {
   grade?: 10 | 11 | 12;
   school?: string;
   createdAt: string;
+  isGuest?: boolean;
 }
 
 export type QuestionType = 'MCQ' | 'TRUE_FALSE' | 'SHORT_ANSWER';

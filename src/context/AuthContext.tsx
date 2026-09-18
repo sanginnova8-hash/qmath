@@ -4,10 +4,23 @@ import { INITIAL_TEACHER, INITIAL_STUDENTS } from '../services/seedData';
 import { isFirebaseConfigured, auth } from '../lib/firebase';
 import { onAuthStateChanged, signOut, signInWithEmailAndPassword } from 'firebase/auth';
 
+import { createUser } from '../services/store';
+
 const PASSCODES_KEY = 'qmath_security_passcodes';
 const DEFAULT_PASSCODES = {
   ADMIN: 'admin123',
   TEACHER: '123456'
+};
+
+export const GUEST_USER: UserProfile = {
+  id: 'guest-preview',
+  email: 'guest@qmath.edu.vn',
+  displayName: 'Khách trải nghiệm',
+  role: 'STUDENT',
+  grade: 12,
+  school: 'Chưa đăng nhập',
+  createdAt: '2026-01-01T00:00:00.000Z',
+  isGuest: true
 };
 
 export const getStoredPasscodes = (): { ADMIN: string; TEACHER: string } => {
@@ -33,9 +46,13 @@ export const setStoredPasscode = (role: 'ADMIN' | 'TEACHER', newCode: string): v
 interface AuthContextType {
   currentUser: UserProfile | null;
   role: UserRole;
+  isGuest: boolean;
   loading: boolean;
   loginAsDemo: (role: UserRole, studentIndex?: number) => void;
   loginWithPasscode: (targetRole: 'ADMIN' | 'TEACHER', code: string) => { success: boolean; message?: string };
+  loginStudentAccount: (user: UserProfile) => void;
+  registerStudentAccount: (data: { displayName: string; email: string; grade: 10 | 11 | 12; school?: string }) => Promise<UserProfile>;
+  logoutToGuest: () => void;
   logoutToStudent: () => void;
   getStoredPasscodes: () => { ADMIN: string; TEACHER: string };
   updatePasscode: (role: 'ADMIN' | 'TEACHER', newCode: string) => void;
@@ -57,9 +74,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     } catch (e) {
       console.error(e);
     }
-    // Default to STUDENT when fresh link is opened, protecting Teacher & Admin workspace
-    return INITIAL_STUDENTS[0];
+    // Default to GUEST when fresh link is opened, requiring account for full features
+    return GUEST_USER;
   });
+
+  const isGuest = Boolean(!currentUser || currentUser.isGuest);
 
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -76,11 +95,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const unsubscribe = onAuthStateChanged(auth, (user) => {
         if (user) {
           // If logged in via Firebase Auth
-          setCurrentUser(prev => prev || {
+          setCurrentUser(prev => prev && !prev.isGuest ? prev : {
             id: user.uid,
             email: user.email || 'user@qmath.edu.vn',
             displayName: user.displayName || 'Người dùng QMath',
             role: 'STUDENT',
+            grade: 12,
+            isGuest: false,
             createdAt: new Date().toISOString()
           });
         }
@@ -88,6 +109,34 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       return () => unsubscribe();
     }
   }, []);
+
+  const loginStudentAccount = (user: UserProfile) => {
+    setCurrentUser({ ...user, role: 'STUDENT', isGuest: false });
+  };
+
+  const registerStudentAccount = async (data: { displayName: string; email: string; grade: 10 | 11 | 12; school?: string }): Promise<UserProfile> => {
+    const newUser: UserProfile = {
+      id: `student-${Date.now()}`,
+      displayName: data.displayName.trim(),
+      email: data.email.trim(),
+      role: 'STUDENT',
+      grade: data.grade,
+      school: data.school?.trim() || 'Trường THPT',
+      createdAt: new Date().toISOString(),
+      isGuest: false
+    };
+    await createUser(newUser);
+    setCurrentUser(newUser);
+    return newUser;
+  };
+
+  const logoutToGuest = () => {
+    setCurrentUser(GUEST_USER);
+  };
+
+  const logoutToStudent = () => {
+    logoutToGuest();
+  };
 
   const loginWithPasscode = (targetRole: 'ADMIN' | 'TEACHER', code: string): { success: boolean; message?: string } => {
     const codes = getStoredPasscodes();
@@ -109,9 +158,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return { success: false, message: `Mật khẩu ${targetRole === 'ADMIN' ? 'Quản trị viên' : 'Giáo viên'} không chính xác!` };
   };
 
-  const logoutToStudent = () => {
-    setCurrentUser(INITIAL_STUDENTS[0]);
-  };
 
   const updatePasscode = (roleToUpdate: 'ADMIN' | 'TEACHER', newCode: string) => {
     setStoredPasscode(roleToUpdate, newCode);
@@ -192,9 +238,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       value={{
         currentUser,
         role: currentUser?.role || 'STUDENT',
+        isGuest,
         loading,
         loginAsDemo,
         loginWithPasscode,
+        loginStudentAccount,
+        registerStudentAccount,
+        logoutToGuest,
         logoutToStudent,
         getStoredPasscodes,
         updatePasscode,

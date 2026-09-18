@@ -13,13 +13,16 @@ import {
   Award,
   Sparkles,
   BookOpenCheck,
-  Check
+  Check,
+  Lock
 } from 'lucide-react';
+import RoleAuthModal from '../../components/auth/RoleAuthModal';
 
 export const MyMistakes: React.FC = () => {
-  const { currentUser } = useAuth();
+  const { currentUser, isGuest } = useAuth();
   const [mistakeQuestions, setMistakeQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState(true);
+  const [showAuthModal, setShowAuthModal] = useState(false);
 
   // Per-question retry state
   const [retryAnswers, setRetryAnswers] = useState<Record<string, any>>({});
@@ -105,7 +108,32 @@ export const MyMistakes: React.FC = () => {
         </button>
       </div>
 
-      {loading ? (
+      {isGuest ? (
+        <div className="bg-white p-10 sm:p-14 rounded-3xl border border-amber-200 shadow-xl text-center space-y-5">
+          <div className="w-16 h-16 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center mx-auto border border-amber-200 shadow-xs">
+            <Lock className="w-8 h-8 text-amber-700" />
+          </div>
+          <div className="max-w-md mx-auto space-y-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300">
+              🔒 Tính năng Thành viên Học sinh
+            </span>
+            <h3 className="text-xl font-extrabold text-slate-900">Sổ tay Câu sai (My Mistakes)</h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Tính năng này yêu cầu đăng nhập tài khoản học sinh. Khi bạn làm bài kiểm tra hoặc luyện tập chuyên đề, hệ thống sẽ tự động lưu lại những câu bạn giải sai vào sổ tay này để bạn luyện lại cho đến khi thành thạo!
+            </p>
+          </div>
+          <div className="pt-2">
+            <button
+              type="button"
+              onClick={() => setShowAuthModal(true)}
+              className="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-800 hover:from-emerald-700 hover:to-teal-900 text-white font-bold text-xs shadow-md transition-all active:scale-95 inline-flex items-center gap-2"
+            >
+              <Sparkles className="w-4 h-4 text-amber-300" />
+              <span>Đăng nhập / Đăng ký Học sinh ngay</span>
+            </button>
+          </div>
+        </div>
+      ) : loading ? (
         <div className="p-12 text-center text-slate-400">Đang tải sổ tay câu sai...</div>
       ) : mistakeQuestions.length === 0 ? (
         <div className="bg-white p-12 rounded-3xl border border-slate-200 shadow-card text-center space-y-3">
@@ -312,6 +340,13 @@ export const MyMistakes: React.FC = () => {
           })}
         </div>
       )}
+
+      {/* Role Auth Modal */}
+      <RoleAuthModal
+        isOpen={showAuthModal}
+        onClose={() => setShowAuthModal(false)}
+        targetRole="STUDENT"
+      />
     </div>
   );
 };

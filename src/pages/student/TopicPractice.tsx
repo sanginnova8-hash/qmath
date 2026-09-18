@@ -12,15 +12,22 @@ import {
   Sparkles,
   ArrowRight,
   BookOpen,
-  Filter
+  Filter,
+  Lock,
+  RotateCcw
 } from 'lucide-react';
+import RoleAuthModal from '../../components/auth/RoleAuthModal';
 
 export const TopicPractice: React.FC = () => {
-  const { currentUser } = useAuth();
+  const { currentUser, isGuest } = useAuth();
   const [selectedGrade, setSelectedGrade] = useState<number>(12);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+
+  // Trial limit for guests
+  const GUEST_PRACTICE_LIMIT = 5;
 
   // Student answer for current practice question
   const [studentAnswer, setStudentAnswer] = useState<any>('');
@@ -129,8 +136,67 @@ export const TopicPractice: React.FC = () => {
         <div className="p-12 bg-white rounded-2xl border border-slate-200 text-center text-slate-400">
           Chưa có câu hỏi cho khối lớp này.
         </div>
+      ) : isGuest && currentIndex >= GUEST_PRACTICE_LIMIT ? (
+        <div className="bg-white rounded-3xl border border-amber-200 shadow-xl p-8 sm:p-12 text-center space-y-6">
+          <div className="w-16 h-16 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center mx-auto border border-amber-200 shadow-sm">
+            <Lock className="w-8 h-8 text-amber-700" />
+          </div>
+
+          <div className="max-w-md mx-auto space-y-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300">
+              ⚡ Đã hoàn thành 5 câu trải nghiệm
+            </span>
+            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900">
+              Mở khóa trọn bộ 992 Câu hỏi 21 Chuyên đề
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Bạn đang ở chế độ khách dùng thử giới hạn. Hãy đăng nhập hoặc tạo tài khoản học sinh (hoàn toàn miễn phí) để luyện tập không giới hạn toàn bộ 992 câu hỏi kèm lời giải KaTeX và làm bài kiểm tra tính điểm!
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+            <button
+              type="button"
+              onClick={() => setShowAuthModal(true)}
+              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-800 hover:from-emerald-700 hover:to-teal-900 text-white font-bold text-sm shadow-md transition-all active:scale-95 flex items-center justify-center gap-2"
+            >
+              <Sparkles className="w-4 h-4 text-amber-300" />
+              <span>Đăng nhập / Đăng ký Học sinh ngay</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setCurrentIndex(0);
+                setStudentAnswer('');
+                setChecked(false);
+                setIsCorrect(false);
+              }}
+              className="w-full sm:w-auto px-5 py-3 rounded-xl border border-slate-300 text-slate-700 font-semibold text-sm hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
+            >
+              <RotateCcw className="w-4 h-4" />
+              <span>Luyện lại 5 câu mẫu</span>
+            </button>
+          </div>
+        </div>
       ) : (
         <div className="bg-white rounded-3xl border border-slate-200 shadow-card p-6 sm:p-8 space-y-6">
+          {/* Guest trial banner indicator */}
+          {isGuest && (
+            <div className="flex items-center justify-between p-3 rounded-2xl bg-amber-50 border border-amber-200 text-xs text-amber-900 font-medium -mt-2">
+              <div className="flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
+                <span>Chế độ Dùng thử: <strong>Câu {currentIndex + 1} / {GUEST_PRACTICE_LIMIT} câu mẫu</strong></span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowAuthModal(true)}
+                className="text-xs font-bold text-emerald-800 hover:text-emerald-950 underline"
+              >
+                Mở khóa 992 câu →
+              </button>
+            </div>
+          )}
+
           {/* Question Meta */}
           <div className="flex items-center justify-between border-b border-slate-100 pb-3">
             <div className="flex items-center gap-2">
@@ -289,6 +355,13 @@ export const TopicPractice: React.FC = () => {
           )}
         </div>
       )}
+
+      {/* Auth modal for unlocking full resources */}
+      <RoleAuthModal
+        isOpen={showAuthModal}
+        onClose={() => setShowAuthModal(false)}
+        targetRole="STUDENT"
+      />
     </div>
   );
 };
