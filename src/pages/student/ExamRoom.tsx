@@ -27,7 +27,7 @@ interface ExamRoomProps {
 }
 
 export const ExamRoom: React.FC<ExamRoomProps> = ({ assignmentId, onFinish, onExit }) => {
-  const { currentUser } = useAuth();
+  const { currentUser, isGuest } = useAuth();
   const [assignment, setAssignment] = useState<Assignment | null>(null);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState(true);
@@ -50,6 +50,11 @@ export const ExamRoom: React.FC<ExamRoomProps> = ({ assignmentId, onFinish, onEx
   // Load Assignment and Questions
   useEffect(() => {
     async function load() {
+      if (isGuest || !currentUser) {
+        alert('Vui lòng đăng nhập tài khoản học sinh để tham gia làm bài kiểm tra!');
+        onExit();
+        return;
+      }
       setLoading(true);
       try {
         const asg = await getAssignmentById(assignmentId);
