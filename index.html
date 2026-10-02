@@ -11,7 +11,7 @@
     <!-- KaTeX CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMath()"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
     <style>
         :root {
             --primary: #1e40af;
@@ -27,8 +27,8 @@
             --text-muted: #64748b;
             --border: #e2e8f0;
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-            --shadow-md: 0 4px 12px -2px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 25px -3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 14px -2px rgba(0,0,0,0.1);
+            --shadow-lg: 0 12px 28px -4px rgba(0,0,0,0.12);
         }
 
         * {
@@ -39,143 +39,219 @@
 
         body {
             font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            background: linear-gradient(135deg, #eff6ff 0%, #f1f5f9 50%, #e2e8f0 100%);
             color: var(--text-main);
             line-height: 1.6;
-            padding: 24px 12px 60px;
+            padding: 20px 12px 60px;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 960px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        /* Pedagogy Header */
-        .exam-header {
+        /* Card chung */
+        .card {
             background: #ffffff;
-            border-radius: 16px;
-            padding: 24px 28px;
-            border-top: 5px solid var(--primary);
+            border-radius: 18px;
+            border: 1px solid var(--border);
             box-shadow: var(--shadow-md);
+            padding: 28px;
             margin-bottom: 24px;
         }
 
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px dashed var(--border);
-            padding-bottom: 16px;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-            gap: 12px;
+        /* 1. MÀN HÌNH CHÀO & BẮT ĐẦU */
+        .welcome-screen {
+            text-align: center;
+            max-width: 680px;
+            margin: 30px auto;
+            border-top: 6px solid var(--primary);
+            animation: fadeIn 0.4s ease;
         }
 
-        .school-info h3 {
-            font-size: 15px;
-            font-weight: 700;
+        .badge-teacher {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #eff6ff;
             color: var(--primary-dark);
+            border: 1px solid #bfdbfe;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 13.5px;
+            font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .welcome-screen h1 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #b91c1c;
+            text-transform: uppercase;
+            margin-bottom: 6px;
             letter-spacing: 0.5px;
         }
 
-        .school-info p {
-            font-size: 13px;
-            color: var(--text-muted);
-            font-weight: 500;
+        .welcome-screen h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
         }
 
-        .exam-meta-badge {
-            background: #eff6ff;
-            border: 1px solid #bfdbfe;
-            color: var(--primary-dark);
-            padding: 6px 14px;
-            border-radius: 999px;
-            font-size: 13px;
-            font-weight: 600;
-            display: inline-flex;
+        .exam-rules-box {
+            background: #f8fafc;
+            border: 1.5px dashed #cbd5e1;
+            border-radius: 14px;
+            padding: 18px 20px;
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        .exam-rules-box h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-main);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: flex;
             align-items: center;
             gap: 6px;
         }
 
-        .exam-title-box {
-            text-align: center;
-            margin: 12px 0 20px;
+        .rules-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 16px;
+            font-size: 14px;
         }
 
-        .exam-title-box h1 {
-            font-size: 24px;
-            font-weight: 800;
-            color: #b91c1c;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
+        @media (max-width: 580px) {
+            .rules-list { grid-template-columns: 1fr; }
         }
 
-        .exam-title-box h2 {
-            font-size: 17px;
-            font-weight: 600;
-            color: var(--primary-dark);
+        .rules-list li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
         }
 
-        .student-form {
+        .rules-list li strong {
+            color: var(--text-main);
+        }
+
+        .form-user-box {
+            text-align: left;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 16px;
-            background: #f8fafc;
-            padding: 16px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
         }
 
-        @media (max-width: 600px) {
-            .student-form {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 540px) {
+            .form-row { grid-template-columns: 1fr; }
         }
 
-        .form-group label {
+        .form-label {
             display: block;
-            font-size: 13px;
+            font-size: 13.5px;
             font-weight: 600;
             color: var(--text-main);
             margin-bottom: 6px;
         }
 
-        .form-group input {
+        .form-label span {
+            color: #dc2626;
+        }
+
+        .form-input {
             width: 100%;
-            padding: 10px 14px;
-            font-size: 14px;
+            padding: 12px 14px;
+            font-size: 15px;
             border: 1.5px solid var(--border);
-            border-radius: 8px;
+            border-radius: 10px;
             outline: none;
-            transition: border-color 0.2s;
+            transition: all 0.2s;
             font-family: inherit;
         }
 
-        .form-group input:focus {
+        .form-input:focus {
             border-color: var(--primary-light);
-            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        .btn-start {
+            width: 100%;
+            padding: 16px;
+            font-size: 18px;
+            font-weight: 800;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px -4px rgba(37, 99, 235, 0.4);
+            transition: all 0.25s ease;
+        }
+
+        .btn-start:hover {
+            background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px -4px rgba(37, 99, 235, 0.5);
+        }
+
+        /* 2. MÀN HÌNH LÀM BÀI */
+        .exam-screen {
+            display: none;
+            animation: fadeIn 0.4s ease;
         }
 
         /* Sticky Control Bar */
-        .control-bar {
+        .sticky-bar {
             position: sticky;
-            top: 16px;
+            top: 14px;
             z-index: 100;
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 14px;
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
             padding: 12px 20px;
-            box-shadow: var(--shadow-md);
             border: 1px solid var(--border);
+            box-shadow: var(--shadow-md);
+            margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 24px;
             flex-wrap: wrap;
             gap: 12px;
+        }
+
+        .student-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            background: #eff6ff;
+            padding: 6px 14px;
+            border-radius: 999px;
+            border: 1px solid #bfdbfe;
         }
 
         .timer-box {
@@ -184,25 +260,18 @@
             gap: 10px;
         }
 
-        .timer-label {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-        }
-
         .timer-clock {
             font-family: 'JetBrains Mono', monospace;
             font-size: 22px;
-            font-weight: 700;
-            color: var(--primary-dark);
-            background: #eff6ff;
-            padding: 4px 14px;
-            border-radius: 8px;
-            border: 1px solid #bfdbfe;
+            font-weight: 800;
+            color: #1e3a8a;
+            background: #f1f5f9;
+            padding: 4px 16px;
+            border-radius: 10px;
+            border: 1.5px solid #cbd5e1;
+            letter-spacing: 1px;
             min-width: 105px;
             text-align: center;
-            letter-spacing: 1px;
             transition: all 0.3s;
         }
 
@@ -215,78 +284,51 @@
         .timer-clock.danger {
             background: #fee2e2;
             color: #b91c1c;
-            border-color: #fecaca;
-            animation: pulse-red 1s infinite;
+            border-color: #fca5a5;
+            animation: pulse-danger 1s infinite;
         }
 
-        @keyframes pulse-red {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.85; transform: scale(1.03); }
+        @keyframes pulse-danger {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.04); }
         }
 
-        .progress-box {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text-muted);
-        }
-
-        .progress-bar-bg {
-            width: 130px;
-            height: 10px;
-            background: #e2e8f0;
-            border-radius: 999px;
-            overflow: hidden;
-        }
-
-        .progress-bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #3b82f6, #1d4ed8);
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-
-        /* Question Palette */
+        /* Palette Grid */
         .palette-card {
             background: #ffffff;
             border-radius: 14px;
-            padding: 16px 20px;
-            box-shadow: var(--shadow-sm);
             border: 1px solid var(--border);
-            margin-bottom: 24px;
+            padding: 14px 18px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
         }
 
-        .palette-title {
+        .palette-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
             font-size: 13px;
             font-weight: 700;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
         }
 
         .palette-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(42px, 1fr));
             gap: 8px;
         }
 
         .palette-btn {
-            height: 38px;
-            border-radius: 8px;
+            height: 40px;
+            border-radius: 10px;
             border: 1.5px solid var(--border);
             background: #ffffff;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 15px;
             cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            transition: all 0.15s ease;
             color: var(--text-main);
         }
 
@@ -295,47 +337,45 @@
             background: #eff6ff;
         }
 
-        .palette-btn.answered {
+        .palette-btn.done {
             background: #2563eb;
             color: #ffffff;
             border-color: #1d4ed8;
         }
 
         .palette-btn.current {
-            outline: 3px solid #f59e0b;
-            outline-offset: 1px;
+            box-shadow: 0 0 0 3px #f59e0b;
         }
 
-        .palette-btn.result-correct {
+        .palette-btn.res-correct {
             background: #16a34a !important;
             color: #ffffff !important;
             border-color: #15803d !important;
         }
 
-        .palette-btn.result-wrong {
+        .palette-btn.res-wrong {
             background: #dc2626 !important;
             color: #ffffff !important;
             border-color: #b91c1c !important;
         }
 
         /* Question Cards */
-        .question-card {
-            background: var(--card-bg);
-            border-radius: 14px;
-            padding: 24px 28px;
+        .q-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 22px 26px;
             margin-bottom: 20px;
-            box-shadow: var(--shadow-sm);
             border: 1px solid var(--border);
-            transition: all 0.25s ease;
-            position: relative;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
         }
 
-        .question-card:hover {
-            box-shadow: var(--shadow-md);
+        .q-card:hover {
             border-color: #cbd5e1;
+            box-shadow: var(--shadow-md);
         }
 
-        .question-header {
+        .q-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -343,17 +383,17 @@
         }
 
         .q-badge {
-            background: #eff6ff;
-            color: var(--primary);
-            font-weight: 800;
             font-size: 14px;
-            padding: 4px 12px;
-            border-radius: 6px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            background: #eff6ff;
             border: 1px solid #bfdbfe;
+            padding: 4px 12px;
+            border-radius: 8px;
         }
 
-        .q-level {
-            font-size: 12px;
+        .q-meta {
+            font-size: 12.5px;
             font-weight: 600;
             padding: 3px 10px;
             border-radius: 999px;
@@ -361,11 +401,7 @@
             color: var(--text-muted);
         }
 
-        .q-level.nb { background: #e0f2fe; color: #0369a1; }
-        .q-level.th { background: #fef3c7; color: #92400e; }
-        .q-level.vd { background: #fce7f3; color: #9d174d; }
-
-        .question-content {
+        .q-content {
             font-size: 16px;
             font-weight: 500;
             color: var(--text-main);
@@ -374,17 +410,17 @@
         }
 
         /* Options */
-        .options-grid {
+        .opt-list {
             display: grid;
             grid-template-columns: 1fr;
             gap: 10px;
         }
 
-        .option-item {
+        .opt-row {
             display: flex;
             align-items: center;
-            padding: 12px 18px;
-            border-radius: 10px;
+            padding: 12px 16px;
+            border-radius: 12px;
             border: 1.5px solid var(--border);
             background: #f8fafc;
             cursor: pointer;
@@ -392,21 +428,21 @@
             user-select: none;
         }
 
-        .option-item:hover {
+        .opt-row:hover {
             border-color: var(--primary-light);
             background: #eff6ff;
-            transform: translateX(2px);
+            transform: translateX(3px);
         }
 
-        .option-item.selected {
+        .opt-row.selected {
             border-color: var(--primary);
             background: #eff6ff;
             font-weight: 600;
         }
 
-        .option-key {
-            width: 32px;
-            height: 32px;
+        .opt-bubble {
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             background: #ffffff;
             border: 1.5px solid #cbd5e1;
@@ -421,144 +457,112 @@
             transition: all 0.2s;
         }
 
-        .option-item.selected .option-key {
+        .opt-row.selected .opt-bubble {
             background: var(--primary);
             color: #ffffff;
             border-color: var(--primary);
         }
 
-        .option-text {
-            font-size: 15px;
+        .opt-text {
+            font-size: 15.5px;
             flex-grow: 1;
         }
 
         /* Result styling for options */
-        .option-item.correct-answer {
+        .opt-row.correct-ans {
             background: #dcfce7 !important;
             border-color: #22c55e !important;
             color: #14532d !important;
         }
 
-        .option-item.correct-answer .option-key {
+        .opt-row.correct-ans .opt-bubble {
             background: #16a34a !important;
             color: #ffffff !important;
             border-color: #16a34a !important;
         }
 
-        .option-item.wrong-selected {
+        .opt-row.wrong-ans {
             background: #fee2e2 !important;
             border-color: #ef4444 !important;
             color: #7f1d1d !important;
         }
 
-        .option-item.wrong-selected .option-key {
+        .opt-row.wrong-ans .opt-bubble {
             background: #dc2626 !important;
             color: #ffffff !important;
             border-color: #dc2626 !important;
         }
 
         /* Solution Box */
-        .solution-box {
+        .sol-box {
             display: none;
             margin-top: 18px;
             padding: 16px 20px;
             background: #f0fdf4;
             border-left: 4px solid #16a34a;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 14.5px;
             color: #166534;
         }
 
-        .solution-box.show {
+        .sol-box.show {
             display: block;
             animation: fadeIn 0.3s ease;
         }
 
-        .solution-title {
+        .sol-header {
             font-weight: 700;
+            margin-bottom: 8px;
+            color: #14532d;
             display: flex;
             align-items: center;
             gap: 6px;
-            margin-bottom: 8px;
-            color: #14532d;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-4px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Submit Button Area */
-        .submit-container {
+        /* Bottom Submit */
+        .bottom-actions {
             text-align: center;
-            margin: 36px 0;
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
+            margin: 32px 0 20px;
         }
 
-        .btn {
-            padding: 14px 36px;
-            font-size: 16px;
-            font-weight: 700;
-            border-radius: 10px;
-            cursor: pointer;
+        .btn-submit {
+            padding: 16px 42px;
+            font-size: 17px;
+            font-weight: 800;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);
+            color: #ffffff;
             border: none;
+            cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            box-shadow: 0 8px 20px -4px rgba(22, 163, 74, 0.4);
             transition: all 0.25s ease;
-            box-shadow: var(--shadow-sm);
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #1d4ed8, #2563eb);
-            color: #ffffff;
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #1e40af, #1d4ed8);
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #14532d 0%, #15803d 100%);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 12px 24px -4px rgba(22, 163, 74, 0.5);
         }
 
-        .btn-outline {
-            background: #ffffff;
-            color: var(--text-main);
-            border: 1.5px solid var(--border);
-        }
-
-        .btn-outline:hover {
-            background: #f1f5f9;
-            border-color: #cbd5e1;
-        }
-
-        /* Result Score Banner */
-        .result-card {
+        /* 3. MÀN HÌNH KẾT QUẢ */
+        .result-screen {
             display: none;
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 30px;
             text-align: center;
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 32px;
             box-shadow: var(--shadow-lg);
             border: 2px solid var(--border);
-            margin-bottom: 28px;
-        }
-
-        .result-card.show {
-            display: block;
+            margin-bottom: 24px;
             animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        @keyframes popIn {
-            0% { transform: scale(0.9); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        .score-circle {
-            width: 120px;
-            height: 120px;
+        .score-disk {
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             background: linear-gradient(135deg, #1e40af, #3b82f6);
             color: #ffffff;
@@ -566,98 +570,128 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 16px;
-            box-shadow: 0 8px 20px -4px rgba(37, 99, 235, 0.4);
+            margin: 0 auto 18px;
+            box-shadow: 0 10px 24px -4px rgba(37, 99, 235, 0.4);
         }
 
-        .score-circle .number {
-            font-size: 38px;
-            font-weight: 800;
+        .score-val {
+            font-size: 42px;
+            font-weight: 900;
             line-height: 1;
         }
 
-        .score-circle .max {
+        .score-max {
             font-size: 13px;
             opacity: 0.85;
             margin-top: 2px;
+            font-weight: 600;
         }
 
-        .result-title {
-            font-size: 22px;
+        .res-headline {
+            font-size: 24px;
             font-weight: 800;
             color: var(--text-main);
             margin-bottom: 8px;
         }
 
-        .result-msg {
+        .res-feedback {
             font-size: 15px;
             color: var(--text-muted);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .result-stats {
+        .stat-grid {
             display: flex;
             justify-content: center;
-            gap: 24px;
+            gap: 18px;
             margin-bottom: 24px;
             flex-wrap: wrap;
         }
 
-        .stat-item {
+        .stat-card {
             background: #f8fafc;
             border: 1px solid var(--border);
-            padding: 10px 18px;
-            border-radius: 10px;
-            min-width: 120px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            min-width: 130px;
         }
 
-        .stat-item .val {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--primary-dark);
+        .stat-num {
+            font-size: 22px;
+            font-weight: 800;
         }
 
-        .stat-item .lbl {
+        .stat-desc {
             font-size: 12px;
             color: var(--text-muted);
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 700;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-act {
+            padding: 12px 24px;
+            font-size: 15px;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 1.5px solid var(--border);
+            background: #ffffff;
+            color: var(--text-main);
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-act:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .btn-act.primary {
+            background: #2563eb;
+            color: #ffffff;
+            border-color: #1d4ed8;
+        }
+
+        .btn-act.primary:hover {
+            background: #1d4ed8;
         }
 
         /* Footer */
-        .exam-footer {
+        .footer {
             text-align: center;
             margin-top: 40px;
-            color: var(--text-muted);
             font-size: 13px;
+            color: var(--text-muted);
         }
 
-        /* Print styles */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Print Mode */
         @media print {
-            body {
-                background: #ffffff;
-                padding: 0;
-            }
-            .control-bar, .palette-card, .submit-container, .student-form input {
-                display: none !important;
-            }
-            .question-card {
-                box-shadow: none;
-                border: 1px solid #ccc;
-                page-break-inside: avoid;
-            }
-            .solution-box {
-                display: block !important;
-                background: #f9f9f9;
-                border-left: 3px solid #333;
-                color: #000;
-            }
-            .exam-header {
-                box-shadow: none;
-                border: none;
-                border-bottom: 2px solid #000;
-                border-radius: 0;
-            }
+            body { background: #fff; padding: 0; }
+            .sticky-bar, .palette-card, .bottom-actions, .welcome-screen, .btn-group { display: none !important; }
+            .q-card { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+            .sol-box { display: block !important; }
         }
     </style>
 </head>
@@ -665,116 +699,124 @@
 
 <div class="container">
 
-    <!-- Pedagogical Header -->
-    <header class="exam-header">
-        <div class="header-top">
-            <div class="school-info">
-                <h3>Trường Cao đẳng Nghề số 1 - BQP</h3>
-                <p>Khoa Cơ bản — Bộ môn Toán</p>
-                <p><strong>Giáo viên:</strong> Nguyễn Văn Sang</p>
-            </div>
-            <div class="exam-meta-badge">
-                <span>⏱</span> Thời gian làm bài: 15 phút (10 câu trắc nghiệm)
+    <!-- 1. MÀN HÌNH CHÀO VÀ BẮT ĐẦU LÀM BÀI -->
+    <section class="card welcome-screen" id="welcomeScreen">
+        <div class="badge-teacher">
+            🏫 Trường CĐ Nghề số 1 - BQP • GV: Nguyễn Văn Sang
+        </div>
+        <h1>ĐỀ KIỂM TRA 15 PHÚT — MÔN TOÁN 11</h1>
+        <h2>CHƯƠNG I: BÀI 3 — CÔNG THỨC LƯỢNG GIÁC</h2>
+
+        <div class="exam-rules-box">
+            <h3>📋 Quy chế & Thông tin bài kiểm tra:</h3>
+            <ul class="rules-list">
+                <li>⏱ Thời gian: <strong>15 phút</strong></li>
+                <li>❓ Số câu: <strong>10 câu trắc nghiệm</strong></li>
+                <li>🎯 Thang điểm: <strong>10.0 (Mỗi câu 1đ)</strong></li>
+                <li>💡 Chấm điểm: <strong>Tự động & Xem giải ngay</strong></li>
+            </ul>
+        </div>
+
+        <div class="form-user-box">
+            <div class="form-row">
+                <div>
+                    <label class="form-label" for="inpStudentName">Họ và tên học sinh <span>*</span></label>
+                    <input type="text" id="inpStudentName" class="form-input" placeholder="Ví dụ: Nguyễn Văn An" autocomplete="off">
+                </div>
+                <div>
+                    <label class="form-label" for="inpStudentClass">Lớp học <span>*</span></label>
+                    <input type="text" id="inpStudentClass" class="form-input" placeholder="Ví dụ: 11A1, 10A8..." autocomplete="off">
+                </div>
             </div>
         </div>
 
-        <div class="exam-title-box">
-            <h1>ĐỀ KIỂM TRA 15 PHÚT — MÔN TOÁN 11</h1>
-            <h2>CHƯƠNG 1: BÀI 3 — CÔNG THỨC LƯỢNG GIÁC</h2>
-            <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">(Biên soạn trích xuất chuẩn hóa từ hệ thống tài liệu Toán 11 - Từ Tâm GDPT 2018)</p>
-        </div>
-
-        <div class="student-form" id="studentFormBox">
-            <div class="form-group">
-                <label for="studentName">Họ và tên học sinh:</label>
-                <input type="text" id="studentName" placeholder="Nhập đầy đủ họ và tên..." autocomplete="off">
-            </div>
-            <div class="form-group">
-                <label for="studentClass">Lớp học:</label>
-                <input type="text" id="studentClass" placeholder="Ví dụ: 11A1, 11A2, 10A8..." autocomplete="off">
-            </div>
-        </div>
-    </header>
-
-    <!-- Sticky Control Bar -->
-    <div class="control-bar" id="controlBar">
-        <div class="timer-box">
-            <span class="timer-label">Thời gian còn lại:</span>
-            <div class="timer-clock" id="timerDisplay">15:00</div>
-        </div>
-        <div class="progress-box">
-            <span>Tiến độ: <strong id="progressText">0/10</strong></span>
-            <div class="progress-bar-bg">
-                <div class="progress-bar-fill" id="progressBar"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Question Palette -->
-    <div class="palette-card">
-        <div class="palette-title">
-            <span>Danh sách câu hỏi</span>
-            <span id="answeredCountBadge" style="font-weight: 500; font-size: 12px; color: var(--primary);">Đã chọn: 0/10</span>
-        </div>
-        <div class="palette-grid" id="paletteGrid">
-            <!-- 10 buttons will be rendered here -->
-        </div>
-    </div>
-
-    <!-- Result Banner (Hidden initially) -->
-    <div class="result-card" id="resultCard">
-        <div class="score-circle">
-            <div class="number" id="scoreNum">0</div>
-            <div class="max">/ 10 ĐIỂM</div>
-        </div>
-        <h2 class="result-title" id="resultTitle">KẾT QUẢ BÀI THI</h2>
-        <p class="result-msg" id="resultMsg">Em đã hoàn thành bài kiểm tra 15 phút!</p>
-        <div class="result-stats">
-            <div class="stat-item">
-                <div class="val" id="correctCountStat" style="color: #16a34a;">0</div>
-                <div class="lbl">Số câu đúng</div>
-            </div>
-            <div class="stat-item">
-                <div class="val" id="wrongCountStat" style="color: #dc2626;">0</div>
-                <div class="lbl">Số câu sai</div>
-            </div>
-            <div class="stat-item">
-                <div class="val" id="timeSpentStat">00:00</div>
-                <div class="lbl">Thời gian làm</div>
-            </div>
-        </div>
-        <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-            <button class="btn btn-outline" onclick="resetQuiz()">🔄 Làm lại bài</button>
-            <button class="btn btn-outline" onclick="window.print()">🖨 In bài thi / PDF</button>
-        </div>
-    </div>
-
-    <!-- Questions Form -->
-    <main id="questionsContainer">
-        <!-- Rendered by JS -->
-    </main>
-
-    <!-- Action Buttons -->
-    <div class="submit-container" id="submitContainer">
-        <button class="btn btn-primary" id="btnSubmit" onclick="submitExam()">
-            <span>📝</span> Nộp bài kiểm tra
+        <button class="btn-start" onclick="handleStartQuiz()">
+            <span>🚀</span> BẮT ĐẦU LÀM BÀI & TÍNH GIỜ
         </button>
-    </div>
+    </section>
 
-    <footer class="exam-footer">
-        <p>© 2026 Nguyễn Văn Sang — Khoa Cơ bản, Trường Cao đẳng Nghề số 1 - BQP.</p>
-        <p>Phần mềm kiểm tra trắc nghiệm Toán học trực tuyến QMath Online chuẩn GDPT 2018.</p>
+    <!-- 2. MÀN HÌNH LÀM BÀI (ẨN BAN ĐẦU) -->
+    <section class="exam-screen" id="examScreen">
+
+        <!-- Sticky Control Bar -->
+        <div class="sticky-bar">
+            <div class="student-pill">
+                <span>👤</span> <span id="displayStudentInfo">Học sinh</span>
+            </div>
+            <div class="timer-box">
+                <span style="font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Còn lại:</span>
+                <div class="timer-clock" id="timerClock">15:00</div>
+            </div>
+        </div>
+
+        <!-- Question Palette Grid -->
+        <div class="palette-card">
+            <div class="palette-header">
+                <span>Mục lục câu hỏi</span>
+                <span id="paletteCount" style="color: var(--primary);">Đã làm: 0/10</span>
+            </div>
+            <div class="palette-grid" id="paletteGrid">
+                <!-- 10 buttons -->
+            </div>
+        </div>
+
+        <!-- Result Box (Hiển thị ngay trên câu hỏi khi nộp bài) -->
+        <div class="result-screen" id="resultScreen">
+            <div class="score-disk">
+                <div class="score-val" id="scoreDisplay">0</div>
+                <div class="score-max">/ 10 ĐIỂM</div>
+            </div>
+            <h2 class="res-headline" id="resTitle">KẾT QUẢ BÀI THI</h2>
+            <p class="res-feedback" id="resFeedback"></p>
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-num" id="statCorrect" style="color: #16a34a;">0</div>
+                    <div class="stat-desc">Số câu đúng</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" id="statWrong" style="color: #dc2626;">0</div>
+                    <div class="stat-desc">Số câu sai</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" id="statTime">00:00</div>
+                    <div class="stat-desc">Thời gian làm</div>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn-act primary" onclick="handleRestartQuiz()">🔄 Làm lại bài từ đầu</button>
+                <button class="btn-act" onclick="window.print()">🖨 In kết quả / Lưu PDF</button>
+            </div>
+        </div>
+
+        <!-- Questions List -->
+        <div id="questionsContainer">
+            <!-- Rendered by JS -->
+        </div>
+
+        <!-- Submit Button -->
+        <div class="bottom-actions" id="submitActionBox">
+            <button class="btn-submit" onclick="handleSubmitQuiz()">
+                <span>📝</span> NỘP BÀI KIỂM TRA
+            </button>
+        </div>
+
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 GV Nguyễn Văn Sang — Khoa Cơ bản, Trường Cao đẳng Nghề số 1 - BQP.</p>
+        <p>Hệ thống Đề kiểm tra Toán học trực tuyến QMath Online (Toán 11 - GDPT 2018).</p>
     </footer>
 
 </div>
 
 <script>
-// Exam Questions Data (10 questions on Lesson 3: Trigonometric Formulas)
-const questions = [
+// Bộ câu hỏi Bài 3: Công thức lượng giác (Toán 11 - Từ Tâm)
+const questionsData = [
     {
         id: 1,
         level: "Nhận biết",
-        levelClass: "nb",
         topic: "Công thức cộng",
         content: "Rút gọn biểu thức $M = \\cos 2x \\cos x + \\sin 2x \\sin x$ ta được kết quả là:",
         options: [
@@ -784,12 +826,11 @@ const questions = [
             { key: "D", text: "$M = \\sin 3x$" }
         ],
         correct: "A",
-        solution: "Áp dụng công thức cộng $\\cos(a - b) = \\cos a \\cos b + \\sin a \\sin b$, ta có:<br>$$M = \\cos 2x \\cos x + \\sin 2x \\sin x = \\cos(2x - x) = \\cos x.$$<br>Do đó chọn phương án <strong>A</strong>."
+        solution: "Áp dụng công thức cộng $\\cos(a - b) = \\cos a \\cos b + \\sin a \\sin b$, ta có:<br>$$M = \\cos 2x \\cos x + \\sin 2x \\sin x = \\cos(2x - x) = \\cos x.$$<br>Do đó chọn đáp án đúng là <strong>A</strong>."
     },
     {
         id: 2,
         level: "Thông hiểu",
-        levelClass: "th",
         topic: "Công thức cộng",
         content: "Rút gọn biểu thức $P = \\cos(x - 120^\\circ) + \\cos(x + 120^\\circ) - \\cos x$ ta được kết quả là:",
         options: [
@@ -799,12 +840,11 @@ const questions = [
             { key: "D", text: "$\\sin x - \\cos x$" }
         ],
         correct: "C",
-        solution: "Áp dụng công thức biến đổi tổng thành tích hoặc công thức cộng:<br>$$\\cos(x - 120^\\circ) + \\cos(x + 120^\\circ) = 2\\cos x \\cos 120^\\circ = 2\\cos x \\left(-\\frac{1}{2}\\right) = -\\cos x.$$<br>Suy ra: $$P = -\\cos x - \\cos x = -2\\cos x.$$<br>Do đó chọn phương án <strong>C</strong>."
+        solution: "Áp dụng công thức biến đổi tổng thành tích:<br>$$\\cos(x - 120^\\circ) + \\cos(x + 120^\\circ) = 2\\cos x \\cos 120^\\circ = 2\\cos x \\left(-\\frac{1}{2}\\right) = -\\cos x.$$<br>Suy ra: $$P = -\\cos x - \\cos x = -2\\cos x.$$<br>Do đó chọn đáp án đúng là <strong>C</strong>."
     },
     {
         id: 3,
         level: "Thông hiểu",
-        levelClass: "th",
         topic: "Công thức cộng",
         content: "Biết $\\sin a = \\dfrac{5}{13}$ với $\\dfrac{\\pi}{2} < a < \\pi$, và $\\cos b = \\dfrac{3}{5}$ với $0 < b < \\dfrac{\\pi}{2}$. Kết quả của biểu thức $\\sin(a + b)$ bằng:",
         options: [
@@ -814,12 +854,11 @@ const questions = [
             { key: "D", text: "$-\\dfrac{33}{65}$" }
         ],
         correct: "D",
-        solution: "• Vì $\\dfrac{\\pi}{2} < a < \\pi$ nên $\\cos a < 0 \\implies \\cos a = -\\sqrt{1 - \\sin^2 a} = -\\sqrt{1 - \\left(\\dfrac{5}{13}\\right)^2} = -\\dfrac{12}{13}$.<br>• Vì $0 < b < \\dfrac{\\pi}{2}$ nên $\\sin b > 0 \\implies \\sin b = \\sqrt{1 - \\cos^2 b} = \\sqrt{1 - \\left(\\dfrac{3}{5}\\right)^2} = \\dfrac{4}{5}$.<br>• Khi đó: $$\\sin(a + b) = \\sin a \\cos b + \\cos a \\sin b = \\dfrac{5}{13} \\cdot \\dfrac{3}{5} + \\left(-\\dfrac{12}{13}\\right) \\cdot \\dfrac{4}{5} = \\dfrac{15 - 48}{65} = -\\dfrac{33}{65}.$$<br>Do đó chọn phương án <strong>D</strong>."
+        solution: "• Vì $\\dfrac{\\pi}{2} < a < \\pi$ nên $\\cos a < 0 \\implies \\cos a = -\\sqrt{1 - \\sin^2 a} = -\\sqrt{1 - \\left(\\dfrac{5}{13}\\right)^2} = -\\dfrac{12}{13}$.<br>• Vì $0 < b < \\dfrac{\\pi}{2}$ nên $\\sin b > 0 \\implies \\sin b = \\sqrt{1 - \\cos^2 b} = \\sqrt{1 - \\left(\\dfrac{3}{5}\\right)^2} = \\dfrac{4}{5}$.<br>• Áp dụng công thức cộng: $$\\sin(a + b) = \\sin a \\cos b + \\cos a \\sin b = \\dfrac{5}{13} \\cdot \\dfrac{3}{5} + \\left(-\\dfrac{12}{13}\\right) \\cdot \\dfrac{4}{5} = \\dfrac{15 - 48}{65} = -\\dfrac{33}{65}.$$<br>Do đó chọn đáp án đúng là <strong>D</strong>."
     },
     {
         id: 4,
         level: "Nhận biết",
-        levelClass: "nb",
         topic: "Công thức nhân đôi",
         content: "Trong các công thức sau, công thức nào <strong>sai</strong>?",
         options: [
@@ -834,7 +873,6 @@ const questions = [
     {
         id: 5,
         level: "Nhận biết",
-        levelClass: "nb",
         topic: "Công thức hạ bậc",
         content: "Đẳng thức nào sau đây <strong>không đúng</strong> với mọi số thực $x$?",
         options: [
@@ -844,12 +882,11 @@ const questions = [
             { key: "D", text: "$\\sin^2 x = \\dfrac{1 + \\cos 2x}{2}$" }
         ],
         correct: "D",
-        solution: "Theo công thức hạ bậc chuẩn:<br>$$\\sin^2 x = \\dfrac{1 - \\cos 2x}{2}.$$<br>Do đó đẳng thức $\\sin^2 x = \\dfrac{1 + \\cos 2x}{2}$ là sai. Chọn <strong>D</strong>."
+        solution: "Công thức hạ bậc đúng là $\\sin^2 x = \\dfrac{1 - \\cos 2x}{2}$. Do đó đẳng thức ở phương án D là sai. Chọn <strong>D</strong>."
     },
     {
         id: 6,
         level: "Vận dụng",
-        levelClass: "vd",
         topic: "Công thức nhân đôi",
         content: "Nếu $\\sin x + \\cos x = \\dfrac{1}{2}$ thì giá trị của $\\sin 2x$ bằng:",
         options: [
@@ -859,12 +896,11 @@ const questions = [
             { key: "D", text: "$-\\dfrac{3}{4}$" }
         ],
         correct: "D",
-        solution: "Bình phương hai vế của $\\sin x + \\cos x = \\dfrac{1}{2}$:<br>$$(\\sin x + \\cos x)^2 = \\left(\\dfrac{1}{2}\\right)^2 \\iff \\sin^2 x + \\cos^2 x + 2\\sin x \\cos x = \\dfrac{1}{4}$$<br>$$\\iff 1 + \\sin 2x = \\dfrac{1}{4} \\iff \\sin 2x = \\dfrac{1}{4} - 1 = -\\dfrac{3}{4}.$$<br>Do đó chọn phương án <strong>D</strong>."
+        solution: "Bình phương hai vế của đẳng thức $\\sin x + \\cos x = \\dfrac{1}{2}$:<br>$$(\\sin x + \\cos x)^2 = \\left(\\dfrac{1}{2}\\right)^2 \\iff \\sin^2 x + \\cos^2 x + 2\\sin x \\cos x = \\dfrac{1}{4}$$<br>$$\\iff 1 + \\sin 2x = \\dfrac{1}{4} \\iff \\sin 2x = \\dfrac{1}{4} - 1 = -\\dfrac{3}{4}.$$<br>Do đó chọn phương án <strong>D</strong>."
     },
     {
         id: 7,
         level: "Thông hiểu",
-        levelClass: "th",
         topic: "Biến đổi tích thành tổng",
         content: "Rút gọn biểu thức $A = 4\\sin x \\sin(60^\\circ - x) \\sin(60^\\circ + x)$ ta được kết quả là:",
         options: [
@@ -874,12 +910,11 @@ const questions = [
             { key: "D", text: "$4\\sin 3x$" }
         ],
         correct: "A",
-        solution: "Áp dụng công thức biến đổi tích thành tổng:<br>$$2\\sin(60^\\circ - x) \\sin(60^\\circ + x) = \\cos 2x - \\cos 120^\\circ = \\cos 2x - \\left(-\\dfrac{1}{2}\\right) = \\cos 2x + \\dfrac{1}{2}.$$<br>Khi đó:<br>$$A = 2\\sin x \\left(\\cos 2x + \\dfrac{1}{2}\\right) = 2\\sin x \\cos 2x + \\sin x = (\\sin 3x - \\sin x) + \\sin x = \\sin 3x.$$<br>Do đó chọn phương án <strong>A</strong>."
+        solution: "Áp dụng công thức tích thành tổng:<br>$$2\\sin(60^\\circ - x) \\sin(60^\\circ + x) = \\cos 2x - \\cos 120^\\circ = \\cos 2x - \\left(-\\dfrac{1}{2}\\right) = \\cos 2x + \\dfrac{1}{2}.$$<br>Khi đó:<br>$$A = 2\\sin x \\left(\\cos 2x + \\dfrac{1}{2}\\right) = 2\\sin x \\cos 2x + \\sin x = (\\sin 3x - \\sin x) + \\sin x = \\sin 3x.$$<br>Do đó chọn phương án <strong>A</strong>."
     },
     {
         id: 8,
         level: "Nhận biết",
-        levelClass: "nb",
         topic: "Biến đổi tổng thành tích",
         content: "Biến đổi biểu thức $P = \\cos 5x + \\cos 3x$ thành tích ta được:",
         options: [
@@ -894,7 +929,6 @@ const questions = [
     {
         id: 9,
         level: "Thông hiểu",
-        levelClass: "th",
         topic: "Biến đổi tổng thành tích",
         content: "Giá trị của biểu thức $T = \\cos 75^\\circ + \\cos 15^\\circ$ bằng:",
         options: [
@@ -909,7 +943,6 @@ const questions = [
     {
         id: 10,
         level: "Vận dụng",
-        levelClass: "vd",
         topic: "GTLN - GTNN lượng giác",
         content: "Tìm giá trị lớn nhất ($M$) của hàm số $y = \\sqrt{3}\\sin 2x + \\cos 2x$.",
         options: [
@@ -919,19 +952,20 @@ const questions = [
             { key: "D", text: "$M = 4$" }
         ],
         correct: "C",
-        solution: "Biến đổi biểu thức theo công thức cộng $a\\sin \\alpha + b\\cos \\alpha$:<br>$$y = 2\\left(\\dfrac{\\sqrt{3}}{2}\\sin 2x + \\dfrac{1}{2}\\cos 2x\\right) = 2\\left(\\sin 2x \\cos \\dfrac{\\pi}{6} + \\cos 2x \\sin \\dfrac{\\pi}{6}\\right) = 2\\sin\\left(2x + \\dfrac{\\pi}{6}\\right).$$<br>Vì $\\sin\\left(2x + \\dfrac{\\pi}{6}\\right) \\le 1$ nên $y \\le 2$. Dấu \"=\" xảy ra khi $2x + \\dfrac{\\pi}{6} = \\dfrac{\\pi}{2} + k2\\pi \\iff x = \\dfrac{\\pi}{6} + k\\pi$.<br>Vậy giá trị lớn nhất của hàm số là $M = 2$. Chọn <strong>C</strong>."
+        solution: "Biến đổi biểu thức dạng $a\\sin \\alpha + b\\cos \\alpha$:<br>$$y = 2\\left(\\dfrac{\\sqrt{3}}{2}\\sin 2x + \\dfrac{1}{2}\\cos 2x\\right) = 2\\left(\\sin 2x \\cos \\dfrac{\\pi}{6} + \\cos 2x \\sin \\dfrac{\\pi}{6}\\right) = 2\\sin\\left(2x + \\dfrac{\\pi}{6}\\right).$$<br>Vì $\\sin\\left(2x + \\dfrac{\\pi}{6}\\right) \\le 1$ nên $y \\le 2$. Dấu \"=\" xảy ra khi $2x + \\dfrac{\\pi}{6} = \\dfrac{\\pi}{2} + k2\\pi \\iff x = \\dfrac{\\pi}{6} + k\\pi$.<br>Vậy giá trị lớn nhất của hàm số là $M = 2$. Chọn <strong>C</strong>."
     }
 ];
 
-// State variables
-let userAnswers = {};
-let timeLeft = 15 * 60; // 15 minutes in seconds
-let timerInterval = null;
-let isSubmitted = false;
-let startTime = Date.now();
+// Quản lý trạng thái
+let userChoices = {};
+let timeLeftSeconds = 15 * 60; // 15 phút
+let timerObj = null;
+let quizSubmitted = false;
+let studentName = "";
+let studentClass = "";
 
-// Render Math via KaTeX
-function renderMath() {
+// Render công thức KaTeX
+function triggerKaTeX() {
     if (typeof renderMathInElement !== 'undefined') {
         renderMathInElement(document.body, {
             delimiters: [
@@ -943,48 +977,81 @@ function renderMath() {
     }
 }
 
-// Initialize Exam
-function initExam() {
+// Bắt đầu làm bài
+function handleStartQuiz() {
+    const nameInput = document.getElementById("inpStudentName").value.trim();
+    const classInput = document.getElementById("inpStudentClass").value.trim();
+
+    if (!nameInput) {
+        alert("Vui lòng nhập Họ và tên trước khi bắt đầu làm bài!");
+        document.getElementById("inpStudentName").focus();
+        return;
+    }
+
+    if (!classInput) {
+        alert("Vui lòng nhập Lớp học trước khi bắt đầu làm bài!");
+        document.getElementById("inpStudentClass").focus();
+        return;
+    }
+
+    studentName = nameInput;
+    studentClass = classInput;
+
+    // Hiển thị thông tin
+    document.getElementById("displayStudentInfo").innerText = `${studentName} — Lớp: ${studentClass}`;
+
+    // Chuyển màn hình
+    document.getElementById("welcomeScreen").style.display = "none";
+    document.getElementById("examScreen").style.display = "block";
+
+    // Khởi tạo bài thi & tính giờ
+    initExamUI();
+    startCountdown();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// Khởi tạo giao diện câu hỏi & Palette
+function initExamUI() {
     const container = document.getElementById("questionsContainer");
     const paletteGrid = document.getElementById("paletteGrid");
     container.innerHTML = "";
     paletteGrid.innerHTML = "";
 
-    questions.forEach((q, index) => {
-        // Render Palette Button
-        const pBtn = document.createElement("button");
-        pBtn.className = "palette-btn";
-        pBtn.id = `palette-btn-${q.id}`;
-        pBtn.innerText = q.id;
-        pBtn.onclick = () => scrollToQuestion(q.id);
-        paletteGrid.appendChild(pBtn);
+    questionsData.forEach(q => {
+        // Nút Palette
+        const btn = document.createElement("button");
+        btn.className = "palette-btn";
+        btn.id = `palette-btn-${q.id}`;
+        btn.innerText = q.id;
+        btn.onclick = () => jumpToQuestion(q.id);
+        paletteGrid.appendChild(btn);
 
-        // Render Question Card
+        // Card câu hỏi
         const card = document.createElement("div");
-        card.className = "question-card";
+        card.className = "q-card";
         card.id = `q-card-${q.id}`;
 
-        let optionsHtml = "";
+        let optsHtml = "";
         q.options.forEach(opt => {
-            optionsHtml += `
-                <div class="option-item" id="opt-${q.id}-${opt.key}" onclick="selectOption(${q.id}, '${opt.key}')">
-                    <div class="option-key">${opt.key}</div>
-                    <div class="option-text">${opt.text}</div>
+            optsHtml += `
+                <div class="opt-row" id="opt-${q.id}-${opt.key}" onclick="chooseOption(${q.id}, '${opt.key}')">
+                    <div class="opt-bubble">${opt.key}</div>
+                    <div class="opt-text">${opt.text}</div>
                 </div>
             `;
         });
 
         card.innerHTML = `
-            <div class="question-header">
+            <div class="q-top">
                 <div class="q-badge">Câu ${q.id}</div>
-                <div class="q-level ${q.levelClass}">${q.level} • ${q.topic}</div>
+                <div class="q-meta">${q.level} • ${q.topic}</div>
             </div>
-            <div class="question-content">${q.content}</div>
-            <div class="options-grid">
-                ${optionsHtml}
+            <div class="q-content">${q.content}</div>
+            <div class="opt-list">
+                ${optsHtml}
             </div>
-            <div class="solution-box" id="solution-${q.id}">
-                <div class="solution-title">💡 Lời giải chi tiết:</div>
+            <div class="sol-box" id="sol-${q.id}">
+                <div class="sol-header">💡 Lời giải chi tiết:</div>
                 <div>${q.solution}</div>
             </div>
         `;
@@ -992,179 +1059,165 @@ function initExam() {
         container.appendChild(card);
     });
 
-    startTimer();
-    renderMath();
+    triggerKaTeX();
 }
 
-// Option selection
-function selectOption(qId, key) {
-    if (isSubmitted) return;
+// Chọn đáp án
+function chooseOption(qId, key) {
+    if (quizSubmitted) return;
 
-    userAnswers[qId] = key;
+    userChoices[qId] = key;
 
-    // Update option card style
-    const qObj = questions.find(q => q.id === qId);
+    // Cập nhật style của các options
+    const qObj = questionsData.find(item => item.id === qId);
     qObj.options.forEach(opt => {
-        const el = document.getElementById(`opt-${qId}-${opt.key}`);
+        const row = document.getElementById(`opt-${qId}-${opt.key}`);
         if (opt.key === key) {
-            el.classList.add("selected");
+            row.classList.add("selected");
         } else {
-            el.classList.remove("selected");
+            row.classList.remove("selected");
         }
     });
 
-    // Update Palette
+    // Cập nhật Palette
     const pBtn = document.getElementById(`palette-btn-${qId}`);
-    if (pBtn) pBtn.classList.add("answered");
+    if (pBtn) pBtn.classList.add("done");
 
-    // Update Progress
-    updateProgress();
+    // Cập nhật số câu đã chọn
+    const countDone = Object.keys(userChoices).length;
+    document.getElementById("paletteCount").innerText = `Đã làm: ${countDone}/${questionsData.length}`;
 }
 
-function updateProgress() {
-    const answeredCount = Object.keys(userAnswers).length;
-    const total = questions.length;
-    document.getElementById("progressText").innerText = `${answeredCount}/${total}`;
-    document.getElementById("progressBar").style.width = `${(answeredCount / total) * 100}%`;
-    document.getElementById("answeredCountBadge").innerText = `Đã chọn: ${answeredCount}/${total}`;
-}
-
-function scrollToQuestion(qId) {
-    const el = document.getElementById(`q-card-${qId}`);
-    if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "center" });
-        // Highlight active palette button
+// Nhảy đến câu hỏi
+function jumpToQuestion(qId) {
+    const card = document.getElementById(`q-card-${qId}`);
+    if (card) {
+        card.scrollIntoView({ behavior: "smooth", block: "center" });
         document.querySelectorAll(".palette-btn").forEach(b => b.classList.remove("current"));
         document.getElementById(`palette-btn-${qId}`).classList.add("current");
     }
 }
 
-// Timer
-function startTimer() {
-    clearInterval(timerInterval);
-    const display = document.getElementById("timerDisplay");
+// Bắt đầu đếm ngược thời gian
+function startCountdown() {
+    clearInterval(timerObj);
+    const clock = document.getElementById("timerClock");
 
-    timerInterval = setInterval(() => {
-        if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            display.innerText = "00:00";
+    timerObj = setInterval(() => {
+        if (timeLeftSeconds <= 0) {
+            clearInterval(timerObj);
+            clock.innerText = "00:00";
             alert("⏰ Đã hết thời gian 15 phút! Hệ thống đang tự động nộp bài.");
-            submitExam(true);
+            handleSubmitQuiz(true);
             return;
         }
 
-        timeLeft--;
-        const min = Math.floor(timeLeft / 60);
-        const sec = timeLeft % 60;
-        display.innerText = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+        timeLeftSeconds--;
+        const mins = Math.floor(timeLeftSeconds / 60);
+        const secs = timeLeftSeconds % 60;
+        clock.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 
-        if (timeLeft <= 120) {
-            display.className = "timer-clock danger";
-        } else if (timeLeft <= 300) {
-            display.className = "timer-clock warning";
+        if (timeLeftSeconds <= 120) {
+            clock.className = "timer-clock danger";
+        } else if (timeLeftSeconds <= 300) {
+            clock.className = "timer-clock warning";
         }
     }, 1000);
 }
 
-// Submit Exam
-function submitExam(auto = false) {
-    if (isSubmitted) return;
+// Nộp bài & Tự động chấm điểm
+function handleSubmitQuiz(isAuto = false) {
+    if (quizSubmitted) return;
 
-    const answeredCount = Object.keys(userAnswers).length;
-    if (!auto && answeredCount < questions.length) {
-        const confirmSubmit = confirm(`Em mới làm được ${answeredCount}/${questions.length} câu. Em có chắc chắn muốn nộp bài ngay không?`);
-        if (!confirmSubmit) return;
+    const answeredCount = Object.keys(userChoices).length;
+    if (!isAuto && answeredCount < questionsData.length) {
+        const ok = confirm(`Em mới hoàn thành ${answeredCount}/${questionsData.length} câu. Em có chắc chắn muốn nộp bài ngay bây giờ?`);
+        if (!ok) return;
     }
 
-    isSubmitted = true;
-    clearInterval(timerInterval);
+    quizSubmitted = true;
+    clearInterval(timerObj);
 
-    // Calculate score
+    // Tính điểm tự động
     let correctCount = 0;
-    questions.forEach(q => {
-        const studentChoice = userAnswers[q.id];
+    questionsData.forEach(q => {
+        const studentChoice = userChoices[q.id];
         const isCorrect = studentChoice === q.correct;
         if (isCorrect) correctCount++;
 
-        // Style the palette button
+        // Style nút Palette
         const pBtn = document.getElementById(`palette-btn-${q.id}`);
         if (pBtn) {
-            pBtn.classList.remove("answered", "current");
-            pBtn.classList.add(isCorrect ? "result-correct" : "result-wrong");
+            pBtn.classList.remove("done", "current");
+            pBtn.classList.add(isCorrect ? "res-correct" : "res-wrong");
         }
 
-        // Style options
+        // Style các lựa chọn đáp án
         q.options.forEach(opt => {
-            const el = document.getElementById(`opt-${q.id}-${opt.key}`);
+            const row = document.getElementById(`opt-${q.id}-${opt.key}`);
             if (opt.key === q.correct) {
-                el.classList.add("correct-answer");
+                row.classList.add("correct-ans");
             } else if (opt.key === studentChoice && !isCorrect) {
-                el.classList.add("wrong-selected");
+                row.classList.add("wrong-ans");
             }
         });
 
-        // Show detailed solution
-        const solEl = document.getElementById(`solution-${q.id}`);
+        // Hiển thị Lời giải chi tiết
+        const solEl = document.getElementById(`sol-${q.id}`);
         if (solEl) solEl.classList.add("show");
     });
 
-    const score = ((correctCount / questions.length) * 10).toFixed(1);
-    const elapsedSeconds = (15 * 60) - timeLeft;
-    const elMin = Math.floor(elapsedSeconds / 60);
-    const elSec = elapsedSeconds % 60;
-    const timeSpentStr = `${elMin.toString().padStart(2, '0')}:${elSec.toString().padStart(2, '0')}`;
+    const finalScore = ((correctCount / questionsData.length) * 10).toFixed(1);
+    const timeSpentSec = (15 * 60) - timeLeftSeconds;
+    const timeMin = Math.floor(timeSpentSec / 60);
+    const timeSec = timeSpentSec % 60;
+    const timeFormatted = `${timeMin.toString().padStart(2, '0')}:${timeSec.toString().padStart(2, '0')}`;
 
-    // Show Result Card
-    document.getElementById("scoreNum").innerText = score;
-    document.getElementById("correctCountStat").innerText = `${correctCount}/${questions.length}`;
-    document.getElementById("wrongCountStat").innerText = `${questions.length - correctCount}`;
-    document.getElementById("timeSpentStat").innerText = timeSpentStr;
+    // Hiển thị Card kết quả
+    document.getElementById("scoreDisplay").innerText = finalScore;
+    document.getElementById("statCorrect").innerText = `${correctCount}/${questionsData.length}`;
+    document.getElementById("statWrong").innerText = `${questionsData.length - correctCount}`;
+    document.getElementById("statTime").innerText = timeFormatted;
 
-    const sName = document.getElementById("studentName").value.trim() || "Học sinh";
-    const sClass = document.getElementById("studentClass").value.trim();
-    const classInfo = sClass ? ` (Lớp ${sClass})` : "";
-
-    let message = "";
-    if (score >= 9) {
-        message = `Xuất sắc! Chúc mừng em ${sName}${classInfo}, em đã nắm rất vững kiến thức công thức lượng giác! 🎉`;
-    } else if (score >= 7) {
-        message = `Khá tốt! Em ${sName}${classInfo} đạt kết quả tốt, hãy đọc kỹ lại các câu sai để hoàn thiện nhé. 👍`;
-    } else if (score >= 5) {
-        message = `Đạt yêu cầu! Em ${sName}${classInfo} cần ôn lại công thức nhân đôi và biến đổi tích thành tổng. 📖`;
+    let evalText = "";
+    if (finalScore >= 9) {
+        evalText = `🌟 Xuất sắc! Chúc mừng em ${studentName} (Lớp ${studentClass}), em nắm rất chắc toàn bộ công thức lượng giác!`;
+    } else if (finalScore >= 7) {
+        evalText = `👏 Khá tốt! Em ${studentName} (Lớp ${studentClass}) đã làm bài tốt, hãy xem lại các câu sai bên dưới để rút kinh nghiệm nhé.`;
+    } else if (finalScore >= 5) {
+        evalText = `📖 Đạt yêu cầu! Em ${studentName} (Lớp ${studentClass}) cần ôn thêm phần biến đổi tích thành tổng và công thức nhân đôi.`;
     } else {
-        message = `Cần cố gắng! Em ${sName}${classInfo} hãy ghi chép lại các công thức trong khung lời giải bên dưới để ôn tập nhé. 💪`;
+        evalText = `💪 Cố gắng lên nhé! Em ${studentName} hãy đọc kỹ lời giải chi tiết của từng câu bên dưới để củng cố lại lý thuyết.`;
     }
+    document.getElementById("resFeedback").innerText = evalText;
 
-    document.getElementById("resultMsg").innerText = message;
-    const resCard = document.getElementById("resultCard");
-    resCard.classList.add("show");
-    resCard.scrollIntoView({ behavior: "smooth", block: "start" });
+    const resScreen = document.getElementById("resultScreen");
+    resScreen.style.display = "block";
+    resScreen.scrollIntoView({ behavior: "smooth", block: "start" });
 
-    // Hide submit button
-    document.getElementById("btnSubmit").style.display = "none";
+    // Ẩn nút nộp bài
+    document.getElementById("submitActionBox").style.display = "none";
 
-    renderMath();
+    triggerKaTeX();
 }
 
-// Reset quiz
-function resetQuiz() {
-    if (confirm("Em có muốn làm lại bài thi từ đầu không?")) {
-        userAnswers = {};
-        timeLeft = 15 * 60;
-        isSubmitted = false;
-        document.getElementById("resultCard").classList.remove("show");
-        document.getElementById("btnSubmit").style.display = "inline-flex";
-        document.getElementById("timerDisplay").className = "timer-clock";
-        document.getElementById("timerDisplay").innerText = "15:00";
-        initExam();
+// Làm lại bài thi từ đầu
+function handleRestartQuiz() {
+    if (confirm("Em có muốn làm lại bài thi từ đầu không? Toàn bộ kết quả vừa rồi sẽ được làm mới.")) {
+        userChoices = {};
+        timeLeftSeconds = 15 * 60;
+        quizSubmitted = false;
+
+        document.getElementById("resultScreen").style.display = "none";
+        document.getElementById("submitActionBox").style.display = "block";
+        document.getElementById("timerClock").className = "timer-clock";
+        document.getElementById("timerClock").innerText = "15:00";
+
+        initExamUI();
+        startCountdown();
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
 }
-
-// Start on load
-window.addEventListener("DOMContentLoaded", () => {
-    initExam();
-});
 </script>
 
 </body>
