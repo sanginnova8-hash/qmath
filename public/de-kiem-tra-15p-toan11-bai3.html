@@ -7,17 +7,16 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
     <!-- KaTeX CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
     <style>
         :root {
-            --primary: #1e40af;
+            --primary: #1d4ed8;
             --primary-dark: #1e3a8a;
             --primary-light: #3b82f6;
-            --accent: #d97706;
             --success: #15803d;
             --danger: #b91c1c;
             --warning: #b45309;
@@ -27,8 +26,8 @@
             --text-muted: #64748b;
             --border: #e2e8f0;
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-            --shadow-md: 0 4px 14px -2px rgba(0,0,0,0.1);
-            --shadow-lg: 0 12px 28px -4px rgba(0,0,0,0.12);
+            --shadow-md: 0 6px 16px -2px rgba(0,0,0,0.1);
+            --shadow-lg: 0 14px 30px -4px rgba(0,0,0,0.12);
         }
 
         * {
@@ -39,45 +38,39 @@
 
         body {
             font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #eff6ff 0%, #f1f5f9 50%, #e2e8f0 100%);
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
             color: var(--text-main);
             line-height: 1.6;
-            padding: 20px 12px 60px;
+            padding: 24px 12px 60px;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 860px;
             margin: 0 auto;
         }
 
-        /* Card chung */
-        .card {
+        /* 1. MÀN HÌNH BẮT ĐẦU (START SCREEN) */
+        #startScreen {
+            display: block;
             background: #ffffff;
-            border-radius: 18px;
+            border-radius: 20px;
             border: 1px solid var(--border);
-            box-shadow: var(--shadow-md);
-            padding: 28px;
-            margin-bottom: 24px;
-        }
-
-        /* 1. MÀN HÌNH CHÀO & BẮT ĐẦU */
-        .welcome-screen {
+            box-shadow: var(--shadow-lg);
+            padding: 40px 32px;
             text-align: center;
-            max-width: 680px;
-            margin: 30px auto;
+            max-width: 640px;
+            margin: 40px auto;
             border-top: 6px solid var(--primary);
-            animation: fadeIn 0.4s ease;
+            animation: fadeIn 0.35s ease;
         }
 
-        .badge-teacher {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+        .exam-badge {
+            display: inline-block;
             background: #eff6ff;
-            color: var(--primary-dark);
+            color: var(--primary);
             border: 1px solid #bfdbfe;
-            padding: 6px 16px;
+            padding: 6px 18px;
             border-radius: 999px;
             font-size: 13.5px;
             font-weight: 700;
@@ -86,8 +79,8 @@
             margin-bottom: 16px;
         }
 
-        .welcome-screen h1 {
-            font-size: 26px;
+        #startScreen h1 {
+            font-size: 25px;
             font-weight: 800;
             color: #b91c1c;
             text-transform: uppercase;
@@ -95,76 +88,58 @@
             letter-spacing: 0.5px;
         }
 
-        .welcome-screen h2 {
+        #startScreen h2 {
             font-size: 18px;
             font-weight: 700;
             color: var(--primary-dark);
-            margin-bottom: 20px;
-        }
-
-        .exam-rules-box {
-            background: #f8fafc;
-            border: 1.5px dashed #cbd5e1;
-            border-radius: 14px;
-            padding: 18px 20px;
-            text-align: left;
             margin-bottom: 24px;
         }
 
-        .exam-rules-box h3 {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--text-main);
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .rules-list {
-            list-style: none;
+        .exam-info-grid {
+            background: #f8fafc;
+            border: 1.5px dashed #cbd5e1;
+            border-radius: 14px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px 16px;
+            gap: 12px;
+            text-align: left;
             font-size: 14px;
         }
 
-        @media (max-width: 580px) {
-            .rules-list { grid-template-columns: 1fr; }
+        @media (max-width: 520px) {
+            .exam-info-grid { grid-template-columns: 1fr; }
+            #startScreen { padding: 28px 18px; }
         }
 
-        .rules-list li {
+        .exam-info-item {
             display: flex;
             align-items: center;
             gap: 8px;
             color: var(--text-muted);
         }
 
-        .rules-list li strong {
+        .exam-info-item strong {
             color: var(--text-main);
         }
 
-        .form-user-box {
+        .input-group-box {
             text-align: left;
-            background: #ffffff;
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 20px;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px;
+            gap: 14px;
         }
 
-        @media (max-width: 540px) {
+        @media (max-width: 520px) {
             .form-row { grid-template-columns: 1fr; }
         }
 
-        .form-label {
+        .input-label {
             display: block;
             font-size: 13.5px;
             font-weight: 600;
@@ -172,13 +147,13 @@
             margin-bottom: 6px;
         }
 
-        .form-label span {
+        .input-label span {
             color: #dc2626;
         }
 
-        .form-input {
+        .text-input {
             width: 100%;
-            padding: 12px 14px;
+            padding: 13px 16px;
             font-size: 15px;
             border: 1.5px solid var(--border);
             border-radius: 10px;
@@ -187,17 +162,19 @@
             font-family: inherit;
         }
 
-        .form-input:focus {
+        .text-input:focus {
             border-color: var(--primary-light);
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+            background: #ffffff;
         }
 
-        .btn-start {
+        /* NÚT BẮT ĐẦU TO RÕ NỔI BẬT */
+        .btn-start-action {
             width: 100%;
-            padding: 16px;
-            font-size: 18px;
+            padding: 18px 24px;
+            font-size: 19px;
             font-weight: 800;
-            border-radius: 12px;
+            border-radius: 14px;
             background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
             color: #ffffff;
             border: none;
@@ -205,29 +182,34 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            box-shadow: 0 8px 20px -4px rgba(37, 99, 235, 0.4);
+            gap: 12px;
+            box-shadow: 0 10px 24px -4px rgba(37, 99, 235, 0.45);
             transition: all 0.25s ease;
+            letter-spacing: 0.5px;
         }
 
-        .btn-start:hover {
+        .btn-start-action:hover {
             background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
             transform: translateY(-2px);
-            box-shadow: 0 12px 24px -4px rgba(37, 99, 235, 0.5);
+            box-shadow: 0 14px 28px -4px rgba(37, 99, 235, 0.55);
         }
 
-        /* 2. MÀN HÌNH LÀM BÀI */
-        .exam-screen {
+        .btn-start-action:active {
+            transform: translateY(0);
+        }
+
+        /* 2. MÀN HÌNH LÀM BÀI (MẶC ĐỊNH ẨN HOÀN TOÀN) */
+        #examArea {
             display: none;
             animation: fadeIn 0.4s ease;
         }
 
-        /* Sticky Control Bar */
+        /* Thanh cố định đếm giờ & thí sinh */
         .sticky-bar {
             position: sticky;
             top: 14px;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(12px);
             border-radius: 16px;
             padding: 12px 20px;
@@ -241,7 +223,7 @@
             gap: 12px;
         }
 
-        .student-pill {
+        .student-badge {
             display: flex;
             align-items: center;
             gap: 8px;
@@ -260,7 +242,7 @@
             gap: 10px;
         }
 
-        .timer-clock {
+        .timer-val {
             font-family: 'JetBrains Mono', monospace;
             font-size: 22px;
             font-weight: 800;
@@ -275,13 +257,13 @@
             transition: all 0.3s;
         }
 
-        .timer-clock.warning {
+        .timer-val.warning {
             background: #fef3c7;
             color: #b45309;
             border-color: #fde68a;
         }
 
-        .timer-clock.danger {
+        .timer-val.danger {
             background: #fee2e2;
             color: #b91c1c;
             border-color: #fca5a5;
@@ -293,7 +275,7 @@
             50% { transform: scale(1.04); }
         }
 
-        /* Palette Grid */
+        /* Palette câu hỏi */
         .palette-card {
             background: #ffffff;
             border-radius: 14px;
@@ -363,7 +345,7 @@
         .q-card {
             background: #ffffff;
             border-radius: 16px;
-            padding: 22px 26px;
+            padding: 24px 26px;
             margin-bottom: 20px;
             border: 1px solid var(--border);
             box-shadow: var(--shadow-sm);
@@ -526,8 +508,8 @@
         }
 
         .btn-submit {
-            padding: 16px 42px;
-            font-size: 17px;
+            padding: 16px 44px;
+            font-size: 17.5px;
             font-weight: 800;
             border-radius: 12px;
             background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);
@@ -689,7 +671,7 @@
         /* Print Mode */
         @media print {
             body { background: #fff; padding: 0; }
-            .sticky-bar, .palette-card, .bottom-actions, .welcome-screen, .btn-group { display: none !important; }
+            .sticky-bar, .palette-card, .bottom-actions, #startScreen, .btn-group { display: none !important; }
             .q-card { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
             .sol-box { display: block !important; }
         }
@@ -699,121 +681,126 @@
 
 <div class="container">
 
-    <!-- 1. MÀN HÌNH CHÀO VÀ BẮT ĐẦU LÀM BÀI -->
-    <section class="card welcome-screen" id="welcomeScreen">
-        <div class="badge-teacher">
-            🏫 Trường CĐ Nghề số 1 - BQP • GV: Nguyễn Văn Sang
+    <!-- 1. MÀN HÌNH BẮT ĐẦU: CHỈ HIỆN DUY NHẤT HỘP NÀY KHI MỞ TRANG -->
+    <section id="startScreen">
+        <div class="exam-badge">
+            Toán Học 11 — GDPT 2018
         </div>
-        <h1>ĐỀ KIỂM TRA 15 PHÚT — MÔN TOÁN 11</h1>
-        <h2>CHƯƠNG I: BÀI 3 — CÔNG THỨC LƯỢNG GIÁC</h2>
+        <h1>ĐỀ KIỂM TRA 15 PHÚT</h1>
+        <h2>BÀI 3: CÔNG THỨC LƯỢNG GIÁC</h2>
 
-        <div class="exam-rules-box">
-            <h3>📋 Quy chế & Thông tin bài kiểm tra:</h3>
-            <ul class="rules-list">
-                <li>⏱ Thời gian: <strong>15 phút</strong></li>
-                <li>❓ Số câu: <strong>10 câu trắc nghiệm</strong></li>
-                <li>🎯 Thang điểm: <strong>10.0 (Mỗi câu 1đ)</strong></li>
-                <li>💡 Chấm điểm: <strong>Tự động & Xem giải ngay</strong></li>
-            </ul>
+        <div class="exam-info-grid">
+            <div class="exam-info-item">
+                <span>⏱</span> Thời gian làm bài: <strong>15 phút</strong>
+            </div>
+            <div class="exam-info-item">
+                <span>❓</span> Số lượng câu hỏi: <strong>10 câu trắc nghiệm</strong>
+            </div>
+            <div class="exam-info-item">
+                <span>🎯</span> Thang điểm: <strong>10.0 (Mỗi câu 1đ)</strong>
+            </div>
+            <div class="exam-info-item">
+                <span>⚡</span> Chấm điểm: <strong>Tự động ngay khi nộp</strong>
+            </div>
         </div>
 
-        <div class="form-user-box">
+        <div class="input-group-box">
             <div class="form-row">
                 <div>
-                    <label class="form-label" for="inpStudentName">Họ và tên học sinh <span>*</span></label>
-                    <input type="text" id="inpStudentName" class="form-input" placeholder="Ví dụ: Nguyễn Văn An" autocomplete="off">
+                    <label class="input-label" for="txtStudentName">Họ và tên học sinh <span>*</span></label>
+                    <input type="text" id="txtStudentName" class="text-input" placeholder="Nhập họ và tên..." autocomplete="off">
                 </div>
                 <div>
-                    <label class="form-label" for="inpStudentClass">Lớp học <span>*</span></label>
-                    <input type="text" id="inpStudentClass" class="form-input" placeholder="Ví dụ: 11A1, 10A8..." autocomplete="off">
+                    <label class="input-label" for="txtStudentClass">Lớp học <span>*</span></label>
+                    <input type="text" id="txtStudentClass" class="text-input" placeholder="Nhập lớp (VD: 11A1)..." autocomplete="off">
                 </div>
             </div>
         </div>
 
-        <button class="btn-start" onclick="handleStartQuiz()">
-            <span>🚀</span> BẮT ĐẦU LÀM BÀI & TÍNH GIỜ
+        <!-- NÚT BẮT ĐẦU LÀM BÀI NỔI BẬT -->
+        <button class="btn-start-action" onclick="handleStartExam()">
+            <span>▶</span> BẮT ĐẦU LÀM BÀI
         </button>
     </section>
 
-    <!-- 2. MÀN HÌNH LÀM BÀI (ẨN BAN ĐẦU) -->
-    <section class="exam-screen" id="examScreen">
+    <!-- 2. PHÒNG THI: MẶC ĐỊNH BỊ ẨN HOÀN TOÀN, CHỈ HIỆN KHI BẤM BẮT ĐẦU -->
+    <main id="examArea">
 
-        <!-- Sticky Control Bar -->
+        <!-- Sticky Bar: Thông tin thí sinh & Đồng hồ tính giờ -->
         <div class="sticky-bar">
-            <div class="student-pill">
-                <span>👤</span> <span id="displayStudentInfo">Học sinh</span>
+            <div class="student-badge">
+                <span>👤</span> <span id="lblStudentBadge">Thí sinh</span>
             </div>
             <div class="timer-box">
-                <span style="font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Còn lại:</span>
-                <div class="timer-clock" id="timerClock">15:00</div>
+                <span style="font-size: 13px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Thời gian còn lại:</span>
+                <div class="timer-val" id="examClock">15:00</div>
             </div>
         </div>
 
-        <!-- Question Palette Grid -->
+        <!-- Palette mục lục câu hỏi -->
         <div class="palette-card">
             <div class="palette-header">
-                <span>Mục lục câu hỏi</span>
-                <span id="paletteCount" style="color: var(--primary);">Đã làm: 0/10</span>
+                <span>Danh sách câu hỏi</span>
+                <span id="lblPaletteProgress" style="color: var(--primary);">Đã làm: 0/10</span>
             </div>
-            <div class="palette-grid" id="paletteGrid">
-                <!-- 10 buttons -->
+            <div class="palette-grid" id="examPaletteGrid">
+                <!-- 10 nút bấm câu hỏi -->
             </div>
         </div>
 
-        <!-- Result Box (Hiển thị ngay trên câu hỏi khi nộp bài) -->
-        <div class="result-screen" id="resultScreen">
+        <!-- Bảng Kết quả điểm số (Hiện ngay sau khi nộp bài) -->
+        <div class="result-screen" id="examResultScreen">
             <div class="score-disk">
-                <div class="score-val" id="scoreDisplay">0</div>
+                <div class="score-val" id="valScore">0</div>
                 <div class="score-max">/ 10 ĐIỂM</div>
             </div>
-            <h2 class="res-headline" id="resTitle">KẾT QUẢ BÀI THI</h2>
-            <p class="res-feedback" id="resFeedback"></p>
+            <h2 class="res-headline" id="lblResultHeadline">KẾT QUẢ BÀI LÀM</h2>
+            <p class="res-feedback" id="lblResultComment"></p>
 
             <div class="stat-grid">
                 <div class="stat-card">
-                    <div class="stat-num" id="statCorrect" style="color: #16a34a;">0</div>
+                    <div class="stat-num" id="valCorrect" style="color: #16a34a;">0</div>
                     <div class="stat-desc">Số câu đúng</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-num" id="statWrong" style="color: #dc2626;">0</div>
+                    <div class="stat-num" id="valWrong" style="color: #dc2626;">0</div>
                     <div class="stat-desc">Số câu sai</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-num" id="statTime">00:00</div>
+                    <div class="stat-num" id="valDuration">00:00</div>
                     <div class="stat-desc">Thời gian làm</div>
                 </div>
             </div>
 
             <div class="btn-group">
-                <button class="btn-act primary" onclick="handleRestartQuiz()">🔄 Làm lại bài từ đầu</button>
+                <button class="btn-act primary" onclick="handleRestartExam()">🔄 Làm lại bài thi</button>
                 <button class="btn-act" onclick="window.print()">🖨 In kết quả / Lưu PDF</button>
             </div>
         </div>
 
-        <!-- Questions List -->
-        <div id="questionsContainer">
+        <!-- Danh sách 10 câu hỏi -->
+        <div id="examQuestionsList">
             <!-- Rendered by JS -->
         </div>
 
-        <!-- Submit Button -->
-        <div class="bottom-actions" id="submitActionBox">
-            <button class="btn-submit" onclick="handleSubmitQuiz()">
+        <!-- Nút Nộp bài -->
+        <div class="bottom-actions" id="examSubmitSection">
+            <button class="btn-submit" onclick="handleSubmitExam()">
                 <span>📝</span> NỘP BÀI KIỂM TRA
             </button>
         </div>
 
-    </section>
+    </main>
 
     <footer class="footer">
-        <p>© 2026 GV Nguyễn Văn Sang — Khoa Cơ bản, Trường Cao đẳng Nghề số 1 - BQP.</p>
-        <p>Hệ thống Đề kiểm tra Toán học trực tuyến QMath Online (Toán 11 - GDPT 2018).</p>
+        <p>Đề kiểm tra trắc nghiệm trực tuyến môn Toán 11 — GDPT 2018.</p>
     </footer>
 
 </div>
 
 <script>
-// Bộ câu hỏi Bài 3: Công thức lượng giác (Toán 11 - Từ Tâm)
-const questionsData = [
+// Dữ liệu 10 câu hỏi Bài 3: Công thức lượng giác (Toán 11 - Từ Tâm)
+const examData = [
     {
         id: 1,
         level: "Nhận biết",
@@ -956,16 +943,16 @@ const questionsData = [
     }
 ];
 
-// Quản lý trạng thái
-let userChoices = {};
-let timeLeftSeconds = 15 * 60; // 15 phút
-let timerObj = null;
-let quizSubmitted = false;
-let studentName = "";
-let studentClass = "";
+// Biến trạng thái
+let userSelected = {};
+let countdownSec = 15 * 60; // 15 phút
+let countdownTimer = null;
+let isExamDone = false;
+let stuName = "";
+let stuClass = "";
 
 // Render công thức KaTeX
-function triggerKaTeX() {
+function renderMathFormula() {
     if (typeof renderMathInElement !== 'undefined') {
         renderMathInElement(document.body, {
             delimiters: [
@@ -977,56 +964,56 @@ function triggerKaTeX() {
     }
 }
 
-// Bắt đầu làm bài
-function handleStartQuiz() {
-    const nameInput = document.getElementById("inpStudentName").value.trim();
-    const classInput = document.getElementById("inpStudentClass").value.trim();
+// BẤM NÚT BẮT ĐẦU LÀM BÀI
+function handleStartExam() {
+    const nameVal = document.getElementById("txtStudentName").value.trim();
+    const classVal = document.getElementById("txtStudentClass").value.trim();
 
-    if (!nameInput) {
-        alert("Vui lòng nhập Họ và tên trước khi bắt đầu làm bài!");
-        document.getElementById("inpStudentName").focus();
+    if (!nameVal) {
+        alert("Vui lòng nhập Họ và tên trước khi bắt đầu!");
+        document.getElementById("txtStudentName").focus();
         return;
     }
 
-    if (!classInput) {
-        alert("Vui lòng nhập Lớp học trước khi bắt đầu làm bài!");
-        document.getElementById("inpStudentClass").focus();
+    if (!classVal) {
+        alert("Vui lòng nhập Lớp học trước khi bắt đầu!");
+        document.getElementById("txtStudentClass").focus();
         return;
     }
 
-    studentName = nameInput;
-    studentClass = classInput;
+    stuName = nameVal;
+    stuClass = classVal;
 
-    // Hiển thị thông tin
-    document.getElementById("displayStudentInfo").innerText = `${studentName} — Lớp: ${studentClass}`;
+    // Gán thông tin thí sinh lên thanh sticky bar
+    document.getElementById("lblStudentBadge").innerText = `${stuName} — Lớp ${stuClass}`;
 
-    // Chuyển màn hình
-    document.getElementById("welcomeScreen").style.display = "none";
-    document.getElementById("examScreen").style.display = "block";
+    // Ẩn màn hình bắt đầu, hiện phòng thi
+    document.getElementById("startScreen").style.display = "none";
+    document.getElementById("examArea").style.display = "block";
 
-    // Khởi tạo bài thi & tính giờ
-    initExamUI();
-    startCountdown();
+    // Khởi tạo giao diện câu hỏi & bắt đầu đếm giờ
+    buildExamQuestions();
+    startExamTimer();
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-// Khởi tạo giao diện câu hỏi & Palette
-function initExamUI() {
-    const container = document.getElementById("questionsContainer");
-    const paletteGrid = document.getElementById("paletteGrid");
+// Dựng giao diện câu hỏi và palette
+function buildExamQuestions() {
+    const container = document.getElementById("examQuestionsList");
+    const palette = document.getElementById("examPaletteGrid");
     container.innerHTML = "";
-    paletteGrid.innerHTML = "";
+    palette.innerHTML = "";
 
-    questionsData.forEach(q => {
+    examData.forEach(q => {
         // Nút Palette
         const btn = document.createElement("button");
         btn.className = "palette-btn";
-        btn.id = `palette-btn-${q.id}`;
+        btn.id = `palette-item-${q.id}`;
         btn.innerText = q.id;
-        btn.onclick = () => jumpToQuestion(q.id);
-        paletteGrid.appendChild(btn);
+        btn.onclick = () => scrollToQ(q.id);
+        palette.appendChild(btn);
 
-        // Card câu hỏi
+        // Khung câu hỏi
         const card = document.createElement("div");
         card.className = "q-card";
         card.id = `q-card-${q.id}`;
@@ -1034,7 +1021,7 @@ function initExamUI() {
         let optsHtml = "";
         q.options.forEach(opt => {
             optsHtml += `
-                <div class="opt-row" id="opt-${q.id}-${opt.key}" onclick="chooseOption(${q.id}, '${opt.key}')">
+                <div class="opt-row" id="opt-${q.id}-${opt.key}" onclick="onSelectOption(${q.id}, '${opt.key}')">
                     <div class="opt-bubble">${opt.key}</div>
                     <div class="opt-text">${opt.text}</div>
                 </div>
@@ -1059,17 +1046,17 @@ function initExamUI() {
         container.appendChild(card);
     });
 
-    triggerKaTeX();
+    renderMathFormula();
 }
 
 // Chọn đáp án
-function chooseOption(qId, key) {
-    if (quizSubmitted) return;
+function onSelectOption(qId, key) {
+    if (isExamDone) return;
 
-    userChoices[qId] = key;
+    userSelected[qId] = key;
 
-    // Cập nhật style của các options
-    const qObj = questionsData.find(item => item.id === qId);
+    // Cập nhật giao diện option
+    const qObj = examData.find(item => item.id === qId);
     qObj.options.forEach(opt => {
         const row = document.getElementById(`opt-${qId}-${opt.key}`);
         if (opt.key === key) {
@@ -1079,142 +1066,142 @@ function chooseOption(qId, key) {
         }
     });
 
-    // Cập nhật Palette
-    const pBtn = document.getElementById(`palette-btn-${qId}`);
+    // Đổi màu nút palette
+    const pBtn = document.getElementById(`palette-item-${qId}`);
     if (pBtn) pBtn.classList.add("done");
 
-    // Cập nhật số câu đã chọn
-    const countDone = Object.keys(userChoices).length;
-    document.getElementById("paletteCount").innerText = `Đã làm: ${countDone}/${questionsData.length}`;
+    // Cập nhật số câu đã làm
+    const doneCount = Object.keys(userSelected).length;
+    document.getElementById("lblPaletteProgress").innerText = `Đã làm: ${doneCount}/${examData.length}`;
 }
 
-// Nhảy đến câu hỏi
-function jumpToQuestion(qId) {
+// Cuộn đến câu hỏi
+function scrollToQ(qId) {
     const card = document.getElementById(`q-card-${qId}`);
     if (card) {
         card.scrollIntoView({ behavior: "smooth", block: "center" });
         document.querySelectorAll(".palette-btn").forEach(b => b.classList.remove("current"));
-        document.getElementById(`palette-btn-${qId}`).classList.add("current");
+        document.getElementById(`palette-item-${qId}`).classList.add("current");
     }
 }
 
-// Bắt đầu đếm ngược thời gian
-function startCountdown() {
-    clearInterval(timerObj);
-    const clock = document.getElementById("timerClock");
+// Đồng hồ đếm ngược
+function startExamTimer() {
+    clearInterval(countdownTimer);
+    const clock = document.getElementById("examClock");
 
-    timerObj = setInterval(() => {
-        if (timeLeftSeconds <= 0) {
-            clearInterval(timerObj);
+    countdownTimer = setInterval(() => {
+        if (countdownSec <= 0) {
+            clearInterval(countdownTimer);
             clock.innerText = "00:00";
             alert("⏰ Đã hết thời gian 15 phút! Hệ thống đang tự động nộp bài.");
-            handleSubmitQuiz(true);
+            handleSubmitExam(true);
             return;
         }
 
-        timeLeftSeconds--;
-        const mins = Math.floor(timeLeftSeconds / 60);
-        const secs = timeLeftSeconds % 60;
+        countdownSec--;
+        const mins = Math.floor(countdownSec / 60);
+        const secs = countdownSec % 60;
         clock.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 
-        if (timeLeftSeconds <= 120) {
-            clock.className = "timer-clock danger";
-        } else if (timeLeftSeconds <= 300) {
-            clock.className = "timer-clock warning";
+        if (countdownSec <= 120) {
+            clock.className = "timer-val danger";
+        } else if (countdownSec <= 300) {
+            clock.className = "timer-val warning";
         }
     }, 1000);
 }
 
-// Nộp bài & Tự động chấm điểm
-function handleSubmitQuiz(isAuto = false) {
-    if (quizSubmitted) return;
+// NỘP BÀI & TỰ ĐỘNG CHẤM ĐIỂM
+function handleSubmitExam(auto = false) {
+    if (isExamDone) return;
 
-    const answeredCount = Object.keys(userChoices).length;
-    if (!isAuto && answeredCount < questionsData.length) {
-        const ok = confirm(`Em mới hoàn thành ${answeredCount}/${questionsData.length} câu. Em có chắc chắn muốn nộp bài ngay bây giờ?`);
+    const count = Object.keys(userSelected).length;
+    if (!auto && count < examData.length) {
+        const ok = confirm(`Em mới hoàn thành ${count}/${examData.length} câu. Em có chắc chắn muốn nộp bài ngay bây giờ?`);
         if (!ok) return;
     }
 
-    quizSubmitted = true;
-    clearInterval(timerObj);
+    isExamDone = true;
+    clearInterval(countdownTimer);
 
-    // Tính điểm tự động
-    let correctCount = 0;
-    questionsData.forEach(q => {
-        const studentChoice = userChoices[q.id];
-        const isCorrect = studentChoice === q.correct;
-        if (isCorrect) correctCount++;
+    // Chấm điểm
+    let correctTotal = 0;
+    examData.forEach(q => {
+        const ans = userSelected[q.id];
+        const isRight = ans === q.correct;
+        if (isRight) correctTotal++;
 
-        // Style nút Palette
-        const pBtn = document.getElementById(`palette-btn-${q.id}`);
+        // Nút palette
+        const pBtn = document.getElementById(`palette-item-${q.id}`);
         if (pBtn) {
             pBtn.classList.remove("done", "current");
-            pBtn.classList.add(isCorrect ? "res-correct" : "res-wrong");
+            pBtn.classList.add(isRight ? "res-correct" : "res-wrong");
         }
 
-        // Style các lựa chọn đáp án
+        // Đổi màu các đáp án
         q.options.forEach(opt => {
             const row = document.getElementById(`opt-${q.id}-${opt.key}`);
             if (opt.key === q.correct) {
                 row.classList.add("correct-ans");
-            } else if (opt.key === studentChoice && !isCorrect) {
+            } else if (opt.key === ans && !isRight) {
                 row.classList.add("wrong-ans");
             }
         });
 
-        // Hiển thị Lời giải chi tiết
-        const solEl = document.getElementById(`sol-${q.id}`);
-        if (solEl) solEl.classList.add("show");
+        // Hiện Lời giải chi tiết
+        const solBox = document.getElementById(`sol-${q.id}`);
+        if (solBox) solBox.classList.add("show");
     });
 
-    const finalScore = ((correctCount / questionsData.length) * 10).toFixed(1);
-    const timeSpentSec = (15 * 60) - timeLeftSeconds;
-    const timeMin = Math.floor(timeSpentSec / 60);
-    const timeSec = timeSpentSec % 60;
-    const timeFormatted = `${timeMin.toString().padStart(2, '0')}:${timeSec.toString().padStart(2, '0')}`;
+    const mark = ((correctTotal / examData.length) * 10).toFixed(1);
+    const timeSpent = (15 * 60) - countdownSec;
+    const tMin = Math.floor(timeSpent / 60);
+    const tSec = timeSpent % 60;
+    const tFormatted = `${tMin.toString().padStart(2, '0')}:${tSec.toString().padStart(2, '0')}`;
 
     // Hiển thị Card kết quả
-    document.getElementById("scoreDisplay").innerText = finalScore;
-    document.getElementById("statCorrect").innerText = `${correctCount}/${questionsData.length}`;
-    document.getElementById("statWrong").innerText = `${questionsData.length - correctCount}`;
-    document.getElementById("statTime").innerText = timeFormatted;
+    document.getElementById("valScore").innerText = mark;
+    document.getElementById("valCorrect").innerText = `${correctTotal}/${examData.length}`;
+    document.getElementById("valWrong").innerText = `${examData.length - correctTotal}`;
+    document.getElementById("valDuration").innerText = tFormatted;
 
-    let evalText = "";
-    if (finalScore >= 9) {
-        evalText = `🌟 Xuất sắc! Chúc mừng em ${studentName} (Lớp ${studentClass}), em nắm rất chắc toàn bộ công thức lượng giác!`;
-    } else if (finalScore >= 7) {
-        evalText = `👏 Khá tốt! Em ${studentName} (Lớp ${studentClass}) đã làm bài tốt, hãy xem lại các câu sai bên dưới để rút kinh nghiệm nhé.`;
-    } else if (finalScore >= 5) {
-        evalText = `📖 Đạt yêu cầu! Em ${studentName} (Lớp ${studentClass}) cần ôn thêm phần biến đổi tích thành tổng và công thức nhân đôi.`;
+    let comment = "";
+    if (mark >= 9) {
+        comment = `🌟 Xuất sắc! Chúc mừng em ${stuName} (Lớp ${stuClass}), em nắm rất vững công thức lượng giác!`;
+    } else if (mark >= 7) {
+        comment = `👏 Khá tốt! Em ${stuName} (Lớp ${stuClass}) đã đạt điểm tốt, hãy xem lại các câu sai để rút kinh nghiệm.`;
+    } else if (mark >= 5) {
+        comment = `📖 Đạt yêu cầu! Em ${stuName} (Lớp ${stuClass}) cần rà soát lại công thức biến đổi tích thành tổng.`;
     } else {
-        evalText = `💪 Cố gắng lên nhé! Em ${studentName} hãy đọc kỹ lời giải chi tiết của từng câu bên dưới để củng cố lại lý thuyết.`;
+        comment = `💪 Cố gắng lên nhé! Em ${stuName} hãy đọc kỹ lời giải chi tiết bên dưới để ôn tập lại kiến thức.`;
     }
-    document.getElementById("resFeedback").innerText = evalText;
+    document.getElementById("lblResultComment").innerText = comment;
 
-    const resScreen = document.getElementById("resultScreen");
+    const resScreen = document.getElementById("examResultScreen");
     resScreen.style.display = "block";
     resScreen.scrollIntoView({ behavior: "smooth", block: "start" });
 
     // Ẩn nút nộp bài
-    document.getElementById("submitActionBox").style.display = "none";
+    document.getElementById("examSubmitSection").style.display = "none";
 
-    triggerKaTeX();
+    renderMathFormula();
 }
 
-// Làm lại bài thi từ đầu
-function handleRestartQuiz() {
-    if (confirm("Em có muốn làm lại bài thi từ đầu không? Toàn bộ kết quả vừa rồi sẽ được làm mới.")) {
-        userChoices = {};
-        timeLeftSeconds = 15 * 60;
-        quizSubmitted = false;
+// Làm lại bài
+function handleRestartExam() {
+    if (confirm("Em có muốn làm lại bài thi từ đầu? Kết quả bài làm hiện tại sẽ được đặt lại.")) {
+        userSelected = {};
+        countdownSec = 15 * 60;
+        isExamDone = false;
 
-        document.getElementById("resultScreen").style.display = "none";
-        document.getElementById("submitActionBox").style.display = "block";
-        document.getElementById("timerClock").className = "timer-clock";
-        document.getElementById("timerClock").innerText = "15:00";
+        document.getElementById("examResultScreen").style.display = "none";
+        document.getElementById("examSubmitSection").style.display = "block";
+        document.getElementById("examClock").className = "timer-val";
+        document.getElementById("examClock").innerText = "15:00";
 
-        initExamUI();
-        startCountdown();
+        buildExamQuestions();
+        startExamTimer();
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
 }
