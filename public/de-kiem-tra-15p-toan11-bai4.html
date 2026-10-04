@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đề kiểm tra 15 phút - Bài 4: Hàm số lượng giác | Toán 11</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+    <!-- KaTeX CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1d4ed8;
+            --primary-dark: #1e3a8a;
+            --primary-light: #3b82f6;
+            --success: #15803d;
+            --danger: #b91c1c;
+            --warning: #b45309;
+            --bg-page: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 6px 16px -2px rgba(0,0,0,0.1);
+            --shadow-lg: 0 14px 30px -4px rgba(0,0,0,0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 24px 12px 60px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        /* 1. MÀN HÌNH BẮT ĐẦU (START SCREEN) */
+        #startScreen {
+            display: block;
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+            padding: 40px 32px;
+            text-align: center;
+            max-width: 640px;
+            margin: 30px auto;
+            border-top: 6px solid var(--primary);
+            animation: fadeIn 0.35s ease;
+        }
+
+        .exam-badge {
+            display: inline-block;
+            background: #eff6ff;
+            color: var(--primary);
+            border: 1px solid #bfdbfe;
+            padding: 6px 18px;
+            border-radius: 999px;
+            font-size: 13.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        #startScreen h1 {
+            font-size: 24px;
+            font-weight: 800;
+            color: #b91c1c;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        #startScreen h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 24px;
+        }
+
+        .exam-info-grid {
+            background: #f8fafc;
+            border: 1.5px dashed #cbd5e1;
+            border-radius: 14px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        @media (max-width: 520px) {
+            .exam-info-grid { grid-template-columns: 1fr; }
+            #startScreen { padding: 28px 18px; }
+        }
+
+        .exam-info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+        }
+
+        .exam-info-item strong {
+            color: var(--text-main);
+        }
+
+        .rule-alert {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            color: #92400e;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 13.5px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-align: left;
+        }
+
+        .input-group-box {
+            text-align: left;
+            margin-bottom: 28px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        @media (max-width: 520px) {
+            .form-row { grid-template-columns: 1fr; }
+        }
+
+        .input-label {
+            display: block;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .input-label span {
+            color: #dc2626;
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 13px 16px;
+            font-size: 15px;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            outline: none;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .text-input:focus {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+            background: #ffffff;
+        }
+
+        /* NÚT BẮT ĐẦU TO RÕ NỔI BẬT */
+        .btn-start-action {
+            width: 100%;
+            padding: 18px 24px;
+            font-size: 19px;
+            font-weight: 800;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 10px 24px -4px rgba(37, 99, 235, 0.45);
+            transition: all 0.25s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-start-action:hover {
+            background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 28px -4px rgba(37, 99, 235, 0.55);
+        }
+
+        .btn-start-action:active {
+            transform: translateY(0);
+        }
+
+        /* 2. MÀN HÌNH LÀM BÀI */
+        #examArea {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        /* Thanh cố định đếm giờ & thí sinh */
+        .sticky-bar {
+            position: sticky;
+            top: 14px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 12px 20px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-md);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .student-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            background: #eff6ff;
+            padding: 6px 14px;
+            border-radius: 999px;
+            border: 1px solid #bfdbfe;
+        }
+
+        .timer-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .timer-val {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 22px;
+            font-weight: 800;
+            color: #1e3a8a;
+            background: #f1f5f9;
+            padding: 4px 16px;
+            border-radius: 10px;
+            border: 1.5px solid #cbd5e1;
+            letter-spacing: 1px;
+            min-width: 105px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .timer-val.warning {
+            background: #fef3c7;
+            color: #b45309;
+            border-color: #fde68a;
+        }
+
+        .timer-val.danger {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #fca5a5;
+            animation: pulse-danger 1s infinite;
+        }
+
+        @keyframes pulse-danger {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+        }
+
+        /* Palette câu hỏi */
+        .palette-card {
+            background: #ffffff;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            padding: 14px 18px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .palette-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(42px, 1fr));
+            gap: 8px;
+        }
+
+        .palette-btn {
+            height: 40px;
+            border-radius: 10px;
+            border: 1.5px solid var(--border);
+            background: #ffffff;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            color: var(--text-main);
+        }
+
+        .palette-btn:hover {
+            border-color: var(--primary-light);
+            background: #eff6ff;
+        }
+
+        .palette-btn.done {
+            background: #2563eb;
+            color: #ffffff;
+            border-color: #1d4ed8;
+        }
+
+        .palette-btn.current {
+            box-shadow: 0 0 0 3px #f59e0b;
+        }
+
+        .palette-btn.res-correct {
+            background: #16a34a !important;
+            color: #ffffff !important;
+            border-color: #15803d !important;
+        }
+
+        .palette-btn.res-wrong {
+            background: #dc2626 !important;
+            color: #ffffff !important;
+            border-color: #b91c1c !important;
+        }
+
+        /* Question Cards */
+        .q-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px 26px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+
+        .q-card:hover {
+            border-color: #cbd5e1;
+            box-shadow: var(--shadow-md);
+        }
+
+        .q-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .q-badge {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 4px 12px;
+            border-radius: 8px;
+        }
+
+        .q-meta {
+            font-size: 12.5px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: #f1f5f9;
+            color: var(--text-muted);
+        }
+
+        .q-content {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+            margin-bottom: 18px;
+            line-height: 1.7;
+        }
+
+        /* Options */
+        .opt-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .opt-row {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1.5px solid var(--border);
+            background: #f8fafc;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .opt-row:hover {
+            border-color: var(--primary-light);
+            background: #eff6ff;
+            transform: translateX(3px);
+        }
+
+        .opt-row.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            font-weight: 600;
+        }
+
+        .opt-bubble {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 1.5px solid #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text-main);
+            margin-right: 14px;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .opt-row.selected .opt-bubble {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        .opt-text {
+            font-size: 15.5px;
+            flex-grow: 1;
+        }
+
+        /* Result styling for options */
+        .opt-row.correct-ans {
+            background: #dcfce7 !important;
+            border-color: #22c55e !important;
+            color: #14532d !important;
+        }
+
+        .opt-row.correct-ans .opt-bubble {
+            background: #16a34a !important;
+            color: #ffffff !important;
+            border-color: #16a34a !important;
+        }
+
+        .opt-row.wrong-ans {
+            background: #fee2e2 !important;
+            border-color: #ef4444 !important;
+            color: #7f1d1d !important;
+        }
+
+        .opt-row.wrong-ans .opt-bubble {
+            background: #dc2626 !important;
+            color: #ffffff !important;
+            border-color: #dc2626 !important;
+        }
+
+        .locked .opt-row {
+            cursor: default !important;
+            pointer-events: none !important;
+        }
+
+        /* Solution Box */
+        .sol-box {
+            display: none;
+            margin-top: 18px;
+            padding: 16px 20px;
+            background: #f0fdf4;
+            border-left: 4px solid #16a34a;
+            border-radius: 10px;
+            font-size: 14.5px;
+            color: #166534;
+        }
+
+        .sol-box.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .sol-header {
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #14532d;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Bottom Submit */
+        .bottom-actions {
+            text-align: center;
+            margin: 32px 0 20px;
+        }
+
+        .btn-submit {
+            padding: 16px 44px;
+            font-size: 17.5px;
+            font-weight: 800;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px -4px rgba(22, 163, 74, 0.4);
+            transition: all 0.25s ease;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #14532d 0%, #15803d 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px -4px rgba(22, 163, 74, 0.5);
+        }
+
+        /* 3. MÀN HÌNH KẾT QUẢ */
+        .result-screen {
+            display: none;
+            text-align: center;
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 32px;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--border);
+            margin-bottom: 24px;
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .score-disk {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            box-shadow: 0 10px 24px -4px rgba(37, 99, 235, 0.4);
+        }
+
+        .score-val {
+            font-size: 42px;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .score-max {
+            font-size: 13px;
+            opacity: 0.85;
+            margin-top: 2px;
+            font-weight: 600;
+        }
+
+        .res-headline {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .res-feedback {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat-grid {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            padding: 12px 20px;
+            border-radius: 12px;
+            min-width: 130px;
+        }
+
+        .stat-card .num {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .stat-card .label {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .stat-card.c-green .num { color: #16a34a; }
+        .stat-card.c-red .num { color: #dc2626; }
+        .stat-card.c-blue .num { color: #2563eb; }
+
+        .one-attempt-banner {
+            background: #fef2f2;
+            border: 1.5px solid #fecaca;
+            color: #991b1b;
+            padding: 14px 18px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.92); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- 1. MÀN HÌNH BẮT ĐẦU -->
+    <div id="startScreen">
+        <span class="exam-badge">Toán học 11 — GDPT 2018</span>
+        <h1>ĐỀ KIỂM TRA 15 PHÚT</h1>
+        <h2>BÀI 4: HÀM SỐ LƯỢNG GIÁC</h2>
+
+        <div class="exam-info-grid">
+            <div class="exam-info-item">
+                <span>⏱️ Thời gian:</span>
+                <strong>15 phút</strong>
+            </div>
+            <div class="exam-info-item">
+                <span>📝 Số lượng:</span>
+                <strong>10 câu trắc nghiệm</strong>
+            </div>
+            <div class="exam-info-item">
+                <span>🎯 Thang điểm:</span>
+                <strong>10.0 (1 điểm/câu)</strong>
+            </div>
+            <div class="exam-info-item">
+                <span>🔒 Giới hạn:</span>
+                <strong>Chỉ làm 1 lần duy nhất</strong>
+            </div>
+        </div>
+
+        <div class="rule-alert">
+            <span>⚠️</span>
+            <div>Mỗi học sinh chỉ được làm bài <strong>01 lần duy nhất</strong>. Sau khi nộp bài, hệ thống sẽ tự động khóa và hiển thị bảng điểm kèm lời giải chi tiết.</div>
+        </div>
+
+        <div class="input-group-box">
+            <div class="form-row">
+                <div>
+                    <label class="input-label" for="txtStudentName">Họ và tên học sinh <span>*</span></label>
+                    <input type="text" id="txtStudentName" class="text-input" placeholder="Ví dụ: Nguyễn Văn An" autocomplete="name">
+                </div>
+                <div>
+                    <label class="input-label" for="txtStudentClass">Lớp học <span>*</span></label>
+                    <input type="text" id="txtStudentClass" class="text-input" placeholder="Ví dụ: 11A1">
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="btn-start-action" onclick="handleStartExam()">
+            <span>🚀 BẮT ĐẦU LÀM BÀI</span>
+        </button>
+    </div>
+
+    <!-- 2. PHÒNG THI & LÀM BÀI (MẶC ĐỊNH ẨN) -->
+    <div id="examArea">
+        <!-- Sticky Bar: Thông tin thí sinh & Đồng hồ -->
+        <div class="sticky-bar">
+            <div class="student-badge">
+                <span>👤</span>
+                <span id="lblStudentBadge">Thí sinh</span>
+            </div>
+            <div class="timer-box">
+                <span style="font-size: 13.5px; font-weight: 700; color: var(--text-muted);">Thời gian còn lại:</span>
+                <div class="timer-val" id="examClock">15:00</div>
+            </div>
+        </div>
+
+        <!-- Màn hình kết quả khi nộp bài -->
+        <div class="result-screen" id="examResultScreen">
+            <div class="score-disk">
+                <div class="score-val" id="valScore">0.0</div>
+                <div class="score-max">/ 10 ĐIỂM</div>
+            </div>
+            <div class="res-headline" id="lblResultHeadline">KẾT QUẢ BÀI LÀM</div>
+            <div class="res-feedback" id="lblResultComment">Lời nhận xét</div>
+
+            <div class="stat-grid">
+                <div class="stat-card c-green">
+                    <div class="num" id="valCorrect">0/10</div>
+                    <div class="label">Câu đúng</div>
+                </div>
+                <div class="stat-card c-red">
+                    <div class="num" id="valWrong">0</div>
+                    <div class="label">Câu sai</div>
+                </div>
+                <div class="stat-card c-blue">
+                    <div class="num" id="valDuration">00:00</div>
+                    <div class="label">Thời gian làm</div>
+                </div>
+            </div>
+
+            <div class="one-attempt-banner">
+                <span>🔒</span>
+                <span>Hệ thống đã ghi nhận bài nộp. Mỗi học sinh chỉ được làm bài 1 lần duy nhất!</span>
+            </div>
+        </div>
+
+        <!-- Bảng điều hướng câu hỏi (Palette) -->
+        <div class="palette-card">
+            <div class="palette-header">
+                <span>Bảng câu hỏi (10 câu)</span>
+                <span id="lblPaletteProgress">Đã làm: 0/10</span>
+            </div>
+            <div class="palette-grid" id="examPaletteGrid"></div>
+        </div>
+
+        <!-- Danh sách câu hỏi -->
+        <div id="examQuestionsList"></div>
+
+        <!-- Nút Nộp Bài -->
+        <div class="bottom-actions" id="examSubmitSection">
+            <button type="button" class="btn-submit" onclick="handleSubmitExam(false)">
+                <span>📥 NỘP BÀI KIỂM TRA</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+// DỮ LIỆU ĐỀ THI 10 CÂU BÀI 4: HÀM SỐ LƯỢNG GIÁC
+const examData = [
+    {
+        id: 1,
+        level: "Nhận biết",
+        topic: "Tập xác định",
+        content: "Tập xác định của hàm số $y = \\cos x$ là:",
+        options: [
+            { key: "A", text: "$D = \\mathbb{R} \\setminus \\{0\\}$" },
+            { key: "B", text: "$D = [-1; 1]$" },
+            { key: "C", text: "$D = \\mathbb{R}$" },
+            { key: "D", text: "$D = (0; +\\infty)$" }
+        ],
+        correct: "C",
+        solution: "Hàm số $y = \\cos x$ xác định với mọi số thực $x \\in \\mathbb{R}$, do đó tập xác định của hàm số là $D = \\mathbb{R}$. Chọn <strong>C</strong>."
+    },
+    {
+        id: 2,
+        level: "Nhận biết",
+        topic: "Tập xác định",
+        content: "Tập xác định của hàm số $y = \\tan x$ là:",
+        options: [
+            { key: "A", text: "$D = \\mathbb{R} \\setminus \\{k\\pi, k \\in \\mathbb{Z}\\}$" },
+            { key: "B", text: "$D = \\mathbb{R} \\setminus \\left\\{\\dfrac{\\pi}{2} + k\\pi, k \\in \\mathbb{Z}\\right\\}$" },
+            { key: "C", text: "$D = \\mathbb{R} \\setminus \\left\\{\\dfrac{\\pi}{2} + k2\\pi, k \\in \\mathbb{Z}\\right\\}$" },
+            { key: "D", text: "$D = \\mathbb{R} \\setminus \\{k2\\pi, k \\in \\mathbb{Z}\\}$" }
+        ],
+        correct: "B",
+        solution: "Hàm số $y = \\tan x = \\dfrac{\\sin x}{\\cos x}$ xác định khi và chỉ khi:<br>$$\\cos x \\ne 0 \\iff x \\ne \\dfrac{\\pi}{2} + k\\pi \\quad (k \\in \\mathbb{Z}).$$<br>Vậy tập xác định của hàm số là $D = \\mathbb{R} \\setminus \\left\\{\\dfrac{\\pi}{2} + k\\pi, k \\in \\mathbb{Z}\\right\\}$. Chọn <strong>B</strong>."
+    },
+    {
+        id: 3,
+        level: "Thông hiểu",
+        topic: "Tập xác định phân thức",
+        content: "Tập xác định của hàm số $y = \\dfrac{1}{\\sin x}$ là:",
+        options: [
+            { key: "A", text: "$D = \\mathbb{R} \\setminus \\{0\\}$" },
+            { key: "B", text: "$D = \\mathbb{R} \\setminus \\{k\\pi, k \\in \\mathbb{Z}\\}$" },
+            { key: "C", text: "$D = \\mathbb{R} \\setminus \\left\\{\\dfrac{\\pi}{2} + k\\pi, k \\in \\mathbb{Z}\\right\\}$" },
+            { key: "D", text: "$D = \\mathbb{R} \\setminus \\{k2\\pi, k \\in \\mathbb{Z}\\}$" }
+        ],
+        correct: "B",
+        solution: "Hàm số xác định khi và chỉ khi mẫu số khác 0:<br>$$\\sin x \\ne 0 \\iff x \\ne k\\pi \\quad (k \\in \\mathbb{Z}).$$<br>Vậy tập xác định là $D = \\mathbb{R} \\setminus \\{k\\pi, k \\in \\mathbb{Z}\\}$. Chọn <strong>B</strong>."
+    },
+    {
+        id: 4,
+        level: "Thông hiểu",
+        topic: "Tập xác định",
+        content: "Tìm tập xác định $D$ của hàm số $y = \\cot\\left(x - \\dfrac{\\pi}{4}\\right)$.",
+        options: [
+            { key: "A", text: "$D = \\mathbb{R} \\setminus \\left\\{\\dfrac{\\pi}{4} + k\\pi, k \\in \\mathbb{Z}\\right\\}$" },
+            { key: "B", text: "$D = \\mathbb{R} \\setminus \\left\\{\\dfrac{\\pi}{4} + k2\\pi, k \\in \\mathbb{Z}\\right\\}$" },
+            { key: "C", text: "$D = \\mathbb{R} \\setminus \\left\\{\\dfrac{3\\pi}{4} + k\\pi, k \\in \\mathbb{Z}\\right\\}$" },
+            { key: "D", text: "$D = \\mathbb{R} \\setminus \\left\\{\\dfrac{\\pi}{2} + k\\pi, k \\in \\mathbb{Z}\\right\\}$" }
+        ],
+        correct: "A",
+        solution: "Hàm số $y = \\cot\\left(x - \\dfrac{\\pi}{4}\\right)$ xác định khi và chỉ khi:<br>$$\\sin\\left(x - \\dfrac{\\pi}{4}\\right) \\ne 0 \\iff x - \\dfrac{\\pi}{4} \\ne k\\pi \\iff x \\ne \\dfrac{\\pi}{4} + k\\pi \\quad (k \\in \\mathbb{Z}).$$<br>Vậy $D = \\mathbb{R} \\setminus \\left\\{\\dfrac{\\pi}{4} + k\\pi, k \\in \\mathbb{Z}\\right\\}$. Chọn <strong>A</strong>."
+    },
+    {
+        id: 5,
+        level: "Nhận biết",
+        topic: "Tính chẵn lẻ",
+        content: "Trong các hàm số sau, hàm số nào là <strong>hàm số chẵn</strong>?",
+        options: [
+            { key: "A", text: "$y = \\sin x$" },
+            { key: "B", text: "$y = \\cos x$" },
+            { key: "C", text: "$y = \\tan x$" },
+            { key: "D", text: "$y = \\cot x$" }
+        ],
+        correct: "B",
+        solution: "Tập xác định của hàm số $y = \\cos x$ là $D = \\mathbb{R}$ (tập đối xứng).<br>Với mọi $x \\in \\mathbb{R}$, ta có $-x \\in \\mathbb{R}$ và $\\cos(-x) = \\cos x$. Do đó $y = \\cos x$ là <strong>hàm số chẵn</strong>.<br>Các hàm số $y = \\sin x$, $y = \\tan x$, $y = \\cot x$ đều là hàm số lẻ. Chọn <strong>B</strong>."
+    },
+    {
+        id: 6,
+        level: "Thông hiểu",
+        topic: "Đồ thị đối xứng",
+        content: "Trong các hàm số sau, hàm số nào có đồ thị <strong>đối xứng qua gốc toạ độ $O$</strong>?",
+        options: [
+            { key: "A", text: "$y = \\cos 2x$" },
+            { key: "B", text: "$y = \\sin x + \\cos x$" },
+            { key: "C", text: "$y = \\sin 3x$" },
+            { key: "D", text: "$y = \\cos^2 x$" }
+        ],
+        correct: "C",
+        solution: "Đồ thị của hàm số đối xứng qua gốc tọa độ $O$ khi và chỉ khi hàm số đó là <strong>hàm số lẻ</strong>.<br>Xét hàm số $f(x) = \\sin 3x$ có tập xác định $D = \\mathbb{R}$.<br>Với mọi $x \\in D$, ta có $-x \\in D$ và $f(-x) = \\sin(-3x) = -\\sin 3x = -f(x)$. Do đó $f(x) = \\sin 3x$ là hàm số lẻ, nên đồ thị nhận gốc tọa độ $O$ làm tâm đối xứng.<br>Các hàm $y = \\cos 2x$ và $y = \\cos^2 x$ là hàm chẵn (đối xứng qua trục tung $Oy$), còn hàm $y = \\sin x + \\cos x$ không chẵn không lẻ. Chọn <strong>C</strong>."
+    },
+    {
+        id: 7,
+        level: "Nhận biết",
+        topic: "Chu kì tuần hoàn",
+        content: "Chu kì tuần hoàn của hàm số $y = \\sin x$ là:",
+        options: [
+            { key: "A", text: "$T = \\pi$" },
+            { key: "B", text: "$T = 2\\pi$" },
+            { key: "C", text: "$T = 3\\pi$" },
+            { key: "D", text: "$T = 4\\pi$" }
+        ],
+        correct: "B",
+        solution: "Hàm số $y = \\sin x$ tuần hoàn với chu kì nhỏ nhất (chu kì cơ sở) là $T = 2\\pi$. Chọn <strong>B</strong>."
+    },
+    {
+        id: 8,
+        level: "Thông hiểu",
+        topic: "Chu kì tuần hoàn",
+        content: "Chu kì tuần hoàn của hàm số $y = \\cos 2x$ là:",
+        options: [
+            { key: "A", text: "$T = 2\\pi$" },
+            { key: "B", text: "$T = \\pi$" },
+            { key: "C", text: "$T = \\dfrac{\\pi}{2}$" },
+            { key: "D", text: "$T = 4\\pi$" }
+        ],
+        correct: "B",
+        solution: "Hàm số $y = \\cos(\\omega x)$ tuần hoàn với chu kì $T = \\dfrac{2\\pi}{|\\omega|}$.<br>Với $y = \\cos 2x$, ta có $\\omega = 2$, suy ra chu kì là:<br>$$T = \\dfrac{2\\pi}{2} = \\pi.$$<br>Chọn <strong>B</strong>."
+    },
+    {
+        id: 9,
+        level: "Thông hiểu",
+        topic: "GTLN - GTNN",
+        content: "Gọi $M, m$ lần lượt là giá trị lớn nhất và giá trị nhỏ nhất của hàm số $y = 3\\sin x - 2$. Tính $M$ và $m$.",
+        options: [
+            { key: "A", text: "$M = 1; m = -5$" },
+            { key: "B", text: "$M = 3; m = -3$" },
+            { key: "C", text: "$M = 5; m = -1$" },
+            { key: "D", text: "$M = 1; m = -1$" }
+        ],
+        correct: "A",
+        solution: "Với mọi $x \\in \\mathbb{R}$, ta luôn có:<br>$$-1 \\le \\sin x \\le 1 \\iff -3 \\le 3\\sin x \\le 3 \\iff -5 \\le 3\\sin x - 2 \\le 1.$$<br>Suy ra $-5 \\le y \\le 1$.<br>Do đó giá trị lớn nhất là $M = 1$ (khi $\\sin x = 1$) và giá trị nhỏ nhất là $m = -5$ (khi $\\sin x = -1$). Chọn <strong>A</strong>."
+    },
+    {
+        id: 10,
+        level: "Vận dụng",
+        topic: "GTLN - GTNN",
+        content: "Tìm giá trị lớn nhất ($M$) của hàm số $y = 4 - 3\\cos^2\\left(2x + \\dfrac{\\pi}{3}\\right)$.",
+        options: [
+            { key: "A", text: "$M = 7$" },
+            { key: "B", text: "$M = 4$" },
+            { key: "C", text: "$M = 1$" },
+            { key: "D", text: "$M = 3$" }
+        ],
+        correct: "B",
+        solution: "Với mọi số thực $x$, ta luôn có:<br>$$0 \\le \\cos^2\\left(2x + \\dfrac{\\pi}{3}\\right) \\le 1 \\iff -3 \\le -3\\cos^2\\left(2x + \\dfrac{\\pi}{3}\\right) \\le 0.$$<br>Cộng $4$ vào các vế:<br>$$1 \\le 4 - 3\\cos^2\\left(2x + \\dfrac{\\pi}{3}\\right) \\le 4 \\implies 1 \\le y \\le 4.$$<br>Dấu bằng đạt được khi $\\cos\\left(2x + \\dfrac{\\pi}{3}\\right) = 0 \\iff 2x + \\dfrac{\\pi}{3} = \\dfrac{\\pi}{2} + k\\pi \\iff x = \\dfrac{\\pi}{12} + \\dfrac{k\\pi}{2} \\; (k \\in \\mathbb{Z})$.<br>Vậy giá trị lớn nhất của hàm số là $M = 4$. Chọn <strong>B</strong>."
+    }
+];
+
+// KHÓA LÀM 1 LẦN QUA LOCALSTORAGE
+const STORAGE_KEY = "EXAM_TOAN11_BAI4_RESULT_V1";
+
+// Biến trạng thái
+let userSelected = {};
+let countdownSec = 15 * 60; // 15 phút
+let countdownTimer = null;
+let isExamDone = false;
+let stuName = "";
+let stuClass = "";
+
+// Render công thức KaTeX
+function renderMathFormula() {
+    if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+        });
+    }
+}
+
+// Kiểm tra khi tải trang: Nếu đã làm thì hiện ngay kết quả
+window.addEventListener("DOMContentLoaded", () => {
+    renderMathFormula();
+    checkExistingSubmission();
+});
+
+function checkExistingSubmission() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return;
+
+    try {
+        const data = JSON.parse(saved);
+        if (data && data.isDone) {
+            // Học sinh đã nộp bài trước đó
+            stuName = data.stuName || "Học sinh";
+            stuClass = data.stuClass || "";
+            userSelected = data.userSelected || {};
+            isExamDone = true;
+
+            // Ẩn màn hình bắt đầu, mở phòng thi ở trạng thái khóa
+            document.getElementById("startScreen").style.display = "none";
+            document.getElementById("examArea").style.display = "block";
+            document.getElementById("examArea").classList.add("locked");
+
+            // Hiển thị thông tin thí sinh
+            document.getElementById("lblStudentBadge").innerText = `${stuName} — Lớp ${stuClass}`;
+            document.getElementById("examClock").innerText = "ĐÃ NỘP";
+            document.getElementById("examClock").className = "timer-val warning";
+
+            // Dựng câu hỏi và hiện đáp án
+            buildExamQuestions();
+            displayExamResults(data.score, data.correctCount, data.timeSpent, true);
+        }
+    } catch (e) {
+        console.error("Lỗi đọc dữ liệu:", e);
+    }
+}
+
+// BẤM NÚT BẮT ĐẦU LÀM BÀI
+function handleStartExam() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+        alert("⚠️ Bạn đã làm bài kiểm tra này rồi! Hệ thống chỉ cho phép mỗi học sinh làm 01 lần.");
+        checkExistingSubmission();
+        return;
+    }
+
+    const nameVal = document.getElementById("txtStudentName").value.trim();
+    const classVal = document.getElementById("txtStudentClass").value.trim();
+
+    if (!nameVal) {
+        alert("Vui lòng nhập Họ và tên trước khi bắt đầu!");
+        document.getElementById("txtStudentName").focus();
+        return;
+    }
+
+    if (!classVal) {
+        alert("Vui lòng nhập Lớp học trước khi bắt đầu!");
+        document.getElementById("txtStudentClass").focus();
+        return;
+    }
+
+    stuName = nameVal;
+    stuClass = classVal;
+
+    // Gán thông tin thí sinh lên thanh sticky bar
+    document.getElementById("lblStudentBadge").innerText = `${stuName} — Lớp ${stuClass}`;
+
+    // Ẩn màn hình bắt đầu, hiện phòng thi
+    document.getElementById("startScreen").style.display = "none";
+    document.getElementById("examArea").style.display = "block";
+
+    // Khởi tạo giao diện câu hỏi & bắt đầu đếm giờ
+    buildExamQuestions();
+    startExamTimer();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// Dựng giao diện câu hỏi và palette
+function buildExamQuestions() {
+    const container = document.getElementById("examQuestionsList");
+    const palette = document.getElementById("examPaletteGrid");
+    container.innerHTML = "";
+    palette.innerHTML = "";
+
+    examData.forEach(q => {
+        // Nút Palette
+        const btn = document.createElement("button");
+        btn.className = "palette-btn";
+        btn.id = `palette-item-${q.id}`;
+        btn.innerText = q.id;
+        btn.onclick = () => scrollToQ(q.id);
+        palette.appendChild(btn);
+
+        // Khung câu hỏi
+        const card = document.createElement("div");
+        card.className = "q-card";
+        card.id = `q-card-${q.id}`;
+
+        let optsHtml = "";
+        q.options.forEach(opt => {
+            const isSel = userSelected[q.id] === opt.key ? "selected" : "";
+            optsHtml += `
+                <div class="opt-row ${isSel}" id="opt-${q.id}-${opt.key}" onclick="onSelectOption(${q.id}, '${opt.key}')">
+                    <div class="opt-bubble">${opt.key}</div>
+                    <div class="opt-text">${opt.text}</div>
+                </div>
+            `;
+        });
+
+        card.innerHTML = `
+            <div class="q-top">
+                <div class="q-badge">Câu ${q.id}</div>
+                <div class="q-meta">${q.level} • ${q.topic}</div>
+            </div>
+            <div class="q-content">${q.content}</div>
+            <div class="opt-list">
+                ${optsHtml}
+            </div>
+            <div class="sol-box" id="sol-${q.id}">
+                <div class="sol-header">💡 Lời giải chi tiết:</div>
+                <div>${q.solution}</div>
+            </div>
+        `;
+
+        container.appendChild(card);
+    });
+
+    renderMathFormula();
+}
+
+// Chọn đáp án
+function onSelectOption(qId, key) {
+    if (isExamDone) return;
+
+    userSelected[qId] = key;
+
+    // Cập nhật giao diện option
+    const qObj = examData.find(item => item.id === qId);
+    qObj.options.forEach(opt => {
+        const row = document.getElementById(`opt-${qId}-${opt.key}`);
+        if (opt.key === key) {
+            row.classList.add("selected");
+        } else {
+            row.classList.remove("selected");
+        }
+    });
+
+    // Đổi màu nút palette
+    const pBtn = document.getElementById(`palette-item-${qId}`);
+    if (pBtn) pBtn.classList.add("done");
+
+    // Cập nhật số câu đã làm
+    const doneCount = Object.keys(userSelected).length;
+    document.getElementById("lblPaletteProgress").innerText = `Đã làm: ${doneCount}/${examData.length}`;
+}
+
+// Cuộn đến câu hỏi
+function scrollToQ(qId) {
+    const card = document.getElementById(`q-card-${qId}`);
+    if (card) {
+        card.scrollIntoView({ behavior: "smooth", block: "center" });
+        document.querySelectorAll(".palette-btn").forEach(b => b.classList.remove("current"));
+        document.getElementById(`palette-item-${qId}`).classList.add("current");
+    }
+}
+
+// Đồng hồ đếm ngược
+function startExamTimer() {
+    clearInterval(countdownTimer);
+    const clock = document.getElementById("examClock");
+
+    countdownTimer = setInterval(() => {
+        if (countdownSec <= 0) {
+            clearInterval(countdownTimer);
+            clock.innerText = "00:00";
+            alert("⏰ Đã hết thời gian 15 phút! Hệ thống đang tự động nộp bài.");
+            handleSubmitExam(true);
+            return;
+        }
+
+        countdownSec--;
+        const mins = Math.floor(countdownSec / 60);
+        const secs = countdownSec % 60;
+        clock.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+
+        if (countdownSec <= 120) {
+            clock.className = "timer-val danger";
+        } else if (countdownSec <= 300) {
+            clock.className = "timer-val warning";
+        }
+    }, 1000);
+}
+
+// NỘP BÀI & TỰ ĐỘNG CHẤM ĐIỂM
+function handleSubmitExam(auto = false) {
+    if (isExamDone) return;
+
+    const count = Object.keys(userSelected).length;
+    if (!auto && count < examData.length) {
+        const ok = confirm(`Em mới hoàn thành ${count}/${examData.length} câu. Em có chắc chắn muốn nộp bài ngay bây giờ? Sau khi nộp em sẽ KHÔNG thể làm lại.`);
+        if (!ok) return;
+    } else if (!auto) {
+        const ok = confirm(`Em có chắc chắn muốn nộp bài? Mỗi học sinh chỉ được làm 1 lần duy nhất.`);
+        if (!ok) return;
+    }
+
+    isExamDone = true;
+    clearInterval(countdownTimer);
+    document.getElementById("examArea").classList.add("locked");
+
+    // Tính điểm
+    let correctTotal = 0;
+    examData.forEach(q => {
+        const ans = userSelected[q.id];
+        if (ans === q.correct) correctTotal++;
+    });
+
+    const mark = ((correctTotal / examData.length) * 10).toFixed(1);
+    const timeSpent = (15 * 60) - countdownSec;
+
+    // LƯU VÀO LOCALSTORAGE ĐỂ CHỈ LÀM 1 LẦN
+    const record = {
+        isDone: true,
+        stuName: stuName,
+        stuClass: stuClass,
+        userSelected: userSelected,
+        score: mark,
+        correctCount: correctTotal,
+        timeSpent: timeSpent,
+        submittedAt: new Date().toLocaleString("vi-VN")
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(record));
+
+    displayExamResults(mark, correctTotal, timeSpent, false);
+}
+
+// HIỂN THỊ KẾT QUẢ VÀ LỜI GIẢI
+function displayExamResults(mark, correctTotal, timeSpent, isFromStorage) {
+    examData.forEach(q => {
+        const ans = userSelected[q.id];
+        const isRight = ans === q.correct;
+
+        // Nút palette
+        const pBtn = document.getElementById(`palette-item-${q.id}`);
+        if (pBtn) {
+            pBtn.classList.remove("done", "current");
+            pBtn.classList.add(isRight ? "res-correct" : "res-wrong");
+        }
+
+        // Đổi màu các đáp án
+        q.options.forEach(opt => {
+            const row = document.getElementById(`opt-${q.id}-${opt.key}`);
+            if (row) {
+                if (opt.key === q.correct) {
+                    row.classList.add("correct-ans");
+                } else if (opt.key === ans && !isRight) {
+                    row.classList.add("wrong-ans");
+                }
+            }
+        });
+
+        // Hiện Lời giải chi tiết
+        const solBox = document.getElementById(`sol-${q.id}`);
+        if (solBox) solBox.classList.add("show");
+    });
+
+    const tMin = Math.floor(timeSpent / 60);
+    const tSec = timeSpent % 60;
+    const tFormatted = `${tMin.toString().padStart(2, '0')}:${tSec.toString().padStart(2, '0')}`;
+
+    // Hiển thị Card kết quả
+    document.getElementById("valScore").innerText = mark;
+    document.getElementById("valCorrect").innerText = `${correctTotal}/${examData.length}`;
+    document.getElementById("valWrong").innerText = `${examData.length - correctTotal}`;
+    document.getElementById("valDuration").innerText = tFormatted;
+
+    let comment = "";
+    if (mark >= 9) {
+        comment = `🌟 Xuất sắc! Chúc mừng em ${stuName} (Lớp ${stuClass}), em nắm rất vững chuyên đề Hàm số lượng giác!`;
+    } else if (mark >= 7) {
+        comment = `👏 Khá tốt! Em ${stuName} (Lớp ${stuClass}) đã đạt điểm tốt, hãy rà soát lại các câu sai để ghi nhớ kỹ hơn.`;
+    } else if (mark >= 5) {
+        comment = `📖 Đạt yêu cầu! Em ${stuName} (Lớp ${stuClass}) cần chú ý kỹ hơn về tập xác định và chu kì hàm số.`;
+    } else {
+        comment = `💪 Cố gắng lên nhé! Em ${stuName} hãy đọc kỹ lời giải chi tiết bên dưới để ôn tập lại kiến thức bài 4.`;
+    }
+
+    if (isFromStorage) {
+        comment += ` (Dữ liệu bài làm đã được lưu từ phiên trước).`;
+    }
+
+    document.getElementById("lblResultComment").innerText = comment;
+
+    const resScreen = document.getElementById("examResultScreen");
+    resScreen.style.display = "block";
+    resScreen.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    // Ẩn hoàn toàn nút nộp bài
+    document.getElementById("examSubmitSection").style.display = "none";
+
+    renderMathFormula();
+}
+</script>
+
+</body>
+</html>
