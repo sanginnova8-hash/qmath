@@ -27,8 +27,15 @@ export const App: React.FC = () => {
     role === 'ADMIN' ? 'admin-settings' : role === 'TEACHER' ? 'teacher-overview' : 'student-overview'
   );
 
-  // Focus Exam Mode states
-  const [examAssignmentId, setExamAssignmentId] = useState<string | null>(null);
+  // Focus Exam Mode states (supports direct link ?asg=... from Zalo/QR)
+  const [examAssignmentId, setExamAssignmentId] = useState<string | null>(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('asg') || params.get('exam') || null;
+    } catch {
+      return null;
+    }
+  });
   const [viewResultSubmissionId, setViewResultSubmissionId] = useState<string | null>(null);
 
   // Sync default tab when role switches

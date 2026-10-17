@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { getClasses, getAssignments, getQuestions, getSubmissions } from '../../services/store';
 import { ClassRoom, Assignment, Question, Submission } from '../../types';
+import { ShareAssignmentModal } from '../../components/teacher/ShareAssignmentModal';
 import {
   Users,
   BookOpen,
@@ -11,7 +12,9 @@ import {
   ArrowRight,
   TrendingUp,
   Clock,
-  Sparkles
+  Sparkles,
+  Share2,
+  Globe
 } from 'lucide-react';
 
 interface TeacherDashboardProps {
@@ -25,6 +28,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onNavigate }
   const [questions, setQuestions] = useState<Question[]>([]);
   const [submissions, setSubmissions] = useState<Submission[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [shareAssignment, setShareAssignment] = useState<Assignment | null>(null);
 
   useEffect(() => {
     async function loadData() {
@@ -61,10 +65,10 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onNavigate }
             <Sparkles className="w-3.5 h-3.5" /> Bảng điều khiển Giảng dạy
           </span>
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-            Xin chào, {currentUser?.displayName || 'Thầy Nguyễn Văn An'}!
+            Xin chào, {currentUser?.displayName || 'ThS. Nguyễn Văn Sang'}!
           </h1>
           <p className="mt-2 text-sm sm:text-base text-emerald-100/90 leading-relaxed">
-            Hệ thống đã sẵn sàng hỗ trợ thầy/cô quản lý lớp học, soạn ngân hàng câu hỏi chuẩn cấu trúc Bộ GD&ĐT 2025-2026 và giao đề thi trực tuyến.
+            Khoa Cơ bản — Trường Cao đẳng Nghề số 1 - BQP. Quản lý lớp học, ngân hàng câu hỏi GDPT 2025 và giao bài tập trực tuyến tức thời kèm mã QR Zalo.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <button
@@ -79,8 +83,17 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onNavigate }
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-800/80 hover:bg-emerald-700/80 text-white font-semibold text-sm border border-emerald-600/50 transition-all"
             >
               <BookOpen className="w-4 h-4" />
-              Soạn câu hỏi Toán
+              Ngân hàng câu hỏi
             </button>
+            <a
+              href="https://sanginnova9-jpg.github.io/QMath-Exam/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-teal-700/70 hover:bg-teal-600/80 text-white font-semibold text-sm border border-teal-400/40 transition-all"
+            >
+              <Globe className="w-4 h-4 text-teal-300" />
+              Cổng Đề Online (GitHub Pages)
+            </a>
           </div>
         </div>
       </div>
@@ -184,10 +197,17 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onNavigate }
 
                 <div className="flex items-center gap-2 shrink-0">
                   <button
+                    onClick={() => setShareAssignment(asg)}
+                    className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200 transition-all flex items-center gap-1.5"
+                  >
+                    <Share2 className="w-3.5 h-3.5" />
+                    Chia sẻ Zalo & QR
+                  </button>
+                  <button
                     onClick={() => onNavigate('teacher-results')}
                     className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200 transition-all"
                   >
-                    Xem kết quả ({submissions.filter(s => s.assignmentId === asg.id).length})
+                    Xem kết quả ({submissions.filter((s) => s.assignmentId === asg.id).length})
                   </button>
                 </div>
               </div>
@@ -229,6 +249,14 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onNavigate }
           </div>
         </div>
       </div>
+
+      {/* Share Modal with Zalo Template & QR Code */}
+      {shareAssignment && (
+        <ShareAssignmentModal
+          assignment={shareAssignment}
+          onClose={() => setShareAssignment(null)}
+        />
+      )}
     </div>
   );
 };

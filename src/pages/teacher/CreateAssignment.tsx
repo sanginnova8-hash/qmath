@@ -3,6 +3,7 @@ import { Assignment, ClassRoom, Question, SolutionViewMode, QuestionType, Diffic
 import { getClasses, getQuestions, saveAssignment } from '../../services/store';
 import { useAuth } from '../../context/AuthContext';
 import { MathView } from '../../components/math/MathView';
+import { ShareAssignmentModal } from '../../components/teacher/ShareAssignmentModal';
 import {
   FilePlus2,
   Clock,
@@ -27,6 +28,7 @@ export const CreateAssignment: React.FC<CreateAssignmentProps> = ({ onSuccess })
   const [classes, setClasses] = useState<ClassRoom[]>([]);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState(true);
+  const [shareModalAssignment, setShareModalAssignment] = useState<Assignment | null>(null);
 
   // Assignment details
   const [title, setTitle] = useState('');
@@ -169,8 +171,8 @@ export const CreateAssignment: React.FC<CreateAssignmentProps> = ({ onSuccess })
       title: title || `Bài kiểm tra Toán ${currentClass?.name || '12'}`,
       classId: selectedClassId,
       className: currentClass?.name || 'Toán THPT',
-      teacherId: currentUser?.id || 'teacher-nguyen-van-a',
-      teacherName: currentUser?.displayName || 'Thầy Nguyễn Văn An',
+      teacherId: currentUser?.id || 'teacher-sang-cdn01',
+      teacherName: currentUser?.displayName || 'ThS. Nguyễn Văn Sang',
       questionIds: selectedQuestionIds,
       durationMinutes: Number(durationMinutes),
       allowedAttempts: Number(allowedAttempts),
@@ -183,8 +185,7 @@ export const CreateAssignment: React.FC<CreateAssignmentProps> = ({ onSuccess })
     };
 
     await saveAssignment(newAssignment);
-    alert('Đã giao bài tập thành công cho lớp học!');
-    onSuccess();
+    setShareModalAssignment(newAssignment);
   };
 
   return (
@@ -524,6 +525,17 @@ export const CreateAssignment: React.FC<CreateAssignmentProps> = ({ onSuccess })
           </button>
         </div>
       </form>
+
+      {/* Share Modal with Zalo Template & QR Code */}
+      {shareModalAssignment && (
+        <ShareAssignmentModal
+          assignment={shareModalAssignment}
+          onClose={() => {
+            setShareModalAssignment(null);
+            onSuccess();
+          }}
+        />
+      )}
     </div>
   );
 };

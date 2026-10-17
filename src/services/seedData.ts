@@ -1,11 +1,11 @@
 import { Question, AnswerKey, ClassRoom, Assignment, UserProfile } from '../types';
 
 export const INITIAL_TEACHER: UserProfile = {
-  id: 'teacher-nguyen-van-a',
-  email: 'giaovien@qmath.edu.vn',
-  displayName: 'Thầy Nguyễn Văn An',
+  id: 'teacher-nguyen-van-sang',
+  email: 'sanginnova@gmail.com',
+  displayName: 'ThS. Nguyễn Văn Sang',
   role: 'TEACHER',
-  school: 'Trường THPT Chuyên Toán',
+  school: 'Khoa Cơ bản - Trường Cao đẳng Nghề số 1 - BQP',
   createdAt: '2026-01-01T08:00:00.000Z'
 };
 
@@ -16,7 +16,7 @@ export const INITIAL_STUDENTS: UserProfile[] = [
     displayName: 'Lê Bảo Nam',
     role: 'STUDENT',
     grade: 12,
-    school: 'Trường THPT Chuyên Toán',
+    school: 'Khoa Cơ bản - Trường Cao đẳng Nghề số 1 - BQP',
     createdAt: '2026-01-05T08:00:00.000Z'
   },
   {
@@ -25,7 +25,7 @@ export const INITIAL_STUDENTS: UserProfile[] = [
     displayName: 'Trần Thị Mai',
     role: 'STUDENT',
     grade: 12,
-    school: 'Trường THPT Chuyên Toán',
+    school: 'Khoa Cơ bản - Trường Cao đẳng Nghề số 1 - BQP',
     createdAt: '2026-01-05T08:30:00.000Z'
   },
   {
@@ -34,7 +34,7 @@ export const INITIAL_STUDENTS: UserProfile[] = [
     displayName: 'Nguyễn Minh Trí',
     role: 'STUDENT',
     grade: 12,
-    school: 'Trường THPT Chuyên Toán',
+    school: 'Khoa Cơ bản - Trường Cao đẳng Nghề số 1 - BQP',
     createdAt: '2026-01-06T09:00:00.000Z'
   }
 ];
@@ -44,22 +44,66 @@ export const INITIAL_CLASSES: ClassRoom[] = [
     id: 'class-12a1',
     name: 'Toán 12A1 — Ôn thi Tốt nghiệp THPT 2026',
     code: 'QM12A1',
-    teacherId: 'teacher-nguyen-van-a',
-    teacherName: 'Thầy Nguyễn Văn An',
+    teacherId: 'teacher-nguyen-van-sang',
+    teacherName: 'ThS. Nguyễn Văn Sang',
     grade: 12,
-    description: 'Lớp bồi dưỡng Chuyên đề Hàm số, Tích phân và Hình học Oxyz định hướng chuẩn cấu trúc 2025-2026.',
-    studentCount: 3,
+    description: 'Chuyên đề Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số chuẩn cấu trúc 2025-2026.',
+    studentCount: 35,
     createdAt: '2026-01-02T10:00:00.000Z'
   },
   {
-    id: 'class-11b2',
-    name: 'Toán 11B2 — Tổ hợp, Xác suất & Cấp số',
-    code: 'QM11B2',
-    teacherId: 'teacher-nguyen-van-a',
-    teacherName: 'Thầy Nguyễn Văn An',
-    grade: 11,
-    description: 'Chuyên đề lượng giác và xác suất cổ điển nâng cao.',
-    studentCount: 1,
+    id: 'class-10a8',
+    name: 'Toán 10A8 — KNTT (CĐN01)',
+    code: 'QM10A8',
+    teacherId: 'teacher-nguyen-van-sang',
+    teacherName: 'ThS. Nguyễn Văn Sang',
+    grade: 10,
+    description: 'Toán học 10 Kết nối tri thức - Hệ số 1 và ôn tập kiểm tra định kỳ.',
+    studentCount: 38,
+    createdAt: '2026-01-05T08:00:00.000Z'
+  },
+  {
+    id: 'class-10a11',
+    name: 'Toán 10A11 — KNTT (CĐN01)',
+    code: 'QM10A11',
+    teacherId: 'teacher-nguyen-van-sang',
+    teacherName: 'ThS. Nguyễn Văn Sang',
+    grade: 10,
+    description: 'Toán học 10 Kết nối tri thức với cuộc sống.',
+    studentCount: 36,
+    createdAt: '2026-01-05T08:30:00.000Z'
+  },
+  {
+    id: 'class-10a15',
+    name: 'Toán 10A15 — KNTT (CĐN01)',
+    code: 'QM10A15',
+    teacherId: 'teacher-nguyen-van-sang',
+    teacherName: 'ThS. Nguyễn Văn Sang',
+    grade: 10,
+    description: 'Toán học 10 Kết nối tri thức với cuộc sống.',
+    studentCount: 37,
+    createdAt: '2026-01-06T09:00:00.000Z'
+  },
+  {
+    id: 'class-10a17',
+    name: 'Toán 10A17 — KNTT (CĐN01)',
+    code: 'QM10A17',
+    teacherId: 'teacher-nguyen-van-sang',
+    teacherName: 'ThS. Nguyễn Văn Sang',
+    grade: 10,
+    description: 'Toán học 10 Kết nối tri thức với cuộc sống.',
+    studentCount: 39,
+    createdAt: '2026-01-06T09:30:00.000Z'
+  },
+  {
+    id: 'class-cdn-nghe',
+    name: 'Toán Nghề CĐN — Khoa Cơ bản (CĐN01)',
+    code: 'QMNGHE',
+    teacherId: 'teacher-nguyen-van-sang',
+    teacherName: 'ThS. Nguyễn Văn Sang',
+    grade: 10,
+    description: 'Toán học ứng dụng và kỹ thuật cơ bản nghề.',
+    studentCount: 42,
     createdAt: '2026-01-10T14:00:00.000Z'
   }
 ];
@@ -273,8 +317,8 @@ export const INITIAL_ASSIGNMENTS: Assignment[] = [
     title: 'Kiểm tra nhanh 15 phút: Cực trị & Tiệm cận & Oxyz',
     classId: 'class-12a1',
     className: 'Toán 12A1 — Ôn thi Tốt nghiệp THPT 2026',
-    teacherId: 'teacher-nguyen-van-a',
-    teacherName: 'Thầy Nguyễn Văn An',
+    teacherId: 'teacher-sang-cdn01',
+    teacherName: 'ThS. Nguyễn Văn Sang',
     description: 'Đề kiểm tra rà soát kiến thức cốt lõi theo chuẩn cấu trúc mới Bộ GD&ĐT 2025 gồm 3 dạng: Trắc nghiệm 4 lựa chọn, Đúng/Sai 4 ý, và Trả lời ngắn.',
     questionIds: ['q-math-12-01', 'q-math-12-02', 'q-math-12-03', 'q-math-12-04'],
     durationMinutes: 15,
@@ -291,8 +335,8 @@ export const INITIAL_ASSIGNMENTS: Assignment[] = [
     title: 'Bài tập rèn luyện cuối tuần: Hình không gian & Mũ - Logarit',
     classId: 'class-12a1',
     className: 'Toán 12A1 — Ôn thi Tốt nghiệp THPT 2026',
-    teacherId: 'teacher-nguyen-van-a',
-    teacherName: 'Thầy Nguyễn Văn An',
+    teacherId: 'teacher-sang-cdn01',
+    teacherName: 'ThS. Nguyễn Văn Sang',
     description: 'Luyện tập kỹ năng tính thể tích khối đa diện và giải bất phương trình logarit.',
     questionIds: ['q-math-12-05', 'q-math-12-06'],
     durationMinutes: 20,

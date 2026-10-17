@@ -13,8 +13,10 @@ import {
   Calendar,
   X,
   Eye,
-  FileSpreadsheet
+  FileSpreadsheet,
+  Share2
 } from 'lucide-react';
+import { ShareAssignmentModal } from '../../components/teacher/ShareAssignmentModal';
 
 export const AssignmentResults: React.FC = () => {
   const [assignments, setAssignments] = useState<Assignment[]>([]);
@@ -22,6 +24,7 @@ export const AssignmentResults: React.FC = () => {
   const [submissions, setSubmissions] = useState<Submission[]>([]);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState(true);
+  const [showShareModal, setShowShareModal] = useState(false);
 
   // Modal inspecting a student submission
   const [inspectSubmission, setInspectSubmission] = useState<Submission | null>(null);
@@ -107,20 +110,31 @@ export const AssignmentResults: React.FC = () => {
           </p>
         </div>
 
-        {/* Dropdown select assignment */}
-        <div className="min-w-[280px]">
-          <label className="block text-xs font-bold text-slate-600 mb-1">Chọn bài kiểm tra:</label>
-          <select
-            value={selectedAsgId}
-            onChange={(e) => setSelectedAsgId(e.target.value)}
-            className="w-full px-3 py-2 text-xs sm:text-sm font-semibold rounded-xl border border-slate-300 focus:border-emerald-500 outline-none bg-white text-slate-800"
-          >
-            {assignments.map((a) => (
-              <option key={a.id} value={a.id}>
-                {a.title} ({a.className})
-              </option>
-            ))}
-          </select>
+        {/* Dropdown select assignment & Share Button */}
+        <div className="flex flex-col sm:flex-row items-end gap-2 min-w-[320px]">
+          <div className="w-full">
+            <label className="block text-xs font-bold text-slate-600 mb-1">Chọn bài kiểm tra:</label>
+            <select
+              value={selectedAsgId}
+              onChange={(e) => setSelectedAsgId(e.target.value)}
+              className="w-full px-3 py-2 text-xs sm:text-sm font-semibold rounded-xl border border-slate-300 focus:border-emerald-500 outline-none bg-white text-slate-800"
+            >
+              {assignments.map((a) => (
+                <option key={a.id} value={a.id}>
+                  {a.title} ({a.className})
+                </option>
+              ))}
+            </select>
+          </div>
+          {currentAsg && (
+            <button
+              onClick={() => setShowShareModal(true)}
+              className="shrink-0 px-3.5 py-2 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200 font-bold text-xs flex items-center gap-1.5 transition-all shadow-sm"
+              title="Chia sẻ lại bài kiểm tra qua Zalo hoặc QR"
+            >
+              <Share2 className="w-4 h-4" /> Chia sẻ QR
+            </button>
+          )}
         </div>
       </div>
 
@@ -382,6 +396,14 @@ export const AssignmentResults: React.FC = () => {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Share Modal with Zalo Template & QR Code */}
+      {showShareModal && currentAsg && (
+        <ShareAssignmentModal
+          assignment={currentAsg}
+          onClose={() => setShowShareModal(false)}
+        />
       )}
     </div>
   );
