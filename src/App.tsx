@@ -27,16 +27,57 @@ export const App: React.FC = () => {
     role === 'ADMIN' ? 'admin-settings' : role === 'TEACHER' ? 'teacher-overview' : 'student-overview'
   );
 
-  // Focus Exam Mode states (supports direct link ?asg=... from Zalo/QR)
+  // Focus Exam Mode states (supports direct link ?asg=... from Zalo/QR and persists through refresh)
   const [examAssignmentId, setExamAssignmentId] = useState<string | null>(() => {
     try {
       const params = new URLSearchParams(window.location.search);
-      return params.get('asg') || params.get('exam') || null;
+      const urlAsg = params.get('asg') || params.get('exam');
+      if (urlAsg) return urlAsg;
+      // Khôi phục từ localStorage nếu học sinh nhỡ tay refresh
+      const savedActive = localStorage.getItem('qmath_active_exam_asg_id');
+      return savedActive || null;
     } catch {
       return null;
     }
   });
   const [viewResultSubmissionId, setViewResultSubmissionId] = useState<string | null>(null);
+
+  // Sync active exam assignment to localStorage and URL search query
+  useEffect(() => {
+    if (examAssignmentId) {
+      localStorage.setItem('qmath_active_exam_asg_id', examAssignmentId);
+      try {
+        const currentParams = new URLSearchParams(window.location.search);
+        if (currentParams.get('asg') !== examAssignmentId) {
+          currentParams.set('asg', examAssignmentId);
+          window.history.replaceState(null, '', `?${currentParams.toString()}`);
+        }
+      } catch (e) {
+        console.error('Error syncing exam URL:', e);
+      }
+    }
+  }, [examAssignmentId]);
+
+  const handleFinishExam = (subId: string) => {
+    localStorage.removeItem('qmath_active_exam_asg_id');
+    try {
+      window.history.replaceState(null, '', window.location.pathname);
+    } catch (e) {
+      console.error(e);
+    }
+    setExamAssignmentId(null);
+    setViewResultSubmissionId(subId);
+  };
+
+  const handleExitExam = () => {
+    localStorage.removeItem('qmath_active_exam_asg_id');
+    try {
+      window.history.replaceState(null, '', window.location.pathname);
+    } catch (e) {
+      console.error(e);
+    }
+    setExamAssignmentId(null);
+  };
 
   // Sync default tab when role switches
   useEffect(() => {
@@ -60,11 +101,8 @@ export const App: React.FC = () => {
     return (
       <ExamRoom
         assignmentId={examAssignmentId}
-        onFinish={(subId) => {
-          setExamAssignmentId(null);
-          setViewResultSubmissionId(subId);
-        }}
-        onExit={() => setExamAssignmentId(null)}
+        onFinish={handleFinishExam}
+        onExit={handleExitExam}
       />
     );
   }

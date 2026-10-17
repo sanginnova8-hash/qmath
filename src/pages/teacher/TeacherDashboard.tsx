@@ -49,6 +49,18 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onNavigate }
       }
     }
     loadData();
+
+    // Tự động cập nhật số lượng bài nộp từ học sinh mỗi 10 giây
+    const interval = setInterval(async () => {
+      try {
+        const subs = await getSubmissions();
+        setSubmissions(subs);
+      } catch (e) {
+        console.error(e);
+      }
+    }, 10000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const totalStudents = classes.reduce((sum, c) => sum + (c.studentCount || 0), 0);

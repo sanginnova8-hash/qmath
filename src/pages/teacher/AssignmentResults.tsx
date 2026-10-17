@@ -14,7 +14,8 @@ import {
   X,
   Eye,
   FileSpreadsheet,
-  Share2
+  Share2,
+  RefreshCw
 } from 'lucide-react';
 import { ShareAssignmentModal } from '../../components/teacher/ShareAssignmentModal';
 
@@ -24,10 +25,26 @@ export const AssignmentResults: React.FC = () => {
   const [submissions, setSubmissions] = useState<Submission[]>([]);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isRefreshing, setIsRefreshing] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
 
   // Modal inspecting a student submission
   const [inspectSubmission, setInspectSubmission] = useState<Submission | null>(null);
+
+  const fetchSubmissionsData = async (asgId: string) => {
+    try {
+      const subs = await getSubmissions(asgId);
+      setSubmissions(subs);
+
+      const asg = assignments.find((a) => a.id === asgId);
+      if (asg) {
+        const qst = await getQuestionsByIds(asg.questionIds);
+        setQuestions(qst);
+      }
+    } catch (e) {
+      console.error('Error fetching submissions:', e);
+    }
+  };
 
   useEffect(() => {
     async function loadData() {
@@ -47,19 +64,22 @@ export const AssignmentResults: React.FC = () => {
 
   useEffect(() => {
     if (!selectedAsgId) return;
+    fetchSubmissionsData(selectedAsgId);
 
-    async function loadSubmissions() {
-      const subs = await getSubmissions(selectedAsgId);
-      setSubmissions(subs);
+    // Tự động đồng bộ kết quả mới từ Cloud mỗi 10 giây để Giáo viên thấy bài nộp mới nhất
+    const interval = setInterval(() => {
+      fetchSubmissionsData(selectedAsgId);
+    }, 10000);
 
-      const asg = assignments.find((a) => a.id === selectedAsgId);
-      if (asg) {
-        const qst = await getQuestionsByIds(asg.questionIds);
-        setQuestions(qst);
-      }
-    }
-    loadSubmissions();
+    return () => clearInterval(interval);
   }, [selectedAsgId, assignments]);
+
+  const handleManualRefresh = async () => {
+    if (!selectedAsgId) return;
+    setIsRefreshing(true);
+    await fetchSubmissionsData(selectedAsgId);
+    setTimeout(() => setIsRefreshing(false), 500);
+  };
 
   const currentAsg = assignments.find((a) => a.id === selectedAsgId);
 
@@ -126,15 +146,26 @@ export const AssignmentResults: React.FC = () => {
               ))}
             </select>
           </div>
-          {currentAsg && (
+          <div className="flex items-center gap-2 shrink-0">
             <button
-              onClick={() => setShowShareModal(true)}
-              className="shrink-0 px-3.5 py-2 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200 font-bold text-xs flex items-center gap-1.5 transition-all shadow-sm"
-              title="Chia sẻ lại bài kiểm tra qua Zalo hoặc QR"
+              onClick={handleManualRefresh}
+              disabled={isRefreshing}
+              className="px-3.5 py-2 rounded-xl bg-emerald-50 text-emerald-800 hover:bg-emerald-100 border border-emerald-300 font-bold text-xs flex items-center gap-1.5 transition-all shadow-xs disabled:opacity-50"
+              title="Đồng bộ ngay lập tức các bài làm mới nộp từ Cloud"
             >
-              <Share2 className="w-4 h-4" /> Chia sẻ QR
+              <RefreshCw className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin text-emerald-600' : ''}`} />
+              <span>{isRefreshing ? 'Đang đồng bộ...' : 'Làm mới kết quả'}</span>
             </button>
-          )}
+            {currentAsg && (
+              <button
+                onClick={() => setShowShareModal(true)}
+                className="px-3.5 py-2 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200 font-bold text-xs flex items-center gap-1.5 transition-all shadow-xs"
+                title="Chia sẻ lại bài kiểm tra qua Zalo hoặc QR"
+              >
+                <Share2 className="w-3.5 h-3.5" /> Chia sẻ QR
+              </button>
+            )}
+          </div>
         </div>
       </div>
 

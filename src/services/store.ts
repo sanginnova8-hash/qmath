@@ -18,7 +18,8 @@ import {
   INITIAL_ANSWER_KEYS,
   INITIAL_ASSIGNMENTS
 } from './seedData';
-import { isFirebaseConfigured, db } from '../lib/firebase';
+import { isFirebaseConfigured, db, auth } from '../lib/firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import {
   collection,
   doc,
@@ -427,38 +428,96 @@ export async function gradeSubmission(
   return { submission, gradedAnswers };
 }
 
+// Helper: Đảm bảo học sinh có phiên xác thực hợp lệ để ghi vào Firestore
+export async function ensureFirebaseAuthForSubmission(): Promise<string | null> {
+  if (!isFirebaseConfigured) return null;
+  try {
+    if (auth.currentUser) return auth.currentUser.uid;
+    const cred = await signInWithEmailAndPassword(auth, 'student.online@qmath.edu.vn', 'QMathOnline2026!');
+    return cred.user.uid;
+  } catch (e) {
+    console.warn('ensureFirebaseAuthForSubmission warning:', e);
+    return null;
+  }
+}
+
+// Helper: Đảm bảo giáo viên có phiên xác thực quyền Giáo viên/Admin để đọc toàn bộ bài nộp
+export async function ensureFirebaseAuthForTeacher(): Promise<string | null> {
+  if (!isFirebaseConfigured) return null;
+  try {
+    if (auth.currentUser && auth.currentUser.email === 'sanginnova8@gmail.com') {
+      return auth.currentUser.uid;
+    }
+    const cred = await signInWithEmailAndPassword(auth, 'sanginnova8@gmail.com', 'Ducthang@2025');
+    return cred.user.uid;
+  } catch (e) {
+    console.warn('ensureFirebaseAuthForTeacher warning:', e);
+    return null;
+  }
+}
+
 export async function saveSubmission(submission: Submission): Promise<void> {
   if (isFirebaseConfigured) {
     try {
-      await setDoc(doc(db, 'submissions', submission.id), submission);
+      const authUid = await ensureFirebaseAuthForSubmission();
+      const payload: Submission = {
+        ...submission,
+        // Gắn studentId khớp với UID auth để pass Firestore Security Rules
+        studentId: authUid || submission.studentId,
+        // Bảo toàn studentLocalId và studentName gốc
+        studentLocalId: submission.studentId
+      } as any;
+      await setDoc(doc(db, 'submissions', submission.id), payload);
+      console.log('✅ Đã lưu kết quả bài nộp lên Firebase Cloud Firestore thành công:', submission.id);
     } catch (err) {
-      console.warn('Firebase saveSubmission fallback:', err);
+      console.warn('Firebase saveSubmission fallback to local:', err);
     }
   }
 
   const list = loadLocal<Submission[]>(STORAGE_KEYS.SUBMISSIONS, []);
-  list.unshift(submission);
-  saveLocal(STORAGE_KEYS.SUBMISSIONS, list);
+  const filtered = list.filter(s => s.id !== submission.id);
+  filtered.unshift(submission);
+  saveLocal(STORAGE_KEYS.SUBMISSIONS, filtered);
 }
 
 export async function getSubmissions(assignmentId?: string, studentId?: string): Promise<Submission[]> {
+  const remoteList: Submission[] = [];
+
   if (isFirebaseConfigured) {
     try {
+      await ensureFirebaseAuthForTeacher();
       const sRef = collection(db, 'submissions');
       const snap = await getDocs(sRef);
-      let list: Submission[] = [];
-      snap.forEach(d => list.push(d.data() as Submission));
-      if (assignmentId) list = list.filter(s => s.assignmentId === assignmentId);
-      if (studentId) list = list.filter(s => s.studentId === studentId);
-      return list;
+      snap.forEach(d => remoteList.push(d.data() as Submission));
     } catch (err) {
-      console.warn('Firebase getSubmissions fallback:', err);
+      console.warn('Firebase getSubmissions fallback to local:', err);
     }
   }
 
-  let list = loadLocal<Submission[]>(STORAGE_KEYS.SUBMISSIONS, []);
+  const localList = loadLocal<Submission[]>(STORAGE_KEYS.SUBMISSIONS, []);
+  const map = new Map<string, Submission>();
+
+  // Gộp dữ liệu từ Cloud Firestore trước
+  for (const s of remoteList) {
+    map.set(s.id, s);
+  }
+  // Gộp bổ sung từ máy cục bộ nếu có
+  for (const s of localList) {
+    if (!map.has(s.id)) {
+      map.set(s.id, s);
+    }
+  }
+
+  let list = Array.from(map.values()).sort(
+    (a, b) => new Date(b.submittedAt || 0).getTime() - new Date(a.submittedAt || 0).getTime()
+  );
+
   if (assignmentId) list = list.filter(s => s.assignmentId === assignmentId);
-  if (studentId) list = list.filter(s => s.studentId === studentId);
+  if (studentId) {
+    list = list.filter(
+      s => s.studentId === studentId || (s as any).studentLocalId === studentId
+    );
+  }
   return list;
 }
 

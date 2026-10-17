@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+    <!-- Firebase CDN for Real-time Cloud Submissions -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
     <style>
         :root {
             --primary: #1d4ed8;
@@ -34,6 +38,10 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        html, body {
+            overscroll-behavior-y: contain; /* Chống vuốt kéo refresh vô tình trên thiết bị di động */
         }
 
         body {
@@ -924,16 +932,27 @@ const examData = [
     }
 ];
 
-// KHÓA LÀM 1 LẦN QUA LOCALSTORAGE
+// KHÓA LÀM 1 LẦN & LƯU BÀI TẠM THỜI QUA LOCALSTORAGE
 const STORAGE_KEY = "EXAM_TOAN11_BAI4_RESULT_V1";
+const DRAFT_KEY = "EXAM_TOAN11_BAI4_DRAFT_V1";
 
 // Biến trạng thái
 let userSelected = {};
 let countdownSec = 15 * 60; // 15 phút
 let countdownTimer = null;
+let examTargetEndTime = 0;
 let isExamDone = false;
 let stuName = "";
 let stuClass = "";
+
+// 1. Chặn vuốt tải lại trang hoặc thoát vô tình
+window.addEventListener("beforeunload", (e) => {
+    if (!isExamDone && stuName && stuClass) {
+        e.preventDefault();
+        e.returnValue = "Bài làm của em đang diễn ra! Em có chắc chắn muốn rời khỏi hoặc tải lại trang?";
+        return e.returnValue;
+    }
+});
 
 // Render công thức KaTeX
 function renderMathFormula() {
@@ -948,41 +967,107 @@ function renderMathFormula() {
     }
 }
 
-// Kiểm tra khi tải trang: Nếu đã làm thì hiện ngay kết quả
+// Lưu tiến trình làm bài vào LocalStorage theo thời gian thực
+function saveExamDraft() {
+    if (isExamDone || !stuName) return;
+    try {
+        const draftData = {
+            stuName: stuName,
+            stuClass: stuClass,
+            userSelected: userSelected,
+            targetEndTime: examTargetEndTime || (Date.now() + countdownSec * 1000),
+            lastSavedAt: Date.now()
+        };
+        localStorage.setItem(DRAFT_KEY, JSON.stringify(draftData));
+    } catch (e) {
+        console.error("Lỗi lưu draft:", e);
+    }
+}
+
+// Kiểm tra khi tải trang: Nếu đã nộp thì hiện kết quả, nếu đang làm dở thì khôi phục 100%
 window.addEventListener("DOMContentLoaded", () => {
     renderMathFormula();
     checkExistingSubmission();
 });
 
 function checkExistingSubmission() {
+    // 1. Kiểm tra xem đã nộp bài hoàn tất chưa
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (!saved) return;
+    if (saved) {
+        try {
+            const data = JSON.parse(saved);
+            if (data && data.isDone) {
+                stuName = data.stuName || "Học sinh";
+                stuClass = data.stuClass || "";
+                userSelected = data.userSelected || {};
+                isExamDone = true;
 
-    try {
-        const data = JSON.parse(saved);
-        if (data && data.isDone) {
-            // Học sinh đã nộp bài trước đó
-            stuName = data.stuName || "Học sinh";
-            stuClass = data.stuClass || "";
-            userSelected = data.userSelected || {};
-            isExamDone = true;
+                document.getElementById("startScreen").style.display = "none";
+                document.getElementById("examArea").style.display = "block";
+                document.getElementById("examArea").classList.add("locked");
 
-            // Ẩn màn hình bắt đầu, mở phòng thi ở trạng thái khóa
-            document.getElementById("startScreen").style.display = "none";
-            document.getElementById("examArea").style.display = "block";
-            document.getElementById("examArea").classList.add("locked");
+                document.getElementById("lblStudentBadge").innerText = `${stuName} — Lớp ${stuClass}`;
+                document.getElementById("examClock").innerText = "ĐÃ NỘP";
+                document.getElementById("examClock").className = "timer-val warning";
 
-            // Hiển thị thông tin thí sinh
-            document.getElementById("lblStudentBadge").innerText = `${stuName} — Lớp ${stuClass}`;
-            document.getElementById("examClock").innerText = "ĐÃ NỘP";
-            document.getElementById("examClock").className = "timer-val warning";
-
-            // Dựng câu hỏi và hiện đáp án
-            buildExamQuestions();
-            displayExamResults(data.score, data.correctCount, data.timeSpent, true);
+                buildExamQuestions();
+                displayExamResults(data.score, data.correctCount, data.timeSpent, true);
+                return;
+            }
+        } catch (e) {
+            console.error("Lỗi đọc dữ liệu đã nộp:", e);
         }
-    } catch (e) {
-        console.error("Lỗi đọc dữ liệu:", e);
+    }
+
+    // 2. Nếu chưa nộp, kiểm tra bản nháp đang làm dở (sau khi nhỡ tay refresh / vuốt nhầm)
+    const draftRaw = localStorage.getItem(DRAFT_KEY);
+    if (draftRaw) {
+        try {
+            const draft = JSON.parse(draftRaw);
+            if (draft && draft.stuName) {
+                stuName = draft.stuName;
+                stuClass = draft.stuClass;
+                userSelected = draft.userSelected || {};
+
+                const now = Date.now();
+                const targetEnd = draft.targetEndTime || (now + 15 * 60 * 1000);
+                examTargetEndTime = targetEnd;
+                const remaining = Math.max(0, Math.round((targetEnd - now) / 1000));
+                countdownSec = remaining;
+
+                // Tự động khôi phục giao diện phòng thi
+                document.getElementById("txtStudentName").value = stuName;
+                document.getElementById("txtStudentClass").value = stuClass;
+                document.getElementById("lblStudentBadge").innerText = `${stuName} — Lớp ${stuClass}`;
+                document.getElementById("startScreen").style.display = "none";
+                document.getElementById("examArea").style.display = "block";
+
+                buildExamQuestions();
+
+                // Đánh dấu lại toàn bộ các câu đã trả lời trước đó
+                Object.keys(userSelected).forEach((qId) => {
+                    const key = userSelected[qId];
+                    const row = document.getElementById(`opt-${qId}-${key}`);
+                    if (row) row.classList.add("selected");
+                    const pBtn = document.getElementById(`palette-item-${qId}`);
+                    if (pBtn) pBtn.classList.add("done");
+                });
+
+                const doneCount = Object.keys(userSelected).length;
+                document.getElementById("lblPaletteProgress").innerText = `Đã làm: ${doneCount}/${examData.length}`;
+
+                startExamTimer();
+
+                // Thông báo khôi phục thành công
+                const toast = document.createElement("div");
+                toast.style.cssText = "position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#065f46;color:#ffffff;padding:12px 24px;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,0.2);font-weight:700;font-size:13.5px;z-index:9999;border:1px solid #34d399;display:flex;align-items:center;gap:8px;";
+                toast.innerHTML = "<span>🔄 Đã khôi phục bài làm của em! Các câu đã chọn và thời gian đếm ngược được bảo toàn 100%.</span>";
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 6000);
+            }
+        } catch (e) {
+            console.error("Lỗi khôi phục draft:", e);
+        }
     }
 }
 
@@ -1012,6 +1097,10 @@ function handleStartExam() {
 
     stuName = nameVal;
     stuClass = classVal;
+    examTargetEndTime = Date.now() + countdownSec * 1000;
+
+    // Lưu phiên ban đầu
+    saveExamDraft();
 
     // Gán thông tin thí sinh lên thanh sticky bar
     document.getElementById("lblStudentBadge").innerText = `${stuName} — Lớp ${stuClass}`;
@@ -1103,6 +1192,9 @@ function onSelectOption(qId, key) {
     // Cập nhật số câu đã làm
     const doneCount = Object.keys(userSelected).length;
     document.getElementById("lblPaletteProgress").innerText = `Đã làm: ${doneCount}/${examData.length}`;
+
+    // Lưu tiến trình thời gian thực (chống mất bài khi nhỡ tay refresh/vuốt màn hình)
+    saveExamDraft();
 }
 
 // Cuộn đến câu hỏi
@@ -1142,6 +1234,59 @@ function startExamTimer() {
     }, 1000);
 }
 
+// Gửi kết quả lên Cloud Firestore cho Giáo viên
+async function sendSubmissionToCloud(record) {
+    try {
+        if (typeof firebase === 'undefined') return;
+        if (!firebase.apps.length) {
+            firebase.initializeApp({
+                apiKey: "AIzaSyBBoYCtfFNZSA3sU_O-T-hLthhMHI0h9iI",
+                authDomain: "qmath-online.firebaseapp.com",
+                projectId: "qmath-online"
+            });
+        }
+        const auth = firebase.auth();
+        let userCred = auth.currentUser;
+        if (!userCred) {
+            userCred = await auth.signInWithEmailAndPassword("student.online@qmath.edu.vn", "QMathOnline2026!");
+        }
+        const db = firebase.firestore();
+        const subDocId = "sub-html-" + Date.now() + "-" + Math.random().toString(36).substring(2, 6);
+
+        const gradedAnswers = {};
+        examData.forEach(q => {
+            const chosen = userSelected[q.id];
+            gradedAnswers[q.id] = {
+                questionId: String(q.id),
+                answer: chosen || "",
+                isCorrect: chosen === q.correct,
+                earnedPoints: chosen === q.correct ? 1 : 0,
+                maxPoints: 1
+            };
+        });
+
+        await db.collection("submissions").doc(subDocId).set({
+            id: subDocId,
+            assignmentId: "asg-toan11-bai4",
+            assignmentTitle: "Đề kiểm tra 15 phút: Bài 4. Hàm số lượng giác (Toán 11)",
+            classId: record.stuClass || "11",
+            studentId: (userCred && userCred.user) ? userCred.user.uid : ("std-" + Date.now()),
+            studentName: `${record.stuName} — Lớp ${record.stuClass}`,
+            attemptNumber: 1,
+            score: parseFloat(record.score),
+            totalQuestions: examData.length,
+            correctCount: record.correctCount,
+            timeSpentSeconds: record.timeSpent,
+            submittedAt: new Date().toISOString(),
+            status: "GRADED",
+            answers: gradedAnswers
+        });
+        console.log("✅ Đã gửi bài nộp lên Firebase Cloud thành công:", subDocId);
+    } catch (e) {
+        console.warn("Lỗi gửi bài lên Cloud Firestore:", e);
+    }
+}
+
 // NỘP BÀI & TỰ ĐỘNG CHẤM ĐIỂM
 function handleSubmitExam(auto = false) {
     if (isExamDone) return;
@@ -1158,6 +1303,9 @@ function handleSubmitExam(auto = false) {
     isExamDone = true;
     clearInterval(countdownTimer);
     document.getElementById("examArea").classList.add("locked");
+
+    // Xóa bản nháp tạm thời khi đã nộp chính thức
+    localStorage.removeItem(DRAFT_KEY);
 
     // Tính điểm
     let correctTotal = 0;
@@ -1181,6 +1329,9 @@ function handleSubmitExam(auto = false) {
         submittedAt: new Date().toLocaleString("vi-VN")
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(record));
+
+    // Đồng bộ ngay kết quả lên Cloud cho Giáo viên nhận
+    sendSubmissionToCloud(record);
 
     displayExamResults(mark, correctTotal, timeSpent, false);
 }

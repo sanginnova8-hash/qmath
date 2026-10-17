@@ -3,9 +3,11 @@
 @tailwind utilities;
 
 @layer base {
-  body {
+  html, body {
     @apply bg-slate-50 text-slate-900 antialiased font-sans;
     -webkit-tap-highlight-color: transparent;
+    /* Chống kéo vuốt refresh trang vô tình trên thiết bị di động (Chrome, Safari, Cốc Cốc) */
+    overscroll-behavior-y: contain;
   }
 }
 

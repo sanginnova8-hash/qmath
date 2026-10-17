@@ -17,7 +17,9 @@ import {
   X,
   Sparkles,
   HelpCircle,
-  ArrowLeft
+  ArrowLeft,
+  RotateCcw,
+  UserCheck
 } from 'lucide-react';
 
 interface ExamRoomProps {
@@ -26,11 +28,24 @@ interface ExamRoomProps {
   onExit: () => void;
 }
 
+interface ExamSavedSession {
+  answers: Record<string, { answer: StudentAnswerValue; flagged?: boolean }>;
+  currentIndex: number;
+  timeSpentSeconds: number;
+  targetEndTime: number;
+  lastSavedAt: number;
+}
+
 export const ExamRoom: React.FC<ExamRoomProps> = ({ assignmentId, onFinish, onExit }) => {
-  const { currentUser, isGuest } = useAuth();
+  const { currentUser, isGuest, registerStudentAccount } = useAuth();
   const [assignment, setAssignment] = useState<Assignment | null>(null);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState(true);
+
+  // Guest student info state if opened from direct link
+  const [guestName, setGuestName] = useState('');
+  const [guestClass, setGuestClass] = useState('10A8');
+  const [isRegisteringGuest, setIsRegisteringGuest] = useState(false);
 
   // Current question index (0-based)
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -46,15 +61,36 @@ export const ExamRoom: React.FC<ExamRoomProps> = ({ assignmentId, onFinish, onEx
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSubmitModal, setShowSubmitModal] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isRestored, setIsRestored] = useState(false);
 
-  // Load Assignment and Questions
+  // Target end time timestamp
+  const targetEndTimeRef = useRef<number>(0);
+
+  // Storage key for active session
+  const getSessionKey = (asgId: string, userId?: string) =>
+    `qmath_exam_session_${asgId}_${userId || 'default'}`;
+
+  // 1. Chặn reload / thoát trang vô tình (beforeunload guard)
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (!isSubmitting) {
+        e.preventDefault();
+        e.returnValue = 'Bài làm của bạn đang diễn ra! Bạn có chắc chắn muốn rời khỏi hoặc tải lại trang?';
+        return e.returnValue;
+      }
+    };
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, [isSubmitting]);
+
+  // 2. Load Assignment and Questions with session restoration
   useEffect(() => {
     async function load() {
-      if (isGuest || !currentUser) {
-        alert('Vui lòng đăng nhập tài khoản học sinh để tham gia làm bài kiểm tra!');
-        onExit();
+      if (!currentUser || isGuest) {
+        setLoading(false);
         return;
       }
+
       setLoading(true);
       try {
         const asg = await getAssignmentById(assignmentId);
@@ -67,53 +103,101 @@ export const ExamRoom: React.FC<ExamRoomProps> = ({ assignmentId, onFinish, onEx
         const qst = await getQuestionsByIds(asg.questionIds);
         setQuestions(qst);
 
-        // Set duration
         const durationSec = (asg.durationMinutes || 15) * 60;
-        setSecondsRemaining(durationSec);
+        const sessionKey = getSessionKey(assignmentId, currentUser.id);
+        const savedRaw = localStorage.getItem(sessionKey);
 
-        // Load saved draft answers from localStorage if any
-        const draftKey = `qmath_draft_${assignmentId}_${currentUser?.id}`;
-        const draft = localStorage.getItem(draftKey);
-        if (draft) {
+        if (savedRaw) {
           try {
-            setAnswers(JSON.parse(draft));
+            const saved: ExamSavedSession = JSON.parse(savedRaw);
+            if (saved.answers && Object.keys(saved.answers).length > 0) {
+              setAnswers(saved.answers);
+            }
+            if (typeof saved.currentIndex === 'number' && saved.currentIndex < qst.length) {
+              setCurrentIndex(saved.currentIndex);
+            }
+
+            const now = Date.now();
+            const targetEnd = saved.targetEndTime || (now + durationSec * 1000);
+            targetEndTimeRef.current = targetEnd;
+            const remaining = Math.max(0, Math.round((targetEnd - now) / 1000));
+            setSecondsRemaining(remaining);
+
+            const elapsedSec = Math.max(0, Math.floor((now - (saved.lastSavedAt || now)) / 1000));
+            setTimeSpentSeconds((saved.timeSpentSeconds || 0) + elapsedSec);
+
+            setIsRestored(true);
+            setTimeout(() => setIsRestored(false), 7000);
           } catch (e) {
-            console.error(e);
+            console.error('Lỗi phân tích phiên làm bài trước:', e);
+            targetEndTimeRef.current = Date.now() + durationSec * 1000;
+            setSecondsRemaining(durationSec);
           }
+        } else {
+          // Khởi tạo phiên mới
+          const initialTargetEnd = Date.now() + durationSec * 1000;
+          targetEndTimeRef.current = initialTargetEnd;
+          setSecondsRemaining(durationSec);
+          localStorage.setItem(
+            sessionKey,
+            JSON.stringify({
+              answers: {},
+              currentIndex: 0,
+              timeSpentSeconds: 0,
+              targetEndTime: initialTargetEnd,
+              lastSavedAt: Date.now()
+            })
+          );
         }
       } finally {
         setLoading(false);
       }
     }
     load();
-  }, [assignmentId, currentUser, onExit]);
+  }, [assignmentId, currentUser, isGuest, onExit]);
 
-  // Persist draft answers to localStorage
+  // 3. Persist session state in real-time to localStorage
   useEffect(() => {
-    if (!assignment || !currentUser) return;
-    const draftKey = `qmath_draft_${assignment.id}_${currentUser.id}`;
-    localStorage.setItem(draftKey, JSON.stringify(answers));
-  }, [answers, assignment, currentUser]);
+    if (!assignment || !currentUser || isGuest) return;
+    const sessionKey = getSessionKey(assignment.id, currentUser.id);
+    const sessionData: ExamSavedSession = {
+      answers,
+      currentIndex,
+      timeSpentSeconds,
+      targetEndTime: targetEndTimeRef.current || (Date.now() + secondsRemaining * 1000),
+      lastSavedAt: Date.now()
+    };
+    localStorage.setItem(sessionKey, JSON.stringify(sessionData));
+  }, [answers, currentIndex, timeSpentSeconds, secondsRemaining, assignment, currentUser, isGuest]);
 
-  // Countdown Timer
+  // 4. Countdown Timer based on accurate target end time
   useEffect(() => {
-    if (loading || isSubmitting) return;
+    if (loading || isSubmitting || !assignment || isGuest) return;
 
     const interval = setInterval(() => {
       setTimeSpentSeconds((prev) => prev + 1);
-      setSecondsRemaining((prev) => {
-        if (prev <= 1) {
+
+      if (targetEndTimeRef.current > 0) {
+        const remaining = Math.max(0, Math.round((targetEndTimeRef.current - Date.now()) / 1000));
+        setSecondsRemaining(remaining);
+        if (remaining <= 0) {
           clearInterval(interval);
-          // Auto submit when time runs out
           handleAutoSubmit();
-          return 0;
         }
-        return prev - 1;
-      });
+      } else {
+        setSecondsRemaining((prev) => {
+          if (prev <= 1) {
+            clearInterval(interval);
+            handleAutoSubmit();
+            return 0;
+          }
+          return prev - 1;
+        });
+      }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [loading, isSubmitting]);
+  }, [loading, isSubmitting, assignment, isGuest]);
 
   const handleAutoSubmit = async () => {
     alert('Đã hết thời gian làm bài! Hệ thống tự động nộp bài thi của bạn.');
@@ -130,15 +214,40 @@ export const ExamRoom: React.FC<ExamRoomProps> = ({ assignmentId, onFinish, onEx
         answers,
         timeSpentSeconds
       );
-      // Clear draft
-      const draftKey = `qmath_draft_${assignment.id}_${currentUser.id}`;
-      localStorage.removeItem(draftKey);
+      // Xóa hoàn toàn phiên làm bài tạm thời sau khi nộp thành công
+      const sessionKey = getSessionKey(assignment.id, currentUser.id);
+      localStorage.removeItem(sessionKey);
+      localStorage.removeItem(`qmath_draft_${assignment.id}_${currentUser.id}`);
+      localStorage.removeItem('qmath_active_exam_asg_id');
 
       onFinish(submission.id);
     } catch (err) {
       console.error('Lỗi khi nộp bài:', err);
       alert('Có lỗi xảy ra khi nộp bài. Vui lòng thử lại!');
       setIsSubmitting(false);
+    }
+  };
+
+  // Handle Quick Guest Student Entry
+  const handleStartGuestExam = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!guestName.trim()) {
+      alert('Vui lòng nhập Họ và tên của em trước khi bắt đầu!');
+      return;
+    }
+    setIsRegisteringGuest(true);
+    try {
+      await registerStudentAccount({
+        displayName: guestName.trim(),
+        email: `student_${Date.now()}@qmath.edu.vn`,
+        grade: 10,
+        school: guestClass
+      });
+    } catch (err) {
+      console.error(err);
+      alert('Không thể tạo tài khoản thí sinh. Vui lòng thử lại!');
+    } finally {
+      setIsRegisteringGuest(false);
     }
   };
 
@@ -242,6 +351,71 @@ export const ExamRoom: React.FC<ExamRoomProps> = ({ assignmentId, onFinish, onEx
     return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
 
+  if (isGuest || !currentUser) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-950 flex items-center justify-center p-4">
+        <div className="max-w-md w-full bg-white rounded-3xl shadow-2xl p-6 sm:p-8 space-y-6 border border-emerald-500/20">
+          <div className="text-center space-y-2">
+            <div className="w-14 h-14 bg-emerald-100 text-emerald-800 rounded-2xl flex items-center justify-center mx-auto shadow-inner">
+              <UserCheck className="w-8 h-8" />
+            </div>
+            <h2 className="text-xl font-extrabold text-slate-900">Thông tin thí sinh</h2>
+            <p className="text-xs text-slate-500">
+              Vui lòng nhập Họ tên và Lớp để bắt đầu làm bài kiểm tra trực tuyến.
+            </p>
+          </div>
+
+          <form onSubmit={handleStartGuestExam} className="space-y-4">
+            <div>
+              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                Họ và tên học sinh <span className="text-rose-500">*</span>
+              </label>
+              <input
+                type="text"
+                required
+                value={guestName}
+                onChange={(e) => setGuestName(e.target.value)}
+                placeholder="Ví dụ: Lê Bảo Nam"
+                className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-sm font-semibold"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                Lớp học <span className="text-rose-500">*</span>
+              </label>
+              <input
+                type="text"
+                required
+                value={guestClass}
+                onChange={(e) => setGuestClass(e.target.value)}
+                placeholder="Ví dụ: 10A8, 10A11, 12A1..."
+                className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-sm font-semibold"
+              />
+            </div>
+
+            <div className="pt-2 flex gap-3">
+              <button
+                type="button"
+                onClick={onExit}
+                className="flex-1 py-3 px-4 rounded-xl border border-slate-200 text-slate-600 font-bold text-sm hover:bg-slate-50 transition-all"
+              >
+                Quay lại
+              </button>
+              <button
+                type="submit"
+                disabled={isRegisteringGuest}
+                className="flex-1 py-3 px-4 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-extrabold text-sm shadow-md transition-all disabled:opacity-50"
+              >
+                {isRegisteringGuest ? 'Đang vào...' : 'Bắt đầu làm bài'}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
   if (loading || !assignment) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-slate-100">
@@ -332,6 +506,23 @@ export const ExamRoom: React.FC<ExamRoomProps> = ({ assignmentId, onFinish, onEx
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* LEFT / CENTER: CURRENT QUESTION CARD (3 cols) */}
         <div className="lg:col-span-3 flex flex-col space-y-4">
+          {/* Restored Session Notification */}
+          {isRestored && (
+            <div className="bg-gradient-to-r from-emerald-700 to-teal-800 text-white px-4 py-3 rounded-2xl shadow-md flex items-center justify-between text-xs sm:text-sm font-semibold border border-emerald-400/40">
+              <div className="flex items-center gap-2.5">
+                <RotateCcw className="w-5 h-5 text-emerald-200 animate-spin" />
+                <span>Đã khôi phục bài làm của bạn sau khi tải lại trang! Các câu đã trả lời và thời gian làm bài tiếp tục được bảo toàn 100%.</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsRestored(false)}
+                className="p-1 hover:bg-white/20 rounded-lg text-emerald-100 transition-colors"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+          )}
+
           <div className="bg-white rounded-3xl border border-slate-200 shadow-card p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
             {/* Question Top Meta */}
             <div className="space-y-4">

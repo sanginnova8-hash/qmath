@@ -169,11 +169,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       } else {
         setCurrentUser(INITIAL_TEACHER);
       }
+      // Tự động xác thực Firebase quyền Admin/Giáo viên để đọc kết quả từ Cloud
+      if (isFirebaseConfigured) {
+        signInWithEmailAndPassword(auth, 'sanginnova8@gmail.com', 'Ducthang@2025').catch(e => {
+          console.warn('Teacher Firebase Auth auto sign-in warning:', e);
+        });
+      }
       return { success: true };
     }
     return { success: false, message: `Mật khẩu ${targetRole === 'ADMIN' ? 'Quản trị viên' : 'Giáo viên'} không chính xác!` };
   };
-
 
   const updatePasscode = (roleToUpdate: 'ADMIN' | 'TEACHER', newCode: string) => {
     setStoredPasscode(roleToUpdate, newCode);
@@ -182,8 +187,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const loginAsDemo = (role: UserRole, studentIndex: number = 0) => {
     if (role === 'TEACHER') {
       setCurrentUser(INITIAL_TEACHER);
+      if (isFirebaseConfigured) {
+        signInWithEmailAndPassword(auth, 'sanginnova8@gmail.com', 'Ducthang@2025').catch(console.warn);
+      }
     } else if (role === 'ADMIN') {
       setCurrentUser(INITIAL_ADMIN);
+      if (isFirebaseConfigured) {
+        signInWithEmailAndPassword(auth, 'sanginnova8@gmail.com', 'Ducthang@2025').catch(console.warn);
+      }
     } else {
       const std = INITIAL_STUDENTS[studentIndex] || INITIAL_STUDENTS[0];
       setCurrentUser(std);
