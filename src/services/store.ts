@@ -71,7 +71,7 @@ if (!localStorage.getItem(STORAGE_KEYS.QUESTIONS)) {
   saveLocal(STORAGE_KEYS.PROGRESS, {});
 }
 
-const TAP1_CACHE_VERSION = 'qmath_tap1_v5_deep_cleaned';
+const TAP1_CACHE_VERSION = 'qmath_tap1_v6_30_de_ham_so';
 
 // --- QUESTIONS SERVICE ---
 export async function loadExamBankTap1(forceUpdate = false): Promise<{ success: boolean; count: number; message: string }> {
@@ -108,8 +108,19 @@ export async function loadExamBankTap1(forceUpdate = false): Promise<{ success: 
     Object.assign(currentKeys, data.answerKeys || {});
     saveLocal(STORAGE_KEYS.ANSWER_KEYS, currentKeys);
 
+    // Merge newly added INITIAL_ASSIGNMENTS (e.g. 30 De tong on)
+    const currentAssignments = loadLocal<Assignment[]>(STORAGE_KEYS.ASSIGNMENTS, []);
+    const existingAsgIds = new Set(currentAssignments.map((a) => a.id));
+    for (const asg of INITIAL_ASSIGNMENTS) {
+      if (!existingAsgIds.has(asg.id)) {
+        currentAssignments.push(asg);
+        existingAsgIds.add(asg.id);
+      }
+    }
+    saveLocal(STORAGE_KEYS.ASSIGNMENTS, currentAssignments);
+
     localStorage.setItem(TAP1_CACHE_VERSION, 'true');
-    return { success: true, count: data.questions.length, message: `Đã chuẩn hóa và đồng bộ thành công ${data.questions.length} câu hỏi 21 Chuyên đề lên hệ thống!` };
+    return { success: true, count: data.questions.length, message: `Đã chuẩn hóa và đồng bộ thành công ${data.questions.length} câu hỏi 21 Chuyên đề & 30 Đề tổng ôn lên hệ thống!` };
   } catch (err: any) {
     console.error('loadExamBankTap1 error:', err);
     return { success: false, count: 0, message: err.message || 'Lỗi nạp dữ liệu' };

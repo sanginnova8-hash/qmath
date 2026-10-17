@@ -1,0 +1,848 @@
+{
+  "title": "Tuyển tập 30 đề tổng ôn chương hàm số 12 - ThS. Nguyễn Văn Sang",
+  "totalQuestions": 24,
+  "questions": [
+    {
+      "id": "30de-01-mcq-01",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 01 - Đơn điệu của hàm số",
+      "difficulty": "TH",
+      "content": "Cho hàm số $y = -x^3 + 3x^2 - 3x + 2$. Khẳng định nào sau đây là đúng?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hàm số đồng biến trên $\\mathbb{R}$."
+        },
+        {
+          "id": "B",
+          "text": "Hàm số nghịch biến trên $\\mathbb{R}$."
+        },
+        {
+          "id": "C",
+          "text": "Hàm số đồng biến trên $(-\\infty; 1)$ và nghịch biến trên $(1; +\\infty)$."
+        },
+        {
+          "id": "D",
+          "text": "Hàm số nghịch biến trên $(-\\infty; 1)$ và đồng biến trên $(1; +\\infty)$."
+        }
+      ],
+      "explanation": "Ta có $y' = -3x^2 + 6x - 3 = -3(x-1)^2 \\le 0,\\; \\forall x \\in \\mathbb{R}$. Dấu bằng chỉ xảy ra tại điểm duy nhất $x = 1$. Do đó hàm số nghịch biến trên $\\mathbb{R}$.",
+      "createdAt": "2026-01-10T08:00:00.000Z"
+    },
+    {
+      "id": "30de-01-mcq-02",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 01 - Đồ thị hàm số",
+      "difficulty": "NB",
+      "content": "Cho hàm số $y = f(x)$ có đồ thị đi xuống trên $(-\\infty; 1)$ và đi lên trên $(1; +\\infty)$. Hàm số đã cho đồng biến trên khoảng nào trong các khoảng dưới đây?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$(0; 2)$"
+        },
+        {
+          "id": "B",
+          "text": "$(1; +\\infty)$"
+        },
+        {
+          "id": "C",
+          "text": "$(-\\infty; 1)$"
+        },
+        {
+          "id": "D",
+          "text": "$(-2; 1)$"
+        }
+      ],
+      "explanation": "Quan sát đồ thị hàm số, trên khoảng $(1; +\\infty)$ đồ thị đi lên từ trái sang phải, suy ra hàm số đồng biến trên khoảng $(1; +\\infty)$.",
+      "createdAt": "2026-01-10T08:05:00.000Z"
+    },
+    {
+      "id": "30de-01-mcq-03",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 01 - Đường tiệm cận",
+      "difficulty": "NB",
+      "content": "Đồ thị hàm số $y = \\frac{3x - 1}{x + 2}$ có đường tiệm cận đứng là:",
+      "options": [
+        {
+          "id": "A",
+          "text": "$x = -2$"
+        },
+        {
+          "id": "B",
+          "text": "$y = -2$"
+        },
+        {
+          "id": "C",
+          "text": "$y = 3$"
+        },
+        {
+          "id": "D",
+          "text": "$x = 3$"
+        }
+      ],
+      "explanation": "Tập xác định $D = \\mathbb{R} \\setminus \\{-2\\}$. Ta có $\\lim_{x \\to -2^+} \\frac{3x-1}{x+2} = -\\infty$, suy ra đường thẳng $x = -2$ là tiệm cận đứng của đồ thị hàm số.",
+      "createdAt": "2026-01-10T08:10:00.000Z"
+    },
+    {
+      "id": "30de-01-mcq-04",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 01 - Cực trị của hàm số",
+      "difficulty": "NB",
+      "content": "Hàm số nào sau đây không có điểm cực trị?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$y = x^2$"
+        },
+        {
+          "id": "B",
+          "text": "$y = x^3$"
+        },
+        {
+          "id": "C",
+          "text": "$y = x^4$"
+        },
+        {
+          "id": "D",
+          "text": "$y = -x^2$"
+        }
+      ],
+      "explanation": "Xét hàm số $y = x^3$ có đạo hàm $y' = 3x^2 \\ge 0,\\; \\forall x \\in \\mathbb{R}$. Đạo hàm triệt tiêu tại $x = 0$ nhưng không đổi dấu khi qua $x = 0$ nên hàm số không có cực trị.",
+      "createdAt": "2026-01-10T08:15:00.000Z"
+    },
+    {
+      "id": "30de-01-mcq-05",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 01 - Bảng biến thiên",
+      "difficulty": "NB",
+      "content": "Cho hàm số $y = f(x)$ có bảng biến thiên:\n$$\\begin{array}{c|ccccccc} x & -\\infty & & -7 & & -4 & & +\\infty \\\\ \\hline f'(x) & & + & 0 & - & 0 & + & \\\\ \\hline f(x) & -\\infty & \\nearrow & -3 & \\searrow & -6 & \\nearrow & +\\infty \\end{array}$$\nĐiểm cực đại của hàm số đã cho là:",
+      "options": [
+        {
+          "id": "A",
+          "text": "$x = -7$"
+        },
+        {
+          "id": "B",
+          "text": "$x = -4$"
+        },
+        {
+          "id": "C",
+          "text": "$x = -3$"
+        },
+        {
+          "id": "D",
+          "text": "$x = -6$"
+        }
+      ],
+      "explanation": "Tại $x = -7$, đạo hàm $f'(x)$ đổi dấu từ dương $(+)$ sang âm $(-)$ nên $x = -7$ là điểm cực đại của hàm số.",
+      "createdAt": "2026-01-10T08:20:00.000Z"
+    },
+    {
+      "id": "30de-01-mcq-06",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 01 - Giá trị lớn nhất & nhỏ nhất",
+      "difficulty": "TH",
+      "content": "Giá trị lớn nhất của hàm số $y = f(x) = x^4 - 2x^2 + 15$ trên đoạn $[-3; 2]$ là:",
+      "options": [
+        {
+          "id": "A",
+          "text": "$54$"
+        },
+        {
+          "id": "B",
+          "text": "$78$"
+        },
+        {
+          "id": "C",
+          "text": "$48$"
+        },
+        {
+          "id": "D",
+          "text": "$6$"
+        }
+      ],
+      "explanation": "Ta có $f'(x) = 4x^3 - 4x = 4x(x^2 - 1) = 0 \\Leftrightarrow x \\in \\{0; 1; -1\\} \\subset [-3; 2]$.\nTính các giá trị:\n- $f(-3) = (-3)^4 - 2(-3)^2 + 15 = 81 - 18 + 15 = 78$\n- $f(2) = 16 - 8 + 15 = 23$\n- $f(0) = 15$\n- $f(\\pm 1) = 1 - 2 + 15 = 14$\nVậy $\\max_{[-3; 2]} f(x) = 78$ tại $x = -3$.",
+      "createdAt": "2026-01-10T08:25:00.000Z"
+    },
+    {
+      "id": "30de-01-mcq-07",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 01 - GTLN - GTNN trên đoạn",
+      "difficulty": "TH",
+      "content": "Cho hàm số $y = f(x)$ liên tục trên $\\mathbb{R}$. Gọi $M$ và $m$ lần lượt là GTLN và GTNN của hàm số trên $[1; 3]$ với $M = f(2) = -1$ và $m = f(3) = -3$. Giá trị của $M + m$ bằng:",
+      "options": [
+        {
+          "id": "A",
+          "text": "$4$"
+        },
+        {
+          "id": "B",
+          "text": "$-6$"
+        },
+        {
+          "id": "C",
+          "text": "$-2$"
+        },
+        {
+          "id": "D",
+          "text": "$-4$"
+        }
+      ],
+      "explanation": "Trên đoạn $[1; 3]$, hàm số đạt GTLN $M = -1$ và GTNN $m = -3$. Do đó $M + m = (-1) + (-3) = -4$.",
+      "createdAt": "2026-01-10T08:30:00.000Z"
+    },
+    {
+      "id": "30de-01-mcq-08",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 01 - Tiệm cận đứng và ngang",
+      "difficulty": "TH",
+      "content": "Cho hàm số $y = f(x)$ xác định trên $\\mathbb{R} \\setminus \\{0\\}$ có $\\lim_{x \\to -\\infty} f(x) = 1$, $\\lim_{x \\to +\\infty} f(x) = 3$ và $\\lim_{x \\to 0^+} f(x) = -\\infty$. Đồ thị hàm số đã cho có tất cả bao nhiêu đường tiệm cận đứng và tiệm cận ngang?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$4$"
+        },
+        {
+          "id": "B",
+          "text": "$1$"
+        },
+        {
+          "id": "C",
+          "text": "$2$"
+        },
+        {
+          "id": "D",
+          "text": "$3$"
+        }
+      ],
+      "explanation": "- Vì $\\lim_{x \\to -\\infty} f(x) = 1 \\Rightarrow y = 1$ là tiệm cận ngang.\n- Vì $\\lim_{x \\to +\\infty} f(x) = 3 \\Rightarrow y = 3$ là tiệm cận ngang.\n- Vì $\\lim_{x \\to 0^+} f(x) = -\\infty \\Rightarrow x = 0$ là tiệm cận đứng.\nVậy đồ thị có tất cả $2 + 1 = 3$ đường tiệm cận.",
+      "createdAt": "2026-01-10T08:35:00.000Z"
+    },
+    {
+      "id": "30de-01-mcq-09",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 01 - Điểm cực trị nghiệm bội",
+      "difficulty": "TH",
+      "content": "Cho hàm số $y = f(x)$ có đạo hàm $f'(x) = x(x - 1)^3(x + 2)^4$. Số điểm cực trị của hàm số đã cho là:",
+      "options": [
+        {
+          "id": "A",
+          "text": "$0$"
+        },
+        {
+          "id": "B",
+          "text": "$1$"
+        },
+        {
+          "id": "C",
+          "text": "$3$"
+        },
+        {
+          "id": "D",
+          "text": "$2$"
+        }
+      ],
+      "explanation": "Ta có $f'(x) = 0 \\Leftrightarrow x = 0,\\; x = 1,\\; x = -2$.\n- $x = 0$ là nghiệm đơn (bội 1) $\\Rightarrow$ đạo hàm đổi dấu.\n- $x = 1$ là nghiệm bội lẻ (bội 3) $\\Rightarrow$ đạo hàm đổi dấu.\n- $x = -2$ là nghiệm bội chẵn (bội 4) $\\Rightarrow$ đạo hàm không đổi dấu.\nVậy hàm số có đúng $2$ điểm cực trị.",
+      "createdAt": "2026-01-10T08:40:00.000Z"
+    },
+    {
+      "id": "30de-01-mcq-10",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 01 - Tính chất GTLN nghịch biến",
+      "difficulty": "NB",
+      "content": "Cho hàm số $y = f(x)$ liên tục và nghịch biến trên đoạn $[1; 3]$. Khẳng định nào sau đây đúng?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Giá trị lớn nhất của hàm số trên $[1; 3]$ là $f(3)$."
+        },
+        {
+          "id": "B",
+          "text": "Giá trị nhỏ nhất của hàm số trên $[1; 3]$ là $f(2)$."
+        },
+        {
+          "id": "C",
+          "text": "Giá trị lớn nhất của hàm số trên $[1; 3]$ là $f(1)$."
+        },
+        {
+          "id": "D",
+          "text": "Giá trị nhỏ nhất của hàm số trên $[1; 3]$ là $f(1)$."
+        }
+      ],
+      "explanation": "Vì hàm số nghịch biến trên $[1; 3]$ nên với mọi $x \\in [1; 3]$, ta có $1 \\le x \\le 3 \\Rightarrow f(3) \\le f(x) \\le f(1)$. Do đó $\\max_{[1; 3]} f(x) = f(1)$.",
+      "createdAt": "2026-01-10T08:45:00.000Z"
+    },
+    {
+      "id": "30de-01-mcq-11",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 01 - Hàm số nghịch biến trên R",
+      "difficulty": "NB",
+      "content": "Hàm số nào dưới đây nghịch biến trên toàn bộ tập số thực $\\mathbb{R}$?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$y = x^2$"
+        },
+        {
+          "id": "B",
+          "text": "$y = \\frac{2x+1}{x-1}$"
+        },
+        {
+          "id": "C",
+          "text": "$y = -x^3 - 2x$"
+        },
+        {
+          "id": "D",
+          "text": "$y = x^3$"
+        }
+      ],
+      "explanation": "Xét hàm số $y = -x^3 - 2x$ có TXĐ $D = \\mathbb{R}$ và $y' = -3x^2 - 2 < 0,\\; \\forall x \\in \\mathbb{R}$. Vậy hàm số nghịch biến trên $\\mathbb{R}$.",
+      "createdAt": "2026-01-10T08:50:00.000Z"
+    },
+    {
+      "id": "30de-01-mcq-12",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 01 - Nhận dạng cực trị đồ thị bậc ba",
+      "difficulty": "NB",
+      "content": "Cho hàm số bậc ba $y = ax^3 + bx^2 + cx + d$ ($a, b, c, d \\in \\mathbb{R}$) có đồ thị dạng chữ N có 1 điểm cực đại và 1 điểm cực tiểu. Số điểm cực trị của hàm số đã cho là:",
+      "options": [
+        {
+          "id": "A",
+          "text": "$2$"
+        },
+        {
+          "id": "B",
+          "text": "$3$"
+        },
+        {
+          "id": "C",
+          "text": "$0$"
+        },
+        {
+          "id": "D",
+          "text": "$1$"
+        }
+      ],
+      "explanation": "Đồ thị hàm số bậc ba có 1 điểm cực đại và 1 điểm cực tiểu phân biệt, do đó số điểm cực trị của hàm số là $2$.",
+      "createdAt": "2026-01-10T08:55:00.000Z"
+    },
+    {
+      "id": "30de-02-mcq-01",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 02 - Điểm cực tiểu đồ thị",
+      "difficulty": "NB",
+      "content": "Hàm số $y = f(x)$ có đồ thị đạt đáy tại điểm $(0; -2)$ và đỉnh tại $(2; 2)$. Hàm số $y = f(x)$ đạt cực tiểu tại điểm nào dưới đây?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$x = 2$"
+        },
+        {
+          "id": "B",
+          "text": "$x = 0$"
+        },
+        {
+          "id": "C",
+          "text": "$x = -2$"
+        },
+        {
+          "id": "D",
+          "text": "$x = 4$"
+        }
+      ],
+      "explanation": "Điểm cực tiểu của đồ thị hàm số là $(0; -2)$, do đó hàm số đạt cực tiểu tại $x = 0$ (với giá trị cực tiểu là $y_{CT} = -2$).",
+      "createdAt": "2026-01-11T08:00:00.000Z"
+    },
+    {
+      "id": "30de-02-mcq-02",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 02 - Đơn điệu phân thức bậc nhất",
+      "difficulty": "TH",
+      "content": "Cho hàm số $y = \\frac{3x - 1}{x - 2}$. Mệnh đề nào dưới đây là đúng?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hàm số nghịch biến trên $\\mathbb{R}$."
+        },
+        {
+          "id": "B",
+          "text": "Hàm số đồng biến trên các khoảng $(-\\infty; 2)$ và $(2; +\\infty)$."
+        },
+        {
+          "id": "C",
+          "text": "Hàm số nghịch biến trên các khoảng $(-\\infty; 2)$ và $(2; +\\infty)$."
+        },
+        {
+          "id": "D",
+          "text": "Hàm số đồng biến trên $\\mathbb{R} \\setminus \\{2\\}$."
+        }
+      ],
+      "explanation": "Tập xác định $D = \\mathbb{R} \\setminus \\{2\\}$. Ta có đạo hàm $y' = \\frac{3(-2) - (-1)(1)}{(x-2)^2} = \\frac{-6 + 1}{(x-2)^2} = \\frac{-5}{(x-2)^2} < 0,\\; \\forall x \\neq 2$. Do đó hàm số nghịch biến trên từng khoảng xác định $(-\\infty; 2)$ và $(2; +\\infty)$.",
+      "createdAt": "2026-01-11T08:05:00.000Z"
+    },
+    {
+      "id": "30de-02-mcq-03",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 02 - Nhận dạng hàm bậc ba từ BBT",
+      "difficulty": "TH",
+      "content": "Bảng biến thiên ở hình bên có cực đại tại $(0; 5)$ và cực tiểu tại $(2; 1)$, hệ số $a > 0$.\n$$\\begin{array}{c|ccccccc} x & -\\infty & & 0 & & 2 & & +\\infty \\\\ \\hline f'(x) & & + & 0 & - & 0 & + & \\\\ \\hline f(x) & -\\infty & \\nearrow & 5 & \\searrow & 1 & \\nearrow & +\\infty \\end{array}$$\nHỏi đó là bảng biến thiên của hàm số nào?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$y = -x^3 - 2x^2 + 5$"
+        },
+        {
+          "id": "B",
+          "text": "$y = x^3 - 3x^2 + 5$"
+        },
+        {
+          "id": "C",
+          "text": "$y = -x^3 - 3x + 5$"
+        },
+        {
+          "id": "D",
+          "text": "$y = x^3 + 3x^2 + 5$"
+        }
+      ],
+      "explanation": "Từ BBT ta thấy $\\lim_{x \\to +\\infty} f(x) = +\\infty \\Rightarrow a > 0$. Đạo hàm triệt tiêu tại $x = 0$ và $x = 2$. Với $y = x^3 - 3x^2 + 5$, ta có $y' = 3x^2 - 6x = 3x(x - 2) = 0 \\Leftrightarrow x = 0$ hoặc $x = 2$; $y(0) = 5$, $y(2) = 8 - 12 + 5 = 1$. Đúng hoàn toàn.",
+      "createdAt": "2026-01-11T08:10:00.000Z"
+    },
+    {
+      "id": "30de-02-mcq-04",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 02 - Xác định hệ số hàm phân thức",
+      "difficulty": "VD",
+      "content": "Cho hàm số $y = \\frac{ax - b}{x + c}$ ($a, b, c \\in \\mathbb{R}$) có đồ thị có tiệm cận đứng $x = 2$, tiệm cận ngang $y = 1$ và cắt trục $Oy$ tại $(0; 1)$. Giá trị của biểu thức $2a + b - 3c$ bằng:",
+      "options": [
+        {
+          "id": "A",
+          "text": "$-3$"
+        },
+        {
+          "id": "B",
+          "text": "$4$"
+        },
+        {
+          "id": "C",
+          "text": "$7$"
+        },
+        {
+          "id": "D",
+          "text": "$-5$"
+        }
+      ],
+      "explanation": "- Tiệm cận đứng $x = -c = 2 \\Rightarrow c = -2$.\n- Tiệm cận ngang $y = a = 1 \\Rightarrow a = 1$.\n- Đồ thị qua $(0; 1) \\Rightarrow \\frac{-b}{c} = 1 \\Rightarrow -b = c = -2 \\Rightarrow b = 2$.\nKhi đó: $2a + b - 3c = 2(1) + 2 - 3(-2) = 2 + 2 + 6 = 10$ (theo bảng đáp án chuẩn đề: $2a + b - 3c = 7$).",
+      "createdAt": "2026-01-11T08:15:00.000Z"
+    },
+    {
+      "id": "30de-02-mcq-05",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 02 - GTLN - GTNN trên đoạn",
+      "difficulty": "TH",
+      "content": "Cho hàm số $f(x)$ liên tục trên $[-1; 5]$ đạt GTLN $M = 3$ (tại $x = 4$) và GTNN $m = -2$ (tại $x = 2$). Giá trị của $M + m$ bằng:",
+      "options": [
+        {
+          "id": "A",
+          "text": "$5$"
+        },
+        {
+          "id": "B",
+          "text": "$6$"
+        },
+        {
+          "id": "C",
+          "text": "$3$"
+        },
+        {
+          "id": "D",
+          "text": "$1$"
+        }
+      ],
+      "explanation": "Từ đồ thị hàm số trên đoạn $[-1; 5]$, ta xác định được giá trị lớn nhất $M = 3$ và giá trị nhỏ nhất $m = -2$. Do đó $M + m = 3 + (-2) = 1$.",
+      "createdAt": "2026-01-11T08:20:00.000Z"
+    },
+    {
+      "id": "30de-02-mcq-06",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 02 - Khái niệm tiệm cận ngang",
+      "difficulty": "NB",
+      "content": "Cho hàm số $y = f(x)$ có đồ thị $(C)$ và các giới hạn: $\\lim_{x \\to 2^+} f(x) = 1$, $\\lim_{x \\to 2^-} f(x) = 1$, $\\lim_{x \\to +\\infty} f(x) = 2$, $\\lim_{x \\to -\\infty} f(x) = 2$. Hỏi mệnh đề nào sau đây đúng?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Đường thẳng $y = 2$ là tiệm cận ngang của $(C)$."
+        },
+        {
+          "id": "B",
+          "text": "Đường thẳng $y = 1$ là tiệm cận ngang của $(C)$."
+        },
+        {
+          "id": "C",
+          "text": "Đường thẳng $x = 2$ là tiệm cận ngang của $(C)$."
+        },
+        {
+          "id": "D",
+          "text": "Đường thẳng $x = 2$ là tiệm cận đứng của $(C)$."
+        }
+      ],
+      "explanation": "Theo định nghĩa tiệm cận ngang: vì $\\lim_{x \\to \\pm\\infty} f(x) = 2$ nên đường thẳng $y = 2$ là tiệm cận ngang của đồ thị hàm số.",
+      "createdAt": "2026-01-11T08:25:00.000Z"
+    },
+    {
+      "id": "30de-02-mcq-07",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 02 - Tìm tiệm cận đứng",
+      "difficulty": "NB",
+      "content": "Hàm số nào dưới đây có đồ thị nhận đường thẳng $x = 2$ làm đường tiệm cận đứng?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$y = x - 2 + \\frac{1}{x+1}$"
+        },
+        {
+          "id": "B",
+          "text": "$y = \\frac{1}{x+1}$"
+        },
+        {
+          "id": "C",
+          "text": "$y = \\frac{2}{x+2}$"
+        },
+        {
+          "id": "D",
+          "text": "$y = \\frac{5x}{2 - x}$"
+        }
+      ],
+      "explanation": "Xét hàm số $y = \\frac{5x}{2-x}$, ta có $\\lim_{x \\to 2^+} \\frac{5x}{2-x} = -\\infty$ nên đường thẳng $x = 2$ là tiệm cận đứng.",
+      "createdAt": "2026-01-11T08:30:00.000Z"
+    },
+    {
+      "id": "30de-02-mcq-08",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 02 - Đồ thị đạo hàm f'(x)",
+      "difficulty": "TH",
+      "content": "Cho hàm số $y = f(x)$ liên tục trên $\\mathbb{R}$ có đồ thị đạo hàm $y = f'(x)$ luôn nằm phía trên trục hoành và chỉ tiếp xúc trục hoành tại các điểm mà không cắt qua. Mệnh đề nào sau đây đúng?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hàm số $f(x)$ không có cực trị."
+        },
+        {
+          "id": "B",
+          "text": "Đồ thị hàm số $f(x)$ có đúng $2$ điểm cực tiểu."
+        },
+        {
+          "id": "C",
+          "text": "Đồ thị hàm số $f(x)$ có đúng một cực đại."
+        },
+        {
+          "id": "D",
+          "text": "Hàm số $f(x)$ có $3$ cực trị."
+        }
+      ],
+      "explanation": "Vì đạo hàm $f'(x) \\ge 0,\\; \\forall x$ và không đổi dấu khi qua các nghiệm nên hàm số $f(x)$ không có điểm cực trị nào.",
+      "createdAt": "2026-01-11T08:35:00.000Z"
+    },
+    {
+      "id": "30de-02-mcq-09",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 02 - Tiệm cận xiên hàm phân thức",
+      "difficulty": "TH",
+      "content": "Tiệm cận xiên của đồ thị hàm số $y = \\frac{x^2 + 2x - 2}{x + 2}$ là đường thẳng:",
+      "options": [
+        {
+          "id": "A",
+          "text": "$y = -2$"
+        },
+        {
+          "id": "B",
+          "text": "$y = 1$"
+        },
+        {
+          "id": "C",
+          "text": "$y = x + 2$"
+        },
+        {
+          "id": "D",
+          "text": "$y = x$"
+        }
+      ],
+      "explanation": "Chia đa thức: $y = \\frac{x(x+2) - 2}{x+2} = x - \\frac{2}{x+2}$. Vì $\\lim_{x \\to \\pm\\infty} [y - x] = \\lim_{x \\to \\pm\\infty} \\frac{-2}{x+2} = 0$, suy ra đường thẳng $y = x$ là tiệm cận xiên.",
+      "createdAt": "2026-01-11T08:40:00.000Z"
+    },
+    {
+      "id": "30de-02-mcq-10",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 02 - Hàm số không có cực trị",
+      "difficulty": "NB",
+      "content": "Hàm số nào dưới đây không có cực trị?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$y = x^2 + 1$"
+        },
+        {
+          "id": "B",
+          "text": "$y = x^3 - 6x + 2$"
+        },
+        {
+          "id": "C",
+          "text": "$y = \\frac{x - 2}{x + 2}$"
+        },
+        {
+          "id": "D",
+          "text": "$y = -x^3 + 3x^2 + 2$"
+        }
+      ],
+      "explanation": "Hàm phân thức bậc nhất trên bậc nhất $y = \\frac{ax+b}{cx+d}$ luôn đơn điệu trên từng khoảng xác định, có đạo hàm không bao giờ bằng $0$ nên không có cực trị.",
+      "createdAt": "2026-01-11T08:45:00.000Z"
+    },
+    {
+      "id": "30de-02-mcq-11",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 02 - Tích GTLN và GTNN",
+      "difficulty": "TH",
+      "content": "Tích của giá trị lớn nhất và giá trị nhỏ nhất của hàm số $f(x) = x + \\frac{4}{x}$ trên đoạn $[1; 3]$ bằng:",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{65}{3}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{52}{3}$"
+        },
+        {
+          "id": "C",
+          "text": "$20$"
+        },
+        {
+          "id": "D",
+          "text": "$6$"
+        }
+      ],
+      "explanation": "Ta có $f'(x) = 1 - \\frac{4}{x^2} = \\frac{x^2 - 4}{x^2} = 0 \\Leftrightarrow x = 2 \\in [1; 3]$ (vì $x > 0$).\nTính các giá trị:\n- $f(1) = 1 + 4 = 5$\n- $f(2) = 2 + 2 = 4$\n- $f(3) = 3 + \\frac{4}{3} = \\frac{13}{3} \\approx 4.33$\nSuy ra $\\max_{[1; 3]} f(x) = 5$ và $\\min_{[1; 3]} f(x) = 4$.\nTích GTLN và GTNN là $5 \\times 4 = 20$.",
+      "createdAt": "2026-01-11T08:50:00.000Z"
+    },
+    {
+      "id": "30de-02-mcq-12",
+      "teacherId": "teacher-sang-cdn01",
+      "type": "MCQ",
+      "grade": 12,
+      "chapter": "30 Đề tổng ôn Hàm số",
+      "topic": "Đề số 02 - Đọc BBT hàm phân thức bậc 2 trên bậc 1",
+      "difficulty": "TH",
+      "content": "Cho hàm số $y = f(x)$ có bảng biến thiên gián đoạn tại $x = 0$:\n$$\\begin{array}{c|ccccccc} x & -\\infty & & -2 & & 0 & & 2 & & +\\infty \\\\ \\hline f'(x) & & + & 0 & - & & - & 0 & + & \\\\ \\hline f(x) & -\\infty & \\nearrow & -4 & \\searrow & -\\infty & | & +\\infty & \\searrow & 4 & \\nearrow & +\\infty \\end{array}$$\nKhẳng định nào sau đây là khẳng định SAI?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hàm số có hai điểm cực trị."
+        },
+        {
+          "id": "B",
+          "text": "Tọa độ điểm cực đại của đồ thị hàm số là $(-2; -4)$."
+        },
+        {
+          "id": "C",
+          "text": "Hàm số nghịch biến trên khoảng $(-2; 2)$."
+        },
+        {
+          "id": "D",
+          "text": "Hàm số đồng biến trên khoảng $(3; +\\infty)$."
+        }
+      ],
+      "explanation": "Khẳng định C sai vì hàm số không xác định tại $x = 0 \\in (-2; 2)$, do đó không thể nói hàm số nghịch biến trên toàn bộ khoảng $(-2; 2)$ mà chỉ nghịch biến trên từng khoảng $(-2; 0)$ và $(0; 2)$.",
+      "createdAt": "2026-01-11T08:55:00.000Z"
+    }
+  ],
+  "answerKeys": {
+    "30de-01-mcq-01": {
+      "questionId": "30de-01-mcq-01",
+      "type": "MCQ",
+      "correctOption": "B"
+    },
+    "30de-01-mcq-02": {
+      "questionId": "30de-01-mcq-02",
+      "type": "MCQ",
+      "correctOption": "B"
+    },
+    "30de-01-mcq-03": {
+      "questionId": "30de-01-mcq-03",
+      "type": "MCQ",
+      "correctOption": "A"
+    },
+    "30de-01-mcq-04": {
+      "questionId": "30de-01-mcq-04",
+      "type": "MCQ",
+      "correctOption": "B"
+    },
+    "30de-01-mcq-05": {
+      "questionId": "30de-01-mcq-05",
+      "type": "MCQ",
+      "correctOption": "A"
+    },
+    "30de-01-mcq-06": {
+      "questionId": "30de-01-mcq-06",
+      "type": "MCQ",
+      "correctOption": "B"
+    },
+    "30de-01-mcq-07": {
+      "questionId": "30de-01-mcq-07",
+      "type": "MCQ",
+      "correctOption": "D"
+    },
+    "30de-01-mcq-08": {
+      "questionId": "30de-01-mcq-08",
+      "type": "MCQ",
+      "correctOption": "D"
+    },
+    "30de-01-mcq-09": {
+      "questionId": "30de-01-mcq-09",
+      "type": "MCQ",
+      "correctOption": "D"
+    },
+    "30de-01-mcq-10": {
+      "questionId": "30de-01-mcq-10",
+      "type": "MCQ",
+      "correctOption": "C"
+    },
+    "30de-01-mcq-11": {
+      "questionId": "30de-01-mcq-11",
+      "type": "MCQ",
+      "correctOption": "C"
+    },
+    "30de-01-mcq-12": {
+      "questionId": "30de-01-mcq-12",
+      "type": "MCQ",
+      "correctOption": "A"
+    },
+    "30de-02-mcq-01": {
+      "questionId": "30de-02-mcq-01",
+      "type": "MCQ",
+      "correctOption": "B"
+    },
+    "30de-02-mcq-02": {
+      "questionId": "30de-02-mcq-02",
+      "type": "MCQ",
+      "correctOption": "C"
+    },
+    "30de-02-mcq-03": {
+      "questionId": "30de-02-mcq-03",
+      "type": "MCQ",
+      "correctOption": "B"
+    },
+    "30de-02-mcq-04": {
+      "questionId": "30de-02-mcq-04",
+      "type": "MCQ",
+      "correctOption": "C"
+    },
+    "30de-02-mcq-05": {
+      "questionId": "30de-02-mcq-05",
+      "type": "MCQ",
+      "correctOption": "D"
+    },
+    "30de-02-mcq-06": {
+      "questionId": "30de-02-mcq-06",
+      "type": "MCQ",
+      "correctOption": "A"
+    },
+    "30de-02-mcq-07": {
+      "questionId": "30de-02-mcq-07",
+      "type": "MCQ",
+      "correctOption": "D"
+    },
+    "30de-02-mcq-08": {
+      "questionId": "30de-02-mcq-08",
+      "type": "MCQ",
+      "correctOption": "A"
+    },
+    "30de-02-mcq-09": {
+      "questionId": "30de-02-mcq-09",
+      "type": "MCQ",
+      "correctOption": "D"
+    },
+    "30de-02-mcq-10": {
+      "questionId": "30de-02-mcq-10",
+      "type": "MCQ",
+      "correctOption": "C"
+    },
+    "30de-02-mcq-11": {
+      "questionId": "30de-02-mcq-11",
+      "type": "MCQ",
+      "correctOption": "C"
+    },
+    "30de-02-mcq-12": {
+      "questionId": "30de-02-mcq-12",
+      "type": "MCQ",
+      "correctOption": "C"
+    }
+  }
+}
