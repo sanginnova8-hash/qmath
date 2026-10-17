@@ -9,5 +9,21 @@ export default defineConfig({
     port: 5173,
     host: true,
     open: true
+  },
+  build: {
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('mathlive')) return 'vendor-mathlive';
+            if (id.includes('katex')) return 'vendor-katex';
+            if (id.includes('firebase')) return 'vendor-firebase';
+            if (id.includes('lucide-react')) return 'vendor-icons';
+            return 'vendor-core';
+          }
+        }
+      }
+    }
   }
 })

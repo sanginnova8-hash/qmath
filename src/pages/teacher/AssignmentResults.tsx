@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Assignment, Submission, Question } from '../../types';
-import { getAssignments, getSubmissions, getQuestionsByIds } from '../../services/store';
+import { getAssignments, getSubmissions, getQuestionsByIds, subscribeToSubmissions } from '../../services/store';
 import { MathView } from '../../components/math/MathView';
 import {
   BarChart3,
@@ -64,14 +64,18 @@ export const AssignmentResults: React.FC = () => {
 
   useEffect(() => {
     if (!selectedAsgId) return;
-    fetchSubmissionsData(selectedAsgId);
+    
+    const asg = assignments.find((a) => a.id === selectedAsgId);
+    if (asg) {
+      getQuestionsByIds(asg.questionIds).then(setQuestions).catch(console.error);
+    }
 
-    // Tự động đồng bộ kết quả mới từ Cloud mỗi 10 giây để Giáo viên thấy bài nộp mới nhất
-    const interval = setInterval(() => {
-      fetchSubmissionsData(selectedAsgId);
-    }, 10000);
+    // Lắng nghe realtime từ Cloud qua Firestore onSnapshot (độ trễ ~50ms, không tốn polling)
+    const unsubscribe = subscribeToSubmissions(selectedAsgId, (subs) => {
+      setSubmissions(subs);
+    });
 
-    return () => clearInterval(interval);
+    return () => unsubscribe();
   }, [selectedAsgId, assignments]);
 
   const handleManualRefresh = async () => {

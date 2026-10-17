@@ -28,7 +28,8 @@ import {
   getDoc,
   query,
   where,
-  updateDoc
+  updateDoc,
+  onSnapshot
 } from 'firebase/firestore';
 
 const STORAGE_KEYS = {
@@ -519,6 +520,45 @@ export async function getSubmissions(assignmentId?: string, studentId?: string):
     );
   }
   return list;
+}
+
+// REALTIME LISTENER: Đồng bộ bài nộp tức thì 0ms qua Firebase WebSocket (thay thế Polling)
+export function subscribeToSubmissions(
+  assignmentId?: string,
+  onUpdate?: (subs: Submission[]) => void
+): () => void {
+  if (!isFirebaseConfigured || typeof onUpdate !== 'function') {
+    return () => {};
+  }
+
+  try {
+    ensureFirebaseAuthForTeacher().catch(console.warn);
+    const sRef = collection(db, 'submissions');
+    const unsubscribe = onSnapshot(sRef, (snap) => {
+      const remoteList: Submission[] = [];
+      snap.forEach(d => remoteList.push(d.data() as Submission));
+
+      const localList = loadLocal<Submission[]>(STORAGE_KEYS.SUBMISSIONS, []);
+      const map = new Map<string, Submission>();
+      for (const s of remoteList) map.set(s.id, s);
+      for (const s of localList) {
+        if (!map.has(s.id)) map.set(s.id, s);
+      }
+
+      let list = Array.from(map.values()).sort(
+        (a, b) => new Date(b.submittedAt || 0).getTime() - new Date(a.submittedAt || 0).getTime()
+      );
+      if (assignmentId) list = list.filter(s => s.assignmentId === assignmentId);
+      onUpdate(list);
+    }, (err) => {
+      console.warn('subscribeToSubmissions error:', err);
+    });
+
+    return unsubscribe;
+  } catch (e) {
+    console.warn('Failed to subscribe to submissions:', e);
+    return () => {};
+  }
 }
 
 export async function getSubmissionById(id: string): Promise<Submission | null> {

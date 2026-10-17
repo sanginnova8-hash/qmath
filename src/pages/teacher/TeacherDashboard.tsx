@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { getClasses, getAssignments, getQuestions, getSubmissions } from '../../services/store';
+import { getClasses, getAssignments, getQuestions, getSubmissions, subscribeToSubmissions } from '../../services/store';
 import { ClassRoom, Assignment, Question, Submission } from '../../types';
 import { ShareAssignmentModal } from '../../components/teacher/ShareAssignmentModal';
 import {
@@ -50,17 +50,12 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ onNavigate }
     }
     loadData();
 
-    // Tự động cập nhật số lượng bài nộp từ học sinh mỗi 10 giây
-    const interval = setInterval(async () => {
-      try {
-        const subs = await getSubmissions();
-        setSubmissions(subs);
-      } catch (e) {
-        console.error(e);
-      }
-    }, 10000);
+    // Lắng nghe realtime kết quả nộp bài toàn hệ thống từ Cloud Firestore
+    const unsubscribe = subscribeToSubmissions(undefined, (subs) => {
+      setSubmissions(subs);
+    });
 
-    return () => clearInterval(interval);
+    return () => unsubscribe();
   }, []);
 
   const totalStudents = classes.reduce((sum, c) => sum + (c.studentCount || 0), 0);

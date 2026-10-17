@@ -1,23 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { useAuth } from './context/AuthContext';
 import AppLayout from './components/layout/AppLayout';
 
-// Admin views
-import AdminSettings from './pages/admin/AdminSettings';
+// Lazy-loaded Views for ultra-fast startup and small chunk payloads
+const AdminSettings = lazy(() => import('./pages/admin/AdminSettings'));
+const TeacherDashboard = lazy(() => import('./pages/teacher/TeacherDashboard'));
+const ClassManagement = lazy(() => import('./pages/teacher/ClassManagement'));
+const QuestionBank = lazy(() => import('./pages/teacher/QuestionBank'));
+const CreateAssignment = lazy(() => import('./pages/teacher/CreateAssignment'));
+const AssignmentResults = lazy(() => import('./pages/teacher/AssignmentResults'));
 
-// Teacher views
-import TeacherDashboard from './pages/teacher/TeacherDashboard';
-import ClassManagement from './pages/teacher/ClassManagement';
-import QuestionBank from './pages/teacher/QuestionBank';
-import CreateAssignment from './pages/teacher/CreateAssignment';
-import AssignmentResults from './pages/teacher/AssignmentResults';
+const StudentDashboard = lazy(() => import('./pages/student/StudentDashboard'));
+const ExamRoom = lazy(() => import('./pages/student/ExamRoom'));
+const ExamResult = lazy(() => import('./pages/student/ExamResult'));
+const TopicPractice = lazy(() => import('./pages/student/TopicPractice'));
+const MyMistakes = lazy(() => import('./pages/student/MyMistakes'));
 
-// Student views
-import StudentDashboard from './pages/student/StudentDashboard';
-import ExamRoom from './pages/student/ExamRoom';
-import ExamResult from './pages/student/ExamResult';
-import TopicPractice from './pages/student/TopicPractice';
-import MyMistakes from './pages/student/MyMistakes';
+const LoadingScreen: React.FC = () => (
+  <div className="min-h-[50vh] flex flex-col items-center justify-center space-y-3">
+    <div className="w-10 h-10 border-3 border-emerald-600 border-t-transparent rounded-full animate-spin" />
+    <p className="text-xs font-bold text-slate-500">Đang tải nhanh giao diện QMath...</p>
+  </div>
+);
 
 export const App: React.FC = () => {
   const { role } = useAuth();
@@ -99,54 +103,58 @@ export const App: React.FC = () => {
   // If in interactive Exam Room, display focus mode without sidebar
   if (examAssignmentId) {
     return (
-      <ExamRoom
-        assignmentId={examAssignmentId}
-        onFinish={handleFinishExam}
-        onExit={handleExitExam}
-      />
+      <Suspense fallback={<LoadingScreen />}>
+        <ExamRoom
+          assignmentId={examAssignmentId}
+          onFinish={handleFinishExam}
+          onExit={handleExitExam}
+        />
+      </Suspense>
     );
   }
 
   return (
     <AppLayout activeTab={activeTab} onSelectTab={setActiveTab}>
-      {/* If viewing a specific exam result */}
-      {viewResultSubmissionId ? (
-        <ExamResult
-          submissionId={viewResultSubmissionId}
-          onBackToDashboard={() => setViewResultSubmissionId(null)}
-          onGoToMistakes={() => {
-            setViewResultSubmissionId(null);
-            setActiveTab('student-mistakes');
-          }}
-        />
-      ) : (
-        <>
-          {/* ADMIN TABS */}
-          {activeTab === 'admin-settings' && <AdminSettings />}
+      <Suspense fallback={<LoadingScreen />}>
+        {/* If viewing a specific exam result */}
+        {viewResultSubmissionId ? (
+          <ExamResult
+            submissionId={viewResultSubmissionId}
+            onBackToDashboard={() => setViewResultSubmissionId(null)}
+            onGoToMistakes={() => {
+              setViewResultSubmissionId(null);
+              setActiveTab('student-mistakes');
+            }}
+          />
+        ) : (
+          <>
+            {/* ADMIN TABS */}
+            {activeTab === 'admin-settings' && <AdminSettings />}
 
-          {/* TEACHER TABS */}
-          {activeTab === 'teacher-overview' && (
-            <TeacherDashboard onNavigate={(tab) => setActiveTab(tab)} />
-          )}
-          {activeTab === 'teacher-classes' && <ClassManagement />}
-          {activeTab === 'teacher-questions' && <QuestionBank />}
-          {activeTab === 'teacher-create-assignment' && (
-            <CreateAssignment onSuccess={() => setActiveTab('teacher-overview')} />
-          )}
-          {activeTab === 'teacher-results' && <AssignmentResults />}
+            {/* TEACHER TABS */}
+            {activeTab === 'teacher-overview' && (
+              <TeacherDashboard onNavigate={(tab) => setActiveTab(tab)} />
+            )}
+            {activeTab === 'teacher-classes' && <ClassManagement />}
+            {activeTab === 'teacher-questions' && <QuestionBank />}
+            {activeTab === 'teacher-create-assignment' && (
+              <CreateAssignment onSuccess={() => setActiveTab('teacher-overview')} />
+            )}
+            {activeTab === 'teacher-results' && <AssignmentResults />}
 
-          {/* STUDENT TABS */}
-          {activeTab === 'student-overview' && (
-            <StudentDashboard
-              onStartExam={(id) => setExamAssignmentId(id)}
-              onViewResult={(subId) => setViewResultSubmissionId(subId)}
-              onNavigate={(tab) => setActiveTab(tab)}
-            />
-          )}
-          {activeTab === 'student-practice' && <TopicPractice />}
-          {activeTab === 'student-mistakes' && <MyMistakes />}
-        </>
-      )}
+            {/* STUDENT TABS */}
+            {activeTab === 'student-overview' && (
+              <StudentDashboard
+                onStartExam={(id) => setExamAssignmentId(id)}
+                onViewResult={(subId) => setViewResultSubmissionId(subId)}
+                onNavigate={(tab) => setActiveTab(tab)}
+              />
+            )}
+            {activeTab === 'student-practice' && <TopicPractice />}
+            {activeTab === 'student-mistakes' && <MyMistakes />}
+          </>
+        )}
+      </Suspense>
     </AppLayout>
   );
 };

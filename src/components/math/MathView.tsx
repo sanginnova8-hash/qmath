@@ -9,7 +9,7 @@ interface MathViewProps {
   block?: boolean;
 }
 
-export const MathView: React.FC<MathViewProps> = ({ content, images, className = '', block = false }) => {
+const MathViewComponent: React.FC<MathViewProps> = ({ content, images, className = '', block = false }) => {
   const renderedHtml = useMemo(() => {
     if (!content) return '';
 
@@ -138,4 +138,5 @@ export const MathView: React.FC<MathViewProps> = ({ content, images, className =
   );
 };
 
+export const MathView = React.memo(MathViewComponent);
 export default MathView;
