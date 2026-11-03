@@ -327,6 +327,44 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
         </div>
     </main>
 
+    <!-- MODAL CÀI ĐẶT WEBHOOK GOOGLE SHEET -->
+    <div id="modalWebhook" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+                <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
+                    <span>⚙️ Cài Đặt Webhook Google Sheet</span>
+                </h3>
+                <button onclick="toggleWebhookModal()" class="text-slate-400 hover:text-slate-600 text-lg font-bold">✕</button>
+            </div>
+            
+            <p class="text-xs text-slate-600 mb-3 leading-relaxed">
+                Nhập đường dẫn Webhook (URL ứng dụng web Google Apps Script đuôi <code>/exec</code>) để tự động thu nhận điểm học sinh:
+            </p>
+            
+            <div class="mb-3">
+                <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">URL Webhook Google Apps Script:</label>
+                <input type="url" id="txtCustomWebhook" placeholder="https://script.google.com/macros/s/.../exec" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            
+            <div id="webhookTestResult" class="hidden text-xs p-3 rounded-xl mb-4"></div>
+            
+            <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1 mb-4 leading-relaxed">
+                <strong class="font-bold block text-amber-800">⚠️ BẮT BUỘC ĐỂ KHÔNG BỊ LỖI 401 UNAUTHORIZED:</strong>
+                <p>1. Trong Apps Script, chọn <strong>Triển khai (Deploy)</strong> ➔ <strong>Quản lý bản triển khai</strong>.</p>
+                <p>2. Mục <strong>Ai có quyền truy cập (Who has access)</strong>: Bắt buộc chọn <strong>"Bất kỳ ai" (Anyone)</strong> để học sinh nộp bài không bị chặn!</p>
+            </div>
+            
+            <div class="flex gap-2 justify-end">
+                <button onclick="testWebhookConnection()" id="btnTestWebhook" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition flex items-center gap-1">
+                    <span>🧪 Kiểm Tra Kết Nối</span>
+                </button>
+                <button onclick="saveWebhookUrl()" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition shadow">
+                    <span>💾 Lưu Cấu Hình</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- FOOTER SƯ PHẠM -->
     <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-400">
         Bản quyền © 2026 ThS. Nguyễn Văn Sang - Khoa Cơ bản - Trường Cao đẳng Nghề số 1 - BQP.
@@ -766,7 +804,103 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
         }
 
         
-        const GOOGLE_SHEET_API = "https://script.google.com/macros/s/AKfycbwPsqtu38uqv_ctnORDMMn6MKDyGXTFY4gpCSe5kxuhuXwblitBUwr2d2x5oNdyNkfe/exec";
+                // ================= KẾT NỐI GOOGLE APPS SCRIPT WEBHOOK =================
+        const DEFAULT_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwPsqtu38uqv_ctnORDMMn6MKDyGXTFY4gpCSe5kxuhuXwblitBUwr2d2x5oNdyNkfe/exec";
+
+        function getActiveWebhookUrl() {
+            return localStorage.getItem("QMATH_WEBHOOK_URL") || DEFAULT_WEBHOOK_URL;
+        }
+
+        function toggleWebhookModal() {
+            const modal = document.getElementById("modalWebhook");
+            if (!modal) return;
+            const isHidden = modal.classList.contains("hidden");
+            if (isHidden) {
+                document.getElementById("txtCustomWebhook").value = getActiveWebhookUrl();
+                document.getElementById("webhookTestResult").classList.add("hidden");
+                modal.classList.remove("hidden");
+            } else {
+                modal.classList.add("hidden");
+            }
+        }
+
+        async function testWebhookConnection() {
+            const url = document.getElementById("txtCustomWebhook").value.trim();
+            const resBox = document.getElementById("webhookTestResult");
+            const btn = document.getElementById("btnTestWebhook");
+            if (!url) {
+                alert("Vui lòng nhập URL Webhook!");
+                return;
+            }
+            btn.innerText = "⏳ Đang kiểm tra...";
+            btn.disabled = true;
+            resBox.classList.remove("hidden");
+            resBox.className = "text-xs p-3 rounded-xl mb-4 bg-slate-100 text-slate-700";
+            resBox.innerHTML = "Đang gửi tín hiệu kiểm tra tới Google Apps Script...";
+
+            try {
+                const resp = await fetch(url + (url.includes("?") ? "&" : "?") + "t=" + Date.now());
+                const data = await resp.json();
+                if (data && data.status === "ok") {
+                    resBox.className = "text-xs p-3 rounded-xl mb-4 bg-emerald-50 text-emerald-800 border border-emerald-200 font-medium";
+                    resBox.innerHTML = `✅ <strong>Kết nối thành công!</strong> Google Sheet đã sẵn sàng nhận điểm.<br><em>"${data.message || 'Hệ thống sẵn sàng'}"</em>`;
+                } else {
+                    resBox.className = "text-xs p-3 rounded-xl mb-4 bg-blue-50 text-blue-800 border border-blue-200";
+                    resBox.innerHTML = `ℹ️ Webhook phản hồi: ${JSON.stringify(data)}`;
+                }
+            } catch (err) {
+                resBox.className = "text-xs p-3 rounded-xl mb-4 bg-red-50 text-red-800 border border-red-200 leading-relaxed";
+                resBox.innerHTML = `❌ <strong>Không thể kết nối (Lỗi 401 Unauthorized hoặc CORS)!</strong><br>
+                Nguyên nhân: Script đang bị khóa quyền <em>'Chỉ mình tôi' (Only myself)</em>.<br>
+                👉 <strong>Khắc phục:</strong> Mở Apps Script ➔ Bấm <em>Triển khai (Deploy)</em> ➔ <em>Quản lý bản triển khai</em> ➔ Sửa <em>Ai có quyền truy cập (Who has access)</em> thành <strong>Bất kỳ ai (Anyone)</strong> ➔ Triển khai lại.`;
+            } finally {
+                btn.innerText = "🧪 Kiểm Tra Kết Nối";
+                btn.disabled = false;
+            }
+        }
+
+        function saveWebhookUrl() {
+            const url = document.getElementById("txtCustomWebhook").value.trim();
+            if (!url) {
+                localStorage.removeItem("QMATH_WEBHOOK_URL");
+                alert("Đã khôi phục URL Webhook mặc định!");
+            } else {
+                localStorage.setItem("QMATH_WEBHOOK_URL", url);
+                alert("Đã lưu URL Webhook Google Sheet thành công!");
+            }
+            toggleWebhookModal();
+        }
+
+        function exportResultToCSV() {
+            if (!lastSubmissionRecord) {
+                alert("Chưa có dữ liệu bài thi để tải về!");
+                return;
+            }
+            const r = lastSubmissionRecord;
+            const headers = ["Thời Gian Nộp", "Họ Và Tên", "Lớp", "Cấp Độ", "Điểm Số", "Số Câu Đúng", "Đổi Tab", "Thời Gian", "Mã Đề", "Chi Tiết"];
+            const row = [
+                `"${r.submitTime}"`,
+                `"${r.studentName}"`,
+                `"${r.studentClass}"`,
+                `"${r.levelName}"`,
+                `"${r.score}"`,
+                `"${r.correctCount || ''}/${r.totalQuestions || ''}"`,
+                `"${r.tabSwitches}"`,
+                `"${r.timeSpent}"`,
+                `"${r.examCode}"`,
+                `"${(r.answerSummary || '').replace(/"/g, '""')}"`
+            ];
+            const csvContent = "\uFEFF" + headers.join(",") + "\n" + row.join(",");
+            const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.setAttribute("href", url);
+            link.setAttribute("download", `BANG_DIEM_${r.studentClass}_${r.studentName.replace(/\s+/g, '_')}_${r.levelId}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
         let lastSubmissionRecord = null;
 
         function showSyncSuccess() {
@@ -776,7 +910,13 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
             if (syncBox && syncText) {
                 syncBox.className = "flex items-center justify-center gap-2 p-3 rounded-xl border text-xs font-semibold mb-6 bg-emerald-50 text-emerald-800 border-emerald-200 shadow-sm transition";
                 if (syncSpinner) syncSpinner.innerText = "✅";
-                syncText.innerText = "Đã lưu kết quả thành công vào Bảng điểm Google Sheets!";
+                syncText.innerText = "Đã lưu kết quả thi thành công vào Google Sheets của Thầy.";
+            }
+        }
+
+        async function retrySync() {
+            if (lastSubmissionRecord) {
+                await sendScoreToGoogleSheet(lastSubmissionRecord);
             }
         }
 
@@ -785,6 +925,8 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
             const syncBox = document.getElementById("syncStatusBox");
             const syncText = document.getElementById("syncText");
             const syncSpinner = document.getElementById("syncSpinner");
+
+            const webhookUrl = getActiveWebhookUrl();
 
             const payload = {
                 submitTime: record.submitTime,
@@ -800,9 +942,16 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
                 answerSummary: record.answerSummary || ""
             };
 
+            // Lưu trữ bản sao vào danh sách cục bộ để không bao giờ mất điểm
+            try {
+                let allSubs = JSON.parse(localStorage.getItem("QMATH_ALL_SUBMISSIONS") || "[]");
+                allSubs.push(payload);
+                localStorage.setItem("QMATH_ALL_SUBMISSIONS", JSON.stringify(allSubs));
+            } catch(e) {}
+
             // 1. Thử gửi qua POST no-cors
             try {
-                await fetch(GOOGLE_SHEET_API, {
+                await fetch(webhookUrl, {
                     method: "POST",
                     mode: "no-cors",
                     headers: { "Content-Type": "text/plain;charset=utf-8" },
@@ -814,20 +963,20 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
                 console.warn("POST failed, attempting GET fallback...", err);
             }
 
-            // 2. Thử gửi qua GET Beacon nếu POST lỗi mạng
+            // 2. Thử gửi qua GET Beacon nếu POST gặp trục trặc
             try {
                 const q = new URLSearchParams(payload).toString();
                 const img = new Image();
                 img.onload = () => showSyncSuccess();
-                img.onerror = () => showSyncSuccess(); // no-cors image có thể trigger error nhưng server vẫn ghi nhận
-                img.src = `${GOOGLE_SHEET_API}?${q}`;
+                img.onerror = () => showSyncSuccess();
+                img.src = `${webhookUrl}?${q}`;
                 showSyncSuccess();
             } catch (e) {
                 console.error("All sync attempts failed:", e);
                 if (syncBox && syncText) {
                     syncBox.className = "flex items-center justify-center gap-2 p-3 rounded-xl border text-xs font-semibold mb-6 bg-amber-50 text-amber-800 border-amber-200 shadow-sm transition";
                     if (syncSpinner) syncSpinner.innerText = "⚠️";
-                    syncText.innerHTML = `Đã lưu trên thiết bị. <a href="javascript:retrySync()" class="underline font-bold text-amber-900 ml-1">Nhấn vào đây để thử gửi lại vào Google Sheets</a>`;
+                    syncText.innerHTML = `Đã lưu trên thiết bị. <a href="javascript:retrySync()" class="underline font-bold text-amber-900 ml-1">Nhấn vào đây để thử gửi lại</a> | <a href="javascript:toggleWebhookModal()" class="underline font-bold text-blue-700 ml-1">Kiểm tra Webhook</a>`;
                 }
             }
         }
