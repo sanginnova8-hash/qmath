@@ -33,7 +33,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "D",
-    "explanation": "- Xét đáp án A, trên khoảng \\(\\left( { - 2\\,;2} \\right)\\) đồ thị có đoạn hướng đi lên là hàm số đồng biến và có đoạn hướng đi xuống là hàm số nghịch biến nên loại.\n- Xét đáp án B, trên khoảng \\(\\left( {0\\,;\\,2} \\right)\\) đồ thị có đoạn hướng đi xuống là hàm số nghịch biến và có đoạn hướng đi lên là hàm số đồng biến nên loại.\n- Xét đáp án C, trên khoảng \\(\\left( { - 1\\,;\\,1} \\right)\\) đồ thị có hướng đi xuống là hàm số nghịch biến nên loại.\n- Xét đáp án D, trên khoảng \\(\\left( {1\\,;\\,2} \\right)\\) đồ thị có hướng đi lên là hàm số đồng biến nên chọn.",
+    "explanation": "- Xét đáp án A, trên khoảng \\(\\left( { - 2\\,;2} \\right)\\) đồ thị có đoạn hướng đi lên là hàm số đồng biến và có đoạn hướng đi xuống là hàm số nghịch biến nên loại. - Xét đáp án B, trên khoảng \\(\\left( {0\\,;\\,2} \\right)\\) đồ thị có đoạn hướng đi xuống là hàm số nghịch biến và có đoạn hướng đi lên là hàm số đồng biến nên loại. - Xét đáp án C, trên khoảng \\(\\left( { - 1\\,;\\,1} \\right)\\) đồ thị có hướng đi xuống là hàm số nghịch biến nên loại. - Xét đáp án D, trên khoảng \\(\\left( {1\\,;\\,2} \\right)\\) đồ thị có hướng đi lên là hàm số đồng biến nên chọn.",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2024/10/blobid0-1728822748.png"
     ],
@@ -71,7 +71,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "D",
-    "explanation": "Quan sát đồ thị ta thấy đồ thị đi lên trong các khoảng \\(( - 1;0)\\) và \\((1; + \\infty ).\\)\nVậy hàm số đồng biến trên các khoảng \\(( - 1;0)\\) và \\((1; + \\infty ).\\)",
+    "explanation": "Quan sát đồ thị ta thấy đồ thị đi lên trong các khoảng \\(( - 1;0)\\) và \\((1; + \\infty ).\\) Vậy hàm số đồng biến trên các khoảng \\(( - 1;0)\\) và \\((1; + \\infty ).\\)",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2024/10/blobid0-1728822772.png"
     ],
@@ -85,7 +85,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 1",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có bảng biến thiên như hình vẽ sau\n\nMệnh đề nào dưới đây đúng?",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có bảng biến thiên như hình vẽ sau Mệnh đề nào dưới đây đúng?",
     "options": [
       {
         "id": "A",
@@ -123,7 +123,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 1",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) xác định, liên tục trên \\(\\mathbb{R}\\) và có đồ thị là đường cong như hình vẽ.\n\nHàm số đạt cực đại tại điểm nào dưới đây?",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) xác định, liên tục trên \\(\\mathbb{R}\\) và có đồ thị là đường cong như hình vẽ. Hàm số đạt cực đại tại điểm nào dưới đây?",
     "options": [
       {
         "id": "A",
@@ -161,31 +161,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 1",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) liên tục trên \\(\\mathbb{R}\\) và có bảng biến thiên như sau\n\nGiá trị cực đại của hàm số \\(y = f\\left( x \\right)\\) bằng",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) liên tục trên \\(\\mathbb{R}\\) và có bảng biến thiên như sau Giá trị cực đại của hàm số \\(y = f\\left( x \\right)\\) bằng",
     "options": [
       {
         "id": "A",
-        "text": "\\[x = 0\\].",
+        "text": "\\(x = 0\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[x = 2\\].",
+        "text": "\\(x = 2\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[y = - 3\\].",
+        "text": "\\(y = - 3\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[y = 1\\].",
+        "text": "\\(y = 1\\).",
         "is_correct": true
       }
     ],
     "correctOption": "D",
-    "explanation": "Dựa vào bảng biến thiên ta có hàm số đạt cực đại tại \\[x = 0\\]và giá trị cực đại là \\[y = 1\\].",
+    "explanation": "Dựa vào bảng biến thiên ta có hàm số đạt cực đại tại \\(x = 0\\)và giá trị cực đại là \\(y = 1\\).",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2024/10/blobid0-1728822893.png"
     ],
@@ -199,31 +199,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 1",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = {x^3} + 3{x^2} - 9x + 15\\]. Khẳng định nào sau đây là khẳng định sai?",
+    "content": "Cho hàm số \\(y = {x^3} + 3{x^2} - 9x + 15\\). Khẳng định nào sau đây là khẳng định sai?",
     "options": [
       {
         "id": "A",
-        "text": "Hàm số nghịch biến trên khoảng \\[\\left( { - 3;1} \\right)\\].",
+        "text": "Hàm số nghịch biến trên khoảng \\(\\left( { - 3;1} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "Hàm số đồng biến trên \\[\\left( { - 9; - 5} \\right)\\].",
+        "text": "Hàm số đồng biến trên \\(\\left( { - 9; - 5} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "Hàm số đồng biến trên \\[\\mathbb{R}\\] .",
+        "text": "Hàm số đồng biến trên \\(\\mathbb{R}\\) .",
         "is_correct": true
       },
       {
         "id": "D",
-        "text": "Hàm số đồng biến trên \\[\\left( {5; + \\infty } \\right)\\].",
+        "text": "Hàm số đồng biến trên \\(\\left( {5; + \\infty } \\right)\\).",
         "is_correct": false
       }
     ],
     "correctOption": "C",
-    "explanation": "Tập xác định: \\[D = \\mathbb{R}\\].\nTa có \\[y' = 3{x^2} + 6x - 9\\]; \\[y' = 0 \\Leftrightarrow \\left[ \\begin{array}{l}x = 1\\\\x = - 3\\end{array} \\right.\\].\nBảng biến thiên:\n\nKết luận: Hàm số đồng biến trên các khoảng: \\[\\left( { - \\infty ; - 3} \\right),\\,\\,\\left( {1; + \\infty } \\right)\\]. \nHàm số nghịch biến trên khoảng \\[\\left( { - 3;1} \\right)\\].",
+    "explanation": "Tập xác định: \\(D = \\mathbb{R}\\). Ta có \\(y' = 3{x^2} + 6x - 9\\); \\(y' = 0 \\Leftrightarrow \\left[ \\begin{array}{l}x = 1\\\\x = - 3\\end{array} \\right.\\). Bảng biến thiên: Kết luận: Hàm số đồng biến trên các khoảng: \\(\\left( { - \\infty ; - 3} \\right),\\,\\,\\left( {1; + \\infty } \\right)\\). Hàm số nghịch biến trên khoảng \\(\\left( { - 3;1} \\right)\\).",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -259,7 +259,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "C",
-    "explanation": "Tập xác định: \\(D = \\mathbb{R}\\backslash \\left\\{ { - 2} \\right\\}\\).\nTa có: \\(y' = \\frac{5}{{{{\\left( {x + 2} \\right)}^2}}} > 0,\\forall x \\ne - 2\\). Nên hàm số đồng biến trên từng khoảng xác định của nó.\nBảng biến thiên:",
+    "explanation": "Tập xác định: \\(D = \\mathbb{R}\\backslash \\left\\{ { - 2} \\right\\}\\). Ta có: \\(y' = \\frac{5}{{{{\\left( {x + 2} \\right)}^2}}} > 0,\\forall x \\ne - 2\\). Nên hàm số đồng biến trên từng khoảng xác định của nó. Bảng biến thiên:",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -271,31 +271,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 1",
     "difficulty": "TH",
-    "content": "Hàm số\\[y = - {x^3} + 3{x^2} + 1\\] nghịch biến khi \\[x\\] thuộc khoảng nào sau đây?",
+    "content": "Hàm số\\(y = - {x^3} + 3{x^2} + 1\\) nghịch biến khi \\(x\\) thuộc khoảng nào sau đây?",
     "options": [
       {
         "id": "A",
-        "text": "\\[(0;2).\\]",
+        "text": "\\((0;2).\\)",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[(0; + \\infty ).\\]",
+        "text": "\\((0; + \\infty ).\\)",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[( - \\infty ;2).\\]",
+        "text": "\\(( - \\infty ;2).\\)",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[( - \\infty ;0)\\] và \\[(2; + \\infty ).\\]",
+        "text": "\\(( - \\infty ;0)\\) và \\((2; + \\infty ).\\)",
         "is_correct": true
       }
     ],
     "correctOption": "D",
-    "explanation": "Ta có:\\[y' = - 3{x^2} + 6x < 0 \\Leftrightarrow x \\in \\left( { - \\infty ;0} \\right) \\cup \\left( {2; + \\infty } \\right)\\].",
+    "explanation": "Ta có:\\(y' = - 3{x^2} + 6x < 0 \\Leftrightarrow x \\in \\left( { - \\infty ;0} \\right) \\cup \\left( {2; + \\infty } \\right)\\).",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -311,27 +311,27 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "options": [
       {
         "id": "A",
-        "text": "Hàm số đã cho đồng biến trên khoảng \\[\\left( { - \\infty ;0} \\right)\\].",
+        "text": "Hàm số đã cho đồng biến trên khoảng \\(\\left( { - \\infty ;0} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "Hàm số đã cho đồng biến trên khoảng \\[\\left( {2; + \\infty } \\right)\\].",
+        "text": "Hàm số đã cho đồng biến trên khoảng \\(\\left( {2; + \\infty } \\right)\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "Hàm số đã cho đồng biến trên khoảng \\[\\left( {0;2} \\right)\\].",
+        "text": "Hàm số đã cho đồng biến trên khoảng \\(\\left( {0;2} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "Hàm số đã cho đồng biến trên khoảng \\[\\left( { - \\infty ;3} \\right)\\].",
+        "text": "Hàm số đã cho đồng biến trên khoảng \\(\\left( { - \\infty ;3} \\right)\\).",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -347,27 +347,27 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "options": [
       {
         "id": "A",
-        "text": "\\[y = {x^3} - 3{x^2}\\].",
+        "text": "\\(y = {x^3} - 3{x^2}\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[y =  - {x^3} + 3{x^2} - 3x + 2\\].",
+        "text": "\\(y = - {x^3} + 3{x^2} - 3x + 2\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[y =  - {x^3} + 3x + 1\\].",
+        "text": "\\(y = - {x^3} + 3x + 1\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[y = {x^3}\\].",
+        "text": "\\(y = {x^3}\\).",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -403,7 +403,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -439,7 +439,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -475,7 +475,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -487,7 +487,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 1",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) liên tục trên \\(\\mathbb{R}\\) và có bảng biến thiên như sau:\n\nTrong các mệnh đề sau, có bao nhiêu mệnh đề sai?\nI. Hàm số đã cho đồng biến trên các khoảng \\(\\left( { - \\infty ; - 5} \\right)\\) và \\(\\left( { - 3; - 2} \\right)\\).\nII. Hàm số đã cho đồng biến trên khoảng \\(\\left( { - \\infty ;5} \\right)\\).\nIII. Hàm số đã cho nghịch biến trên khoảng \\(\\left( { - 2; + \\infty } \\right)\\).\nIV. Hàm số đã cho đồng biến trên khoảng \\(\\left( { - \\infty ; - 2} \\right)\\).",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) liên tục trên \\(\\mathbb{R}\\) và có bảng biến thiên như sau: Trong các mệnh đề sau, có bao nhiêu mệnh đề sai? I. Hàm số đã cho đồng biến trên các khoảng \\(\\left( { - \\infty ; - 5} \\right)\\) và \\(\\left( { - 3; - 2} \\right)\\). II. Hàm số đã cho đồng biến trên khoảng \\(\\left( { - \\infty ;5} \\right)\\). III. Hàm số đã cho nghịch biến trên khoảng \\(\\left( { - 2; + \\infty } \\right)\\). IV. Hàm số đã cho đồng biến trên khoảng \\(\\left( { - \\infty ; - 2} \\right)\\).",
     "options": [
       {
         "id": "A",
@@ -511,7 +511,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2024/10/blobid0-1728823221.png"
     ],
@@ -549,7 +549,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2024/10/blobid0-1728823267.png"
     ],
@@ -563,7 +563,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 1",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(y = f(x)\\). Hàm số \\(y = f'(x)\\) có đồ thị như hình vẽ:\n\nKhẳng định nào sau đây là khẳng định đúng?",
+    "content": "Cho hàm số \\(y = f(x)\\). Hàm số \\(y = f'(x)\\) có đồ thị như hình vẽ: Khẳng định nào sau đây là khẳng định đúng?",
     "options": [
       {
         "id": "A",
@@ -587,7 +587,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2024/10/blobid0-1728823306.png"
     ],
@@ -601,31 +601,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 1",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = - \\frac{1}{3}{x^3} + 4{x^2} - 5x - 17\\]. Gọi hoành độ 2 điểm cực trị của đồ thị hàm số là \\[{x_1},{x_2}\\]. Khi đó, tích số \\[{x_1}{x_2}\\]có giá trị là:",
+    "content": "Cho hàm số \\(y = - \\frac{1}{3}{x^3} + 4{x^2} - 5x - 17\\). Gọi hoành độ 2 điểm cực trị của đồ thị hàm số là \\({x_1},{x_2}\\). Khi đó, tích số \\({x_1}{x_2}\\)có giá trị là:",
     "options": [
       {
         "id": "A",
-        "text": "\\[5.\\]",
+        "text": "\\(5.\\)",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[ - 5.\\]",
+        "text": "\\( - 5.\\)",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[ - 4.\\]",
+        "text": "\\( - 4.\\)",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[4.\\]",
+        "text": "\\(4.\\)",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -637,21 +637,21 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 1",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = {x^3} - 3{x^2} - 2\\]. Gọi \\[a,b\\]lần lượt là giá trị cực đại và giá trị cực tiểu của hàm số đó. Giá trị của \\[2{a^2} + b\\] là:",
+    "content": "Cho hàm số \\(y = {x^3} - 3{x^2} - 2\\). Gọi \\(a,b\\)lần lượt là giá trị cực đại và giá trị cực tiểu của hàm số đó. Giá trị của \\(2{a^2} + b\\) là:",
     "options": [
       {
         "id": "A",
-        "text": "\\[ - 8\\].",
+        "text": "\\( - 8\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[ - 2\\].",
+        "text": "\\( - 2\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[2\\].",
+        "text": "\\(2\\).",
         "is_correct": false
       },
       {
@@ -661,7 +661,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -673,7 +673,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 1",
     "difficulty": "TH",
-    "content": "Số giá trị \\[m\\] nguyên để hàm số \\(y = \\frac{{mx + 2}}{{x + m}}\\) nghịch biến trên từng khoảng xác định của nó là",
+    "content": "Số giá trị \\(m\\) nguyên để hàm số \\(y = \\frac{{mx + 2}}{{x + m}}\\) nghịch biến trên từng khoảng xác định của nó là",
     "options": [
       {
         "id": "A",
@@ -682,7 +682,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       },
       {
         "id": "B",
-        "text": "\\[2.\\]",
+        "text": "\\(2.\\)",
         "is_correct": false
       },
       {
@@ -697,7 +697,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -709,7 +709,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 1",
     "difficulty": "TH",
-    "content": "Cho hàm số y = f(x) = x3 + ax2 + bx + c có đồ thị như hình bên dưới.\n\n\nChọn đáp án sai",
+    "content": "Cho hàm số y = f(x) = x3 + ax2 + bx + c có đồ thị như hình bên dưới. Chọn đáp án sai",
     "options": [
       {
         "id": "A",
@@ -733,7 +733,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2024/10/blobid0-1728823421.png"
     ],
@@ -747,7 +747,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 2",
     "difficulty": "TH",
-    "content": "PHẦN I. TRẮC NGHIỆM NHIỀU LỰA CHỌN\n\nCho hàm số \\(y = \\frac{{3x + 1}}{{x - 1}}\\). Mệnh đề nào dưới đây đúng?",
+    "content": "PHẦN I. TRẮC NGHIỆM NHIỀU LỰA CHỌN Cho hàm số \\(y = \\frac{{3x + 1}}{{x - 1}}\\). Mệnh đề nào dưới đây đúng?",
     "options": [
       {
         "id": "A",
@@ -771,7 +771,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "B",
-    "explanation": "Chọn B\n\nTa có $y' = \\frac{{ - 4}}{{{{\\left( {x - 1} \\right)}^2}}} < 0,\\forall x \\ne 1$.\nDo đó hàm số nghịch biến trên các khoảng (−∞; 1) và (1; +∞).",
+    "explanation": "Chọn B Ta có $y' = \\frac{{ - 4}}{{{{\\left( {x - 1} \\right)}^2}}} < 0,\\forall x \\ne 1$. Do đó hàm số nghịch biến trên các khoảng (−∞; 1) và (1; +∞).",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -807,7 +807,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "D",
-    "explanation": "Chọn D\n\nCó f'(x) = 3x2 + 6x + 3 = 3(x + 1)2 ≥ 0, ∀x ∈ ℝ.\nHàm số đồng biến trên ℝ.",
+    "explanation": "Chọn D Có f'(x) = 3x2 + 6x + 3 = 3(x + 1)2 ≥ 0, ∀x ∈ ℝ. Hàm số đồng biến trên ℝ.",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -819,7 +819,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 2",
     "difficulty": "TH",
-    "content": "Cho hàm số y = f(x) có bảng biến thiên sau:\n\nHàm số y = f(x) đồng biến trên khoảng nào sau đây?",
+    "content": "Cho hàm số y = f(x) có bảng biến thiên sau: Hàm số y = f(x) đồng biến trên khoảng nào sau đây?",
     "options": [
       {
         "id": "A",
@@ -843,7 +843,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "C",
-    "explanation": "Chọn C\nDựa vào bảng biến thiên ta thấy hàm số y = f(x) đồng biến trên (2; +∞).",
+    "explanation": "Chọn C Dựa vào bảng biến thiên ta thấy hàm số y = f(x) đồng biến trên (2; +∞).",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/09/blobid2-1757666953.png"
     ],
@@ -857,7 +857,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 2",
     "difficulty": "TH",
-    "content": "Cho hàm số y = f(x) có bảng biến thiên như hình dưới đây\n\nTìm mệnh đề đúng trong các mệnh đề sau",
+    "content": "Cho hàm số y = f(x) có bảng biến thiên như hình dưới đây Tìm mệnh đề đúng trong các mệnh đề sau",
     "options": [
       {
         "id": "A",
@@ -881,7 +881,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "D",
-    "explanation": "Chọn D\n Dựa vào bảng biến thiên ta có hàm số đồng biến trên khoảng (−4; −1).",
+    "explanation": "Chọn D Dựa vào bảng biến thiên ta có hàm số đồng biến trên khoảng (−4; −1).",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/09/blobid3-1757666982.png"
     ],
@@ -919,7 +919,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Chọn A\nDựa vào đồ thị hàm số ta có hàm số đồng biến trên (−1; 1).",
+    "explanation": "Chọn A Dựa vào đồ thị hàm số ta có hàm số đồng biến trên (−1; 1).",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/09/blobid4-1757667019.png"
     ],
@@ -933,7 +933,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 2",
     "difficulty": "TH",
-    "content": "Cho hàm số y = f(x) xác định, liên tục trên ℝ và có đạo hàm f'(x). Biết rằng f'(x) có đồ thị như hình vẽ. \n\nMệnh đề nào sau đây đúng.",
+    "content": "Cho hàm số y = f(x) xác định, liên tục trên ℝ và có đạo hàm f'(x). Biết rằng f'(x) có đồ thị như hình vẽ. Mệnh đề nào sau đây đúng.",
     "options": [
       {
         "id": "A",
@@ -957,7 +957,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "B",
-    "explanation": "Chọn B\n\n Dựa vào đồ thị hàm số f'(x) ta có:\n+) f'(x) > 0 ⇔ x ∈ (−3; −2).\n+) f'(x) < 0 ⇔ x ∈ (−∞; −3) ∪ (−2; +∞).\nDo đó hàm số y = f(x) nghịch biến trên khoảng (0; +∞).",
+    "explanation": "Chọn B Dựa vào đồ thị hàm số f'(x) ta có: +) f'(x) > 0 ⇔ x ∈ (−3; −2). +) f'(x) < 0 ⇔ x ∈ (−∞; −3) ∪ (−2; +∞). Do đó hàm số y = f(x) nghịch biến trên khoảng (0; +∞).",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/09/blobid5-1757667045.png"
     ],
@@ -971,7 +971,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 2",
     "difficulty": "TH",
-    "content": "Cho hàm số y = f(x) có bảng biến thiên như sau\n\nHàm số đạt cực đại tại điểm",
+    "content": "Cho hàm số y = f(x) có bảng biến thiên như sau Hàm số đạt cực đại tại điểm",
     "options": [
       {
         "id": "A",
@@ -995,7 +995,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "C",
-    "explanation": "Chọn C\nDựa vào bảng biến thiên ta có hàm số đạt cực đại tại x = 0.",
+    "explanation": "Chọn C Dựa vào bảng biến thiên ta có hàm số đạt cực đại tại x = 0.",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/09/blobid6-1757667085.png"
     ],
@@ -1033,7 +1033,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Chọn A\nDựa vào bảng biến thiên, ta có hàm số đạt cực đại tại x = 1.",
+    "explanation": "Chọn A Dựa vào bảng biến thiên, ta có hàm số đạt cực đại tại x = 1.",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/09/blobid7-1757667108.png"
     ],
@@ -1071,7 +1071,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/09/blobid8-1757667220.png"
     ],
@@ -1109,7 +1109,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -1145,7 +1145,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -1181,7 +1181,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -1193,31 +1193,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 2",
     "difficulty": "TH",
-    "content": "PHẦN II. TRẮC NGHIỆM ĐÚNG – SAI\n\nCho hàm số y = x3 + 3x2 – 9x + 15.",
+    "content": "PHẦN II. TRẮC NGHIỆM ĐÚNG – SAI Cho hàm số y = x3 + 3x2 – 9x + 15.",
     "options": [
       {
         "id": "A",
-        "text": "a) Tập xác định của hàm số là (1; +∞).\n\n\nĐúng\nSai",
+        "text": "a) Tập xác định của hàm số là (1; +∞). Đúng Sai",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "b) Hàm số có đạo hàm là y' = 3x2 + 6x + 9.\n\n\nĐúng\nSai",
+        "text": "b) Hàm số có đạo hàm là y' = 3x2 + 6x + 9. Đúng Sai",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "c) Hàm số đồng biến trên khoảng (−3; 1).\n\n\nĐúng\nSai",
+        "text": "c) Hàm số đồng biến trên khoảng (−3; 1). Đúng Sai",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "d) Đồ thị hàm số đạt cực trị tại 2 điểm A, B. Chu vi của tam giác OAB bằng \\(3\\sqrt {197}  + 4\\sqrt {65}  + \\sqrt {101} \\) (với O là gốc tọa độ).\n\n\nĐúng\nSai",
+        "text": "d) Đồ thị hàm số đạt cực trị tại 2 điểm A, B. Chu vi của tam giác OAB bằng \\(3\\sqrt {197} + 4\\sqrt {65} + \\sqrt {101} \\) (với O là gốc tọa độ). Đúng Sai",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -1233,27 +1233,27 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "options": [
       {
         "id": "A",
-        "text": "a) Hàm số đồng biến trên khoảng (7; +∞).\n\n\nĐúng\nSai",
+        "text": "a) Hàm số đồng biến trên khoảng (7; +∞). Đúng Sai",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "b) f(1) < f(3).\n\n\nĐúng\nSai",
+        "text": "b) f(1) < f(3). Đúng Sai",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "c) Hàm số nghịch biến trên khoảng (1; 7).\n\n\nĐúng\nSai",
+        "text": "c) Hàm số nghịch biến trên khoảng (1; 7). Đúng Sai",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "d) Phương trình f'(3x – 1) = 0 nhận \\(x = \\frac{2}{3}\\) làm nghiệm.\n\n\nĐúng\nSai",
+        "text": "d) Phương trình f'(3x – 1) = 0 nhận \\(x = \\frac{2}{3}\\) làm nghiệm. Đúng Sai",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2026/09/image-vosazzmxxfscfxcpd8rg-1790733700.png"
     ],
@@ -1271,27 +1271,27 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "options": [
       {
         "id": "A",
-        "text": "a) Hàm số đã cho có một điểm cực trị.\n\n\nĐúng\nSai",
+        "text": "a) Hàm số đã cho có một điểm cực trị. Đúng Sai",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "b) Giá trị cực đại của hàm số bằng 3.\n\n\nĐúng\nSai",
+        "text": "b) Giá trị cực đại của hàm số bằng 3. Đúng Sai",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "c) Điểm cực đại của đồ thị hàm số nằm dưới đường thẳng y = 5.\n\n\nĐúng\nSai",
+        "text": "c) Điểm cực đại của đồ thị hàm số nằm dưới đường thẳng y = 5. Đúng Sai",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "d) Hàm số \\(g\\left( x \\right) = f\\left( {\\sqrt {{x^2} + 2x + 3} } \\right)\\) có đúng một điểm cực trị.\n\n\nĐúng\nSai",
+        "text": "d) Hàm số \\(g\\left( x \\right) = f\\left( {\\sqrt {{x^2} + 2x + 3} } \\right)\\) có đúng một điểm cực trị. Đúng Sai",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2026/09/image-htt1kpeauhqkhlt1eamd-1790733821.png"
     ],
@@ -1309,27 +1309,27 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "options": [
       {
         "id": "A",
-        "text": "a) Điểm cực tiểu của hàm số đã cho là x = 7.\n\n\nĐúng\nSai",
+        "text": "a) Điểm cực tiểu của hàm số đã cho là x = 7. Đúng Sai",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "b) f(7) là giá trị cực đại của hàm số đã cho.\n\n\nĐúng\nSai",
+        "text": "b) f(7) là giá trị cực đại của hàm số đã cho. Đúng Sai",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "c) Hàm số đồng biến trên khoảng (7; +∞).\n\n\nĐúng\nSai",
+        "text": "c) Hàm số đồng biến trên khoảng (7; +∞). Đúng Sai",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "d) f(11) > f(7).\n\n\nĐúng\nSai",
+        "text": "d) f(11) > f(7). Đúng Sai",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2026/09/image-pk7t2osl78nb0lyuyn6n-1790733917.png"
     ],
@@ -1347,27 +1347,27 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "options": [
       {
         "id": "A",
-        "text": "a) Tốc độ truyền bệnh đến ngày thứ t là f'(t) = −3t2 + 90t.\n\n\nĐúng\nSai",
+        "text": "a) Tốc độ truyền bệnh đến ngày thứ t là f'(t) = −3t2 + 90t. Đúng Sai",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "b) Khoảng thời gian mà tốc độ truyền bệnh giảm là (0; 15).\n\n\nĐúng\nSai",
+        "text": "b) Khoảng thời gian mà tốc độ truyền bệnh giảm là (0; 15). Đúng Sai",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "c) Trong 25 ngày đầu thì tốc độ truyền bệnh lớn nhất là ở ngày thứ 25.\n\n\nĐúng\nSai",
+        "text": "c) Trong 25 ngày đầu thì tốc độ truyền bệnh lớn nhất là ở ngày thứ 25. Đúng Sai",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "d) Trong 25 ngày đầu thì ngày có số người nhiễm bệnh nhiều nhất đạt tới 675 người.\n\n\nĐúng\nSai",
+        "text": "d) Trong 25 ngày đầu thì ngày có số người nhiễm bệnh nhiều nhất đạt tới 675 người. Đúng Sai",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -1379,7 +1379,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 2",
     "difficulty": "TH",
-    "content": "PHẦN II. TRẢ LỜI NGẮN\nCho hàm số \\(y = f\\left( x \\right) = \\frac{{2{x^2} + 26x + 18}}{{x + 13}}\\) có điểm cực tiểu x = x1 và điểm cực đại bằng x = x2. Tính P = −2x1 + x2.",
+    "content": "PHẦN II. TRẢ LỜI NGẮN Cho hàm số \\(y = f\\left( x \\right) = \\frac{{2{x^2} + 26x + 18}}{{x + 13}}\\) có điểm cực tiểu x = x1 và điểm cực đại bằng x = x2. Tính P = −2x1 + x2.",
     "options": [
       {
         "id": "A",
@@ -1388,7 +1388,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -1409,7 +1409,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/09/blobid27-1757667940.png"
     ],
@@ -1423,7 +1423,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 2",
     "difficulty": "TH",
-    "content": "Cho hàm số y = f(x) có bảng biến thiên như sau:\n\nPhương trình f'(f(x)) = 0 có bao nhiêu nghiệm thực phân biệt.",
+    "content": "Cho hàm số y = f(x) có bảng biến thiên như sau: Phương trình f'(f(x)) = 0 có bao nhiêu nghiệm thực phân biệt.",
     "options": [
       {
         "id": "A",
@@ -1432,7 +1432,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/09/blobid28-1757667952.png"
     ],
@@ -1700,7 +1700,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 3",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[f(x)\\]nghịch biến trên \\[R\\]. Hàm số nào sau đây có thể không nghịch biến trên R?",
+    "content": "Cho hàm số \\(f(x)\\)nghịch biến trên \\(R\\). Hàm số nào sau đây có thể không nghịch biến trên R?",
     "options": [
       {
         "id": "A",
@@ -1736,7 +1736,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 3",
     "difficulty": "TH",
-    "content": "Đường cong ở hình bên là đồ thị của hàm số \\(y = \\frac{{ax + b}}{{cx + d}}\\) với \\[a\\], \\[b\\], \\[c\\], \\[d\\] là các số thực\n\nMệnh đề nào dưới đây đúng?",
+    "content": "Đường cong ở hình bên là đồ thị của hàm số \\(y = \\frac{{ax + b}}{{cx + d}}\\) với \\(a\\), \\(b\\), \\(c\\), \\(d\\) là các số thực Mệnh đề nào dưới đây đúng?",
     "options": [
       {
         "id": "A",
@@ -1760,7 +1760,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1752745097/1752745159-image2.png"
     ],
@@ -1798,7 +1798,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -1834,7 +1834,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -1870,7 +1870,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -1906,7 +1906,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -1942,7 +1942,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -1978,7 +1978,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -2014,7 +2014,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -2050,7 +2050,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -2062,7 +2062,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 3",
     "difficulty": "TH",
-    "content": "Trong các hàm số sau, hàm số nào đồng biến trên \\[\\mathbb{R}\\]?",
+    "content": "Trong các hàm số sau, hàm số nào đồng biến trên \\(\\mathbb{R}\\)?",
     "options": [
       {
         "id": "A",
@@ -2086,7 +2086,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -2122,7 +2122,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -2158,7 +2158,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -2206,7 +2206,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 4",
     "difficulty": "TH",
-    "content": "Hàm số \\(f\\left( x \\right) =  - {x^3} + 3{x^2} + 9x + 1\\) đồng biến trong khoảng nào sau đây?",
+    "content": "Hàm số \\(f\\left( x \\right) = - {x^3} + 3{x^2} + 9x + 1\\) đồng biến trong khoảng nào sau đây?",
     "options": [
       {
         "id": "A",
@@ -2242,16 +2242,16 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 4",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = \\frac{{x - 2}}{{x + 3}}\\]. Tìm khẳng định đúng:",
+    "content": "Cho hàm số \\(y = \\frac{{x - 2}}{{x + 3}}\\). Tìm khẳng định đúng:",
     "options": [
       {
         "id": "A",
-        "text": "Hàm số xác định trên \\[\\mathbb{R}\\backslash \\left\\{ 3 \\right\\}\\].",
+        "text": "Hàm số xác định trên \\(\\mathbb{R}\\backslash \\left\\{ 3 \\right\\}\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "Hàm số đồng biến trên \\[\\mathbb{R}\\backslash \\left\\{ { - 3} \\right\\}\\].",
+        "text": "Hàm số đồng biến trên \\(\\mathbb{R}\\backslash \\left\\{ { - 3} \\right\\}\\).",
         "is_correct": false
       },
       {
@@ -2441,7 +2441,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       },
       {
         "id": "D",
-        "text": "\\[y = {x^2} - 2x - 2\\].",
+        "text": "\\(y = {x^2} - 2x - 2\\).",
         "is_correct": false
       }
     ],
@@ -2482,7 +2482,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -2494,7 +2494,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 4",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = \\frac{{x - 2}}{{x + 3}}\\]. Mệnh đề nào sau đây đúng?",
+    "content": "Cho hàm số \\(y = \\frac{{x - 2}}{{x + 3}}\\). Mệnh đề nào sau đây đúng?",
     "options": [
       {
         "id": "A",
@@ -2518,7 +2518,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -2554,7 +2554,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -2566,31 +2566,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 4",
     "difficulty": "TH",
-    "content": "Hàm số \\[y =  - {x^3} + 3x - 4\\]đồng biến trên khoảng nào dưới đây?",
+    "content": "Hàm số \\(y = - {x^3} + 3x - 4\\)đồng biến trên khoảng nào dưới đây?",
     "options": [
       {
         "id": "A",
-        "text": "\\[\\left( { - \\infty ; - 1} \\right)\\].",
+        "text": "\\(\\left( { - \\infty ; - 1} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[\\left( { - \\infty ; - 1} \\right)\\]và \\[\\left( {1; + \\infty } \\right)\\].",
+        "text": "\\(\\left( { - \\infty ; - 1} \\right)\\)và \\(\\left( {1; + \\infty } \\right)\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[\\left( {1; + \\infty } \\right)\\].",
+        "text": "\\(\\left( {1; + \\infty } \\right)\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[\\left( { - 1;1} \\right)\\].",
+        "text": "\\(\\left( { - 1;1} \\right)\\).",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -2606,27 +2606,27 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "options": [
       {
         "id": "A",
-        "text": "\\(y =  - x + 4\\).",
+        "text": "\\(y = - x + 4\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\(y =  - {x^3} + 3{x^2}\\).",
+        "text": "\\(y = - {x^3} + 3{x^2}\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[y = \\frac{{2x + 3}}{{x + 1}}\\].",
+        "text": "\\(y = \\frac{{2x + 3}}{{x + 1}}\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[y = {x^4} - 3{x^2} - 1\\].",
+        "text": "\\(y = {x^4} - 3{x^2} - 1\\).",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -2662,7 +2662,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -2674,31 +2674,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 4",
     "difficulty": "TH",
-    "content": "Hàm số \\[y = {x^4} - 2\\] nghịch biến trên khoảng nào?",
+    "content": "Hàm số \\(y = {x^4} - 2\\) nghịch biến trên khoảng nào?",
     "options": [
       {
         "id": "A",
-        "text": "\\[\\left( { - \\infty ;\\frac{1}{2}} \\right)\\].",
+        "text": "\\(\\left( { - \\infty ;\\frac{1}{2}} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[\\left( { - \\infty ;0} \\right)\\].",
+        "text": "\\(\\left( { - \\infty ;0} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[\\left( {\\frac{1}{2}; + \\infty } \\right)\\].",
+        "text": "\\(\\left( {\\frac{1}{2}; + \\infty } \\right)\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[\\left( {0; + \\infty } \\right).\\]",
+        "text": "\\(\\left( {0; + \\infty } \\right).\\)",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -2734,7 +2734,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -2770,7 +2770,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -2782,31 +2782,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 4",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y =  - {x^3} - 3{x^2} + 4\\]. Mệnh đề nào dưới đây đúng ?",
+    "content": "Cho hàm số \\(y = - {x^3} - 3{x^2} + 4\\). Mệnh đề nào dưới đây đúng ?",
     "options": [
       {
         "id": "A",
-        "text": "Hàm số đồng biến trên khoảng \\[\\left( { - \\infty ;\\, - 2} \\right)\\].",
+        "text": "Hàm số đồng biến trên khoảng \\(\\left( { - \\infty ;\\, - 2} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "Hàm số nghịch biến trên khoảng \\[\\left( { - 2;\\,0} \\right)\\].",
+        "text": "Hàm số nghịch biến trên khoảng \\(\\left( { - 2;\\,0} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "Hàm số đồng biến trên khoảng \\[\\left( {0;\\, + \\infty } \\right)\\].",
+        "text": "Hàm số đồng biến trên khoảng \\(\\left( {0;\\, + \\infty } \\right)\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "Hàm số đồng biến trên khoảng \\[\\left( { - 2;\\,0} \\right)\\].",
+        "text": "Hàm số đồng biến trên khoảng \\(\\left( { - 2;\\,0} \\right)\\).",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -2842,7 +2842,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -2854,7 +2854,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 4",
     "difficulty": "TH",
-    "content": "Hàm số \\[y = {x^3} - 3x{}^2 + 10\\] nghịch biến trên khoảng nào sau đây?",
+    "content": "Hàm số \\(y = {x^3} - 3x{}^2 + 10\\) nghịch biến trên khoảng nào sau đây?",
     "options": [
       {
         "id": "A",
@@ -2878,7 +2878,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -2899,7 +2899,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       },
       {
         "id": "B",
-        "text": "\\(y =  - {x^3} - 3x\\).",
+        "text": "\\(y = - {x^3} - 3x\\).",
         "is_correct": false
       },
       {
@@ -3012,7 +3012,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       },
       {
         "id": "C",
-        "text": "\\(y =  - {x^3} + {x^2} - x\\).",
+        "text": "\\(y = - {x^3} + {x^2} - x\\).",
         "is_correct": true
       },
       {
@@ -3034,26 +3034,26 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 5",
     "difficulty": "TH",
-    "content": "Hàm số nào sau đây đồng biến trên \\[\\mathbb{R}\\]?",
+    "content": "Hàm số nào sau đây đồng biến trên \\(\\mathbb{R}\\)?",
     "options": [
       {
         "id": "A",
-        "text": "\\[y = 2x - \\cos 2x - 5\\].",
+        "text": "\\(y = 2x - \\cos 2x - 5\\).",
         "is_correct": true
       },
       {
         "id": "B",
-        "text": "\\[y = \\frac{{2x - 1}}{{x + 1}}\\].",
+        "text": "\\(y = \\frac{{2x - 1}}{{x + 1}}\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[y = {x^2} - 2x\\].",
+        "text": "\\(y = {x^2} - 2x\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[y = \\sqrt x \\].",
+        "text": "\\(y = \\sqrt x \\).",
         "is_correct": false
       }
     ],
@@ -3074,22 +3074,22 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "options": [
       {
         "id": "A",
-        "text": "\\[\\left( { - \\frac{3}{2}; - 1} \\right)\\].",
+        "text": "\\(\\left( { - \\frac{3}{2}; - 1} \\right)\\).",
         "is_correct": true
       },
       {
         "id": "B",
-        "text": "\\[\\left( { - 2; - 1} \\right)\\].",
+        "text": "\\(\\left( { - 2; - 1} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[\\left( { - 2; - \\frac{3}{2}} \\right)\\].",
+        "text": "\\(\\left( { - 2; - \\frac{3}{2}} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[\\left( { - 1;1} \\right)\\].",
+        "text": "\\(\\left( { - 1;1} \\right)\\).",
         "is_correct": false
       }
     ],
@@ -3178,31 +3178,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 5",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = f\\left( x \\right)\\] có đạo hàm \\[f'\\left( x \\right) = {x^2} + 1\\], \\[\\forall x \\in \\mathbb{R}\\]. Mệnh đề nào dưới đây đúng?",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có đạo hàm \\(f'\\left( x \\right) = {x^2} + 1\\), \\(\\forall x \\in \\mathbb{R}\\). Mệnh đề nào dưới đây đúng?",
     "options": [
       {
         "id": "A",
-        "text": "Hàm số nghịch biến trên khoảng \\[\\left( { - \\infty ;0} \\right)\\]",
+        "text": "Hàm số nghịch biến trên khoảng \\(\\left( { - \\infty ;0} \\right)\\)",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "Hàm số nghịch biến trên khoảng \\[\\left( {1; + \\infty } \\right)\\]",
+        "text": "Hàm số nghịch biến trên khoảng \\(\\left( {1; + \\infty } \\right)\\)",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "Hàm số nghịch biến trên khoảng \\[\\left( { - 1;1} \\right)\\]",
+        "text": "Hàm số nghịch biến trên khoảng \\(\\left( { - 1;1} \\right)\\)",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "Hàm số đồng biến trên khoảng \\[\\left( { - \\infty ; + \\infty } \\right)\\]",
+        "text": "Hàm số đồng biến trên khoảng \\(\\left( { - \\infty ; + \\infty } \\right)\\)",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -3238,7 +3238,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -3274,7 +3274,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -3310,7 +3310,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -3322,31 +3322,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 5",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = f\\left( x \\right)\\] có đạp hàm \\[f'\\left( x \\right) = {x^2} + 1\\], \\[\\forall x \\in \\mathbb{R}\\]. Mệnh đề nào dưới đây đúng ?",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có đạp hàm \\(f'\\left( x \\right) = {x^2} + 1\\), \\(\\forall x \\in \\mathbb{R}\\). Mệnh đề nào dưới đây đúng ?",
     "options": [
       {
         "id": "A",
-        "text": "Hàm số nghịch biến trên khoảng \\[\\left( { - \\infty ;0} \\right)\\].",
+        "text": "Hàm số nghịch biến trên khoảng \\(\\left( { - \\infty ;0} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "Hàm số nghịch biến trên khoảng \\[\\left( {1; + \\infty } \\right)\\].",
+        "text": "Hàm số nghịch biến trên khoảng \\(\\left( {1; + \\infty } \\right)\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "Hàm số nghịch biến trên khoảng \\[\\left( { - 1;1} \\right)\\].",
+        "text": "Hàm số nghịch biến trên khoảng \\(\\left( { - 1;1} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "Hàm số đồng biến trên khoảng \\[\\left( { - \\infty ; + \\infty } \\right)\\].",
+        "text": "Hàm số đồng biến trên khoảng \\(\\left( { - \\infty ; + \\infty } \\right)\\).",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -3382,7 +3382,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -3408,7 +3408,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       },
       {
         "id": "C",
-        "text": "\\[\\left( { - 1\\,;\\,1} \\right)\\].",
+        "text": "\\(\\left( { - 1\\,;\\,1} \\right)\\).",
         "is_correct": false
       },
       {
@@ -3418,7 +3418,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -3430,31 +3430,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 5",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = f\\left( x \\right)\\] có đạo hàm \\[f'\\left( x \\right) = {\\left( {x + 1} \\right)^2}\\left( {2 - x} \\right)\\left( {x + 3} \\right)\\]. Mệnh đề nào dưới đây đúng?",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có đạo hàm \\(f'\\left( x \\right) = {\\left( {x + 1} \\right)^2}\\left( {2 - x} \\right)\\left( {x + 3} \\right)\\). Mệnh đề nào dưới đây đúng?",
     "options": [
       {
         "id": "A",
-        "text": "Hàm số nghịch biến trên khoảng \\[\\left( { - 3;2} \\right)\\].",
+        "text": "Hàm số nghịch biến trên khoảng \\(\\left( { - 3;2} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "Hàm số nghịch biến trên các khoảng \\[\\left( { - 3; - 1} \\right)\\] và \\[\\left( {2; + \\infty } \\right)\\].",
+        "text": "Hàm số nghịch biến trên các khoảng \\(\\left( { - 3; - 1} \\right)\\) và \\(\\left( {2; + \\infty } \\right)\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "Hàm số đồng biến trên các khoảng \\[\\left( { - \\infty ; - 3} \\right)\\] và \\[\\left( {2; + \\infty } \\right)\\].",
+        "text": "Hàm số đồng biến trên các khoảng \\(\\left( { - \\infty ; - 3} \\right)\\) và \\(\\left( {2; + \\infty } \\right)\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "Hàm số đồng biến trên khoảng \\[\\left( { - 3;2} \\right)\\].",
+        "text": "Hàm số đồng biến trên khoảng \\(\\left( { - 3;2} \\right)\\).",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -3490,7 +3490,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -3526,7 +3526,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -3562,7 +3562,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -3598,7 +3598,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -3610,7 +3610,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 6",
     "difficulty": "TH",
-    "content": "Đường cong trong hình vẽ bên là đồ thị của hàm số có dạng \\(y = a{x^3} + b{x^2} + cx + d\\,\\,\\left( {a \\ne 0} \\right)\\).\n\nHàm số nghịch biến trong khoảng nào dưới đây?",
+    "content": "Đường cong trong hình vẽ bên là đồ thị của hàm số có dạng \\(y = a{x^3} + b{x^2} + cx + d\\,\\,\\left( {a \\ne 0} \\right)\\). Hàm số nghịch biến trong khoảng nào dưới đây?",
     "options": [
       {
         "id": "A",
@@ -3652,22 +3652,22 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "options": [
       {
         "id": "A",
-        "text": "\\[(2;6)\\].",
+        "text": "\\((2;6)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[(0;4)\\].",
+        "text": "\\((0;4)\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[(3;4)\\].",
+        "text": "\\((3;4)\\).",
         "is_correct": true
       },
       {
         "id": "D",
-        "text": "\\[( - 1;4)\\].",
+        "text": "\\(( - 1;4)\\).",
         "is_correct": false
       }
     ],
@@ -3686,26 +3686,26 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 6",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = f\\left( x \\right)\\] có đồ thị như sau\n\nHàm số đã cho đồng biến trên khoảng nào dưới đây?",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có đồ thị như sau Hàm số đã cho đồng biến trên khoảng nào dưới đây?",
     "options": [
       {
         "id": "A",
-        "text": "\\[\\left( {0; + \\infty } \\right)\\].",
+        "text": "\\(\\left( {0; + \\infty } \\right)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[\\left( { - \\infty ; - 2} \\right)\\].",
+        "text": "\\(\\left( { - \\infty ; - 2} \\right)\\).",
         "is_correct": true
       },
       {
         "id": "C",
-        "text": "\\[\\left( { - 2;0} \\right)\\].",
+        "text": "\\(\\left( { - 2;0} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[\\left( { - 2;2} \\right)\\].",
+        "text": "\\(\\left( { - 2;2} \\right)\\).",
         "is_correct": false
       }
     ],
@@ -3762,7 +3762,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 6",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = f(x)\\] có đồ thị như hình vẽ.\n\nHàm số \\[y = f(x)\\] đồng biến trên khoảng nào dưới đây?",
+    "content": "Cho hàm số \\(y = f(x)\\) có đồ thị như hình vẽ. Hàm số \\(y = f(x)\\) đồng biến trên khoảng nào dưới đây?",
     "options": [
       {
         "id": "A",
@@ -3800,7 +3800,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 6",
     "difficulty": "TH",
-    "content": "Cho hàm số bậc bốn \\(y = f\\left( x \\right)\\) có đồ thị trong hình bên:\n\nHàm số đã cho đồng biến trên khoảng nào dưới đây?",
+    "content": "Cho hàm số bậc bốn \\(y = f\\left( x \\right)\\) có đồ thị trong hình bên: Hàm số đã cho đồng biến trên khoảng nào dưới đây?",
     "options": [
       {
         "id": "A",
@@ -3918,27 +3918,27 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "options": [
       {
         "id": "A",
-        "text": "\\[\\left( { - 1\\,;\\, + \\infty } \\right).\\]",
+        "text": "\\(\\left( { - 1\\,;\\, + \\infty } \\right).\\)",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[\\left( { - 1\\,;\\,1} \\right).\\]",
+        "text": "\\(\\left( { - 1\\,;\\,1} \\right).\\)",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[\\left( { - \\infty \\,;\\,1} \\right).\\]",
+        "text": "\\(\\left( { - \\infty \\,;\\,1} \\right).\\)",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[\\left( { - \\infty \\,;\\, - 1} \\right).\\]",
+        "text": "\\(\\left( { - \\infty \\,;\\, - 1} \\right).\\)",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid15-1753117288.png"
     ],
@@ -3952,31 +3952,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 6",
     "difficulty": "TH",
-    "content": "Cho hàm số\\[f(x)\\] có đồ thị như hình bên, hàm số đồng biến trên khoảng nào trong các phương án dưới đây?",
+    "content": "Cho hàm số\\(f(x)\\) có đồ thị như hình bên, hàm số đồng biến trên khoảng nào trong các phương án dưới đây?",
     "options": [
       {
         "id": "A",
-        "text": "\\[\\left( { - \\infty ;\\, - 1} \\right)\\]và \\[\\left( {1; + \\infty } \\right).\\]",
+        "text": "\\(\\left( { - \\infty ;\\, - 1} \\right)\\)và \\(\\left( {1; + \\infty } \\right).\\)",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[\\left( { - 1;\\,1} \\right)\\].",
+        "text": "\\(\\left( { - 1;\\,1} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[\\left( { - \\infty ;\\,2} \\right)\\].",
+        "text": "\\(\\left( { - \\infty ;\\,2} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[\\left( { - 2;\\,2} \\right)\\].",
+        "text": "\\(\\left( { - 2;\\,2} \\right)\\).",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid16-1753117359.png"
     ],
@@ -3990,31 +3990,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 6",
     "difficulty": "TH",
-    "content": "Hàm số \\[y = f\\left( x \\right)\\]có đồ thị như hình vẽ.\n\nHàm số \\[y = f\\left( x \\right)\\]đồng biến trên khoảng nào dưới đây?",
+    "content": "Hàm số \\(y = f\\left( x \\right)\\)có đồ thị như hình vẽ. Hàm số \\(y = f\\left( x \\right)\\)đồng biến trên khoảng nào dưới đây?",
     "options": [
       {
         "id": "A",
-        "text": "\\[\\left( { - 1;1} \\right)\\].",
+        "text": "\\(\\left( { - 1;1} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[\\left( {0;2} \\right)\\].",
+        "text": "\\(\\left( {0;2} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[\\left( { - 2; - 1} \\right)\\].",
+        "text": "\\(\\left( { - 2; - 1} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[\\left( { - 2;1} \\right)\\].",
+        "text": "\\(\\left( { - 2;1} \\right)\\).",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid17-1753117560.png"
     ],
@@ -4052,7 +4052,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid18-1753117622.png"
     ],
@@ -4066,31 +4066,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 6",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = f\\left( x \\right)\\] có đồ thị như hình bên, mệnh đề nào sau đây đúng?",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có đồ thị như hình bên, mệnh đề nào sau đây đúng?",
     "options": [
       {
         "id": "A",
-        "text": "Hàm số nghịch biến trên khoảng \\[\\left( { - \\infty ;0} \\right)\\].",
+        "text": "Hàm số nghịch biến trên khoảng \\(\\left( { - \\infty ;0} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "Hàm số đồng biến trên khoảng \\[\\left( { - 1;1} \\right)\\].",
+        "text": "Hàm số đồng biến trên khoảng \\(\\left( { - 1;1} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "Hàm số đồng biến trên khoảng \\[\\left( { - 1;3} \\right)\\].",
+        "text": "Hàm số đồng biến trên khoảng \\(\\left( { - 1;3} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "Hàm số nghịch biến trên khoảng \\[\\left( {0; + \\infty } \\right)\\].",
+        "text": "Hàm số nghịch biến trên khoảng \\(\\left( {0; + \\infty } \\right)\\).",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid19-1753117713.png"
     ],
@@ -4104,31 +4104,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 6",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[f\\left( x \\right)\\] có đạo hàm liên tục trên \\[\\mathbb{R}\\] và có đồ thị của hàm \\[y = f'\\left( x \\right)\\] như hình vẽ. Mệnh đề nào dưới đây sai?",
+    "content": "Cho hàm số \\(f\\left( x \\right)\\) có đạo hàm liên tục trên \\(\\mathbb{R}\\) và có đồ thị của hàm \\(y = f'\\left( x \\right)\\) như hình vẽ. Mệnh đề nào dưới đây sai?",
     "options": [
       {
         "id": "A",
-        "text": "Hàm số \\[f\\left( x \\right)\\] nghịch biến trên \\(\\left( { - 1;0} \\right)\\).",
+        "text": "Hàm số \\(f\\left( x \\right)\\) nghịch biến trên \\(\\left( { - 1;0} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "Hàm số \\[f\\left( x \\right)\\] đồng biến trên \\(\\left( {1; + \\infty } \\right)\\).",
+        "text": "Hàm số \\(f\\left( x \\right)\\) đồng biến trên \\(\\left( {1; + \\infty } \\right)\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "Hàm số\\[f\\left( x \\right)\\] nghịch biến trên \\(\\left( { - \\infty ;2} \\right)\\).",
+        "text": "Hàm số\\(f\\left( x \\right)\\) nghịch biến trên \\(\\left( { - \\infty ;2} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "Hàm số \\[f\\left( x \\right)\\] đồng biến trên \\(\\left( {2; + \\infty } \\right)\\).",
+        "text": "Hàm số \\(f\\left( x \\right)\\) đồng biến trên \\(\\left( {2; + \\infty } \\right)\\).",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid20-1753117807.png"
     ],
@@ -4166,7 +4166,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid21-1753118240.png"
     ],
@@ -4180,7 +4180,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 6",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = f(x)\\]. Hàm số \\[y = f'(x)\\] có đồ thị như hình bên. Hàm số \\[y = f(x)\\] đồng biến trên khoảng",
+    "content": "Cho hàm số \\(y = f(x)\\). Hàm số \\(y = f'(x)\\) có đồ thị như hình bên. Hàm số \\(y = f(x)\\) đồng biến trên khoảng",
     "options": [
       {
         "id": "A",
@@ -4204,7 +4204,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid22-1753118315.png"
     ],
@@ -4242,7 +4242,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid23-1753118372.png"
     ],
@@ -4280,7 +4280,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid24-1753118468.png"
     ],
@@ -4318,7 +4318,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid25-1753118545.png"
     ],
@@ -4332,31 +4332,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 6",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = f(x)\\] có đạo hàm trên \\[\\mathbb{R}\\] và đồ thị của hàm số \\[y = f'(x)\\] như hình vẽ. Hàm số \\[y = f(x)\\] đồng biến trên khoảng nào sau đây.",
+    "content": "Cho hàm số \\(y = f(x)\\) có đạo hàm trên \\(\\mathbb{R}\\) và đồ thị của hàm số \\(y = f'(x)\\) như hình vẽ. Hàm số \\(y = f(x)\\) đồng biến trên khoảng nào sau đây.",
     "options": [
       {
         "id": "A",
-        "text": "\\[(0;1)\\].",
+        "text": "\\((0;1)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[(2; + \\infty )\\].",
+        "text": "\\((2; + \\infty )\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[(1;2)\\].",
+        "text": "\\((1;2)\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[( - 1;2)\\].",
+        "text": "\\(( - 1;2)\\).",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid26-1753118620.png"
     ],
@@ -4370,7 +4370,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 7",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có bảng biến thiên như hình vẽ bên dưới.\n\nHàm số \\(y = f\\left( x \\right)\\) đồng biến trên khoảng nào dưới đây?",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có bảng biến thiên như hình vẽ bên dưới. Hàm số \\(y = f\\left( x \\right)\\) đồng biến trên khoảng nào dưới đây?",
     "options": [
       {
         "id": "A",
@@ -4408,7 +4408,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 7",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(y = f(x)\\)có bảng biến thiên như sau:\n\nHàm số đã cho đồng biến trên khoảng nào dưới đây?",
+    "content": "Cho hàm số \\(y = f(x)\\)có bảng biến thiên như sau: Hàm số đã cho đồng biến trên khoảng nào dưới đây?",
     "options": [
       {
         "id": "A",
@@ -4446,7 +4446,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 7",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(f\\left( x \\right)\\) có bảng biến thiên như sau:\n\nHàm số đã cho đồng biến trên khoảng nào dưới đây?",
+    "content": "Cho hàm số \\(f\\left( x \\right)\\) có bảng biến thiên như sau: Hàm số đã cho đồng biến trên khoảng nào dưới đây?",
     "options": [
       {
         "id": "A",
@@ -4484,26 +4484,26 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 7",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = f\\left( x \\right)\\] xác định và liên tục trên khoảng \\[\\left( { - \\infty ; + \\infty } \\right),\\] có bảng biến thiên như hình sau:\n\nMệnh đề nào sau đây đúng ?",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) xác định và liên tục trên khoảng \\(\\left( { - \\infty ; + \\infty } \\right),\\) có bảng biến thiên như hình sau: Mệnh đề nào sau đây đúng ?",
     "options": [
       {
         "id": "A",
-        "text": "Hàm số nghịch biến trên khoảng \\[\\left( {1; + \\infty } \\right)\\].",
+        "text": "Hàm số nghịch biến trên khoảng \\(\\left( {1; + \\infty } \\right)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "Hàm số đồng biến trên khoảng \\[\\left( { - \\infty ; - 2} \\right)\\].",
+        "text": "Hàm số đồng biến trên khoảng \\(\\left( { - \\infty ; - 2} \\right)\\).",
         "is_correct": true
       },
       {
         "id": "C",
-        "text": "Hàm số nghịch biến trên khoảng \\[\\left( { - \\infty ;1} \\right)\\].",
+        "text": "Hàm số nghịch biến trên khoảng \\(\\left( { - \\infty ;1} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "Hàm số đồng biến trên khoảng \\[\\left( { - 1; + \\infty } \\right)\\].",
+        "text": "Hàm số đồng biến trên khoảng \\(\\left( { - 1; + \\infty } \\right)\\).",
         "is_correct": false
       }
     ],
@@ -4560,26 +4560,26 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 7",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = f\\left( x \\right)\\] xác định và liên tục trên khoảng \\[\\left( { - \\infty ; + \\infty } \\right),\\] có bảng biến thiên như hình sau:\n\nMệnh đề nào sau đây đúng?",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) xác định và liên tục trên khoảng \\(\\left( { - \\infty ; + \\infty } \\right),\\) có bảng biến thiên như hình sau: Mệnh đề nào sau đây đúng?",
     "options": [
       {
         "id": "A",
-        "text": "Hàm số nghịch biến trên khoảng \\[\\left( {1; + \\infty } \\right)\\].",
+        "text": "Hàm số nghịch biến trên khoảng \\(\\left( {1; + \\infty } \\right)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "Hàm số đồng biến trên khoảng \\[\\left( { - \\infty ; - 2} \\right)\\].",
+        "text": "Hàm số đồng biến trên khoảng \\(\\left( { - \\infty ; - 2} \\right)\\).",
         "is_correct": true
       },
       {
         "id": "C",
-        "text": "Hàm số nghịch biến trên khoảng \\[\\left( { - \\infty ;1} \\right)\\].",
+        "text": "Hàm số nghịch biến trên khoảng \\(\\left( { - \\infty ;1} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "Hàm số đồng biến trên khoảng \\[\\left( { - 1; + \\infty } \\right)\\].",
+        "text": "Hàm số đồng biến trên khoảng \\(\\left( { - 1; + \\infty } \\right)\\).",
         "is_correct": false
       }
     ],
@@ -4598,26 +4598,26 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 7",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = f\\left( x \\right)\\]có bảng biến thiên như sau:\n\nHàm số đã cho đồng biến trên khoảng nào sau đây?",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\)có bảng biến thiên như sau: Hàm số đã cho đồng biến trên khoảng nào sau đây?",
     "options": [
       {
         "id": "A",
-        "text": "\\[\\left( { - 2;0} \\right)\\].",
+        "text": "\\(\\left( { - 2;0} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[\\left( { - \\infty ;3} \\right)\\].",
+        "text": "\\(\\left( { - \\infty ;3} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[\\left( { - 1; + \\infty } \\right)\\].",
+        "text": "\\(\\left( { - 1; + \\infty } \\right)\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[\\left( { - \\infty ; - 2} \\right)\\].",
+        "text": "\\(\\left( { - \\infty ; - 2} \\right)\\).",
         "is_correct": true
       }
     ],
@@ -4674,31 +4674,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 7",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = f\\left( x \\right)\\] có bảng biến thiên như sau:\n\nHàm số \\[y = f\\left( x \\right)\\]nghịch biến trên khoảng nào dưới đây?",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có bảng biến thiên như sau: Hàm số \\(y = f\\left( x \\right)\\)nghịch biến trên khoảng nào dưới đây?",
     "options": [
       {
         "id": "A",
-        "text": "\\[\\left( { - 2;0} \\right)\\]",
+        "text": "\\(\\left( { - 2;0} \\right)\\)",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[\\left( { - \\infty ; - 2} \\right)\\]",
+        "text": "\\(\\left( { - \\infty ; - 2} \\right)\\)",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[\\left( {0;2} \\right)\\]",
+        "text": "\\(\\left( {0;2} \\right)\\)",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[\\left( {0; + \\infty } \\right)\\]",
+        "text": "\\(\\left( {0; + \\infty } \\right)\\)",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid44-1753120002.png"
     ],
@@ -4712,7 +4712,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 7",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(y = f(x)\\) có bảng biến thiên như sau\n\nHàm số đã cho đồng biến trên khoảng nào dưới đây?",
+    "content": "Cho hàm số \\(y = f(x)\\) có bảng biến thiên như sau Hàm số đã cho đồng biến trên khoảng nào dưới đây?",
     "options": [
       {
         "id": "A",
@@ -4736,7 +4736,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid45-1753120076.png"
     ],
@@ -4774,7 +4774,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid46-1753120134.png"
     ],
@@ -4788,7 +4788,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 7",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có bảng biến thiên như sau:\n\nHàm số đã cho đồng biến trên khoảng nào dưới đây?",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có bảng biến thiên như sau: Hàm số đã cho đồng biến trên khoảng nào dưới đây?",
     "options": [
       {
         "id": "A",
@@ -4812,7 +4812,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid47-1753120210.png"
     ],
@@ -4845,12 +4845,12 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       },
       {
         "id": "D",
-        "text": "\\[8a + d\\].",
+        "text": "\\(8a + d\\).",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid48-1753120269.png"
     ],
@@ -4888,7 +4888,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid49-1753120390.png"
     ],
@@ -4902,31 +4902,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 7",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = f\\left( x \\right)\\] có bảng xét dấu của đạo hàm như sau\n\nHàm số \\[y =  - f\\left( x \\right)\\] đồng biến trên khoảng nào dưới đây?",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có bảng xét dấu của đạo hàm như sau Hàm số \\(y = - f\\left( x \\right)\\) đồng biến trên khoảng nào dưới đây?",
     "options": [
       {
         "id": "A",
-        "text": "\\[\\left( {2;3} \\right)\\].",
+        "text": "\\(\\left( {2;3} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[\\left( {4; + \\infty } \\right)\\].",
+        "text": "\\(\\left( {4; + \\infty } \\right)\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[\\left( { - 2; - 1} \\right)\\].",
+        "text": "\\(\\left( { - 2; - 1} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[\\left( { - 1;3} \\right)\\].",
+        "text": "\\(\\left( { - 1;3} \\right)\\).",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid50-1753120479.png"
     ],
@@ -4940,7 +4940,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 7",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) xác định \\(\\mathbb{R}\\backslash \\left\\{ 0 \\right\\}\\), liên tục trên từng khoảng xác định và có bảng biến thiên như hình vẽ:\n\nKhẳng định nào sau đây là đúng?",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) xác định \\(\\mathbb{R}\\backslash \\left\\{ 0 \\right\\}\\), liên tục trên từng khoảng xác định và có bảng biến thiên như hình vẽ: Khẳng định nào sau đây là đúng?",
     "options": [
       {
         "id": "A",
@@ -4964,7 +4964,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid51-1753120537.png"
     ],
@@ -4978,31 +4978,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 7",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = f\\left( x \\right)\\] có bảng biến thiên như sau:\n\nHàm số \\[g\\left( x \\right) = f\\left( {2x + 7} \\right)\\] nghịch biến trên khoảng nào dưới đây?",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có bảng biến thiên như sau: Hàm số \\(g\\left( x \\right) = f\\left( {2x + 7} \\right)\\) nghịch biến trên khoảng nào dưới đây?",
     "options": [
       {
         "id": "A",
-        "text": "\\[\\left( { - 5; - 4} \\right)\\].",
+        "text": "\\(\\left( { - 5; - 4} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[\\left( { - 3;0} \\right)\\].",
+        "text": "\\(\\left( { - 3;0} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[\\left( { - 4; - 3} \\right)\\].",
+        "text": "\\(\\left( { - 4; - 3} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[\\left( { - \\infty ; - 5} \\right)\\].",
+        "text": "\\(\\left( { - \\infty ; - 5} \\right)\\).",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid52-1753120654.png"
     ],
@@ -5016,7 +5016,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 7",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(f(x)\\), bảng xét dấu của \\(f'(x)\\) như sau:\n\nHàm số \\(y = f(1 - 2x)\\) nghịch biến trên khoảng nào dưới đây?",
+    "content": "Cho hàm số \\(f(x)\\), bảng xét dấu của \\(f'(x)\\) như sau: Hàm số \\(y = f(1 - 2x)\\) nghịch biến trên khoảng nào dưới đây?",
     "options": [
       {
         "id": "A",
@@ -5040,7 +5040,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid53-1753120708.png"
     ],
@@ -5054,7 +5054,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 7",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(y = f\\left( x \\right) = a{x^3} + b{x^2} + cx + d\\,\\left( {a \\ne 0} \\right)\\) có bảng biến thiên như sau\n\nHàm số \\(y = f\\left( {3x - 4} \\right)\\) nghịch biến trong khoảng nào?",
+    "content": "Cho hàm số \\(y = f\\left( x \\right) = a{x^3} + b{x^2} + cx + d\\,\\left( {a \\ne 0} \\right)\\) có bảng biến thiên như sau Hàm số \\(y = f\\left( {3x - 4} \\right)\\) nghịch biến trong khoảng nào?",
     "options": [
       {
         "id": "A",
@@ -5078,7 +5078,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid54-1753120773.png"
     ],
@@ -5092,7 +5092,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 7",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(f\\left( x \\right)\\) có bảng xét dấu của đạo hàm như sau:\n\nHàm số \\(y = f\\left( { - 3x} \\right)\\) nghịch biến trên khoảng nào dưới đây?",
+    "content": "Cho hàm số \\(f\\left( x \\right)\\) có bảng xét dấu của đạo hàm như sau: Hàm số \\(y = f\\left( { - 3x} \\right)\\) nghịch biến trên khoảng nào dưới đây?",
     "options": [
       {
         "id": "A",
@@ -5116,7 +5116,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/quiz_source1/2025/07/blobid55-1753120886.png"
     ],
@@ -5170,22 +5170,22 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "options": [
       {
         "id": "A",
-        "text": "Hàm số đồng biến trên khoảng \\[\\left( { - \\infty ;1} \\right)\\].",
+        "text": "Hàm số đồng biến trên khoảng \\(\\left( { - \\infty ;1} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "Hàm số nghịch biến trên khoảng \\[\\left( { - 3;1} \\right)\\].",
+        "text": "Hàm số nghịch biến trên khoảng \\(\\left( { - 3;1} \\right)\\).",
         "is_correct": true
       },
       {
         "id": "C",
-        "text": "Hàm số nghịch biến trên khoảng \\[\\left( {1; + \\infty } \\right)\\].",
+        "text": "Hàm số nghịch biến trên khoảng \\(\\left( {1; + \\infty } \\right)\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "Hàm số đồng biến trên khoảng \\[\\left( { - 1;3} \\right)\\].",
+        "text": "Hàm số đồng biến trên khoảng \\(\\left( { - 1;3} \\right)\\).",
         "is_correct": false
       }
     ],
@@ -5252,7 +5252,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       },
       {
         "id": "C",
-        "text": "Hàm số đồng biến trên khoảng \\[\\left( { - \\infty ; - \\ln \\sqrt 2 } \\right)\\].",
+        "text": "Hàm số đồng biến trên khoảng \\(\\left( { - \\infty ; - \\ln \\sqrt 2 } \\right)\\).",
         "is_correct": false
       },
       {
@@ -5382,26 +5382,26 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 8",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = {\\left( {0,5} \\right)^{{x^2} - 8x}}\\]. Hàm số đã cho nghịch biến trên khoảng",
+    "content": "Cho hàm số \\(y = {\\left( {0,5} \\right)^{{x^2} - 8x}}\\). Hàm số đã cho nghịch biến trên khoảng",
     "options": [
       {
         "id": "A",
-        "text": "\\[\\left( {0;\\,4} \\right)\\].",
+        "text": "\\(\\left( {0;\\,4} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[\\left( {0;\\,8} \\right)\\].",
+        "text": "\\(\\left( {0;\\,8} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[\\left( {9;10} \\right)\\].",
+        "text": "\\(\\left( {9;10} \\right)\\).",
         "is_correct": true
       },
       {
         "id": "D",
-        "text": "\\[\\left( { - \\infty ;\\,0} \\right)\\].",
+        "text": "\\(\\left( { - \\infty ;\\,0} \\right)\\).",
         "is_correct": false
       }
     ],
@@ -5442,7 +5442,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -5454,7 +5454,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 8",
     "difficulty": "TH",
-    "content": "Hàm số \\[y = {2^{{x^2} - 4x}}\\]đồng biến trên khoảng",
+    "content": "Hàm số \\(y = {2^{{x^2} - 4x}}\\)đồng biến trên khoảng",
     "options": [
       {
         "id": "A",
@@ -5478,7 +5478,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -5514,7 +5514,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -5550,7 +5550,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -5586,7 +5586,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -5622,7 +5622,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -5658,7 +5658,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -5694,7 +5694,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -5730,7 +5730,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -5766,7 +5766,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -5802,7 +5802,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -5814,7 +5814,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 8",
     "difficulty": "TH",
-    "content": "Trong các hàm số sau, hàm số nào nghịch biến trên \\[\\left( {0; + \\infty } \\right)\\]?",
+    "content": "Trong các hàm số sau, hàm số nào nghịch biến trên \\(\\left( {0; + \\infty } \\right)\\)?",
     "options": [
       {
         "id": "A",
@@ -5838,7 +5838,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -6164,7 +6164,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -6200,7 +6200,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -6236,7 +6236,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -6272,7 +6272,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -6308,7 +6308,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -6320,7 +6320,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 9",
     "difficulty": "TH",
-    "content": "Hàm số \\[y = - {x^3} + 1\\] có bao nhiêu điểm cực trị?",
+    "content": "Hàm số \\(y = - {x^3} + 1\\) có bao nhiêu điểm cực trị?",
     "options": [
       {
         "id": "A",
@@ -6329,22 +6329,22 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       },
       {
         "id": "B",
-        "text": "\\[0\\,.\\]",
+        "text": "\\(0\\,.\\)",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[3\\,.\\].",
+        "text": "\\(3\\,.\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[2\\,.\\]",
+        "text": "\\(2\\,.\\)",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -6380,7 +6380,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -6416,7 +6416,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -6452,7 +6452,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -6488,7 +6488,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -6524,7 +6524,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -6560,7 +6560,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -6572,7 +6572,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 10",
     "difficulty": "TH",
-    "content": "Gọi \\[A\\], \\[B\\] là hai điểm cực trị của đồ thị hàm số \\(y = - \\frac{1}{3}{x^3} + x - \\frac{2}{3}\\). Tọa độ trung điểm của \\(AB\\) là",
+    "content": "Gọi \\(A\\), \\(B\\) là hai điểm cực trị của đồ thị hàm số \\(y = - \\frac{1}{3}{x^3} + x - \\frac{2}{3}\\). Tọa độ trung điểm của \\(AB\\) là",
     "options": [
       {
         "id": "A",
@@ -6608,7 +6608,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 10",
     "difficulty": "TH",
-    "content": "Đồ thị hàm số \\[y = - {x^3} - 3{x^2} + 1\\] có điểm cực đại là",
+    "content": "Đồ thị hàm số \\(y = - {x^3} - 3{x^2} + 1\\) có điểm cực đại là",
     "options": [
       {
         "id": "A",
@@ -6644,26 +6644,26 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 10",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = {x^3} - 3{x^2} + 5\\]có đồ thị \\[\\left( C \\right)\\]. Điểm cực tiểu của đồ thị \\[\\left( C \\right)\\] là",
+    "content": "Cho hàm số \\(y = {x^3} - 3{x^2} + 5\\)có đồ thị \\(\\left( C \\right)\\). Điểm cực tiểu của đồ thị \\(\\left( C \\right)\\) là",
     "options": [
       {
         "id": "A",
-        "text": "\\[M\\left( {1;{\\rm{ }}2} \\right)\\].",
+        "text": "\\(M\\left( {1;{\\rm{ }}2} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[M\\left( {5;{\\rm{ }}0} \\right)\\].",
+        "text": "\\(M\\left( {5;{\\rm{ }}0} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[M\\left( {2;{\\rm{ 1}}} \\right)\\].",
+        "text": "\\(M\\left( {2;{\\rm{ 1}}} \\right)\\).",
         "is_correct": true
       },
       {
         "id": "D",
-        "text": "\\[M\\left( {0;{\\rm{ 5}}} \\right)\\].",
+        "text": "\\(M\\left( {0;{\\rm{ 5}}} \\right)\\).",
         "is_correct": false
       }
     ],
@@ -6725,12 +6725,12 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       },
       {
         "id": "B",
-        "text": "\\[0\\].",
+        "text": "\\(0\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[1\\].",
+        "text": "\\(1\\).",
         "is_correct": true
       },
       {
@@ -6766,7 +6766,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       },
       {
         "id": "C",
-        "text": "\\[3\\].",
+        "text": "\\(3\\).",
         "is_correct": false
       },
       {
@@ -6824,7 +6824,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 10",
     "difficulty": "TH",
-    "content": "Điểm cực tiểu của hàm số \\[y = x\\sqrt {4 - {x^2}} \\] là",
+    "content": "Điểm cực tiểu của hàm số \\(y = x\\sqrt {4 - {x^2}} \\) là",
     "options": [
       {
         "id": "A",
@@ -6860,31 +6860,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 10",
     "difficulty": "TH",
-    "content": "Biết đồ thị hàm số \\[y = {x^3} - 3x + 1\\]có hai điểm cực trị là \\[A\\]và \\[B\\]. Phương trình đường thẳng \\[AB\\] là",
+    "content": "Biết đồ thị hàm số \\(y = {x^3} - 3x + 1\\)có hai điểm cực trị là \\(A\\)và \\(B\\). Phương trình đường thẳng \\(AB\\) là",
     "options": [
       {
         "id": "A",
-        "text": "\\[y = - 2x + 1\\].",
+        "text": "\\(y = - 2x + 1\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[y = 2x - 1\\].",
+        "text": "\\(y = 2x - 1\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[y = x - 2\\].",
+        "text": "\\(y = x - 2\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[y = - x + 2\\].",
+        "text": "\\(y = - x + 2\\).",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -6920,7 +6920,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -6932,7 +6932,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 10",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = a{x^3} + b{x^2} + cx + d\\] có đồ thị như hình vẽ dưới\n\nHàm số đã cho có bao nhiêu điểm cực trị?",
+    "content": "Cho hàm số \\(y = a{x^3} + b{x^2} + cx + d\\) có đồ thị như hình vẽ dưới Hàm số đã cho có bao nhiêu điểm cực trị?",
     "options": [
       {
         "id": "A",
@@ -6956,7 +6956,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753358049/1753358115-image5.png"
     ],
@@ -6970,7 +6970,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 10",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = f\\left( x \\right)\\] có đồ thị như hình vẽ. Hàm số đạt cực tiểu tại các điểm",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có đồ thị như hình vẽ. Hàm số đạt cực tiểu tại các điểm",
     "options": [
       {
         "id": "A",
@@ -6994,7 +6994,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753358049/1753358115-image6.png"
     ],
@@ -7008,7 +7008,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 10",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(f\\left( x \\right) = a{x^3} + b{x^2} + cx + d\\)có đồ thị như hình vẽ bên dưới.\n\nMệnh đề nào sau đây sai?",
+    "content": "Cho hàm số \\(f\\left( x \\right) = a{x^3} + b{x^2} + cx + d\\)có đồ thị như hình vẽ bên dưới. Mệnh đề nào sau đây sai?",
     "options": [
       {
         "id": "A",
@@ -7032,7 +7032,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753358049/1753358115-image7.png"
     ],
@@ -7070,7 +7070,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753358049/1753358115-image8.png"
     ],
@@ -7108,7 +7108,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753358049/1753358115-image9.png"
     ],
@@ -7122,7 +7122,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 10",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(f\\left( x \\right)\\) liên tục trên đoạn \\(\\left[ { - \\sqrt 3 ;\\sqrt 3 } \\right]\\) và có đồ thị hàm số như hình vẽ sau\n\nĐiểm cực đại của đồ thị hàm số đã cho là",
+    "content": "Cho hàm số \\(f\\left( x \\right)\\) liên tục trên đoạn \\(\\left[ { - \\sqrt 3 ;\\sqrt 3 } \\right]\\) và có đồ thị hàm số như hình vẽ sau Điểm cực đại của đồ thị hàm số đã cho là",
     "options": [
       {
         "id": "A",
@@ -7146,7 +7146,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753358049/1753358115-image10.png"
     ],
@@ -7184,7 +7184,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753358049/1753358115-image11.png"
     ],
@@ -7198,7 +7198,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 10",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(y = a{x^3} + b{x^2} + cx + d\\;\\)\\(\\left( {a,\\;b,\\;c,\\;d \\in \\mathbb{R}} \\right)\\) có đồ thị như hình vẽ bên.\n\nSố điểm cực trị của hàm số đã cho là",
+    "content": "Cho hàm số \\(y = a{x^3} + b{x^2} + cx + d\\;\\)\\(\\left( {a,\\;b,\\;c,\\;d \\in \\mathbb{R}} \\right)\\) có đồ thị như hình vẽ bên. Số điểm cực trị của hàm số đã cho là",
     "options": [
       {
         "id": "A",
@@ -7222,7 +7222,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753358049/1753358115-image12.png"
     ],
@@ -7236,7 +7236,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 10",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(f\\left( x \\right)\\)liên tục trên đoạn \\(\\left[ { - 1;3} \\right]\\)và có đồ thị hàm số như hình vẽ bên:\n\nHàm số đạt cực tiểu tại điểm",
+    "content": "Cho hàm số \\(f\\left( x \\right)\\)liên tục trên đoạn \\(\\left[ { - 1;3} \\right]\\)và có đồ thị hàm số như hình vẽ bên: Hàm số đạt cực tiểu tại điểm",
     "options": [
       {
         "id": "A",
@@ -7260,7 +7260,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753358049/1753358115-image13.png"
     ],
@@ -7298,7 +7298,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753358049/1753358115-image14.png"
     ],
@@ -7312,7 +7312,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 11",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = f(x)\\] xác định trên \\[\\mathbb{R}\\] và có đạo hàm \\[y' = f'(x) = (x - 1){(x - 4)^2}{(5 - x)^3}.g(x)\\], hàm số \\[y = g(x)\\] có đồ thị như hình vẽ. Hàm số \\[y = f(x)\\] có bao nhiêu điểm cực trị?",
+    "content": "Cho hàm số \\(y = f(x)\\) xác định trên \\(\\mathbb{R}\\) và có đạo hàm \\(y' = f'(x) = (x - 1){(x - 4)^2}{(5 - x)^3}.g(x)\\), hàm số \\(y = g(x)\\) có đồ thị như hình vẽ. Hàm số \\(y = f(x)\\) có bao nhiêu điểm cực trị?",
     "options": [
       {
         "id": "A",
@@ -7350,7 +7350,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 11",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có bảng biến thiên như sau:\n\nGiá trị cực tiểu của hàm số đã cho bằng",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có bảng biến thiên như sau: Giá trị cực tiểu của hàm số đã cho bằng",
     "options": [
       {
         "id": "A",
@@ -7388,26 +7388,26 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 11",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = f\\left( x \\right)\\] có bảng biến thiên như sau\n\nHàm số đạt cực đại tại điểm",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có bảng biến thiên như sau Hàm số đạt cực đại tại điểm",
     "options": [
       {
         "id": "A",
-        "text": "\\[x = - 3\\].",
+        "text": "\\(x = - 3\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[x = - 1\\].",
+        "text": "\\(x = - 1\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[x = 1\\].",
+        "text": "\\(x = 1\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[x = - 2\\].",
+        "text": "\\(x = - 2\\).",
         "is_correct": true
       }
     ],
@@ -7426,7 +7426,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 11",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có bảng biến thiên như sau\n\nHàm số đạt cực đại tại điểm",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có bảng biến thiên như sau Hàm số đạt cực đại tại điểm",
     "options": [
       {
         "id": "A",
@@ -7464,7 +7464,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 11",
     "difficulty": "TH",
-    "content": "Hàm số \\(y = f\\left( x \\right)\\)có bảng biến thiên như sau:\n\nGiá trị cực tiểu của hàm số đã cho bằng",
+    "content": "Hàm số \\(y = f\\left( x \\right)\\)có bảng biến thiên như sau: Giá trị cực tiểu của hàm số đã cho bằng",
     "options": [
       {
         "id": "A",
@@ -7502,7 +7502,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 11",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có bảng biến thiên như sau:\n\nGiá trị cực đại của hàm số đã cho bằng",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có bảng biến thiên như sau: Giá trị cực đại của hàm số đã cho bằng",
     "options": [
       {
         "id": "A",
@@ -7540,7 +7540,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 11",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(f\\left( x \\right)\\) xác định trên \\(\\mathbb{R}\\), bảng xét dấu của \\(f'\\left( x \\right)\\) như sau\n\nHàm số \\(f\\left( x \\right)\\) có bao nhiêu điểm cực trị?",
+    "content": "Cho hàm số \\(f\\left( x \\right)\\) xác định trên \\(\\mathbb{R}\\), bảng xét dấu của \\(f'\\left( x \\right)\\) như sau Hàm số \\(f\\left( x \\right)\\) có bao nhiêu điểm cực trị?",
     "options": [
       {
         "id": "A",
@@ -7578,7 +7578,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 11",
     "difficulty": "TH",
-    "content": "Cho hàm số , bảng xét dấu của như sau:\n\nSố điểm cực đại của hàm số đã cho là",
+    "content": "Cho hàm số , bảng xét dấu của như sau: Số điểm cực đại của hàm số đã cho là",
     "options": [
       {
         "id": "A",
@@ -7642,7 +7642,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753359854/1753359920-image15.png"
     ],
@@ -7656,7 +7656,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 11",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(y = f\\left( x \\right)\\)có bảng biến thiên sau\n\nHàm số đã cho có bao nhiêu điểm cực trị ?",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\)có bảng biến thiên sau Hàm số đã cho có bao nhiêu điểm cực trị ?",
     "options": [
       {
         "id": "A",
@@ -7680,7 +7680,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753359854/1753359920-image16.png"
     ],
@@ -7718,7 +7718,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753359854/1753359920-image17.png"
     ],
@@ -7732,7 +7732,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 11",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(y = f(x)\\) có bảng biến thiên như sau:\n\nKhẳng định nào sau đây là đúng?",
+    "content": "Cho hàm số \\(y = f(x)\\) có bảng biến thiên như sau: Khẳng định nào sau đây là đúng?",
     "options": [
       {
         "id": "A",
@@ -7756,7 +7756,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753359854/1753359920-image18.png"
     ],
@@ -7770,7 +7770,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 11",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[f\\left( x \\right)\\], bảng xét dấu của \\[f'\\left( x \\right)\\] như sau:\n\nSố điểm cực trị của hàm số đã cho là",
+    "content": "Cho hàm số \\(f\\left( x \\right)\\), bảng xét dấu của \\(f'\\left( x \\right)\\) như sau: Số điểm cực trị của hàm số đã cho là",
     "options": [
       {
         "id": "A",
@@ -7794,7 +7794,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753359854/1753359920-image19.png"
     ],
@@ -7808,7 +7808,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 11",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(f\\left( x \\right)\\), bảng xét dấu \\(f'\\left( x \\right)\\) như sau:\n\nSố điểm cực tiểu của hàm số \\(f\\left( x \\right)\\)là",
+    "content": "Cho hàm số \\(f\\left( x \\right)\\), bảng xét dấu \\(f'\\left( x \\right)\\) như sau: Số điểm cực tiểu của hàm số \\(f\\left( x \\right)\\)là",
     "options": [
       {
         "id": "A",
@@ -7832,7 +7832,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753359854/1753359920-image20.png"
     ],
@@ -7846,7 +7846,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 11",
     "difficulty": "TH",
-    "content": "Cho hàm số \\(f\\left( x \\right)\\)có bảng xét dấu của \\(f'\\left( x \\right)\\)như sau:\n\nSố điểm cực trị của hàm số đã cho là",
+    "content": "Cho hàm số \\(f\\left( x \\right)\\)có bảng xét dấu của \\(f'\\left( x \\right)\\)như sau: Số điểm cực trị của hàm số đã cho là",
     "options": [
       {
         "id": "A",
@@ -7870,7 +7870,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753359854/1753359920-image21.png"
     ],
@@ -7884,7 +7884,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 11",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = f\\left( x \\right)\\] có tập xác định \\[D = \\mathbb{R}\\backslash \\left\\{ 0 \\right\\}\\] và bảng xét dấu đạo hàm như sau\n\nSố điểm cực trị của hàm số đã cho là",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có tập xác định \\(D = \\mathbb{R}\\backslash \\left\\{ 0 \\right\\}\\) và bảng xét dấu đạo hàm như sau Số điểm cực trị của hàm số đã cho là",
     "options": [
       {
         "id": "A",
@@ -7908,7 +7908,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753359854/1753359920-image22.png"
     ],
@@ -7922,31 +7922,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 11",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[f\\left( x \\right)\\] liên tục trên \\(\\mathbb{R}\\), bảng xét dấu của \\(f'\\left( x \\right)\\) như sau:\n\nTổng hoành độ các điểm cực đại của hàm số bằng",
+    "content": "Cho hàm số \\(f\\left( x \\right)\\) liên tục trên \\(\\mathbb{R}\\), bảng xét dấu của \\(f'\\left( x \\right)\\) như sau: Tổng hoành độ các điểm cực đại của hàm số bằng",
     "options": [
       {
         "id": "A",
-        "text": "\\[1\\].",
+        "text": "\\(1\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[2\\].",
+        "text": "\\(2\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[3\\].",
+        "text": "\\(3\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[ - 2\\].",
+        "text": "\\( - 2\\).",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753359854/1753359920-image23.png"
     ],
@@ -7960,31 +7960,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 11",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[f\\left( x \\right)\\] liên tục trên \\(\\mathbb{R}\\), bảng xét dấu của \\(f'\\left( x \\right)\\) như sau:\n\nHàm số có bao nhiêu điểm cực tiểu",
+    "content": "Cho hàm số \\(f\\left( x \\right)\\) liên tục trên \\(\\mathbb{R}\\), bảng xét dấu của \\(f'\\left( x \\right)\\) như sau: Hàm số có bao nhiêu điểm cực tiểu",
     "options": [
       {
         "id": "A",
-        "text": "\\[1\\].",
+        "text": "\\(1\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[2\\].",
+        "text": "\\(2\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[3\\].",
+        "text": "\\(3\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[4\\].",
+        "text": "\\(4\\).",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753359854/1753359920-image24.png"
     ],
@@ -7998,7 +7998,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 11",
     "difficulty": "TH",
-    "content": "Cho hàm số \\[y = f\\left( x \\right)\\] có bảng biến thiên như sau:\n\nGiá trị cực đại của hàm số đã cho bằng",
+    "content": "Cho hàm số \\(y = f\\left( x \\right)\\) có bảng biến thiên như sau: Giá trị cực đại của hàm số đã cho bằng",
     "options": [
       {
         "id": "A",
@@ -8007,22 +8007,22 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       },
       {
         "id": "B",
-        "text": "\\[ - 2\\].",
+        "text": "\\( - 2\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[ - 3\\].",
+        "text": "\\( - 3\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[ - 1\\].",
+        "text": "\\( - 1\\).",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753359854/1753359920-image25.png"
     ],
@@ -8060,7 +8060,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [
       "https://video.vietjack.com/upload2/images/1753359854/1753359920-image26.png"
     ],
@@ -8386,7 +8386,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -8422,7 +8422,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -8434,31 +8434,31 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
     "chapter": "Ứng dụng đạo hàm để khảo sát và vẽ đồ thị hàm số",
     "topic": "Ôn thi Giữa Kỳ 1 — Đề số 12",
     "difficulty": "TH",
-    "content": "Tọa độ điểm cực đại của đồ thị hàm số \\[y = {2^{\\frac{x}{{4{x^2} + 1}}}}\\] là",
+    "content": "Tọa độ điểm cực đại của đồ thị hàm số \\(y = {2^{\\frac{x}{{4{x^2} + 1}}}}\\) là",
     "options": [
       {
         "id": "A",
-        "text": "\\[\\left( { - \\frac{1}{2}\\,;\\,\\sqrt[4]{2}} \\right)\\].",
+        "text": "\\(\\left( { - \\frac{1}{2}\\,;\\,\\sqrt[4]{2}} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "B",
-        "text": "\\[\\left( { - \\frac{1}{2}\\,;\\, - \\sqrt[4]{2}} \\right)\\].",
+        "text": "\\(\\left( { - \\frac{1}{2}\\,;\\, - \\sqrt[4]{2}} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "C",
-        "text": "\\[\\left( {\\frac{1}{2}\\,;\\,\\sqrt[4]{2}} \\right)\\].",
+        "text": "\\(\\left( {\\frac{1}{2}\\,;\\,\\sqrt[4]{2}} \\right)\\).",
         "is_correct": false
       },
       {
         "id": "D",
-        "text": "\\[\\left( { - \\frac{1}{2}\\,;\\,\\frac{1}{{\\sqrt[4]{2}}}} \\right)\\].",
+        "text": "\\(\\left( { - \\frac{1}{2}\\,;\\,\\frac{1}{{\\sqrt[4]{2}}}} \\right)\\).",
         "is_correct": false
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -8494,7 +8494,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -8530,7 +8530,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -8566,7 +8566,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -8602,7 +8602,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -8638,7 +8638,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -8674,7 +8674,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -8710,7 +8710,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -8746,7 +8746,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   },
@@ -8782,7 +8782,7 @@ export const GIUA_KY_1_QUESTIONS: Question[] = [
       }
     ],
     "correctOption": "A",
-    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn.\n\n\n\n\n        Nâng cấp VIP",
+    "explanation": "Bạn cần đăng ký gói VIP ( giá chỉ từ 250K ) để làm bài, xem đáp án và lời giải chi tiết không giới hạn. Nâng cấp VIP",
     "images": [],
     "createdAt": "2026-11-03T06:00:00.000Z"
   }
