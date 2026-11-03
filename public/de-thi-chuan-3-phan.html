@@ -601,18 +601,21 @@
         let tabViolations = 0;
         let isSubmitted = false;
 
-        // Render KaTeX inline
+                        // Render KaTeX inline triệt để (Hỗ trợ an toàn 100% $, $$, \(, \[)
         function renderAllMath() {
             if (window.renderMathInElement) {
                 renderMathInElement(document.body, {
                     delimiters: [
                         { left: "$$", right: "$$", display: true },
                         { left: "$", right: "$", display: false },
-                        { left: "\\(", right: "\\)", display: false },
-                        { left: "\\[", right: "\\]", display: false }
+                        { left: String.fromCharCode(92) + "[", right: String.fromCharCode(92) + "]", display: true },
+                        { left: String.fromCharCode(92) + "(", right: String.fromCharCode(92) + ")", display: false }
                     ],
+                    ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
                     throwOnError: false
                 });
+            } else {
+                setTimeout(renderAllMath, 150);
             }
         }
 
