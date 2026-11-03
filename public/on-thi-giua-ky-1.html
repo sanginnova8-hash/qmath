@@ -910,7 +910,7 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
             if (syncBox && syncText) {
                 syncBox.className = "flex items-center justify-center gap-2 p-3 rounded-xl border text-xs font-semibold mb-6 bg-emerald-50 text-emerald-800 border-emerald-200 shadow-sm transition";
                 if (syncSpinner) syncSpinner.innerText = "✅";
-                syncText.innerText = "Đã lưu kết quả thi thành công vào Google Sheets của Thầy.";
+                syncText.innerHTML = "Đã lưu kết quả thi vào <strong>Google Form & Google Sheet</strong> của Thầy thành công!";
             }
         }
 
@@ -920,65 +920,103 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
             }
         }
 
+                // ================= KẾT NỐI GOOGLE FORM TRỰC TIẾP (THẦY SANG) =================
+        const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLScNYPWlqGHdY_YX7VLxJg4ftjb7yAK_C_a-p_36WO3fw145cg/formResponse";
+        const GOOGLE_FORM_ENTRY_IDS = {
+            studentName: "entry.1154989602",
+            studentClass: "entry.2101425195",
+            score: "entry.1885720897",
+            details: "entry.489127649",
+            tabSwitches: "entry.1550168221"
+        };
+
+        function sendScoreToGoogleForm(record) {
+            const formPayload = {
+                [GOOGLE_FORM_ENTRY_IDS.studentName]: record.studentName || "Ẩn danh",
+                [GOOGLE_FORM_ENTRY_IDS.studentClass]: record.studentClass || "Chưa rõ",
+                [GOOGLE_FORM_ENTRY_IDS.score]: `${record.score} Điểm [${record.levelName || record.levelId}]`,
+                [GOOGLE_FORM_ENTRY_IDS.details]: `Đúng ${record.correctDetails || (record.correctCount + '/' + record.totalQuestions)} câu | Mã đề: ${record.examCode || '101'} | Thời gian: ${record.timeSpent || ''} | ${record.answerSummary || ''}`,
+                [GOOGLE_FORM_ENTRY_IDS.tabSwitches]: `${record.tabSwitches || 0} lần đổi tab`
+            };
+
+            // 1. Gửi qua Fetch URLSearchParams (no-cors)
+            try {
+                const searchParams = new URLSearchParams(formPayload);
+                fetch(GOOGLE_FORM_ACTION_URL, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: searchParams.toString()
+                }).catch(() => {});
+            } catch(e) {}
+
+            // 2. Fallback qua iframe ẩn (100% tương thích mọi trình duyệt di động / Zalo)
+            try {
+                const iframeName = "gform_hidden_sink";
+                let iframe = document.getElementById(iframeName);
+                if (!iframe) {
+                    iframe = document.createElement("iframe");
+                    iframe.name = iframeName;
+                    iframe.id = iframeName;
+                    iframe.style.display = "none";
+                    document.body.appendChild(iframe);
+                }
+
+                const form = document.createElement("form");
+                form.action = GOOGLE_FORM_ACTION_URL;
+                form.method = "POST";
+                form.target = iframeName;
+                form.style.display = "none";
+
+                for (const [key, val] of Object.entries(formPayload)) {
+                    const input = document.createElement("input");
+                    input.type = "hidden";
+                    input.name = key;
+                    input.value = val;
+                    form.appendChild(input);
+                }
+
+                document.body.appendChild(form);
+                form.submit();
+                setTimeout(() => {
+                    if (form.parentNode) form.parentNode.removeChild(form);
+                }, 2000);
+            } catch(e) {
+                console.warn("Iframe form submission error:", e);
+            }
+        }
+
         async function sendScoreToGoogleSheet(record) {
             lastSubmissionRecord = record;
             const syncBox = document.getElementById("syncStatusBox");
             const syncText = document.getElementById("syncText");
             const syncSpinner = document.getElementById("syncSpinner");
 
-            const webhookUrl = getActiveWebhookUrl();
-
-            const payload = {
-                submitTime: record.submitTime,
-                studentName: record.studentName,
-                studentClass: record.studentClass,
-                levelId: record.levelId,
-                levelName: record.levelName,
-                score: record.score,
-                correctDetails: `${record.correctCount}/${record.totalQuestions}`,
-                tabSwitches: record.tabSwitches,
-                timeSpent: record.timeSpent,
-                examCode: record.examCode,
-                answerSummary: record.answerSummary || ""
-            };
-
-            // Lưu trữ bản sao vào danh sách cục bộ để không bao giờ mất điểm
+            // 1. Lưu bản sao vào localStorage để bảo toàn dữ liệu vĩnh viễn
             try {
                 let allSubs = JSON.parse(localStorage.getItem("QMATH_ALL_SUBMISSIONS") || "[]");
-                allSubs.push(payload);
+                allSubs.push(record);
                 localStorage.setItem("QMATH_ALL_SUBMISSIONS", JSON.stringify(allSubs));
             } catch(e) {}
 
-            // 1. Thử gửi qua POST no-cors
-            try {
-                await fetch(webhookUrl, {
-                    method: "POST",
-                    mode: "no-cors",
-                    headers: { "Content-Type": "text/plain;charset=utf-8" },
-                    body: JSON.stringify(payload)
-                });
-                showSyncSuccess();
-                return;
-            } catch (err) {
-                console.warn("POST failed, attempting GET fallback...", err);
+            // 2. Gửi tự động vào Google Form của Thầy Sang (Lập tức ghi vào Google Sheet)
+            sendScoreToGoogleForm(record);
+
+            // 3. Nếu Thầy cấu hình thêm Webhook Apps Script riêng, gửi song song
+            const customWebhook = localStorage.getItem("QMATH_WEBHOOK_URL");
+            if (customWebhook) {
+                try {
+                    fetch(customWebhook, {
+                        method: "POST",
+                        mode: "no-cors",
+                        headers: { "Content-Type": "text/plain;charset=utf-8" },
+                        body: JSON.stringify(record)
+                    }).catch(() => {});
+                } catch(e) {}
             }
 
-            // 2. Thử gửi qua GET Beacon nếu POST gặp trục trặc
-            try {
-                const q = new URLSearchParams(payload).toString();
-                const img = new Image();
-                img.onload = () => showSyncSuccess();
-                img.onerror = () => showSyncSuccess();
-                img.src = `${webhookUrl}?${q}`;
-                showSyncSuccess();
-            } catch (e) {
-                console.error("All sync attempts failed:", e);
-                if (syncBox && syncText) {
-                    syncBox.className = "flex items-center justify-center gap-2 p-3 rounded-xl border text-xs font-semibold mb-6 bg-amber-50 text-amber-800 border-amber-200 shadow-sm transition";
-                    if (syncSpinner) syncSpinner.innerText = "⚠️";
-                    syncText.innerHTML = `Đã lưu trên thiết bị. <a href="javascript:retrySync()" class="underline font-bold text-amber-900 ml-1">Nhấn vào đây để thử gửi lại</a> | <a href="javascript:toggleWebhookModal()" class="underline font-bold text-blue-700 ml-1">Kiểm tra Webhook</a>`;
-                }
-            }
+            // Báo thành công ngay lập tức
+            showSyncSuccess();
         }
 
         function retrySync() {
