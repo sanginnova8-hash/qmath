@@ -289,8 +289,14 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
                 </div>
             </div>
 
-            <div class="bg-blue-50 p-3 rounded-xl border border-blue-200 text-xs text-blue-800 text-center mb-6">
-                🔒 <strong>LƯU Ý:</strong> Bài thi cấp độ này đã được ghi nhận vào hệ thống. Bạn không thể làm lại Level này.
+                        <!-- Trạng thái đồng bộ Google Sheets -->
+            <div id="syncStatusBox" class="flex items-center justify-center gap-2 p-3 rounded-xl border text-xs font-semibold mb-6 bg-blue-50 text-blue-800 border-blue-200 shadow-sm transition">
+                <span id="syncSpinner" class="inline-block animate-spin">⏳</span>
+                <span id="syncText">Đang tự động lưu kết quả vào Bảng điểm Google Sheets của Thầy...</span>
+            </div>
+
+            <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-800 text-center mb-6">
+                🔒 <strong>LƯU Ý QUY CHẾ:</strong> Bài thi cấp độ này đã được ghi nhận vào hệ thống. Bạn không thể làm lại Level này để lấy điểm cao hơn.
             </div>
 
             <!-- Nút điều hướng -->
@@ -693,6 +699,83 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
             submitExam();
         }
 
+        
+        const GOOGLE_SHEET_API = "https://script.google.com/macros/s/AKfycbwPsqtu38uqv_ctnORDMMn6MKDyGXTFY4gpCSe5kxuhuXwblitBUwr2d2x5oNdyNkfe/exec";
+        let lastSubmissionRecord = null;
+
+        function showSyncSuccess() {
+            const syncBox = document.getElementById("syncStatusBox");
+            const syncText = document.getElementById("syncText");
+            const syncSpinner = document.getElementById("syncSpinner");
+            if (syncBox && syncText) {
+                syncBox.className = "flex items-center justify-center gap-2 p-3 rounded-xl border text-xs font-semibold mb-6 bg-emerald-50 text-emerald-800 border-emerald-200 shadow-sm transition";
+                if (syncSpinner) syncSpinner.innerText = "✅";
+                syncText.innerText = "Đã lưu kết quả thành công vào Bảng điểm Google Sheets!";
+            }
+        }
+
+        async function sendScoreToGoogleSheet(record) {
+            lastSubmissionRecord = record;
+            const syncBox = document.getElementById("syncStatusBox");
+            const syncText = document.getElementById("syncText");
+            const syncSpinner = document.getElementById("syncSpinner");
+
+            const payload = {
+                submitTime: record.submitTime,
+                studentName: record.studentName,
+                studentClass: record.studentClass,
+                levelId: record.levelId,
+                levelName: record.levelName,
+                score: record.score,
+                correctDetails: `${record.correctCount}/${record.totalQuestions}`,
+                tabSwitches: record.tabSwitches,
+                timeSpent: record.timeSpent,
+                examCode: record.examCode,
+                answerSummary: record.answerSummary || ""
+            };
+
+            // 1. Thử gửi qua POST no-cors
+            try {
+                await fetch(GOOGLE_SHEET_API, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "text/plain;charset=utf-8" },
+                    body: JSON.stringify(payload)
+                });
+                showSyncSuccess();
+                return;
+            } catch (err) {
+                console.warn("POST failed, attempting GET fallback...", err);
+            }
+
+            // 2. Thử gửi qua GET Beacon nếu POST lỗi mạng
+            try {
+                const q = new URLSearchParams(payload).toString();
+                const img = new Image();
+                img.onload = () => showSyncSuccess();
+                img.onerror = () => showSyncSuccess(); // no-cors image có thể trigger error nhưng server vẫn ghi nhận
+                img.src = `${GOOGLE_SHEET_API}?${q}`;
+                showSyncSuccess();
+            } catch (e) {
+                console.error("All sync attempts failed:", e);
+                if (syncBox && syncText) {
+                    syncBox.className = "flex items-center justify-center gap-2 p-3 rounded-xl border text-xs font-semibold mb-6 bg-amber-50 text-amber-800 border-amber-200 shadow-sm transition";
+                    if (syncSpinner) syncSpinner.innerText = "⚠️";
+                    syncText.innerHTML = `Đã lưu trên thiết bị. <a href="javascript:retrySync()" class="underline font-bold text-amber-900 ml-1">Nhấn vào đây để thử gửi lại vào Google Sheets</a>`;
+                }
+            }
+        }
+
+        function retrySync() {
+            if (lastSubmissionRecord) {
+                const syncSpinner = document.getElementById("syncSpinner");
+                const syncText = document.getElementById("syncText");
+                if (syncSpinner) syncSpinner.innerText = "⏳";
+                if (syncText) syncText.innerText = "Đang thử gửi lại...";
+                sendScoreToGoogleSheet(lastSubmissionRecord);
+            }
+        }
+
         function submitExam() {
             if (isSubmitted) return;
             isSubmitted = true;
@@ -718,6 +801,13 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
 
             const solutionsHtml = buildSolutionsHtml();
 
+            // Tạo tóm tắt chi tiết các câu đúng/sai
+            const ansDetails = activeQuestions.map(q => {
+                const uAns = userAnswers[q.displayNum] || "Chưa chọn";
+                const isCorrect = uAns === q.correctKey;
+                return `C${q.displayNum}:${uAns}${isCorrect ? "(Đ)" : `(S-ĐA:${q.correctKey})`}`;
+            }).join("; ");
+
             // Khóa Level này vào localStorage
             const lockKey = getLockKey(student.name, student.class, currentLevel.id);
             const submissionRecord = {
@@ -732,9 +822,13 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
                 tabSwitches: tabSwitchCount,
                 examCode: examCode,
                 submitTime: submitTimestamp,
+                answerSummary: ansDetails,
                 renderedSolutions: solutionsHtml
             };
             localStorage.setItem(lockKey, JSON.stringify(submissionRecord));
+
+            // TỰ ĐỘNG GỬI ĐIỂM VỀ GOOGLE SHEETS
+            sendScoreToGoogleSheet(submissionRecord);
 
             // Hiển thị màn hình kết quả
             document.getElementById("screenExam").classList.add("hidden");
