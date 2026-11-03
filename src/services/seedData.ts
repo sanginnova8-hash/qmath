@@ -1,4 +1,9 @@
 import { Question, AnswerKey, ClassRoom, Assignment, UserProfile } from '../types';
+import {
+  GIUA_KY_1_QUESTIONS,
+  GIUA_KY_1_ANSWER_KEYS,
+  GIUA_KY_1_ASSIGNMENTS
+} from './seedGiuaKy1';
 
 export const INITIAL_TEACHER: UserProfile = {
   id: 'teacher-nguyen-van-sang',
@@ -109,6 +114,7 @@ export const INITIAL_CLASSES: ClassRoom[] = [
 ];
 
 export const INITIAL_QUESTIONS: Question[] = [
+  ...GIUA_KY_1_QUESTIONS,
   // CÂU 1: MCQ Khảo sát hàm số (Lớp 12)
   {
     id: 'q-math-12-01',
@@ -259,6 +265,7 @@ export const INITIAL_QUESTIONS: Question[] = [
 ];
 
 export const INITIAL_ANSWER_KEYS: Record<string, AnswerKey> = {
+  ...GIUA_KY_1_ANSWER_KEYS,
   'q-math-12-01': {
     questionId: 'q-math-12-01',
     type: 'MCQ',
@@ -312,6 +319,7 @@ export const INITIAL_ANSWER_KEYS: Record<string, AnswerKey> = {
 };
 
 export const INITIAL_ASSIGNMENTS: Assignment[] = [
+  ...GIUA_KY_1_ASSIGNMENTS,
   {
     id: 'asg-kiem-tra-15p',
     title: 'Kiểm tra nhanh 15 phút: Cực trị & Tiệm cận & Oxyz',
