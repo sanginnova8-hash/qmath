@@ -61,6 +61,9 @@
                 <div class="hidden sm:flex items-center bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-semibold text-slate-700">
                     🎲 Mã đề: <span id="lblExamCode" class="ml-1 text-blue-600 font-bold">101</span>
                 </div>
+                <div class="flex items-center bg-purple-50 px-2.5 py-1.5 rounded-lg border border-purple-200 text-xs font-semibold text-purple-700">
+                    🎯 Lần: <span id="lblAttemptCount" class="ml-1 text-purple-800 font-bold">1/3</span>
+                </div>
                 <div id="cheatBadge" class="flex items-center bg-amber-50 px-2.5 py-1.5 rounded-lg border border-amber-200 text-xs font-semibold text-amber-700">
                     ⚠️ Rời tab: <span id="lblCheatCount" class="ml-1 font-bold">0</span>
                 </div>
@@ -98,7 +101,7 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
                 <strong class="font-bold flex items-center text-amber-800 text-sm mb-1">
                     <span>🛡️ QUY CHẾ THI NGHIÊM NGẶT (CHỐNG GIAN LẬN):</span>
                 </strong>
-                <p>• <strong>Chỉ được làm mỗi Level 1 lần duy nhất</strong>: Khi đã nộp bài, hệ thống tự động khóa cấp độ đó, không cho thi lại.</p>
+                <p>• <strong>Cho phép làm lại tối đa 3 lần</strong>: Mỗi lần làm đề thi sẽ tự động đảo câu hỏi và đáp án ngẫu nhiên 100%. Hệ thống tự động ghi nhận điểm số từng lần và lấy điểm cao nhất.</p>
                 <p>• <strong>Đảo đề & Hoán vị ngẫu nhiên 100%</strong>: Tự động rút ngẫu nhiên 20 câu hỏi và đảo thứ tự 4 đáp án A, B, C, D cho từng học sinh.</p>
                 <p>• <strong>Giám sát chuyển tab</strong>: Nghiêm cấm rời khỏi màn hình thi để tra cứu. Hệ thống ghi nhận số lần vi phạm và cảnh báo thời gian thực.</p>
             </div>
@@ -155,7 +158,7 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
                 </div>
                 <div>
                     <span class="text-slate-400 block">Số lần làm</span>
-                    <strong class="text-red-600 text-sm">1 Lần Duy Nhất</strong>
+                    <strong class="text-emerald-600 text-sm" id="metaAttempts">Tối Đa 3 Lần</strong>
                 </div>
             </div>
 
@@ -169,31 +172,31 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
 
     <!-- 3. MÀN HÌNH KHÓA (KHI ĐÃ THI LEVEL NÀY - CHỈ CHO LÀM 1 LẦN) -->
     <main id="screenLocked" class="hidden max-w-2xl mx-auto px-4 py-12 flex-1 w-full">
-        <div class="bg-white rounded-2xl shadow-sm border border-red-200 p-8 text-center">
-            <div class="w-16 h-16 rounded-full bg-red-100 text-red-600 flex items-center justify-center mx-auto text-3xl mb-4">
-                ⛔
+        <div class="bg-white rounded-2xl shadow-sm border border-amber-200 p-8 text-center">
+            <div class="w-16 h-16 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mx-auto text-3xl mb-4">
+                🔒
             </div>
-            <h2 class="text-2xl font-bold text-slate-800 mb-2">BẠN ĐÃ THAM GIA LEVEL NÀY!</h2>
+            <h2 class="text-2xl font-bold text-slate-800 mb-2">BẠN ĐÃ HOÀN THÀNH 3/3 LƯỢT THI!</h2>
             <p id="txtLockedInfo" class="text-slate-600 text-sm mb-6 leading-relaxed">
-                Học sinh đã nộp bài thành công. Theo quy chế thi của bộ môn Toán, mỗi thí sinh chỉ được phép làm mỗi Level 1 lần duy nhất.
+                Học sinh đã sử dụng hết tối đa 3 lượt làm bài cho cấp độ này theo quy chế của bộ môn.
             </p>
             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 max-w-md mx-auto mb-6 text-sm">
-                <div class="flex justify-between py-1 border-b border-slate-100">
-                    <span class="text-slate-500">Điểm số đạt được:</span>
-                    <strong class="text-blue-600 text-base" id="lockedScore">0.0</strong>
+                <div class="flex justify-between py-1.5 border-b border-slate-100">
+                    <span class="text-slate-500">Điểm cao nhất đạt được:</span>
+                    <strong class="text-emerald-600 text-lg" id="lockedScore">0.0</strong>
                 </div>
-                <div class="flex justify-between py-1 border-b border-slate-100">
-                    <span class="text-slate-500">Thời gian nộp bài:</span>
+                <div class="flex justify-between py-1.5 border-b border-slate-100">
+                    <span class="text-slate-500">Số lượt đã tham gia:</span>
+                    <strong class="text-purple-700" id="lockedAttemptsCount">3/3 Lần</strong>
+                </div>
+                <div class="flex justify-between py-1.5">
+                    <span class="text-slate-500">Thời gian nộp gần nhất:</span>
                     <strong class="text-slate-700" id="lockedTime">--:--</strong>
-                </div>
-                <div class="flex justify-between py-1">
-                    <span class="text-slate-500">Số lần vi phạm đổi tab:</span>
-                    <strong class="text-amber-600" id="lockedCheats">0 Lần</strong>
                 </div>
             </div>
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
                 <button onclick="viewSubmittedAnswers()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded-xl text-sm transition shadow">
-                    📖 Xem Lời Giải Chi Tiết
+                    📖 Xem Lời Giải Lần Thi Gần Nhất
                 </button>
                 <button onclick="location.reload()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 px-6 rounded-xl text-sm transition">
                     ↩️ Chọn Level Khác
@@ -262,6 +265,9 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
                     <span class="text-3xl font-extrabold tracking-tight" id="resScore">8.5</span>
                     <span class="text-xs uppercase font-medium tracking-widest opacity-80">Điểm</span>
                 </div>
+                <div id="resAttemptBadge" class="mt-2 text-xs font-semibold text-slate-500">
+                    Lần thi: 1/3 • Điểm cao nhất: 0.0
+                </div>
                 <div id="resBadge" class="mt-3 px-4 py-1 rounded-full text-xs font-bold bg-blue-50 text-blue-700 border border-blue-200">
                     Học Lực: Giỏi
                 </div>
@@ -299,6 +305,9 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
 
             <!-- Nút điều hướng -->
             <div class="flex flex-col sm:flex-row gap-3">
+                <button id="btnRetryExam" onclick="retryExamNextAttempt()" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-sm transition shadow flex items-center justify-center gap-2">
+                    🔄 Làm Lại Bài Thi (Còn 2 lượt)
+                </button>
                 <button onclick="toggleSolutions()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl text-sm transition shadow">
                     📖 Xem Lời Giải Chi Tiết
                 </button>
@@ -401,19 +410,79 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
         }
 
         // Khóa 1 lần thi theo Level
+        const MAX_ATTEMPTS = 3;
+        let currentAttemptNumber = 1;
+
         function getLockKey(studentName, studentClass, levelId) {
             const cleanName = studentName.trim().toLowerCase().replace(/\s+/g, '_');
             const cleanClass = studentClass.trim().toLowerCase();
             return `QMATH_LOCKED_GKI_${cleanClass}_${cleanName}_${levelId}`;
         }
 
-        function checkAlreadySubmitted(studentName, studentClass, levelId) {
+        function getSubmissionData(studentName, studentClass, levelId) {
             const key = getLockKey(studentName, studentClass, levelId);
             const saved = localStorage.getItem(key);
-            if (saved) {
-                try { return JSON.parse(saved); } catch(e) { return null; }
+            if (!saved) return null;
+            try {
+                const parsed = JSON.parse(saved);
+                // Chuẩn hóa cấu trúc dữ liệu nếu là dạng cũ (1 lần)
+                if (!parsed.attempts) {
+                    parsed.attempts = [{
+                        attempt: 1,
+                        score: parsed.score || 0,
+                        correctCount: parsed.correctCount || 0,
+                        totalQuestions: parsed.totalQuestions || 20,
+                        timeSpent: parsed.timeSpent || "--:--",
+                        tabSwitches: parsed.tabSwitches || 0,
+                        examCode: parsed.examCode || "101",
+                        submitTime: parsed.submitTime || "",
+                        renderedSolutions: parsed.renderedSolutions || "",
+                        answerSummary: parsed.answerSummary || ""
+                    }];
+                    parsed.bestScore = parsed.score || 0;
+                    parsed.latestAttempt = parsed.attempts[0];
+                }
+                return parsed;
+            } catch (e) {
+                return null;
             }
-            return null;
+        }
+
+        function showLockedScreen(sub) {
+            document.getElementById("screenStart").classList.add("hidden");
+            document.getElementById("screenLocked").classList.remove("hidden");
+            const best = sub.bestScore !== undefined ? sub.bestScore : Math.max(...sub.attempts.map(a => a.score));
+            const latest = sub.latestAttempt || sub.attempts[sub.attempts.length - 1];
+            document.getElementById("txtLockedInfo").innerHTML = 
+                `Thí sinh <strong>${sub.studentName}</strong> (Lớp <strong>${sub.studentClass}</strong>) đã hoàn thành đủ <strong>3/3 lượt thi</strong> cho bài <strong>${sub.levelName}</strong>.<br>Hệ thống ghi nhận điểm cao nhất: <strong>${best.toFixed(1)} Điểm</strong>.`;
+            document.getElementById("lockedScore").innerText = `${best.toFixed(1)} Điểm`;
+            document.getElementById("lockedTime").innerText = latest ? latest.submitTime : "--:--";
+            document.getElementById("lockedAttemptsCount").innerText = `${sub.attempts.length}/3 Lần`;
+            window.lastSubmission = latest;
+        }
+
+        function viewSubmittedAnswers() {
+            if (window.lastSubmission) {
+                document.getElementById("screenLocked").classList.add("hidden");
+                document.getElementById("screenResult").classList.remove("hidden");
+                document.getElementById("resLevelBadge").innerText = window.lastSubmission.levelName || "Hoàn Thành Level";
+                document.getElementById("resStudentInfo").innerText = `Học sinh: ${student.name} • Lớp: ${student.class}`;
+                document.getElementById("resScore").innerText = window.lastSubmission.score.toFixed(1);
+                document.getElementById("resTimeSpent").innerText = window.lastSubmission.timeSpent;
+                document.getElementById("resCorrectCount").innerText = `${window.lastSubmission.correctCount}/${window.lastSubmission.totalQuestions} Câu`;
+                document.getElementById("resCheatCount").innerText = `${window.lastSubmission.tabSwitches} Lần`;
+                document.getElementById("resExamCode").innerText = window.lastSubmission.examCode;
+                document.getElementById("solutionsContainer").innerHTML = window.lastSubmission.renderedSolutions || "";
+                
+                // Khóa nút làm lại nếu đã hết lượt
+                const btnRetry = document.getElementById("btnRetryExam");
+                if (btnRetry) {
+                    btnRetry.innerHTML = "🔒 Đã làm đủ 3/3 lượt thi";
+                    btnRetry.classList.add("opacity-50", "cursor-not-allowed");
+                    btnRetry.onclick = null;
+                }
+                renderAllMath();
+            }
         }
 
         // ================= BẮT ĐẦU BÀI THI THEO LEVEL =================
@@ -434,12 +503,15 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
             student.name = name;
             student.class = cls;
 
-            // KIỂM TRA ĐÃ THI LEVEL NÀY CHƯA:
-            const prevSubmission = checkAlreadySubmitted(name, cls, levelId);
-            if (prevSubmission) {
+            // KIỂM TRA SỐ LƯỢT ĐÃ THI:
+            const prevSubmission = getSubmissionData(name, cls, levelId);
+            if (prevSubmission && prevSubmission.attempts && prevSubmission.attempts.length >= MAX_ATTEMPTS) {
                 showLockedScreen(prevSubmission);
                 return;
             }
+
+            currentAttemptNumber = (prevSubmission && prevSubmission.attempts) ? (prevSubmission.attempts.length + 1) : 1;
+            document.getElementById("lblAttemptCount").innerText = `${currentAttemptNumber}/${MAX_ATTEMPTS}`;
 
             currentLevel = LEVELS_CONFIG.find(l => l.id === levelId);
 
@@ -452,7 +524,7 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
                 let combined = [...p1, ...p2, ...p3];
                 activeQuestions = shuffleArray(combined);
             } else {
-                // LEVEL 1, 2, 3: RÚT 20 CÂU TỪ KHO LEVEL TƯƠNG ỨNG
+                // LEVEL 1, 2, 3: RÚT THEO SỐ CÂU CẤU HÌNH
                 let pool = QUESTION_POOLS[currentLevel.pool_key] || [];
                 let shuffledPool = shuffleArray(pool);
                 activeQuestions = shuffledPool.slice(0, currentLevel.question_count);
@@ -468,6 +540,7 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
                 let shuffledOpts = shuffleArray(q.options);
                 q.shuffledOptions = shuffledOpts.map((opt, oIdx) => ({
                     key: standardKeys[oIdx],
+                    originalKey: opt.key,
                     text: opt.text,
                     is_correct: opt.is_correct
                 }));
@@ -475,52 +548,32 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
                 q.correctKey = correctOpt ? correctOpt.key : "A";
             });
 
+            // Reset trạng thái làm bài
+            userAnswers = {};
+            isSubmitted = false;
+            isExamActive = true;
+            tabSwitchCount = 0;
+            document.getElementById("lblCheatCount").innerText = "0";
             timeLeft = currentLevel.time * 60;
 
             // Chuyển màn hình
             document.getElementById("screenStart").classList.add("hidden");
+            document.getElementById("screenLocked").classList.add("hidden");
+            document.getElementById("screenResult").classList.add("hidden");
             document.getElementById("screenExam").classList.remove("hidden");
             document.getElementById("liveExamToolbar").classList.remove("hidden");
 
-            buildExamUI();
-            buildPaletteUI();
-            startTimer();
-            isExamActive = true;
-            setupAntiCheat();
-            renderAllMath();
-        }
-
-        function showLockedScreen(sub) {
-            document.getElementById("screenStart").classList.add("hidden");
-            document.getElementById("screenLocked").classList.remove("hidden");
-            document.getElementById("txtLockedInfo").innerHTML = 
-                `Thí sinh <strong>${sub.studentName}</strong> (Lớp <strong>${sub.studentClass}</strong>) đã hoàn thành bài thi <strong>${sub.levelName}</strong> vào lúc <strong>${sub.submitTime}</strong>.<br>Quy chế của bộ môn chỉ cho phép làm bài 1 lần duy nhất để bảo đảm tính công bằng.`;
-            document.getElementById("lockedScore").innerText = `${sub.score.toFixed(1)} Điểm`;
-            document.getElementById("lockedTime").innerText = sub.submitTime;
-            document.getElementById("lockedCheats").innerText = `${sub.tabSwitches} Lần`;
-            window.lastSubmission = sub;
-        }
-
-        function viewSubmittedAnswers() {
-            if (window.lastSubmission) {
-                document.getElementById("screenLocked").classList.add("hidden");
-                document.getElementById("screenResult").classList.remove("hidden");
-                document.getElementById("resStudentInfo").innerText = `Học sinh: ${window.lastSubmission.studentName} • Lớp: ${window.lastSubmission.studentClass} • ${window.lastSubmission.levelName}`;
-                document.getElementById("resScore").innerText = window.lastSubmission.score.toFixed(1);
-                document.getElementById("resTimeSpent").innerText = window.lastSubmission.timeSpent;
-                document.getElementById("resCorrectCount").innerText = `${window.lastSubmission.correctCount}/${window.lastSubmission.totalQuestions}`;
-                document.getElementById("resCheatCount").innerText = `${window.lastSubmission.tabSwitches} Lần`;
-                document.getElementById("resExamCode").innerText = window.lastSubmission.examCode;
-                
-                if (window.lastSubmission.renderedSolutions) {
-                    document.getElementById("solutionsContainer").innerHTML = window.lastSubmission.renderedSolutions;
-                    document.getElementById("solutionsBox").classList.remove("hidden");
-                    renderAllMath();
-                }
+            buildExamUI();        
+        function retryExamNextAttempt() {
+            if (currentAttemptNumber >= MAX_ATTEMPTS) {
+                alert("Bạn đã sử dụng hết tối đa 3 lượt thi!");
+                return;
+            }
+            if (confirm(`Bạn chuẩn bị làm lần thi thứ ${currentAttemptNumber + 1}/${MAX_ATTEMPTS}. Đề thi sẽ được đảo ngẫu nhiên hoàn toàn. Bạn đã sẵn sàng?`)) {
+                startExam();
             }
         }
 
-        // ================= XÂY DỰNG GIAO DIỆN CÂU HỎI =================
         function buildExamUI() {
             const container = document.getElementById("examQuestionsContainer");
             container.innerHTML = "";
@@ -806,13 +859,8 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
                 return `C${q.displayNum}:${uAns}${isCorrect ? "(Đ)" : `(S-ĐA:${q.correctKey})`}`;
             }).join("; ");
 
-            // Khóa Level này vào localStorage
-            const lockKey = getLockKey(student.name, student.class, currentLevel.id);
-            const submissionRecord = {
-                studentName: student.name,
-                studentClass: student.class,
-                levelId: currentLevel.id,
-                levelName: currentLevel.name,
+            const attemptRecord = {
+                attempt: currentAttemptNumber,
                 score: finalScore,
                 correctCount: correctCount,
                 totalQuestions: totalQ,
@@ -823,10 +871,59 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
                 answerSummary: ansDetails,
                 renderedSolutions: solutionsHtml
             };
-            localStorage.setItem(lockKey, JSON.stringify(submissionRecord));
+
+            // Lưu lịch sử các lần thi vào localStorage
+            const lockKey = getLockKey(student.name, student.class, currentLevel.id);
+            let subData = getSubmissionData(student.name, student.class, currentLevel.id);
+            if (!subData) {
+                subData = {
+                    studentName: student.name,
+                    studentClass: student.class,
+                    levelId: currentLevel.id,
+                    levelName: currentLevel.name,
+                    attempts: []
+                };
+            }
+            subData.attempts.push(attemptRecord);
+            subData.latestAttempt = attemptRecord;
+            subData.bestScore = Math.max(...subData.attempts.map(a => a.score));
+            localStorage.setItem(lockKey, JSON.stringify(subData));
 
             // TỰ ĐỘNG GỬI ĐIỂM VỀ GOOGLE SHEETS
-            sendScoreToGoogleSheet(submissionRecord);
+            const sheetPayload = {
+                submitTime: submitTimestamp,
+                studentName: student.name,
+                studentClass: student.class,
+                levelId: currentLevel.id,
+                levelName: `${currentLevel.name} [Lần ${currentAttemptNumber}/3 - Cao nhất: ${subData.bestScore.toFixed(1)}]`,
+                score: finalScore,
+                correctCount: correctCount,
+                totalQuestions: totalQ,
+                tabSwitches: tabSwitchCount,
+                timeSpent: timeString,
+                examCode: examCode,
+                answerSummary: ansDetails
+            };
+            sendScoreToGoogleSheet(sheetPayload);
+
+            // Cập nhật giao diện nút Làm Lại Bài Thi
+            const btnRetry = document.getElementById("btnRetryExam");
+            const resAttemptBadge = document.getElementById("resAttemptBadge");
+            if (resAttemptBadge) {
+                resAttemptBadge.innerHTML = `Lần thi: <span class="font-bold text-purple-700">${currentAttemptNumber}/${MAX_ATTEMPTS}</span> • Điểm cao nhất: <span class="font-bold text-emerald-700">${subData.bestScore.toFixed(1)} Điểm</span>`;
+            }
+            if (btnRetry) {
+                const remaining = MAX_ATTEMPTS - currentAttemptNumber;
+                if (remaining > 0) {
+                    btnRetry.innerHTML = `🔄 Làm Lại Bài Thi (Còn ${remaining} lượt)`;
+                    btnRetry.className = "flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-sm transition shadow flex items-center justify-center gap-2";
+                    btnRetry.onclick = retryExamNextAttempt;
+                } else {
+                    btnRetry.innerHTML = `🔒 Đã làm đủ 3/3 lượt thi`;
+                    btnRetry.className = "flex-1 bg-slate-200 text-slate-500 font-bold py-3 rounded-xl text-sm cursor-not-allowed flex items-center justify-center gap-2";
+                    btnRetry.onclick = null;
+                }
+            }
 
             // Hiển thị màn hình kết quả
             document.getElementById("screenExam").classList.add("hidden");
