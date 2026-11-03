@@ -364,18 +364,21 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
         let tabSwitchCount = 0;
         let isTabOut = false;
 
-        // Render KaTeX inline triệt để
+        // Render KaTeX inline triệt để (Hỗ trợ $, $$, \(, \[)
         function renderAllMath() {
             if (window.renderMathInElement) {
                 renderMathInElement(document.body, {
                     delimiters: [
                         { left: "$$", right: "$$", display: true },
                         { left: "$", right: "$", display: false },
-                        { left: "\\[", right: "\\]", display: false },
-                        { left: "\\(", right: "\\)", display: false }
+                        { left: "\[", right: "\]", display: true },
+                        { left: "\(", right: "\)", display: false }
                     ],
+                    ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
                     throwOnError: false
                 });
+            } else {
+                setTimeout(renderAllMath, 150);
             }
         }
 
@@ -568,6 +571,11 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
             document.getElementById("liveExamToolbar").classList.remove("hidden");
 
             buildExamUI();
+            buildPaletteUI();
+            startTimer();
+            isExamActive = true;
+            setupAntiCheat();
+            renderAllMath();
         }
 
         function retryExamNextAttempt() {
@@ -611,6 +619,7 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
                 `;
                 container.appendChild(card);
             });
+            renderAllMath();
         }
 
         // ================= PALETTE ĐIỀU HƯỚNG =================
