@@ -920,70 +920,78 @@ ightarrow$ Bài thi Tổng hợp cuối cùng.
             }
         }
 
-                // ================= KẾT NỐI GOOGLE FORM TRỰC TIẾP (THẦY SANG) =================
+                        // ================= KẾT NỐI GOOGLE FORM TRỰC TIẾP (THẦY SANG) =================
         const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLScNYPWlqGHdY_YX7VLxJg4ftjb7yAK_C_a-p_36WO3fw145cg/formResponse";
         const GOOGLE_FORM_ENTRY_IDS = {
             studentName: "entry.1154989602",
             studentClass: "entry.2101425195",
             score: "entry.1885720897",
+            level: "entry.1837964378",
             details: "entry.489127649",
             tabSwitches: "entry.1550168221"
         };
 
+        let lastSubmittedHash = null;
+
         function sendScoreToGoogleForm(record) {
+            // Khóa chống nhân đôi bản ghi 100% (Deduplication Gate)
+            const submissionHash = `${record.studentName}_${record.studentClass}_${record.submitTime}_${record.examCode}`;
+            if (lastSubmittedHash === submissionHash) {
+                console.log("Đã gửi bản ghi này, bỏ qua để chống nhân đôi hàng.");
+                return;
+            }
+            lastSubmittedHash = submissionHash;
+
+            // Điểm số thuần số (vd: 7 hoặc 2.5 hoặc 10, không kèm chữ Điểm)
+            const rawScore = typeof record.score === "number" ? record.score : parseFloat(record.score) || 0;
+            const cleanScore = (rawScore % 1 === 0) ? rawScore.toString() : rawScore.toFixed(1);
+
             const formPayload = {
                 [GOOGLE_FORM_ENTRY_IDS.studentName]: record.studentName || "Ẩn danh",
                 [GOOGLE_FORM_ENTRY_IDS.studentClass]: record.studentClass || "Chưa rõ",
-                [GOOGLE_FORM_ENTRY_IDS.score]: `${record.score} Điểm [${record.levelName || record.levelId}]`,
+                [GOOGLE_FORM_ENTRY_IDS.score]: cleanScore,
+                [GOOGLE_FORM_ENTRY_IDS.level]: record.levelName || record.levelId || "Level 1",
                 [GOOGLE_FORM_ENTRY_IDS.details]: `Đúng ${record.correctDetails || (record.correctCount + '/' + record.totalQuestions)} câu | Mã đề: ${record.examCode || '101'} | Thời gian: ${record.timeSpent || ''} | ${record.answerSummary || ''}`,
                 [GOOGLE_FORM_ENTRY_IDS.tabSwitches]: `${record.tabSwitches || 0} lần đổi tab`
             };
 
-            // 1. Gửi qua Fetch URLSearchParams (no-cors)
-            try {
-                const searchParams = new URLSearchParams(formPayload);
-                fetch(GOOGLE_FORM_ACTION_URL, {
-                    method: "POST",
-                    mode: "no-cors",
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: searchParams.toString()
-                }).catch(() => {});
-            } catch(e) {}
-
-            // 2. Fallback qua iframe ẩn (100% tương thích mọi trình duyệt di động / Zalo)
-            try {
-                const iframeName = "gform_hidden_sink";
-                let iframe = document.getElementById(iframeName);
-                if (!iframe) {
-                    iframe = document.createElement("iframe");
-                    iframe.name = iframeName;
-                    iframe.id = iframeName;
-                    iframe.style.display = "none";
-                    document.body.appendChild(iframe);
-                }
-
-                const form = document.createElement("form");
-                form.action = GOOGLE_FORM_ACTION_URL;
-                form.method = "POST";
-                form.target = iframeName;
-                form.style.display = "none";
-
-                for (const [key, val] of Object.entries(formPayload)) {
-                    const input = document.createElement("input");
-                    input.type = "hidden";
-                    input.name = key;
-                    input.value = val;
-                    form.appendChild(input);
-                }
-
-                document.body.appendChild(form);
-                form.submit();
-                setTimeout(() => {
-                    if (form.parentNode) form.parentNode.removeChild(form);
-                }, 2000);
-            } catch(e) {
-                console.warn("Iframe form submission error:", e);
-            }
+            // CHỈ GỬI 1 LẦN DUY NHẤT (Chống nhân đôi bản ghi)
+            const searchParams = new URLSearchParams(formPayload);
+            fetch(GOOGLE_FORM_ACTION_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: searchParams.toString(),
+                keepalive: true
+            }).catch(err => {
+                console.warn("Fetch failed, using iframe fallback...", err);
+                try {
+                    const iframeName = "gform_hidden_sink";
+                    let iframe = document.getElementById(iframeName);
+                    if (!iframe) {
+                        iframe = document.createElement("iframe");
+                        iframe.name = iframeName;
+                        iframe.id = iframeName;
+                        iframe.style.display = "none";
+                        document.body.appendChild(iframe);
+                    }
+                    const form = document.createElement("form");
+                    form.action = GOOGLE_FORM_ACTION_URL;
+                    form.method = "POST";
+                    form.target = iframeName;
+                    form.style.display = "none";
+                    for (const [key, val] of Object.entries(formPayload)) {
+                        const input = document.createElement("input");
+                        input.type = "hidden";
+                        input.name = key;
+                        input.value = val;
+                        form.appendChild(input);
+                    }
+                    document.body.appendChild(form);
+                    form.submit();
+                    setTimeout(() => { if (form.parentNode) form.parentNode.removeChild(form); }, 2000);
+                } catch(e) {}
+            });
         }
 
         async function sendScoreToGoogleSheet(record) {
